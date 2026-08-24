@@ -16,16 +16,12 @@ format:
 
 ## Frontmatter ‼️
 
-[{{< fa download >}} Download workshop data](https://canvas.umn.edu/courses/539629/modules/items/15583284){.btn .btn-primary}
-[{{< fa file-code >}} `.qmd` template](https://canvas.umn.edu/courses/539629/modules/items/15583284){.btn .btn-primary}
-[{{< fa file-code >}} Exercise code](https://canvas.umn.edu/courses/539629/modules/items/15583284){.btn .btn-primary}
+[{{< fa download >}} Download workshop data](https://canvas.umn.edu/courses/539629/modules/items/15583284){.btn .btn-primary} [{{< fa file-code >}} `.qmd` template](https://canvas.umn.edu/courses/539629/modules/items/15583284){.btn .btn-primary} [{{< fa file-code >}} Exercise code](https://canvas.umn.edu/courses/539629/modules/items/15583284){.btn .btn-primary}
 
-
-</br>
-</br>
-
+</br> </br>
 
 ## Hands-on exercises 🧑🏻‍💻
+
 ### Vectors
 
 ### Exercise 1: Species names and survey counts (Vector Types)
@@ -70,7 +66,7 @@ net_mass_g
 
 ### Exercise 3: Filtering quadrat sample data (Logical Subsetting)
 
-Extract values from `stem_density` (stems per $m^2$) that represent **dense plots** (> 200 stems) AND are **even numbers** (`%% 2 == 0`). Store the resulting values in `dense_even_plots`.
+Extract values from `stem_density` (stems per $m^2$) that represent **dense plots** (\> 200 stems) AND are **even numbers** (`%% 2 == 0`). Store the resulting values in `dense_even_plots`.
 
 ```{webr}
 stem_density <- c(145, 212, 88, 304, 199, 250, 180, 218)
@@ -120,7 +116,7 @@ disturbed_sites
 
 </br>
 
----
+------------------------------------------------------------------------
 
 </br>
 

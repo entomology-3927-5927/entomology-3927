@@ -9,8 +9,12 @@ date-format: long
 
 ------------------------------------------------------------------------
 
-Each week the content will be structured with the same headings to provide you with the material needed. There will be a `Readings`, `Questions`, and `Slides` section.
+Each week the content will be structured with the same headings to provide you with the material needed. The first section (outlined in yellow) will contain the `Readings`, `Questions`, and `Slides` for the week, followed by the online content of the learning & workshop material. 
 
 1.  `Readings`: required and optional readings that are pertinent to the topic covered that week. These will include primary literature, book chapters, websites, and other tidbits that I think provide a solid foundation on the skill sets that we cover each week.
 2.  `Questions`: these will be the motivating questions that guide each week's materials; by the end of the class/workshop for that week, you should be able to answer these and/or use the developed skills to accomplish a certain set of tasks.
 3.  `Slides`: these are the slides that I will use for the brief mini-lectures for each week for your reference.
+
+<button onclick="window.print()" class="btn btn-primary">
+  <i class="bi bi-download"></i> Download Webpage as PDF
+</button>

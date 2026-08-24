@@ -31,7 +31,7 @@ format:
 
 ## Slides
 
-[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w1-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w1-slides.html?print-pdf){.btn .btn-primary role="button"}
+[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w1-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w1-slides.html?print-pdf){.btn .btn-primary role="button"} 
 
 <iframe src="slides/w1-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
 

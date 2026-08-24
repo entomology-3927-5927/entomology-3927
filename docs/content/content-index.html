@@ -2,17 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-08-10">
+<meta name="dcterms.date" content="2026-08-21">
 
 <title>Overview of lectures and lecture material – Entomology 3927/5927</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -41,10 +38,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2baf9616dcd62a487e8517e630363ef5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-031befad0a4d684cfbd9d79fbcf2d72e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -86,8 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -330,7 +326,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 10, 2026</p>
+      <p class="date">August 21, 2026</p>
     </div>
   </div>
   
@@ -343,12 +339,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 <hr>
-<p>Each week the content will be structured with the same headings to provide you with the material needed. There will be a <code>Readings</code>, <code>Questions</code>, and <code>Slides</code> section.</p>
+<p>Each week the content will be structured with the same headings to provide you with the material needed. The first section (outlined in yellow) will contain the <code>Readings</code>, <code>Questions</code>, and <code>Slides</code> for the week, followed by the online content of the learning &amp; workshop material.</p>
 <ol type="1">
 <li><code>Readings</code>: required and optional readings that are pertinent to the topic covered that week. These will include primary literature, book chapters, websites, and other tidbits that I think provide a solid foundation on the skill sets that we cover each week.</li>
 <li><code>Questions</code>: these will be the motivating questions that guide each week’s materials; by the end of the class/workshop for that week, you should be able to answer these and/or use the developed skills to accomplish a certain set of tasks.</li>
 <li><code>Slides</code>: these are the slides that I will use for the brief mini-lectures for each week for your reference.</li>
 </ol>
+<button onclick="window.print()" class="btn btn-primary">
+<i class="bi bi-download"></i> Download Webpage as PDF
+</button>
 
 
 
@@ -404,14 +403,13 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
