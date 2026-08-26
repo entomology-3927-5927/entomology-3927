@@ -5,7 +5,7 @@ date: last-modified
 date-format: long
 format:
   html:
-    theme: custom.scss
+    theme: ../styles.scss
 ---
 
 :::{.content-callout1}

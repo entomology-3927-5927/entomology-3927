@@ -64,4 +64,210 @@ intact_sites
 ```
 
 
+## Lists
+### Exercise 1
+```{r}
+site_data <- list(
+  site_id = "MN_BEE_01",
+  species = c("Lasioglossum vierecki", "Bombus vagans", "Ceratina dupla", "Agapostemon virescens"),
+  environmental = list(temperatures = c(21.5, 23.0, 22.8), humidity = 64)
+)
 
+temp_vals <- site_data$environmental$temperatures
+third_species <- site_data$species[[3]]
+
+temp_vals
+# [1] 21.5 23.0 22.8
+
+third_species
+# [1] "Ceratina dupla"
+```
+
+### Exercise 2
+```{r}
+trap_counts <- list(
+  Prairie = c(12, 18, 25, 9),
+  Forest_Edge = c(5, 8, 3, 11, 4),
+  Agriculture = c(30, 42, 38)
+)
+
+total_list <- lapply(trap_counts, sum)
+site_totals <- unlist(total_list)
+
+site_totals
+#     Prairie Forest_Edge Agriculture 
+#          64          31         110
+```
+
+### Exercise 3
+
+```{r}
+pollinator_obs <- list(
+  bees = c(45, 32),
+  flies = c(12, 19)
+)
+
+pollinator_obs$butterflies <- c(8, 14)
+pollinator_obs$bees <- pollinator_obs$bees + 10
+
+pollinator_obs
+# $bees
+# [1] 55 42
+# 
+# $flies
+# [1] 12 19
+# 
+# $butterflies
+# [1]  8 14
+```
+
+## Tibbles/data frames
+### Exercise 1
+
+```{r}
+library(tibble)
+
+tree_survey <- tibble(
+  species = c("Quercus alba", "Acer saccharum", "Pinus strobus", "Quercus rubra", "Betula alleghaniensis"),
+  dbh_cm = c(12.4, 28.1, 8.5, 42.0, 19.3),
+  basal_area_m2 = (pi * (dbh_cm / 2)^2) / 10000
+)
+
+tree_survey
+```
+
+### Exercise 2
+
+```{r}
+df_bees <- data.frame(site = c("A", "B", "C"), parasite_load = c(0, 14, 3))
+tbl_bees <- as_tibble(df_bees)
+
+df_subset_class <- class(df_bees[, "parasite_load"])
+tbl_subset_class <- class(tbl_bees[, "parasite_load"])
+
+df_subset_class
+# [1] "numeric"
+
+tbl_subset_class
+# [1] "tbl_df"     "tbl"        "data.frame"
+```
+
+### Exercise 3
+
+```{r}
+df_plots <- data.frame(treatment_group = c("Control", "Burned", "Grazed"), diversity = c(1.2, 2.4, 1.8))
+tbl_plots <- as_tibble(df_plots)
+
+df_match <- df_plots$treat
+tbl_match <- tbl_plots$treat
+
+df_match
+# [1] "Control" "Burned"  "Grazed"
+
+tbl_match
+# NULL
+# Warning message: Unknown or uninitialised column: `treat`.
+```
+
+### Exercise 4
+
+```{r}
+water_quality <- data.frame(
+  site_id = paste0("Site_", 1:6),
+  pH = c(6.8, 7.2, 7.1, 6.5, 7.4, 6.9),
+  dissolved_oxygen = c(8.2, 6.4, 7.9, 5.8, 8.0, 7.1)
+)
+
+top_samples <- water_quality[1:3, ]
+specific_do <- water_quality[4, "dissolved_oxygen"]
+pH_sub <- water_quality[2:5, c("site_id", "pH")]
+
+top_samples
+specific_do
+# [1] 5.8
+
+pH_sub
+```
+
+### Exercise 5
+```{r}
+set.seed(42)
+df_sweeps <- data.frame(
+  sweep_id = 1:100,
+  sweeps_count = sample(15:50, 100, replace = TRUE),
+  biomass_g = runif(100, 0.5, 12.0)
+)
+
+tbl_sweeps <- as_tibble(df_sweeps)
+print(tbl_sweeps)
+# # A tibble: 100 × 3
+#    sweep_id sweeps_count biomass_g
+#       <int>        <int>     <dbl>
+#  1        1           48      9.51
+#  2        2           47     10.5 
+#  3        3           25      5.70
+#  4        4           45      3.38
+#  5        5           38      1.80
+#  6        6           33     11.1 
+#  7        7           41      5.57
+#  8        8           40      4.98
+#  9        9           34      8.72
+# 10       10           40      1.19
+# # ℹ 90 more rows
+```
+
+## Code Style
+Key Style Violations for Students to Fix
+
+    * Variable Names: Replaced non-descriptive (T, x, T_2), camelCase (MeanCount, FinalData), and mixed Camel_Snake_Case (Filter_Data_fn) with clean snake_case. Overwrote the reserved logical T.
+
+    * Spacing around operators: Added spaces around assignment (<-, =) and mathematical operators (+, -, /, %>%, ==).
+
+    * Indentation and Line Breaks: Cleaned up crammed curly braces {} and functions squeezed onto single lines with semicolons ;.
+
+    * Pipes & Long Lines: Split long tidyverse pipelines and ggplot layers across multiple lines (keeping lines under 80 characters) with operators placed at the end of lines.
+
+    * Commas: Ensured a single space follows all commas (c(x, y) not c(x,y)).
+
+```{r}
+library(tidyverse)
+
+# Load raw field sampling data
+field_data <- read.csv("field_sampling_data.csv")
+
+# Filter for active observations
+active_data <- field_data[field_data$count > 0, ]
+
+mean_count <- mean(active_data$count)
+
+# Filter site data and calculate standardized counts
+filter_site_data <- function(df, species_name, site_name) {
+  if (species_name %in% df$species) {
+    df_sub <- df[df$species == species_name & df$site == site_name, ]
+    df_sub$count_scaled <- (df_sub$count - mean_count) / sd(df_sub$count)
+    return(df_sub)
+  } else {
+    print("Species not found in this site!")
+    return(NULL)
+  }
+}
+
+final_data <- filter_site_data(active_data, "Apis mellifera", "Site_A")
+
+# Summarize species totals
+site_summary <- final_data %>%
+  group_by(species, site) %>%
+  summarize(
+    total = sum(count),
+    mean_scaled = mean(count_scaled),
+    sd_scaled = sd(count_scaled)
+  ) %>%
+  filter(total > 10)
+
+# Plot raw vs. scaled counts
+ggplot(final_data, aes(x = count, 
+                       y = count_scaled, 
+                       color = species)) +
+  geom_point() +
+  theme_bw()
+```

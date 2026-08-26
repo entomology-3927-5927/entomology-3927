@@ -5,6 +5,7 @@ author: Jeremy Hemberger
 date: last-modified
 date-format: long
 engine: knitr
+toc: true
 format:
   live-html:
     theme: 
@@ -20,11 +21,11 @@ format:
 
 </br> </br>
 
-## Hands-on exercises 🧑🏻‍💻
+## Topical exercises 🧑🏻‍💻
 
 ### Vectors
 
-### Exercise 1: Species names and survey counts (Vector Types)
+#### Exercise 1: Species names and survey counts (Vector Types)
 
 Create a character vector named `species` containing `"Apis mellifera"`, `"Bombus impatiens"`, and `"Osmia lignaria"`. Combine it with the numeric count vector `individual_counts` into a single vector named `survey_data`, then print the class of `survey_data`.
 
@@ -44,7 +45,7 @@ class(survey_data)
 
 </br>
 
-### Exercise 2: Biomass calculations and standardized traps (Vector arithmetic & recycling)
+#### Exercise 2: Biomass calculations and standardized traps (Vector arithmetic & recycling)
 
 Convert insect dry weight values in milligrams (`dry_weight_mg`) to grams by dividing by 1000. Then subtract a 2-element trap-tare weight vector `c(0.005, 0.008)` to calculate the net insect mass in `net_mass_g`.
 
@@ -64,7 +65,7 @@ net_mass_g
 
 </br>
 
-### Exercise 3: Filtering quadrat sample data (Logical Subsetting)
+#### Exercise 3: Filtering quadrat sample data (Logical Subsetting)
 
 Extract values from `stem_density` (stems per $m^2$) that represent **dense plots** (\> 200 stems) AND are **even numbers** (`%% 2 == 0`). Store the resulting values in `dense_even_plots`.
 
@@ -79,7 +80,7 @@ dense_even_plots
 
 </br>
 
-### Exercise 4: Imputing missing field data (`NA` handling)
+#### Exercise 4: Imputing missing field data (`NA` handling)
 
 A field logger missed soil moisture readings due to a sensor malfunction. Calculate the mean of non-`NA` moisture values in `soil_moisture` (using `na.rm = TRUE`) and store it as `mean_moisture`. Then replace all missing `NA` values in `soil_moisture` with `mean_moisture`. This practice is called *imputing*.
 
@@ -97,7 +98,7 @@ soil_moisture
 
 </br>
 
-### Exercise 5: Indexing named biodiversity indices (Vector subsetting)
+#### Exercise 5: Indexing named biodiversity indices (Vector subsetting)
 
 You have Shannon diversity index values for insect communities at 7 sampling sites. Extract the values for `"Site_B"` and `"Site_D"` by name into `control_sites`. Then remove the disturbance treatment sites (positions 6 and 7) using negative indexing into `disturbed_sites`.
 
@@ -143,6 +144,213 @@ temp_vals
 third_species
 ```
 
+</br>
+
+#### Exercise 2: Applying functions across list elements
+
+You have a list containing insect trap count vectors from three sampling locations. Use `lapply()` to calculate the total abundance (`sum()`) for each site, then use `unlist()` to convert the result into a clean numeric vector named site_totals.
+
+```{webr}
+trap_counts <- list(
+  Prairie = c(12, 18, 25, 9),
+  Forest_Edge = c(5, 8, 3, 11, 4),
+  Agriculture = c(30, 42, 38)
+)
+
+# 1. Calculate sum for each site in the list
+total_list <- lapply(______, ______)
+
+# 2. Convert the resulting list into a named vector
+site_totals <- unlist(______)
+
+site_totals
+```
+
+</br>
+
+#### Excrcise 3: Dynamic list modification
+
+Create a list named pollinator_obs with two named vectors: bees = c(45, 32) and flies = c(12, 19). Then dynamically add a new element named butterflies containing c(8, 14), and update the bees element by adding 10 additional counts to each site. This also touches on *vectorization* which we worked on above!
+
+```{webr}
+# 1. Create the initial list with bees and flies
+pollinator_obs <- list(
+  bees = ______,
+  flies = ______
+)
+
+# 2. Add a new element named butterflies
+pollinator_obs$butterflies <- ______
+
+# 3. Add 10 to all bee counts
+pollinator_obs$bees <- ______ + 10
+
+pollinator_obs
+```
+
+</br>
+
+------------------------------------------------------------------------
+
+</br>
+
 ### Tibbles
+#### Exercise 1: Tibble creation and sequential column referencing
+
+Create a tibble named `tree_survey` containing 5 trees with species names in column `species`, dbh (diameter at breast height in cm) in column `dbh_cm` with values `c(12.4, 28.1, 8.5, 42.0, 19.3)`, and calculate `basal_area_m2` directly inside the `tibble()` call using the formula `(pi * (dbh_cm / 2)^2) / 10000`.
+
+```{webr}
+library(tibble)
+
+# Create the tree_survey tibble referencing dbh_cm to compute basal_area_m2
+tree_survey <- tibble(
+  species = c("Quercus alba", "Acer saccharum", "Pinus strobus", "Quercus rubra", "Betula alleghaniensis"),
+  dbh_cm = c(12.4, 28.1, 8.5, 42.0, 19.3),
+  basal_area_m2 = ______
+)
+
+tree_survey
+```
+
+</br>
+
+#### Exercise 2: Base Data Frame vs. Tibble Column Subsetting (drop = FALSE)
+
+Subset column "parasite_load" from both the base data frame df_bees and the tibble `tbl_bees` using bracket notation `[, "parasite_load"]`. Print the class of each result to observe how base data frames silently simplify output to a 1D vector while tibbles preserve tabular structure.
+
+```{webr}
+library(tibble)
+
+df_bees <- data.frame(site = c("A", "B", "C"), parasite_load = c(0, 14, 3))
+tbl_bees <- as_tibble(df_bees)
+
+# 1. Subset parasite_load column from df_bees and get its class
+df_subset_class <- class(df_bees[______])
+
+# 2. Subset parasite_load column from tbl_bees and get its class
+tbl_subset_class <- class(tbl_bees[______])
+
+df_subset_class
+tbl_subset_class
+```
+
+</br>
+
+#### Exercise 3: Partial Matching Prevention in Tibbles
+
+In field data, column name typos can cause silent logical errors. Try accessing the "treatment" column of `df_plots` and `tbl_plots` using the shorthand $treat. Observe the difference in behavior.
+
+```{webr}
+library(tibble)
+
+df_plots <- data.frame(treatment_group = c("Control", "Burned", "Grazed"), diversity = c(1.2, 2.4, 1.8))
+tbl_plots <- as_tibble(df_plots)
+
+# 1. Extract using $treat from base data frame
+df_match <- df_plots$______
+
+# 2. Extract using $treat from tibble (Triggers warning / returns NULL)
+tbl_match <- tbl_plots$______
+
+df_match
+tbl_match
+```
+
+</br>
+
+#### Exercise 4: Extracting Rows, Columns, and Ranges
+
+Given a data frame of water quality observations water_quality:
+
+    1. Extract the first 3 rows across all columns into `top_samples`.
+
+    2. Extract cell value at row 4, column "dissolved_oxygen" into `specific_do`.
+
+    3. Extract rows 2 through 5 for columns "site_id" and "pH" into `pH_sub`.
+
+```{webr}
+water_quality <- data.frame(
+  site_id = paste0("Site_", 1:6),
+  pH = c(6.8, 7.2, 7.1, 6.5, 7.4, 6.9),
+  dissolved_oxygen = c(8.2, 6.4, 7.9, 5.8, 8.0, 7.1)
+)
+
+# 1. Extract first 3 rows across all columns
+top_samples <- water_quality[______, ]
+
+# 2. Extract cell at row 4, column "dissolved_oxygen"
+specific_do <- water_quality[______, ______]
+
+# 3. Extract rows 2 to 5 for columns "site_id" and "pH"
+pH_sub <- water_quality[______, c(______)]
+
+top_samples
+specific_do
+pH_sub
+```
+
+</br>
+
+#### Exercise 5: Converting and Inspecting Large Biological Datasets
+
+Convert the large insect sweep net data frame `df_sweeps` (100 rows) into a tibble named `tbl_sweeps`. Compare the console output of printing `df_sweeps` vs `tbl_sweeps`.
+
+```{webr}
+library(tibble)
+
+# Simulated large sampling dataset
+set.seed(42)
+df_sweeps <- data.frame(
+  sweep_id = 1:100,
+  sweeps_count = sample(15:50, 100, replace = TRUE),
+  biomass_g = runif(100, 0.5, 12.0)
+)
+
+# Convert df_sweeps to a tibble
+tbl_sweeps <- ______
+
+# Compare print output
+print(tbl_sweeps)
+```
+
+</br>
+
+------------------------------------------------------------------------
+
+</br>
 
 ### Code style
+#### Excercise 1: Restyle the code below
+
+Using the topics that we discussed earlier (and the resources in the [content for Week 2](../content/w2-content.qmd)), restyle the code included below to maximize readability. Some of the code elements contain stuff we haven't talked about yet (like function and ggplot call styling). That's ok! This is what the [R style guide](https://style.tidyverse.org/) and Google are for. Work on this by yourself for a few minutes, and then chat with your neighbors/small groups to see if folks varied in their approach, or caught anything that you may have missed. We'll discuss as a group briefly after that.
+
+```{r eval=FALSE}
+library(tidyverse)
+
+my_dataset<-read.csv("field_sampling_data.csv")
+T<-my_dataset
+T_2<-T[T$count>0,]
+x=T_2$count
+MeanCount=mean(x)
+
+Filter_Data_fn<-function(df,Sp,site_name){
+if(Sp %in% df$species){
+df_sub<-df[df$species==Sp & df$site==site_name,]
+df_sub$count_scaled<-(df_sub$count-MeanCount)/sd(df_sub$count)
+return(df_sub)}else{
+print("Species not found in this site!");return(NULL)}}
+
+FinalData <- Filter_Data_fn(T_2,"Apis mellifera","Site_A")
+
+FinalData%>%group_by(species,site)%>%summarize(total=sum(count),mean_scaled=mean(count_scaled),sd_scaled=sd(count_scaled))%>%filter(total>10)
+
+ggplot(FinalData,aes(x=count,y=count_scaled,color=species))+geom_point()+theme_bw()
+```
+
+```{webr}
+# Enter your re-factored code here. Make sure to run it all to ensure 
+your style adjustments dont cause any syntax errors!
+
+
+
+```
