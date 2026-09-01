@@ -663,7 +663,7 @@
     "href": "resources.html#websites",
     "title": "Resources",
     "section": "Websites",
-    "text": "Websites\n\nLearning R\n\n\nGit and GitHub\n\n\nData visualization\n\n\nLearning Quarto for reports and web pages"
+    "text": "Websites\n\nLearning R\n\nR Studio/Positron cheat sheets for various packages\n\n\n\nGit and GitHub\n\n\nData visualization\n\n\nLearning Quarto for reports and web pages"
   },
   {
     "objectID": "resources.html#other-courses-at-the-u-i-recommend-for-statistics-and-data-science",
@@ -720,7 +720,7 @@
     "href": "content/w2-content.html#tour-de-objects",
     "title": "Week 1",
     "section": "Tour de Objects 🚴 🚴 🚴💨",
-    "text": "Tour de Objects 🚴 🚴 🚴💨\nAs we discussed last week, programming in R is all about creating, maniupulating, and operating on objects.\n\nThe atomic data types\nR has 6 basic (“atomic”) vector types, but 4 are most commonly used:\n\n\n\n\n\n\n\n\nType\nDescription\nExamples\n\n\n\n\nLogical\nBoolean values (TRUE / FALSE)\nTRUE, FALSE, T, F\n\n\nNumeric (Double)\nReal numbers (default numeric type)\n3.14, 42.0\n\n\nNumeric (Integer)\nWhole numbers (designated with L)\n42L\n\n\nCharacter\nText strings\n\"hello\", \"camera trap\"\n\n\nComplex / Raw\nImaginary numbers or raw bytes (rare)\n1 + 4i, charToRaw(\"A\")\n\n\n\n\n\n\n\n\n\nTipType Checking\n\n\n\nUse typeof() to check an object’s underlying storage type, and is.* functions (e.g., is.numeric(), is.character()) to test for specific types.\n\n\n\n# Create atomic variables\nmy_numeric   &lt;- 42.5\nmy_integer   &lt;- 42L\nmy_character &lt;- \"iBUG Lab\"\nmy_logical   &lt;- TRUE\n\n# Check types\ntypeof(my_numeric)\n\n[1] \"double\"\n\ntypeof(my_integer)\n\n[1] \"integer\"\n\nis.numeric(my_character)\n\n[1] FALSE\n\n\n\n\nVectors\nA vector is a 1-dimensional collection of elements of the same type (that is, all numeric, character, etc.). We create vectors using the c() function which combines or concatenates elements.\n\nMixing data types in R will perform implicit coercion, which basically means it will convert everything into the most flexible type. The flexibility of objects in R from most to least is: character &gt; double &gt; integer &gt; logical.\nIn R, many functions or operations are vectorized, meaning they will apply math/functions/operations to every element of the vector automatically\n\n\n# Creating a numeric vector\nmy_counts &lt;- c(12, 4, 30, 0)\n\n# Vectorized maths\nmy_counts_doubled &lt;- my_counts * 2\nmy_counts_doubled\n\n[1] 24  8 60  0\n\n# Coercion of data: what do you think this will be converted to?\nmessy_vector &lt;- c(1, \"shikaka\", TRUE)\ntypeof(messy_vector)\n\n[1] \"character\"\n\n\n\n\nLists\nLists are very much like vectors, but they can hold different data types (including things like other lists). You can essentially put anything into them and retain its native data type.\n\nCreated using list()\nWe access elements using single brackets [] (which returns a sub-list) or double brackets [[]] or $ (which extracts the actual object, e.g., another list, character, or vector).\n\n\n# Creating a list\ncamera_traps &lt;- list(\n  site_id = \"SITE-01\",\n  active = TRUE,\n  battery = 88.5,\n  target_species = c(\"affinis\", \"auricomus\", \"impatiens\")\n)\n\n# Exctracting/accessing elements\ncamera_traps$site_id\n\n[1] \"SITE-01\"\n\ncamera_traps[[4]][1] # list element 4, object 1 (i.e., first target species)\n\n[1] \"affinis\"\n\n\nWe can visualize lists using a series of nested boxes, as well as how different subsetting commands grab data from lists:\n\n\n\n\n\n\n\nData frames and tibbles\nMost of us will work with tabular data 90% of the time. Tabular data, that is, a standard excel or Google Sheets file, arranged in a two-dimensional grid of rows and columns, is what most of us are familiar using to aggregate data from experiments and observational studies. When we bring these data into R, we’ll bring them in as data frames. At their core, data frames are essentially lists (each list is a “column”) of equal-length vectors (each vector element is a “row”).\n\n\n\n\n\n\nAccessing data in data frames\nBecause data frames are essentially lists, the manner in which we access data is very similar. We’ll discuss more advanced/modern ways to access data in the coming weeks, but the base R ways to get at data are:\n\nExtract column:\n\nBy name:my_df$col_1 or my_df[, \"col_1\"] or my_df[[\"col_1\"]]\nBy index: my_df[, 1] or my_df[[1]]\n\nExtract row:\n\nmy_df[1, ] (extracts row 1 across all columns)\n\nExtract cell:\n\nmy_df[1, \"col_1\"] or my_df[1, 1]\n\nExtract range:\n\nmy_df[1:5, c(\"col_1\", \"col_2\")]\n\n\n\n\nOk, got data frames ✅, what the hell is a tibble?\nGreat question! A tibble is a type of data frame. But a data frame is not necessarily a tibble! Tibbles are a special type of data frame that belong to the Tidyverse: a series of R packages and a philosophy of data organization and presentation. The developers describe them as: &gt; “Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.”\nThe visualization capacity alone makes them worth using, and they play nicely with all of the other tidyverse packages that we’ll be using throughout this semester. Here are the big advantages of tibbles:\n\nNo unintended vector dropping (drop = FALSE by default): When subsetting a single column in a standard data.frame, base R silently simplifies the output into a 1D vector. A tibble always returns a 2D tibble unless explicitly told otherwise, preventing downstream code breakage in functions expecting tabular data.\n\nlibrary(tibble)\n\n# Base Data Frame\ndf &lt;- data.frame(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(df[, \"a\"]) \n# [1] \"integer\"  &lt;-- Automatically dropped to a vector!\n\n# Tibble\ntbl &lt;- tibble(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(tbl[, \"a\"]) \n# [1] \"tbl_df\" \"tbl\" \"data.frame\"  &lt;-- Remains a 1-column tibble!\n\nNo partial name matching: Base data frames try to guess column names if you make a typo or use shorthand. Tibbles require exact column matching and trigger a warning if a column doesn’t exist, preventing silent logical errors.\n\n# Base Data Frame (Silently matches \"species_name\" via \"$spec\")\ndf &lt;- data.frame(species_name = c(\"affinis\", \"impatiens\"))\ndf$spec\n# [1] \"affinis\" \"impatiens\"  &lt;-- Dangerous!\n\n# Tibble\ntbl &lt;- tibble(species_name = c(\"affinis\", \"impatiens\"))\ntbl$spec\n# NULL\n# Warning message: Unknown or uninitialised column: `spec`.\n\nBetter printing for large datasets: Printing a large data.framecan easily overwhelm your screen by dumping thousands of rows and wrapping dozens of columns. Tibbles automatically truncate output to 10 rows, fit columns to your console width, displays data types for every column, and adds colored text to help elements stand out.\n\nlibrary(tibble)\n# Creating a large-ish dataset\ndf_large  &lt;- data.frame(id = 1:100, x = runif(100), y = rnorm(100))\ntbl_large &lt;- as_tibble(df_large)\n\n# Printing base df floods the console with oodles of lines\nprint(df_large) \n\n     id           x            y\n1     1 0.330267483 -2.129986907\n2     2 0.421289618 -0.675431425\n3     3 0.636141267  1.741326729\n4     4 0.574743207  0.845550100\n5     5 0.503648760  0.607870315\n6     6 0.409405889 -0.425210731\n7     7 0.249527176  1.275415346\n8     8 0.956965727  0.460049805\n9     9 0.238470233 -0.951828291\n10   10 0.171922361  0.380914770\n11   11 0.216884919  0.034302728\n12   12 0.724551148 -0.209459708\n13   13 0.815319279  0.570693594\n14   14 0.626481931 -0.112788950\n15   15 0.008454509  0.985765166\n16   16 0.555649946 -0.350298559\n17   17 0.390630648  1.483421948\n18   18 0.140842271  0.009705344\n19   19 0.275451680 -0.948030320\n20   20 0.513499442 -1.331709294\n21   21 0.134991908 -0.735008408\n22   22 0.307930949 -1.054269259\n23   23 0.917947071  2.715250517\n24   24 0.239217819 -0.144798530\n25   25 0.556921061  0.946630497\n26   26 0.850277893 -1.070624942\n27   27 0.088180500  0.437651080\n28   28 0.772490502  0.045287733\n29   29 0.785158655  0.326067241\n30   30 0.499630838 -1.168511499\n31   31 0.651671075  0.186068265\n32   32 0.680235434  0.414451052\n33   33 0.885530499 -0.005682318\n34   34 0.550588554 -0.760883745\n35   35 0.274636647  1.782553504\n36   36 0.544363950 -0.388073684\n37   37 0.144757430 -0.332880251\n38   38 0.424827051 -0.104647964\n39   39 0.717577215 -0.521699082\n40   40 0.948629526 -0.077402200\n41   41 0.430598956  2.153430072\n42   42 0.881926821 -1.353753441\n43   43 0.529790906  0.727126919\n44   44 0.607008189 -0.669820297\n45   45 0.261685962  1.137260829\n46   46 0.609564508 -0.730708217\n47   47 0.606756731 -0.598155161\n48   48 0.014126982  0.650905954\n49   49 0.660727919 -1.380673519\n50   50 0.764102822 -0.171029460\n51   51 0.877473455 -0.459966998\n52   52 0.343635117  1.711703664\n53   53 0.148020962 -0.191910900\n54   54 0.650015687 -0.170731918\n55   55 0.668995747 -2.321380231\n56   56 0.343589482  0.972910439\n57   57 0.426873430  0.726284425\n58   58 0.778274114  0.089610495\n59   59 0.247977683 -1.738384259\n60   60 0.893970664 -1.020739844\n61   61 0.999734028  0.077166494\n62   62 0.536961153 -0.609394109\n63   63 0.537569431 -0.750912230\n64   64 0.788059781 -2.379917464\n65   65 0.165110274  0.770790566\n66   66 0.518166657 -0.687711756\n67   67 0.162638917  0.077405583\n68   68 0.340284430  0.486709280\n69   69 0.542242826  0.208208688\n70   70 0.260688149 -0.471657870\n71   71 0.909916360 -1.831448483\n72   72 0.509801341  1.733169221\n73   73 0.075855284 -1.238513207\n74   74 0.050137046 -0.062028715\n75   75 0.766698495 -2.056871812\n76   76 0.219847315 -1.087354794\n77   77 0.257649620  0.063546060\n78   78 0.256150573 -1.149039846\n79   79 0.223098443 -0.040184012\n80   80 0.065168341 -1.328097055\n81   81 0.670288896 -0.402327744\n82   82 0.185332670 -1.381868025\n83   83 0.644184271  2.353679881\n84   84 0.134078378  1.600946156\n85   85 0.521554174 -0.237499025\n86   86 0.898898703  0.994324751\n87   87 0.394345399  1.666190175\n88   88 0.781538873  0.394087010\n89   89 0.273627425  0.696263064\n90   90 0.794013984  0.971289741\n91   91 0.626262427  1.629085437\n92   92 0.268928312 -2.343293669\n93   93 0.373646018  1.325273525\n94   94 0.785526418  0.509969762\n95   95 0.501103160 -0.474524039\n96   96 0.978749713  1.558514536\n97   97 0.829760104 -0.241664818\n98   98 0.843030755  0.651211858\n99   99 0.131150114 -0.932081595\n100 100 0.739868056  0.590160582\n\n# Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)\ntbl_large\n\n# A tibble: 100 × 3\n      id     x      y\n   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;\n 1     1 0.330 -2.13 \n 2     2 0.421 -0.675\n 3     3 0.636  1.74 \n 4     4 0.575  0.846\n 5     5 0.504  0.608\n 6     6 0.409 -0.425\n 7     7 0.250  1.28 \n 8     8 0.957  0.460\n 9     9 0.238 -0.952\n10    10 0.172  0.381\n# ℹ 90 more rows\n\n\nBetter column construction: When creating a tibble, you can reference variables created earlier in the exact same call. Base data.frame throws an error if you attempt this.\n\n# Works in tibble\ntbl &lt;- tibble(\n  x = 1:5,\n  y = x * 2  # References 'x' immediately\n)\n\n\n\n\n\nFunctions\nFunctions are code objects that perform operations on some input (called arguments) and return some output. As we discussed last week, anything with some word followed by () is a function. R has thousands of built in functions, and packages that we install come with their own sets of functions. We can also create our own! In fact, we’ll spend a whole chunk of a class on this topic as knowing how to do this can save you a ton of time and make fewer mistakes than simply copying and pasting code over and over again.\nAs a quick example, we can create a function to calculate the rate at which we capture images of insects in a camera trap:\n\n# Defining our functions name and what it does\ncalculate_trap_rate &lt;- function(image_count, days_active) {\n  rate &lt;- image_count / days_active\n  return(rate)\n}\n\n# Using the function\ncalculate_trap_rate(image_count = 142, days_active = 7)\n\n[1] 20.28571",
+    "text": "Tour de Objects 🚴 🚴 🚴💨\nAs we discussed last week, programming in R is all about creating, maniupulating, and operating on objects.\n\nThe atomic data types\nR has 6 basic (“atomic”) vector types, but 4 are most commonly used:\n\n\n\n\n\n\n\n\nType\nDescription\nExamples\n\n\n\n\nLogical\nBoolean values (TRUE / FALSE)\nTRUE, FALSE, T, F\n\n\nNumeric (Double)\nReal numbers (default numeric type)\n3.14, 42.0\n\n\nNumeric (Integer)\nWhole numbers (designated with L)\n42L\n\n\nCharacter\nText strings\n\"hello\", \"camera trap\"\n\n\nComplex / Raw\nImaginary numbers or raw bytes (rare)\n1 + 4i, charToRaw(\"A\")\n\n\n\n\n\n\n\n\n\nTipType Checking\n\n\n\nUse typeof() to check an object’s underlying storage type, and is.* functions (e.g., is.numeric(), is.character()) to test for specific types.\n\n\n\n# Create atomic variables\nmy_numeric   &lt;- 42.5\nmy_integer   &lt;- 42L\nmy_character &lt;- \"iBUG Lab\"\nmy_logical   &lt;- TRUE\n\n# Check types\ntypeof(my_numeric)\n\n[1] \"double\"\n\ntypeof(my_integer)\n\n[1] \"integer\"\n\nis.numeric(my_character)\n\n[1] FALSE\n\n\n\n\nVectors\nA vector is a 1-dimensional collection of elements of the same type (that is, all numeric, character, etc.). We create vectors using the c() function which combines or concatenates elements.\n\nMixing data types in R will perform implicit coercion, which basically means it will convert everything into the most flexible type. The flexibility of objects in R from most to least is: character &gt; double &gt; integer &gt; logical.\nIn R, many functions or operations are vectorized, meaning they will apply math/functions/operations to every element of the vector automatically\n\n\n# Creating a numeric vector\nmy_counts &lt;- c(12, 4, 30, 0)\n\n# Vectorized maths\nmy_counts_doubled &lt;- my_counts * 2\nmy_counts_doubled\n\n[1] 24  8 60  0\n\n# Coercion of data: what do you think this will be converted to?\nmessy_vector &lt;- c(1, \"shikaka\", TRUE)\ntypeof(messy_vector)\n\n[1] \"character\"\n\n\n\n\nLists\nLists are very much like vectors, but they can hold different data types (including things like other lists). You can essentially put anything into them and retain its native data type.\n\nCreated using list()\nWe access elements using single brackets [] (which returns a sub-list) or double brackets [[]] or $ (which extracts the actual object, e.g., another list, character, or vector).\n\n\n# Creating a list\ncamera_traps &lt;- list(\n  site_id = \"SITE-01\",\n  active = TRUE,\n  battery = 88.5,\n  target_species = c(\"affinis\", \"auricomus\", \"impatiens\")\n)\n\n# Exctracting/accessing elements\ncamera_traps$site_id\n\n[1] \"SITE-01\"\n\ncamera_traps[[4]][1] # list element 4, object 1 (i.e., first target species)\n\n[1] \"affinis\"\n\n\nWe can visualize lists using a series of nested boxes, as well as how different subsetting commands grab data from lists:\n\n\n\n\n\n\n\nData frames and tibbles\nMost of us will work with tabular data 90% of the time. Tabular data, that is, a standard excel or Google Sheets file, arranged in a two-dimensional grid of rows and columns, is what most of us are familiar using to aggregate data from experiments and observational studies. When we bring these data into R, we’ll bring them in as data frames. At their core, data frames are essentially lists (each list is a “column”) of equal-length vectors (each vector element is a “row”).\n\n\n\n\n\n\nAccessing data in data frames\nBecause data frames are essentially lists, the manner in which we access data is very similar. We’ll discuss more advanced/modern ways to access data in the coming weeks, but the base R ways to get at data are:\n\nExtract column:\n\nBy name:my_df$col_1 or my_df[, \"col_1\"] or my_df[[\"col_1\"]]\nBy index: my_df[, 1] or my_df[[1]]\n\nExtract row:\n\nmy_df[1, ] (extracts row 1 across all columns)\n\nExtract cell:\n\nmy_df[1, \"col_1\"] or my_df[1, 1]\n\nExtract range:\n\nmy_df[1:5, c(\"col_1\", \"col_2\")]\n\n\n\n\nOk, got data frames ✅, what the hell is a tibble?\nGreat question! A tibble is a type of data frame. But a data frame is not necessarily a tibble! Tibbles are a special type of data frame that belong to the Tidyverse: a series of R packages and a philosophy of data organization and presentation. The developers describe them as: &gt; “Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.”\nThe visualization capacity alone makes them worth using, and they play nicely with all of the other tidyverse packages that we’ll be using throughout this semester. Here are the big advantages of tibbles:\n\nNo unintended vector dropping (drop = FALSE by default): When subsetting a single column in a standard data.frame, base R silently simplifies the output into a 1D vector. A tibble always returns a 2D tibble unless explicitly told otherwise, preventing downstream code breakage in functions expecting tabular data.\n\nlibrary(tibble)\n\n# Base Data Frame\ndf &lt;- data.frame(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(df[, \"a\"]) \n# [1] \"integer\"  &lt;-- Automatically dropped to a vector!\n\n# Tibble\ntbl &lt;- tibble(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(tbl[, \"a\"]) \n# [1] \"tbl_df\" \"tbl\" \"data.frame\"  &lt;-- Remains a 1-column tibble!\n\nNo partial name matching: Base data frames try to guess column names if you make a typo or use shorthand. Tibbles require exact column matching and trigger a warning if a column doesn’t exist, preventing silent logical errors.\n\n# Base Data Frame (Silently matches \"species_name\" via \"$spec\")\ndf &lt;- data.frame(species_name = c(\"affinis\", \"impatiens\"))\ndf$spec\n# [1] \"affinis\" \"impatiens\"  &lt;-- Dangerous!\n\n# Tibble\ntbl &lt;- tibble(species_name = c(\"affinis\", \"impatiens\"))\ntbl$spec\n# NULL\n# Warning message: Unknown or uninitialised column: `spec`.\n\nBetter printing for large datasets: Printing a large data.framecan easily overwhelm your screen by dumping thousands of rows and wrapping dozens of columns. Tibbles automatically truncate output to 10 rows, fit columns to your console width, displays data types for every column, and adds colored text to help elements stand out.\n\nlibrary(tibble)\n# Creating a large-ish dataset\ndf_large  &lt;- data.frame(id = 1:100, x = runif(100), y = rnorm(100))\ntbl_large &lt;- as_tibble(df_large)\n\n# Printing base df floods the console with oodles of lines\nprint(df_large) \n\n     id          x           y\n1     1 0.34463465 -0.18609405\n2     2 0.70294981 -1.79952647\n3     3 0.10928662 -0.15577979\n4     4 0.98775918  0.11792202\n5     5 0.46235672  1.64435951\n6     6 0.54128748 -1.22832203\n7     7 0.26478053  0.20422044\n8     8 0.52969106 -0.47326200\n9     9 0.64282304 -1.20352509\n10   10 0.51157804  0.65569857\n11   11 0.89789363  0.46709006\n12   12 0.94559238 -0.33159712\n13   13 0.97842766 -0.37552830\n14   14 0.21182845  0.39246104\n15   15 0.05752031 -0.76873563\n16   16 0.68693351  0.43690308\n17   17 0.59898839 -0.02991532\n18   18 0.66523867  1.65553885\n19   19 0.29563283 -0.26618386\n20   20 0.04518521  1.44411861\n21   21 0.91651109  1.97588130\n22   22 0.02579631 -0.23060915\n23   23 0.97317837 -1.25980623\n24   24 0.84421656 -0.19447975\n25   25 0.03010634  1.40026770\n26   26 0.70287085 -0.40150041\n27   27 0.65515733  1.23834671\n28   28 0.97171306  0.67198994\n29   29 0.50336160  1.63360087\n30   30 0.77031588  0.48109247\n31   31 0.43732319 -1.06284491\n32   32 0.38989409 -0.61315859\n33   33 0.32026943  0.47354651\n34   34 0.47395315 -0.20301978\n35   35 0.64968630 -0.93179575\n36   36 0.69279082 -0.74544460\n37   37 0.43653171  0.93470265\n38   38 0.21164057  0.25441362\n39   39 0.54980596 -1.00352327\n40   40 0.91890199  0.55386568\n41   41 0.60644372  0.40998896\n42   42 0.48461515 -1.14276063\n43   43 0.04555318  0.84123568\n44   44 0.32791448  1.19284292\n45   45 0.16077926 -0.45311593\n46   46 0.76315637  0.25396210\n47   47 0.42839020  0.41999683\n48   48 0.09867021 -0.04016523\n49   49 0.55388266  0.13083561\n50   50 0.10304709  0.09362396\n51   51 0.74633437  1.20975653\n52   52 0.11965902  0.90938318\n53   53 0.20790942 -0.85529032\n54   54 0.40349571 -1.01822728\n55   55 0.15436624 -0.47018409\n56   56 0.40298268 -1.84637104\n57   57 0.05257961 -1.44589759\n58   58 0.32899874  0.19643970\n59   59 0.04224217  0.45228816\n60   60 0.18948743 -1.16387066\n61   61 0.62517830 -0.06082869\n62   62 0.68099248 -1.70409277\n63   63 0.61335116 -0.89889258\n64   64 0.39529764 -0.98802299\n65   65 0.97013341 -1.42594658\n66   66 0.50777086  0.30653248\n67   67 0.24089183  0.43958227\n68   68 0.09088714 -0.85822728\n69   69 0.32112719  0.17392450\n70   70 0.26280237  0.26052908\n71   71 0.58106371 -1.99937957\n72   72 0.82238114 -0.21285660\n73   73 0.03264664 -0.13638605\n74   74 0.89175526 -0.29329889\n75   75 0.38125829 -0.33389382\n76   76 0.18497414 -0.33994248\n77   77 0.74268282  2.04469489\n78   78 0.15139173  1.37533607\n79   79 0.05265712 -0.82909399\n80   80 0.97544646 -1.78786164\n81   81 0.81492673  0.09152090\n82   82 0.70743580  1.28884184\n83   83 0.93401392  0.18584571\n84   84 0.35751366 -1.56550444\n85   85 0.20088363 -0.59267144\n86   86 0.67780079 -0.41987282\n87   87 0.17676089  0.14503261\n88   88 0.70863932 -0.02485980\n89   89 0.97016861 -0.81777575\n90   90 0.88654295 -0.10098272\n91   91 0.86341827  0.86462518\n92   92 0.99698802  1.97330301\n93   93 0.97008935  0.47857577\n94   94 0.32654399 -0.15277253\n95   95 0.04307767  1.06614348\n96   96 0.44144882  1.47347545\n97   97 0.32024845 -1.09904176\n98   98 0.85223492 -0.37139114\n99   99 0.01127221 -1.05819415\n100 100 0.05433099  3.12316492\n\n# Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)\ntbl_large\n\n# A tibble: 100 × 3\n      id     x      y\n   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;\n 1     1 0.345 -0.186\n 2     2 0.703 -1.80 \n 3     3 0.109 -0.156\n 4     4 0.988  0.118\n 5     5 0.462  1.64 \n 6     6 0.541 -1.23 \n 7     7 0.265  0.204\n 8     8 0.530 -0.473\n 9     9 0.643 -1.20 \n10    10 0.512  0.656\n# ℹ 90 more rows\n\n\nBetter column construction: When creating a tibble, you can reference variables created earlier in the exact same call. Base data.frame throws an error if you attempt this.\n\n# Works in tibble\ntbl &lt;- tibble(\n  x = 1:5,\n  y = x * 2  # References 'x' immediately\n)\n\n\n\n\n\nFunctions\nFunctions are code objects that perform operations on some input (called arguments) and return some output. As we discussed last week, anything with some word followed by () is a function. R has thousands of built in functions, and packages that we install come with their own sets of functions. We can also create our own! In fact, we’ll spend a whole chunk of a class on this topic as knowing how to do this can save you a ton of time and make fewer mistakes than simply copying and pasting code over and over again.\nAs a quick example, we can create a function to calculate the rate at which we capture images of insects in a camera trap:\n\n# Defining our functions name and what it does\ncalculate_trap_rate &lt;- function(image_count, days_active) {\n  rate &lt;- image_count / days_active\n  return(rate)\n}\n\n# Using the function\ncalculate_trap_rate(image_count = 142, days_active = 7)\n\n[1] 20.28571",
     "crumbs": [
       "Content",
       "Module 1: Introduction to Data Science and R",
@@ -828,21 +828,21 @@
     "href": "workshop/w2-workshop-key.html",
     "title": "Workshop 2: Instructor Answer Key",
     "section": "",
-    "text": "species &lt;- c(\"Apis mellifera\", \"Bombus impatiens\", \"Osmia lignaria\")\nindividual_counts &lt;- c(12, 45, 8)\nsurvey_data &lt;- c(species, individual_counts)\nclass(survey_data)\n\n[1] \"character\"\n\n# [1] \"character\"\n\n\n\n\n\ndry_weight_mg &lt;- c(120, 340, 85, 510, 230, 410)\ndry_weight_g &lt;- dry_weight_mg / 1000\nnet_mass_g &lt;- dry_weight_g - c(0.005, 0.008)\nnet_mass_g\n\n[1] 0.115 0.332 0.080 0.502 0.225 0.402\n\n# [1] 0.115 0.332 0.080 0.502 0.225 0.402\n\n\n\n\n\nstem_density &lt;- c(145, 212, 88, 304, 199, 250, 180, 218)\ndense_even_plots &lt;- stem_density[stem_density &gt; 200 & stem_density %% 2 == 0]\ndense_even_plots\n\n[1] 212 304 250 218\n\n# [1] 212 304 250 218\n\n\n\n\n\nsoil_moisture &lt;- c(0.24, NA, 0.31, 0.19, NA, 0.28, 0.22)\nmean_moisture &lt;- mean(soil_moisture, na.rm = TRUE)\nsoil_moisture[is.na(soil_moisture)] &lt;- mean_moisture\nsoil_moisture\n\n[1] 0.240 0.248 0.310 0.190 0.248 0.280 0.220\n\n# [1] 0.24 0.248 0.31 0.19 0.248 0.28 0.22\n\n\n\n\n\nshannon_index &lt;- c(Site_A = 1.82, Site_B = 2.45, Site_C = 1.31, Site_D = 2.89, Site_E = 2.10, Ctrl_1 = 0.45, Ctrl_2 = 0.62)\ntarget_sites &lt;- shannon_index[c(\"Site_B\", \"Site_D\")]\nintact_sites &lt;- shannon_index[-c(6, 7)]\n\ntarget_sites\n\nSite_B Site_D \n  2.45   2.89 \n\n# Site_B Site_D \n#   2.45   2.89 \n\nintact_sites\n\nSite_A Site_B Site_C Site_D Site_E \n  1.82   2.45   1.31   2.89   2.10 \n\n# Site_A Site_B Site_C Site_D Site_E \n#   1.82   2.45   1.31   2.89   2.10"
+    "text": "species &lt;- c(\"Apis mellifera\", \"Bombus impatiens\", \"Osmia lignaria\")\nindividual_counts &lt;- c(12, 45, 8)\nsurvey_data &lt;- c(species, individual_counts)\nclass(survey_data)\n# [1] \"character\"\n\n\n\n\n\ndry_weight_mg &lt;- c(120, 340, 85, 510, 230, 410)\ndry_weight_g &lt;- dry_weight_mg / 1000\nnet_mass_g &lt;- dry_weight_g - c(0.005, 0.008)\nnet_mass_g\n# [1] 0.115 0.332 0.080 0.502 0.225 0.402\n\n\n\n\n\nstem_density &lt;- c(145, 212, 88, 304, 199, 250, 180, 218)\ndense_even_plots &lt;- stem_density[stem_density &gt; 200 & stem_density %% 2 == 0]\ndense_even_plots\n# [1] 212 304 250 218\n\n\n\n\n\nsoil_moisture &lt;- c(0.24, NA, 0.31, 0.19, NA, 0.28, 0.22)\nmean_moisture &lt;- mean(soil_moisture, na.rm = TRUE)\nsoil_moisture[is.na(soil_moisture)] &lt;- mean_moisture\nsoil_moisture\n# [1] 0.24 0.248 0.31 0.19 0.248 0.28 0.22\n\n\n\n\n\nshannon_index &lt;- c(Site_A = 1.82, Site_B = 2.45, Site_C = 1.31, Site_D = 2.89, Site_E = 2.10, Ctrl_1 = 0.45, Ctrl_2 = 0.62)\ntarget_sites &lt;- shannon_index[c(\"Site_B\", \"Site_D\")]\nintact_sites &lt;- shannon_index[-c(6, 7)]\n\ntarget_sites\n# Site_B Site_D \n#   2.45   2.89 \n\nintact_sites\n# Site_A Site_B Site_C Site_D Site_E \n#   1.82   2.45   1.31   2.89   2.10"
   },
   {
     "objectID": "workshop/w2-workshop-key.html#vectors",
     "href": "workshop/w2-workshop-key.html#vectors",
     "title": "Workshop 2: Instructor Answer Key",
     "section": "",
-    "text": "species &lt;- c(\"Apis mellifera\", \"Bombus impatiens\", \"Osmia lignaria\")\nindividual_counts &lt;- c(12, 45, 8)\nsurvey_data &lt;- c(species, individual_counts)\nclass(survey_data)\n\n[1] \"character\"\n\n# [1] \"character\"\n\n\n\n\n\ndry_weight_mg &lt;- c(120, 340, 85, 510, 230, 410)\ndry_weight_g &lt;- dry_weight_mg / 1000\nnet_mass_g &lt;- dry_weight_g - c(0.005, 0.008)\nnet_mass_g\n\n[1] 0.115 0.332 0.080 0.502 0.225 0.402\n\n# [1] 0.115 0.332 0.080 0.502 0.225 0.402\n\n\n\n\n\nstem_density &lt;- c(145, 212, 88, 304, 199, 250, 180, 218)\ndense_even_plots &lt;- stem_density[stem_density &gt; 200 & stem_density %% 2 == 0]\ndense_even_plots\n\n[1] 212 304 250 218\n\n# [1] 212 304 250 218\n\n\n\n\n\nsoil_moisture &lt;- c(0.24, NA, 0.31, 0.19, NA, 0.28, 0.22)\nmean_moisture &lt;- mean(soil_moisture, na.rm = TRUE)\nsoil_moisture[is.na(soil_moisture)] &lt;- mean_moisture\nsoil_moisture\n\n[1] 0.240 0.248 0.310 0.190 0.248 0.280 0.220\n\n# [1] 0.24 0.248 0.31 0.19 0.248 0.28 0.22\n\n\n\n\n\nshannon_index &lt;- c(Site_A = 1.82, Site_B = 2.45, Site_C = 1.31, Site_D = 2.89, Site_E = 2.10, Ctrl_1 = 0.45, Ctrl_2 = 0.62)\ntarget_sites &lt;- shannon_index[c(\"Site_B\", \"Site_D\")]\nintact_sites &lt;- shannon_index[-c(6, 7)]\n\ntarget_sites\n\nSite_B Site_D \n  2.45   2.89 \n\n# Site_B Site_D \n#   2.45   2.89 \n\nintact_sites\n\nSite_A Site_B Site_C Site_D Site_E \n  1.82   2.45   1.31   2.89   2.10 \n\n# Site_A Site_B Site_C Site_D Site_E \n#   1.82   2.45   1.31   2.89   2.10"
+    "text": "species &lt;- c(\"Apis mellifera\", \"Bombus impatiens\", \"Osmia lignaria\")\nindividual_counts &lt;- c(12, 45, 8)\nsurvey_data &lt;- c(species, individual_counts)\nclass(survey_data)\n# [1] \"character\"\n\n\n\n\n\ndry_weight_mg &lt;- c(120, 340, 85, 510, 230, 410)\ndry_weight_g &lt;- dry_weight_mg / 1000\nnet_mass_g &lt;- dry_weight_g - c(0.005, 0.008)\nnet_mass_g\n# [1] 0.115 0.332 0.080 0.502 0.225 0.402\n\n\n\n\n\nstem_density &lt;- c(145, 212, 88, 304, 199, 250, 180, 218)\ndense_even_plots &lt;- stem_density[stem_density &gt; 200 & stem_density %% 2 == 0]\ndense_even_plots\n# [1] 212 304 250 218\n\n\n\n\n\nsoil_moisture &lt;- c(0.24, NA, 0.31, 0.19, NA, 0.28, 0.22)\nmean_moisture &lt;- mean(soil_moisture, na.rm = TRUE)\nsoil_moisture[is.na(soil_moisture)] &lt;- mean_moisture\nsoil_moisture\n# [1] 0.24 0.248 0.31 0.19 0.248 0.28 0.22\n\n\n\n\n\nshannon_index &lt;- c(Site_A = 1.82, Site_B = 2.45, Site_C = 1.31, Site_D = 2.89, Site_E = 2.10, Ctrl_1 = 0.45, Ctrl_2 = 0.62)\ntarget_sites &lt;- shannon_index[c(\"Site_B\", \"Site_D\")]\nintact_sites &lt;- shannon_index[-c(6, 7)]\n\ntarget_sites\n# Site_B Site_D \n#   2.45   2.89 \n\nintact_sites\n# Site_A Site_B Site_C Site_D Site_E \n#   1.82   2.45   1.31   2.89   2.10"
   },
   {
     "objectID": "workshop/w2-workshop-key.html#lists",
     "href": "workshop/w2-workshop-key.html#lists",
     "title": "Workshop 2: Instructor Answer Key",
     "section": "Lists",
-    "text": "Lists\n\nExercise 1\n\nsite_data &lt;- list(\n  site_id = \"MN_BEE_01\",\n  species = c(\"Lasioglossum vierecki\", \"Bombus vagans\", \"Ceratina dupla\", \"Agapostemon virescens\"),\n  environmental = list(temperatures = c(21.5, 23.0, 22.8), humidity = 64)\n)\n\ntemp_vals &lt;- site_data$environmental$temperatures\nthird_species &lt;- site_data$species[[3]]\n\ntemp_vals\n\n[1] 21.5 23.0 22.8\n\n# [1] 21.5 23.0 22.8\n\nthird_species\n\n[1] \"Ceratina dupla\"\n\n# [1] \"Ceratina dupla\"\n\n\n\nExercise 2\n\ntrap_counts &lt;- list(\n  Prairie = c(12, 18, 25, 9),\n  Forest_Edge = c(5, 8, 3, 11, 4),\n  Agriculture = c(30, 42, 38)\n)\n\ntotal_list &lt;- lapply(trap_counts, sum)\nsite_totals &lt;- unlist(total_list)\n\nsite_totals\n\n    Prairie Forest_Edge Agriculture \n         64          31         110 \n\n#     Prairie Forest_Edge Agriculture \n#          64          31         110\n\n\n\nExercise 3\n\npollinator_obs &lt;- list(\n  bees = c(45, 32),\n  flies = c(12, 19)\n)\n\npollinator_obs$butterflies &lt;- c(8, 14)\npollinator_obs$bees &lt;- pollinator_obs$bees + 10\n\npollinator_obs\n\n$bees\n[1] 55 42\n\n$flies\n[1] 12 19\n\n$butterflies\n[1]  8 14\n\n# $bees\n# [1] 55 42\n# \n# $flies\n# [1] 12 19\n# \n# $butterflies\n# [1]  8 14"
+    "text": "Lists\n\nExercise 1\n\nsite_data &lt;- list(\n  site_id = \"MN_BEE_01\",\n  species = c(\"Lasioglossum vierecki\", \"Bombus vagans\", \"Ceratina dupla\", \"Agapostemon virescens\"),\n  environmental = list(temperatures = c(21.5, 23.0, 22.8), humidity = 64)\n)\n\ntemp_vals &lt;- site_data$environmental$temperatures\nthird_species &lt;- site_data$species[[3]]\n\ntemp_vals\n# [1] 21.5 23.0 22.8\n\nthird_species\n# [1] \"Ceratina dupla\"\n\n\n\nExercise 2\n\ntrap_counts &lt;- list(\n  Prairie = c(12, 18, 25, 9),\n  Forest_Edge = c(5, 8, 3, 11, 4),\n  Agriculture = c(30, 42, 38)\n)\n\ntotal_list &lt;- lapply(trap_counts, sum)\nsite_totals &lt;- unlist(total_list)\n\nsite_totals\n#     Prairie Forest_Edge Agriculture \n#          64          31         110\n\n\n\nExercise 3\n\npollinator_obs &lt;- list(\n  bees = c(45, 32),\n  flies = c(12, 19)\n)\n\npollinator_obs$butterflies &lt;- c(8, 14)\npollinator_obs$bees &lt;- pollinator_obs$bees + 10\n\npollinator_obs\n# $bees\n# [1] 55 42\n# \n# $flies\n# [1] 12 19\n# \n# $butterflies\n# [1]  8 14"
   },
   {
     "objectID": "workshop/w2-workshop.html#topical-exercises",
@@ -866,6 +866,255 @@
       "Workshops",
       "Module 1: Introduction to Data Science and R",
       "Week 2: Data structures, objects, code style, etc"
+    ]
+  },
+  {
+    "objectID": "workshop/w2-workshop-key.html#tibblesdata-frames",
+    "href": "workshop/w2-workshop-key.html#tibblesdata-frames",
+    "title": "Workshop 2: Instructor Answer Key",
+    "section": "Tibbles/data frames",
+    "text": "Tibbles/data frames\n\nExercise 1\n\nlibrary(tibble)\n\ntree_survey &lt;- tibble(\n  species = c(\"Quercus alba\", \"Acer saccharum\", \"Pinus strobus\", \"Quercus rubra\", \"Betula alleghaniensis\"),\n  dbh_cm = c(12.4, 28.1, 8.5, 42.0, 19.3),\n  basal_area_m2 = (pi * (dbh_cm / 2)^2) / 10000\n)\n\ntree_survey\n\n\n\nExercise 2\n\ndf_bees &lt;- data.frame(site = c(\"A\", \"B\", \"C\"), parasite_load = c(0, 14, 3))\ntbl_bees &lt;- as_tibble(df_bees)\n\ndf_subset_class &lt;- class(df_bees[, \"parasite_load\"])\ntbl_subset_class &lt;- class(tbl_bees[, \"parasite_load\"])\n\ndf_subset_class\n# [1] \"numeric\"\n\ntbl_subset_class\n# [1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n\n\nExercise 3\n\ndf_plots &lt;- data.frame(treatment_group = c(\"Control\", \"Burned\", \"Grazed\"), diversity = c(1.2, 2.4, 1.8))\ntbl_plots &lt;- as_tibble(df_plots)\n\ndf_match &lt;- df_plots$treat\ntbl_match &lt;- tbl_plots$treat\n\ndf_match\n# [1] \"Control\" \"Burned\"  \"Grazed\"\n\ntbl_match\n# NULL\n# Warning message: Unknown or uninitialised column: `treat`.\n\n\n\nExercise 4\n\nwater_quality &lt;- data.frame(\n  site_id = paste0(\"Site_\", 1:6),\n  pH = c(6.8, 7.2, 7.1, 6.5, 7.4, 6.9),\n  dissolved_oxygen = c(8.2, 6.4, 7.9, 5.8, 8.0, 7.1)\n)\n\ntop_samples &lt;- water_quality[1:3, ]\nspecific_do &lt;- water_quality[4, \"dissolved_oxygen\"]\npH_sub &lt;- water_quality[2:5, c(\"site_id\", \"pH\")]\n\ntop_samples\nspecific_do\n# [1] 5.8\n\npH_sub\n\n\n\nExercise 5\n\nset.seed(42)\ndf_sweeps &lt;- data.frame(\n  sweep_id = 1:100,\n  sweeps_count = sample(15:50, 100, replace = TRUE),\n  biomass_g = runif(100, 0.5, 12.0)\n)\n\ntbl_sweeps &lt;- as_tibble(df_sweeps)\nprint(tbl_sweeps)\n# # A tibble: 100 × 3\n#    sweep_id sweeps_count biomass_g\n#       &lt;int&gt;        &lt;int&gt;     &lt;dbl&gt;\n#  1        1           48      9.51\n#  2        2           47     10.5 \n#  3        3           25      5.70\n#  4        4           45      3.38\n#  5        5           38      1.80\n#  6        6           33     11.1 \n#  7        7           41      5.57\n#  8        8           40      4.98\n#  9        9           34      8.72\n# 10       10           40      1.19\n# # ℹ 90 more rows"
+  },
+  {
+    "objectID": "workshop/w2-workshop-key.html#code-style",
+    "href": "workshop/w2-workshop-key.html#code-style",
+    "title": "Workshop 2: Instructor Answer Key",
+    "section": "Code Style",
+    "text": "Code Style\nKey Style Violations for Students to Fix\n* Variable Names: Replaced non-descriptive (T, x, T_2), camelCase (MeanCount, FinalData), and mixed Camel_Snake_Case (Filter_Data_fn) with clean snake_case. Overwrote the reserved logical T.\n\n* Spacing around operators: Added spaces around assignment (&lt;-, =) and mathematical operators (+, -, /, %&gt;%, ==).\n\n* Indentation and Line Breaks: Cleaned up crammed curly braces {} and functions squeezed onto single lines with semicolons ;.\n\n* Pipes & Long Lines: Split long tidyverse pipelines and ggplot layers across multiple lines (keeping lines under 80 characters) with operators placed at the end of lines.\n\n* Commas: Ensured a single space follows all commas (c(x, y) not c(x,y)).\n\nlibrary(tidyverse)\n\n# Load raw field sampling data\nfield_data &lt;- read.csv(\"field_sampling_data.csv\")\n\n# Filter for active observations\nactive_data &lt;- field_data[field_data$count &gt; 0, ]\n\nmean_count &lt;- mean(active_data$count)\n\n# Filter site data and calculate standardized counts\nfilter_site_data &lt;- function(df, species_name, site_name) {\n  if (species_name %in% df$species) {\n    df_sub &lt;- df[df$species == species_name & df$site == site_name, ]\n    df_sub$count_scaled &lt;- (df_sub$count - mean_count) / sd(df_sub$count)\n    return(df_sub)\n  } else {\n    print(\"Species not found in this site!\")\n    return(NULL)\n  }\n}\n\nfinal_data &lt;- filter_site_data(active_data, \"Apis mellifera\", \"Site_A\")\n\n# Summarize species totals\nsite_summary &lt;- final_data %&gt;%\n  group_by(species, site) %&gt;%\n  summarize(\n    total = sum(count),\n    mean_scaled = mean(count_scaled),\n    sd_scaled = sd(count_scaled)\n  ) %&gt;%\n  filter(total &gt; 10)\n\n# Plot raw vs. scaled counts\nggplot(final_data, aes(x = count, \n                       y = count_scaled, \n                       color = species)) +\n  geom_point() +\n  theme_bw()"
+  },
+  {
+    "objectID": "content/w3-content.html",
+    "href": "content/w3-content.html",
+    "title": "Week 3",
+    "section": "",
+    "text": "Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2\n\n\n\n\n\n Happy Git with R by Jennifer Bryan\n R for the Rest of Us: How to use git and github with R\n\n\n\n\n\n\nWhat is git and version control more broadly?\nWhy should we use version control vs “easier” methods (i.e., file naming)\nHow do we initialize a git repo and track file changes?\nWhat are the basic git functions that we need to know for our work flows?\n\n\n\n\n Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
+    ]
+  },
+  {
+    "objectID": "content/w3-content.html#readings",
+    "href": "content/w3-content.html#readings",
+    "title": "Week 3",
+    "section": "",
+    "text": "Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2\n\n\n\n\n\n Happy Git with R by Jennifer Bryan\n R for the Rest of Us: How to use git and github with R",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
+    ]
+  },
+  {
+    "objectID": "content/w3-content.html#questions-well-address-this-week",
+    "href": "content/w3-content.html#questions-well-address-this-week",
+    "title": "Week 3",
+    "section": "",
+    "text": "What is git and version control more broadly?\nWhy should we use version control vs “easier” methods (i.e., file naming)\nHow do we initialize a git repo and track file changes?\nWhat are the basic git functions that we need to know for our work flows?",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
+    ]
+  },
+  {
+    "objectID": "content/w3-content.html#slides",
+    "href": "content/w3-content.html#slides",
+    "title": "Week 3",
+    "section": "",
+    "text": "Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
+    ]
+  },
+  {
+    "objectID": "content/slides/w3-slides.html#what-well-cover-this-week",
+    "href": "content/slides/w3-slides.html#what-well-cover-this-week",
+    "title": "Week 3",
+    "section": "What we’ll cover this week",
+    "text": "What we’ll cover this week\n\n\n What is Git and version control?\n\n\n\n\n Why use Git over “easier” methods?"
+  },
+  {
+    "objectID": "content/w3-content.html#what-is-git",
+    "href": "content/w3-content.html#what-is-git",
+    "title": "Week 3",
+    "section": "What is Git?",
+    "text": "What is Git?",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
+    ]
+  },
+  {
+    "objectID": "content/w3-content.html#but-cant-we-justkeep-a-bunch-of-different-files",
+    "href": "content/w3-content.html#but-cant-we-justkeep-a-bunch-of-different-files",
+    "title": "Week 3",
+    "section": "But can’t we just…keep a bunch of different files?",
+    "text": "But can’t we just…keep a bunch of different files?",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
+    ]
+  },
+  {
+    "objectID": "content/w3-content.html#lets-git-started",
+    "href": "content/w3-content.html#lets-git-started",
+    "title": "Week 3",
+    "section": "Let’s Git started",
+    "text": "Let’s Git started\n\nInitializing a git repo\n\n\nTracking file changes\n\n\nBut not those! .gitignore files",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
+    ]
+  },
+  {
+    "objectID": "content/w3-content.html#committing-your-work",
+    "href": "content/w3-content.html#committing-your-work",
+    "title": "Week 3",
+    "section": "Committing your work",
+    "text": "Committing your work",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html",
+    "href": "content/w4-content.html",
+    "title": "Week 4",
+    "section": "",
+    "text": "Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2\n Braga, P. H. P., et al., (2023). Not just for programmers: How GitHub can accelerate collaborative and reproducible research in ecology and evolution. Methods in Ecology and Evolution, 14, 1364–1380\n\n\n\n\n\n Happy Git with R by Jennifer Bryan\n R for the Rest of Us: How to use git and github with R\n\n\n\n\n\n\nGit, GitHub? What’s the difference?\nHow do we link our local git commits to GitHub?\nWhat does a daily workflow using git/GitHub look like?\nHow will we use GitHub for to submit/peer review our workshop reports?\nIf we have time, what other fancy things can we do with GitHub?\n\n\n\n\n Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#readings",
+    "href": "content/w4-content.html#readings",
+    "title": "Week 4",
+    "section": "",
+    "text": "Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2\n Braga, P. H. P., et al., (2023). Not just for programmers: How GitHub can accelerate collaborative and reproducible research in ecology and evolution. Methods in Ecology and Evolution, 14, 1364–1380\n\n\n\n\n\n Happy Git with R by Jennifer Bryan\n R for the Rest of Us: How to use git and github with R",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#questions-well-address-this-week",
+    "href": "content/w4-content.html#questions-well-address-this-week",
+    "title": "Week 4",
+    "section": "",
+    "text": "Git, GitHub? What’s the difference?\nHow do we link our local git commits to GitHub?\nWhat does a daily workflow using git/GitHub look like?\nHow will we use GitHub for to submit/peer review our workshop reports?\nIf we have time, what other fancy things can we do with GitHub?",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#slides",
+    "href": "content/w4-content.html#slides",
+    "title": "Week 4",
+    "section": "",
+    "text": "Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#git-github-whats-the-difference",
+    "href": "content/w4-content.html#git-github-whats-the-difference",
+    "title": "Week 4",
+    "section": "Git, GitHub? What’s the difference?",
+    "text": "Git, GitHub? What’s the difference?",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#getting-github-setup",
+    "href": "content/w4-content.html#getting-github-setup",
+    "title": "Week 4",
+    "section": "Getting GitHub setup",
+    "text": "Getting GitHub setup\n\nGetting an account\n\n\nPersonal access token\n\n\nConnecting git project to GitHub",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#the-daily-worksflow",
+    "href": "content/w4-content.html#the-daily-worksflow",
+    "title": "Week 4",
+    "section": "The daily worksflow",
+    "text": "The daily worksflow",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#using-github-for-our-workshop-reports",
+    "href": "content/w4-content.html#using-github-for-our-workshop-reports",
+    "title": "Week 4",
+    "section": "Using GitHub for our workshop reports",
+    "text": "Using GitHub for our workshop reports\n\nComplete your work in a .qmd document or .r script (preferebly the former)\nCommit your work and push it to your course GitHub repository\nWithin your personal course repo, open an issue labeled using the following format: week1_lastname_firstname.\n\nInside the issue, paste your most recent commit SHA\nPaste the link to file to be reviewed\nTag (@) your assigned code peer reviewer\n\nComplete your assigned peer reviews\nJeremy provides additional feedback/suggestions, assigns grades, and closes the issues",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#other-fanciness",
+    "href": "content/w4-content.html#other-fanciness",
+    "title": "Week 4",
+    "section": "Other fanciness 💅",
+    "text": "Other fanciness 💅",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#the-daily-workflow",
+    "href": "content/w4-content.html#the-daily-workflow",
+    "title": "Week 4",
+    "section": "The daily workflow",
+    "text": "The daily workflow",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#the-daily-workflow-using-gitgithub",
+    "href": "content/w4-content.html#the-daily-workflow-using-gitgithub",
+    "title": "Week 4",
+    "section": "The daily workflow using Git/GitHub",
+    "text": "The daily workflow using Git/GitHub",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
     ]
   }
 ]

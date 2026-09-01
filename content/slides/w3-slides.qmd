@@ -1,0 +1,45 @@
+---
+title: "Week 3"
+subtitle: "Go on, Git!"
+editor:
+  mode: source
+format:
+  revealjs: 
+    # center-title-slide: false
+    output-file: w3-slides.html
+    theme: ["simple", "slide_styles/slide-styles.scss"]
+    # navigation-mode: vertical
+    smaller: true
+    slide-number: c/t
+    chalkboard: 
+      buttons: true
+    preview-links: auto
+    auto-stretch: false
+    transition: fade
+    transition-speed: slow
+    logo: /media/ent-3927-header.png
+    css: ["default", "slide_styles/slide-styles.scss"]
+    # footer: '[https://jhemberger.github.io/entomology-5126/](https://jhemberger.github.io/entomology-5126/)'
+---
+
+# Welcome!
+
+## What we'll cover this week {.smaller}
+
+. . .
+
+::: box-1-list
+[<i class="fa-brands fa-git-alt"></i>]{.margin-1} What is Git and version control?
+:::
+
+. . .
+
+::: box-2-list
+[{{< fa clipboard-list >}}]{.margin-1} Why use Git over "easier" methods?
+:::
+
+
+# WTF is Git? {.bkrd-color-1}
+
+
+# Why use Git over "easier" methods? {.bkrd-color-2}

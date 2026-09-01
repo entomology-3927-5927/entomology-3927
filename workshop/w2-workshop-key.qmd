@@ -6,7 +6,7 @@ date: last-modified
 date-format: long
 engine: knitr
 format:
-  live-html:
+  html:
     theme: 
     - ../styles.scss
     highlight-style: ayu
@@ -14,7 +14,7 @@ format:
 
 ## Vectors
 ### Exercise 1
-```{r}
+```{r eval=FALSE}
 species <- c("Apis mellifera", "Bombus impatiens", "Osmia lignaria")
 individual_counts <- c(12, 45, 8)
 survey_data <- c(species, individual_counts)
@@ -23,7 +23,7 @@ class(survey_data)
 ```
 
 ### Exercise 2
-```{r}
+```{r eval=FALSE}
 dry_weight_mg <- c(120, 340, 85, 510, 230, 410)
 dry_weight_g <- dry_weight_mg / 1000
 net_mass_g <- dry_weight_g - c(0.005, 0.008)
@@ -32,7 +32,7 @@ net_mass_g
 ```
 
 ### Exercise 3
-```{r}
+```{r eval=FALSE}
 stem_density <- c(145, 212, 88, 304, 199, 250, 180, 218)
 dense_even_plots <- stem_density[stem_density > 200 & stem_density %% 2 == 0]
 dense_even_plots
@@ -40,7 +40,7 @@ dense_even_plots
 ```
 
 ### Exercise 4
-```{r}
+```{r eval=FALSE}
 soil_moisture <- c(0.24, NA, 0.31, 0.19, NA, 0.28, 0.22)
 mean_moisture <- mean(soil_moisture, na.rm = TRUE)
 soil_moisture[is.na(soil_moisture)] <- mean_moisture
@@ -49,7 +49,7 @@ soil_moisture
 ```
 
 ### Exercise 5
-```{r}
+```{r eval=FALSE} 
 shannon_index <- c(Site_A = 1.82, Site_B = 2.45, Site_C = 1.31, Site_D = 2.89, Site_E = 2.10, Ctrl_1 = 0.45, Ctrl_2 = 0.62)
 target_sites <- shannon_index[c("Site_B", "Site_D")]
 intact_sites <- shannon_index[-c(6, 7)]
@@ -66,7 +66,7 @@ intact_sites
 
 ## Lists
 ### Exercise 1
-```{r}
+```{r eval=FALSE}
 site_data <- list(
   site_id = "MN_BEE_01",
   species = c("Lasioglossum vierecki", "Bombus vagans", "Ceratina dupla", "Agapostemon virescens"),
@@ -84,7 +84,7 @@ third_species
 ```
 
 ### Exercise 2
-```{r}
+```{r eval=FALSE}
 trap_counts <- list(
   Prairie = c(12, 18, 25, 9),
   Forest_Edge = c(5, 8, 3, 11, 4),
@@ -101,7 +101,7 @@ site_totals
 
 ### Exercise 3
 
-```{r}
+```{r eval=FALSE}
 pollinator_obs <- list(
   bees = c(45, 32),
   flies = c(12, 19)
@@ -124,7 +124,7 @@ pollinator_obs
 ## Tibbles/data frames
 ### Exercise 1
 
-```{r}
+```{r eval=FALSE}
 library(tibble)
 
 tree_survey <- tibble(
@@ -138,7 +138,7 @@ tree_survey
 
 ### Exercise 2
 
-```{r}
+```{r eval=FALSE}
 df_bees <- data.frame(site = c("A", "B", "C"), parasite_load = c(0, 14, 3))
 tbl_bees <- as_tibble(df_bees)
 
@@ -154,7 +154,7 @@ tbl_subset_class
 
 ### Exercise 3
 
-```{r}
+```{r eval=FALSE}
 df_plots <- data.frame(treatment_group = c("Control", "Burned", "Grazed"), diversity = c(1.2, 2.4, 1.8))
 tbl_plots <- as_tibble(df_plots)
 
@@ -171,7 +171,7 @@ tbl_match
 
 ### Exercise 4
 
-```{r}
+```{r eval=FALSE}
 water_quality <- data.frame(
   site_id = paste0("Site_", 1:6),
   pH = c(6.8, 7.2, 7.1, 6.5, 7.4, 6.9),
@@ -190,7 +190,7 @@ pH_sub
 ```
 
 ### Exercise 5
-```{r}
+```{r eval=FALSE}
 set.seed(42)
 df_sweeps <- data.frame(
   sweep_id = 1:100,
@@ -229,7 +229,7 @@ Key Style Violations for Students to Fix
 
     * Commas: Ensured a single space follows all commas (c(x, y) not c(x,y)).
 
-```{r}
+```{r eval=FALSE}
 library(tidyverse)
 
 # Load raw field sampling data

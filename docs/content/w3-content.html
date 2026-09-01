@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jeremy Hemberger">
+<meta name="dcterms.date" content="2026-09-01">
 
-<title>w3-content – Entomology 3927/5927</title>
+<title>Week 3 – Entomology 3927/5927</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -43,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2baf9616dcd62a487e8517e630363ef5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8e27d02d7e9ddeb70974f9e6cee4b5cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8ffc782f5f82527440da89487711ca4e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -117,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../resources.html"> 
-<span class="menu-text">resources.html</span></a>
+<span class="menu-text">Resources</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -188,13 +190,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/w1-content.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 1: Intro to data science and R</span></a>
+ <span class="menu-text">Week 1: Intro to data science and R: Project organization, RStudio, your ‘devenv’</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/w2-content.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 2: Project organization, RStudio, your ‘devenv’</span></a>
+ <span class="menu-text">Week 2: Data structures, objects, code style, etc</span></a>
   </div>
 </li>
       </ul>
@@ -310,17 +312,132 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-git" id="toc-what-is-git" class="nav-link active" data-scroll-target="#what-is-git">What is Git?</a></li>
+  <li><a href="#but-cant-we-justkeep-a-bunch-of-different-files" id="toc-but-cant-we-justkeep-a-bunch-of-different-files" class="nav-link" data-scroll-target="#but-cant-we-justkeep-a-bunch-of-different-files">But can’t we just…keep a bunch of different files?</a></li>
+  <li><a href="#lets-git-started" id="toc-lets-git-started" class="nav-link" data-scroll-target="#lets-git-started">Let’s Git started</a>
+  <ul class="collapse">
+  <li><a href="#initializing-a-git-repo" id="toc-initializing-a-git-repo" class="nav-link" data-scroll-target="#initializing-a-git-repo">Initializing a git repo</a></li>
+  <li><a href="#tracking-file-changes" id="toc-tracking-file-changes" class="nav-link" data-scroll-target="#tracking-file-changes">Tracking file changes</a></li>
+  <li><a href="#but-not-those-.gitignore-files" id="toc-but-not-those-.gitignore-files" class="nav-link" data-scroll-target="#but-not-those-.gitignore-files">But not those! <code>.gitignore</code> files</a></li>
+  </ul></li>
+  <li><a href="#committing-your-work" id="toc-committing-your-work" class="nav-link" data-scroll-target="#committing-your-work"><code>Commit</code>ting your work</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w3-content.html">Module 2: Git and GitHub fundamentals</a></li><li class="breadcrumb-item"><a href="../content/w3-content.html">Week 3: Go on, Git!</a></li></ol></nav></header>
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w3-content.html">Module 2: Git and GitHub fundamentals</a></li><li class="breadcrumb-item"><a href="../content/w3-content.html">Week 3: Go on, Git!</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Week 3</h1>
+<p class="subtitle lead">Go on, Git!</p>
+</div>
 
 
 
+<div class="quarto-title-meta column-body">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeremy Hemberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 1, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<div class="content-callout1">
+<section id="readings" class="level2">
+<h2 class="anchored" data-anchor-id="readings">Readings</h2>
+<section id="suggested-papers" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-papers">Suggested papers</h3>
+<ul>
+<li><a href="https://peerj.com/preprints/3159v2/">Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2</a></li>
+</ul>
+</section>
+<section id="onlineoptional-extras" class="level3">
+<h3 class="anchored" data-anchor-id="onlineoptional-extras">Online/optional extras</h3>
+<ul>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://happygitwithr.com/">Happy Git with R by Jennifer Bryan</a></li>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r">R for the Rest of Us: How to use git and github with R</a></li>
+</ul>
+</section>
+</section>
+<section id="questions-well-address-this-week" class="level2">
+<h2 class="anchored" data-anchor-id="questions-well-address-this-week">Questions we’ll address this week</h2>
+<ol type="1">
+<li>What is git and version control more broadly?</li>
+<li>Why should we use version control vs “easier” methods (i.e., file naming)</li>
+<li>How do we initialize a git repo and track file changes?</li>
+<li>What are the basic git functions that we need to know for our work flows?</li>
+</ol>
+</section>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<p><a href="slides/w3-slides.html" class="btn btn-primary" role="button"><i class="fa-solid fa-up-right-from-square" aria-label="up-right-from-square"></i> Open slides in full screen mode</a> <a href="slides/w3-slides.html?print-pdf" class="btn btn-primary" role="button"><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> Download slides as a PDF</a></p>
+<iframe src="slides/w3-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
+</iframe>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Tip</strong>: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.</p>
+</div>
+</div>
+</section>
+</div>
+<p><br></p>
+<section id="what-is-git" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-git">What is Git?</h2>
+</section>
+<section id="but-cant-we-justkeep-a-bunch-of-different-files" class="level2">
+<h2 class="anchored" data-anchor-id="but-cant-we-justkeep-a-bunch-of-different-files">But can’t we just…keep a bunch of different files?</h2>
+</section>
+<section id="lets-git-started" class="level2">
+<h2 class="anchored" data-anchor-id="lets-git-started">Let’s Git started</h2>
+<section id="initializing-a-git-repo" class="level3">
+<h3 class="anchored" data-anchor-id="initializing-a-git-repo">Initializing a git repo</h3>
+</section>
+<section id="tracking-file-changes" class="level3">
+<h3 class="anchored" data-anchor-id="tracking-file-changes">Tracking file changes</h3>
+</section>
+<section id="but-not-those-.gitignore-files" class="level3">
+<h3 class="anchored" data-anchor-id="but-not-those-.gitignore-files">But not those! <code>.gitignore</code> files</h3>
+</section>
+</section>
+<section id="committing-your-work" class="level2">
+<h2 class="anchored" data-anchor-id="committing-your-work"><code>Commit</code>ting your work</h2>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,0 +1,59 @@
+---
+title: "Week 3"
+subtitle: "Go on, Git!"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+format:
+  html:
+    theme: ../styles.scss
+---
+
+:::{.content-callout1}
+## Readings
+### Suggested papers
+- {{< fa file-pdf >}} [Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2](content_media/w3/peerj-preprints-3159.pdf)
+
+### Online/optional extras
+-   {{< fa file-code >}} [Happy Git with R by Jennifer Bryan ](https://happygitwithr.com/)
+-   {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
+
+## Questions we'll address this week
+1. What is git and version control more broadly?
+2. Why should we use version control vs "easier" methods (i.e., file naming)
+3. How do we initialize a git repo and track file changes?
+4. What are the basic git functions that we need to know for our work flows?
+
+## Slides
+
+[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w3-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w3-slides.html?print-pdf){.btn .btn-primary role="button"} 
+
+<iframe src="slides/w3-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
+
+</iframe>
+
+::: callout-tip
+**Tip**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
+:::
+:::
+
+</br>
+
+## What is Git?
+
+
+## But can't we just...keep a bunch of different files?
+
+
+## Let's Git started
+### Initializing a git repo
+
+### Tracking file changes
+
+### But not those! `.gitignore` files
+
+
+## `Commit`ting your work
+
+
+## 

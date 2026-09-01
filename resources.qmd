@@ -5,20 +5,24 @@ toc: true
 page-layout: full
 ---
 
-::: box-3-list
-Below, you'll find an ever-growing list of resources for learning and using R for data science. These include many of the resources that I have used help design and teach this class, and much more in-depth treatises of topics that we briefly cover in this survey course. 
+:::{.content-callout1}
+Below, you'll find an ever-growing list of resources for learning and using R for data science. These include many of the resources that I have used help design and teach this class, and much more in-depth treatises of topics that we briefly cover in this survey course.
 :::
+
+</br>
 
 ## Other courses at UMN that I recommend
 
 ## Books on data science
 
 ## Websites
+
 ### Learning R
+
+- [R Studio/Positron cheat sheets for various packages](https://opensource.posit.co/resources/cheatsheets/)
 
 ### Git and GitHub
 
 ### Data visualization
 
 ### Learning Quarto for reports and web pages
-

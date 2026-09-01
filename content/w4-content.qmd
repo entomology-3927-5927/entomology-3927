@@ -1,0 +1,66 @@
+---
+title: "Week 4"
+subtitle: "Go on, Git it onto GitHub"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+format:
+  html:
+    theme: ../styles.scss
+---
+
+:::{.content-callout1}
+## Readings
+### Suggested papers
+- {{< fa file-pdf >}} [Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2](content_media/w3/peerj-preprints-3159.pdf)
+- {{< fa file-pdf >}} [Braga, P. H. P., et al., (2023). Not just for programmers: How GitHub can accelerate collaborative and reproducible research in ecology and evolution. Methods in Ecology and Evolution, 14, 1364–1380](content_media/w4/Methods Ecol Evol - 2023 - Braga - Not just for programmers How GitHub can accelerate collaborative and reproducible.pdf)
+
+### Online/optional extras
+-   {{< fa file-code >}} [Happy Git with R by Jennifer Bryan ](https://happygitwithr.com/)
+-   {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
+
+## Questions we'll address this week
+1. Git, GitHub? What's the difference?
+2. How do we link our local git commits to GitHub?
+3. What does a daily workflow using git/GitHub look like?
+4. How will we use GitHub for to submit/peer review our workshop reports?
+5. If we have time, what other fancy things can we do with GitHub?
+
+## Slides
+
+[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w4-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w4-slides.html?print-pdf){.btn .btn-primary role="button"} 
+
+<iframe src="slides/w4-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
+
+</iframe>
+
+::: callout-tip
+**Tip**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
+:::
+:::
+
+</br>
+
+## Git, GitHub? What's the difference?
+
+## Getting GitHub setup
+### Getting an account
+
+### Personal access token
+
+### Connecting git project to GitHub
+
+## The daily workflow using Git/GitHub
+
+## Using GitHub for our workshop reports
+
+1. Complete your work in a `.qmd` document or `.r` script (preferebly the former)
+2. Commit your work and push it to your course GitHub repository
+3. Within your personal course repo, open an issue labeled using the following format: `week1_lastname_firstname`. 
+     - Inside the issue, paste your most recent commit SHA
+     - Paste the link to file to be reviewed
+     - Tag (@) your assigned code peer reviewer
+4. Complete your assigned peer reviews
+5. Jeremy provides additional feedback/suggestions, assigns grades, and closes the issues
+
+## Other fanciness 💅
