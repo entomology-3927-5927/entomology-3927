@@ -5,7 +5,7 @@ toc: true
 page-layout: full
 ---
 
-:::{.content-callout1}
+::: content-callout1
 Description Researchers are typically well-trained in the theory and practice of their chosen specialty, from developing questions to designing experiments and collecting data, as well as analyzing those data using statistical methods. However, the practice of working with and managing data to produce repeatable analyses is a critical skillset that is often not formally trained, despite how critical it is to ensure transparency and meet open science practices.
 
 ***This course is focused on providing hands-on experience in accessing, manipulating, managing, visualizing and communicating data using Open Science principles***. Students will encounter the entire data life cycle from generation to preservation in the context of biological and ecological research. Students will be expected to complete assignments using their own data or other available datasets. It is a topic-driven weekly seminar (14 sessions at \~2h each), combining small amounts of lecture with problem solving and hands-on exercises.

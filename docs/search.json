@@ -147,63 +147,99 @@
     "text": "Important links\n Canvas Site\n Class Github"
   },
   {
-    "objectID": "content/index.html",
-    "href": "content/index.html",
-    "title": "Overview of lectures and lecture material",
+    "objectID": "content/w3-content.html",
+    "href": "content/w3-content.html",
+    "title": "Week 3",
     "section": "",
-    "text": "Each week…",
+    "text": "Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2\n\n\n\n\n\n Happy Git with R by Jennifer Bryan\n R for the Rest of Us: How to use git and github with R\n\n\n\n\n\n\nWhat is git and version control more broadly?\nWhy should we use version control vs “easier” methods (i.e., file naming)\nHow do we initialize a git repo and track file changes?\nWhat are the basic git functions that we need to know for our work flows?\n\n\n\n\n Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
     "crumbs": [
       "Content",
-      "Overview",
-      "Overview of lectures and lecture material"
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
     ]
   },
   {
-    "objectID": "content/w1-content.html",
-    "href": "content/w1-content.html",
-    "title": "Week 1",
+    "objectID": "content/w3-content.html#readings",
+    "href": "content/w3-content.html#readings",
+    "title": "Week 3",
     "section": "",
-    "text": "R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 6: Workflow: Scripts and Projects\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 8: Workflow: Getting Help\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 28: Quarto\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 29: Quarto Formats\n\n\n\n\n\n Buckley, Y. M. et al. Using dynamic documents to mend cracks in the reproducible research pipeline. J. Ecol. 113, 270–274 (2025)\n Fraser, H., Barnett, A., Parker, T. H. & Fidler, F. The role of replication studies in ecology. Ecol. Evol. 10, 5197–5207 (2020)\n Kelly, C. D. Rate and success of study replication in ecology and evolution. PeerJ 7, e7654 (2019)\n Filazzola, A. & Cahill, J. F. Replication in field ecology: Identifying challenges and proposing solutions. Methods Ecol. Evol. 12, 1780–1792 (2021)\n\n\n\n\n\n\nWhat is data science?\nHow does data science differ from statistics?\nWhat is the reproducibility crisis, where do issues arise, and how will we address them in this class?\nWhat are FAIR data?\n\n\n\n\n Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "text": "Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2\n\n\n\n\n\n Happy Git with R by Jennifer Bryan\n R for the Rest of Us: How to use git and github with R",
     "crumbs": [
       "Content",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to data science and R: Project organization, RStudio, your 'devenv'"
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
     ]
   },
   {
-    "objectID": "content/w1-content.html#readings",
-    "href": "content/w1-content.html#readings",
-    "title": "Week 1",
+    "objectID": "content/w3-content.html#questions-well-address-this-week",
+    "href": "content/w3-content.html#questions-well-address-this-week",
+    "title": "Week 3",
     "section": "",
-    "text": "R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 6: Workflow: Scripts and Projects\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 8: Workflow: Getting Help\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 28: Quarto\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 29: Quarto Formats\n\n\n\n\n\n Buckley, Y. M. et al. Using dynamic documents to mend cracks in the reproducible research pipeline. J. Ecol. 113, 270–274 (2025)\n Fraser, H., Barnett, A., Parker, T. H. & Fidler, F. The role of replication studies in ecology. Ecol. Evol. 10, 5197–5207 (2020)\n Kelly, C. D. Rate and success of study replication in ecology and evolution. PeerJ 7, e7654 (2019)\n Filazzola, A. & Cahill, J. F. Replication in field ecology: Identifying challenges and proposing solutions. Methods Ecol. Evol. 12, 1780–1792 (2021)",
+    "text": "What is git and version control more broadly?\nWhy should we use version control vs “easier” methods (i.e., file naming)\nHow do we initialize a git repo and track file changes?\nWhat are the basic git functions that we need to know for our work flows?",
     "crumbs": [
       "Content",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to data science and R: Project organization, RStudio, your 'devenv'"
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
     ]
   },
   {
-    "objectID": "content/w1-content.html#questions-well-address-this-week",
-    "href": "content/w1-content.html#questions-well-address-this-week",
-    "title": "Week 1",
-    "section": "",
-    "text": "What is data science?\nHow does data science differ from statistics?\nWhat is the reproducibility crisis, where do issues arise, and how will we address them in this class?\nWhat are FAIR data?",
-    "crumbs": [
-      "Content",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to data science and R: Project organization, RStudio, your 'devenv'"
-    ]
-  },
-  {
-    "objectID": "content/w1-content.html#slides",
-    "href": "content/w1-content.html#slides",
-    "title": "Week 1",
+    "objectID": "content/w3-content.html#slides",
+    "href": "content/w3-content.html#slides",
+    "title": "Week 3",
     "section": "",
     "text": "Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
     "crumbs": [
       "Content",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to data science and R: Project organization, RStudio, your 'devenv'"
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
+    ]
+  },
+  {
+    "objectID": "content/w3-content.html#what-is-git",
+    "href": "content/w3-content.html#what-is-git",
+    "title": "Week 3",
+    "section": "What is Git?",
+    "text": "What is Git?",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
+    ]
+  },
+  {
+    "objectID": "content/w3-content.html#but-cant-we-justkeep-a-bunch-of-different-files",
+    "href": "content/w3-content.html#but-cant-we-justkeep-a-bunch-of-different-files",
+    "title": "Week 3",
+    "section": "But can’t we just…keep a bunch of different files?",
+    "text": "But can’t we just…keep a bunch of different files?",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
+    ]
+  },
+  {
+    "objectID": "content/w3-content.html#lets-git-started",
+    "href": "content/w3-content.html#lets-git-started",
+    "title": "Week 3",
+    "section": "Let’s Git started",
+    "text": "Let’s Git started\n\nInitializing a git repo\n\n\nTracking file changes\n\n\nBut not those! .gitignore files",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
+    ]
+  },
+  {
+    "objectID": "content/w3-content.html#committing-your-work",
+    "href": "content/w3-content.html#committing-your-work",
+    "title": "Week 3",
+    "section": "Committing your work",
+    "text": "Committing your work",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 3: Go on, Git!"
     ]
   },
   {
@@ -277,39 +313,6 @@
     "text": "Working with data has historically been the most opaque\n\n\nUntil the decade, the management, wrangling, analysis, and presentation of experimental or observational data has been the least reproducible/documented part of the science we do\n\n\n\n\n The details of how we did our experiments was often the focus of our published methods. Even today that’s still the case, even though many aspects of the experimental conditions in natural settings are totally outside of our control."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "content/content-index.html",
-    "href": "content/content-index.html",
-    "title": "Overview of lectures and lecture material",
-    "section": "",
-    "text": "Each week the content will be structured with the same headings to provide you with the material needed. The first section (outlined in yellow) will contain the Readings, Questions, and Slides for the week, followed by the online content of the learning & workshop material.\n\nReadings: required and optional readings that are pertinent to the topic covered that week. These will include primary literature, book chapters, websites, and other tidbits that I think provide a solid foundation on the skill sets that we cover each week.\nQuestions: these will be the motivating questions that guide each week’s materials; by the end of the class/workshop for that week, you should be able to answer these and/or use the developed skills to accomplish a certain set of tasks.\nSlides: these are the slides that I will use for the brief mini-lectures for each week for your reference.\n\n\n Download Webpage as PDF",
-    "crumbs": [
-      "Content",
-      "Overview",
-      "Overview of lectures and lecture material"
-    ]
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#the-data-life-cycle",
-    "href": "content/slides/w1-slides.html#the-data-life-cycle",
-    "title": "Week 1",
-    "section": "The data life cycle",
-    "text": "The data life cycle"
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#well-be-learning-tools-and-concepts-that-enable-us-to-establish-repeatable-rules-based-workflows-that-ensure-anyone-who-gets-access-to-our-datacode-will-be-able-to-arrive-at-the-same-outputanswer.",
-    "href": "content/slides/w1-slides.html#well-be-learning-tools-and-concepts-that-enable-us-to-establish-repeatable-rules-based-workflows-that-ensure-anyone-who-gets-access-to-our-datacode-will-be-able-to-arrive-at-the-same-outputanswer.",
-    "title": "Week 1",
-    "section": "We’ll be learning tools and concepts that enable us to establish repeatable, rules-based workflows that ensure anyone who gets access to our data/code will be able to arrive at the same output/answer.",
-    "text": "We’ll be learning tools and concepts that enable us to establish repeatable, rules-based workflows that ensure anyone who gets access to our data/code will be able to arrive at the same output/answer."
-  },
-  {
     "objectID": "content/slides/w1-slides.html#point-n-click-vs.-writing-code",
     "href": "content/slides/w1-slides.html#point-n-click-vs.-writing-code",
     "title": "Week 1",
@@ -324,25 +327,250 @@
     "text": "We’ll be learning tools and concepts that enable us to establish repeatable, rules-based workflows that ensure anyone who gets access to our data/code will be able to arrive at the same output/answer."
   },
   {
-    "objectID": "content/slides/w1-slides.html#wrangling-chaos",
-    "href": "content/slides/w1-slides.html#wrangling-chaos",
+    "objectID": "content/slides/w1-slides.html#the-data-life-cycle",
+    "href": "content/slides/w1-slides.html#the-data-life-cycle",
     "title": "Week 1",
-    "section": "Wrangling chaos ",
-    "text": "Wrangling chaos"
+    "section": "The data life cycle",
+    "text": "The data life cycle"
   },
   {
-    "objectID": "content/slides/w1-slides.html#wrangling-chaos-1",
-    "href": "content/slides/w1-slides.html#wrangling-chaos-1",
-    "title": "Week 1",
-    "section": "Wrangling chaos ",
-    "text": "Wrangling chaos"
+    "objectID": "content/w4-content.html",
+    "href": "content/w4-content.html",
+    "title": "Week 4",
+    "section": "",
+    "text": "Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2\n Braga, P. H. P., et al., (2023). Not just for programmers: How GitHub can accelerate collaborative and reproducible research in ecology and evolution. Methods in Ecology and Evolution, 14, 1364–1380\n\n\n\n\n\n Happy Git with R by Jennifer Bryan\n R for the Rest of Us: How to use git and github with R\n\n\n\n\n\n\nGit, GitHub? What’s the difference?\nHow do we link our local git commits to GitHub?\nWhat does a daily workflow using git/GitHub look like?\nHow will we use GitHub for to submit/peer review our workshop reports?\nIf we have time, what other fancy things can we do with GitHub?\n\n\n\n\n Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
   },
   {
-    "objectID": "content/slides/w1-slides.html#wrangling-chaos-2",
-    "href": "content/slides/w1-slides.html#wrangling-chaos-2",
+    "objectID": "content/w4-content.html#readings",
+    "href": "content/w4-content.html#readings",
+    "title": "Week 4",
+    "section": "",
+    "text": "Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2\n Braga, P. H. P., et al., (2023). Not just for programmers: How GitHub can accelerate collaborative and reproducible research in ecology and evolution. Methods in Ecology and Evolution, 14, 1364–1380\n\n\n\n\n\n Happy Git with R by Jennifer Bryan\n R for the Rest of Us: How to use git and github with R",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#questions-well-address-this-week",
+    "href": "content/w4-content.html#questions-well-address-this-week",
+    "title": "Week 4",
+    "section": "",
+    "text": "Git, GitHub? What’s the difference?\nHow do we link our local git commits to GitHub?\nWhat does a daily workflow using git/GitHub look like?\nHow will we use GitHub for to submit/peer review our workshop reports?\nIf we have time, what other fancy things can we do with GitHub?",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#slides",
+    "href": "content/w4-content.html#slides",
+    "title": "Week 4",
+    "section": "",
+    "text": "Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#git-github-whats-the-difference",
+    "href": "content/w4-content.html#git-github-whats-the-difference",
+    "title": "Week 4",
+    "section": "Git, GitHub? What’s the difference?",
+    "text": "Git, GitHub? What’s the difference?",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#getting-github-setup",
+    "href": "content/w4-content.html#getting-github-setup",
+    "title": "Week 4",
+    "section": "Getting GitHub setup",
+    "text": "Getting GitHub setup\n\nGetting an account\n\n\nPersonal access token\n\n\nConnecting git project to GitHub",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#the-daily-workflow-using-gitgithub",
+    "href": "content/w4-content.html#the-daily-workflow-using-gitgithub",
+    "title": "Week 4",
+    "section": "The daily workflow using Git/GitHub",
+    "text": "The daily workflow using Git/GitHub",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#using-github-for-our-workshop-reports",
+    "href": "content/w4-content.html#using-github-for-our-workshop-reports",
+    "title": "Week 4",
+    "section": "Using GitHub for our workshop reports",
+    "text": "Using GitHub for our workshop reports\n\nComplete your work in a .qmd document or .r script (preferebly the former)\nCommit your work and push it to your course GitHub repository\nWithin your personal course repo, open an issue labeled using the following format: week1_lastname_firstname.\n\nInside the issue, paste your most recent commit SHA\nPaste the link to file to be reviewed\nTag (@) your assigned code peer reviewer\n\nComplete your assigned peer reviews\nJeremy provides additional feedback/suggestions, assigns grades, and closes the issues",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w4-content.html#other-fanciness",
+    "href": "content/w4-content.html#other-fanciness",
+    "title": "Week 4",
+    "section": "Other fanciness 💅",
+    "text": "Other fanciness 💅",
+    "crumbs": [
+      "Content",
+      "Module 2: Git and GitHub fundamentals",
+      "Week 4: Go on, Git it onto GitHub"
+    ]
+  },
+  {
+    "objectID": "content/w2-content.html",
+    "href": "content/w2-content.html",
     "title": "Week 1",
-    "section": "Wrangling chaos ",
-    "text": "Wrangling chaos \n\nThere’s no one single definition of data science, but a broad definition that we can use here is a field of study that uses scientific methods, processes, and systems to extract knowledge and insights from data"
+    "section": "",
+    "text": "R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 2: Workflow: Basics\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 4: Workflow: Code Style\n\n\n\n\n\n\n\n\n\nWhat are the atomic data types in R?\nHow do we create and access data in the fundamental R objects?\nHow should we style our code for maximal readability and accessibility?",
+    "crumbs": [
+      "Content",
+      "Module 1: Introduction to Data Science and R",
+      "Week 2: Data structures, objects, code style, etc"
+    ]
+  },
+  {
+    "objectID": "content/w2-content.html#readings",
+    "href": "content/w2-content.html#readings",
+    "title": "Week 1",
+    "section": "",
+    "text": "R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 2: Workflow: Basics\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 4: Workflow: Code Style",
+    "crumbs": [
+      "Content",
+      "Module 1: Introduction to Data Science and R",
+      "Week 2: Data structures, objects, code style, etc"
+    ]
+  },
+  {
+    "objectID": "content/w2-content.html#questions-well-address-this-week",
+    "href": "content/w2-content.html#questions-well-address-this-week",
+    "title": "Week 1",
+    "section": "",
+    "text": "What are the atomic data types in R?\nHow do we create and access data in the fundamental R objects?\nHow should we style our code for maximal readability and accessibility?",
+    "crumbs": [
+      "Content",
+      "Module 1: Introduction to Data Science and R",
+      "Week 2: Data structures, objects, code style, etc"
+    ]
+  },
+  {
+    "objectID": "content/w2-content.html#tour-de-objects",
+    "href": "content/w2-content.html#tour-de-objects",
+    "title": "Week 1",
+    "section": "Tour de Objects 🚴 🚴 🚴💨",
+    "text": "Tour de Objects 🚴 🚴 🚴💨\nAs we discussed last week, programming in R is all about creating, maniupulating, and operating on objects.\n\nThe atomic data types\nR has 6 basic (“atomic”) vector types, but 4 are most commonly used:\n\n\n\n\n\n\n\n\nType\nDescription\nExamples\n\n\n\n\nLogical\nBoolean values (TRUE / FALSE)\nTRUE, FALSE, T, F\n\n\nNumeric (Double)\nReal numbers (default numeric type)\n3.14, 42.0\n\n\nNumeric (Integer)\nWhole numbers (designated with L)\n42L\n\n\nCharacter\nText strings\n\"hello\", \"camera trap\"\n\n\nComplex / Raw\nImaginary numbers or raw bytes (rare)\n1 + 4i, charToRaw(\"A\")\n\n\n\n\n\n\n\n\n\nTipType Checking\n\n\n\nUse typeof() to check an object’s underlying storage type, and is.* functions (e.g., is.numeric(), is.character()) to test for specific types.\n\n\n\n# Create atomic variables\nmy_numeric   &lt;- 42.5\nmy_integer   &lt;- 42L\nmy_character &lt;- \"iBUG Lab\"\nmy_logical   &lt;- TRUE\n\n# Check types\ntypeof(my_numeric)\n\n[1] \"double\"\n\ntypeof(my_integer)\n\n[1] \"integer\"\n\nis.numeric(my_character)\n\n[1] FALSE\n\n\n\n\nVectors\nA vector is a 1-dimensional collection of elements of the same type (that is, all numeric, character, etc.). We create vectors using the c() function which combines or concatenates elements.\n\nMixing data types in R will perform implicit coercion, which basically means it will convert everything into the most flexible type. The flexibility of objects in R from most to least is: character &gt; double &gt; integer &gt; logical.\nIn R, many functions or operations are vectorized, meaning they will apply math/functions/operations to every element of the vector automatically\n\n\n# Creating a numeric vector\nmy_counts &lt;- c(12, 4, 30, 0)\n\n# Vectorized maths\nmy_counts_doubled &lt;- my_counts * 2\nmy_counts_doubled\n\n[1] 24  8 60  0\n\n# Coercion of data: what do you think this will be converted to?\nmessy_vector &lt;- c(1, \"shikaka\", TRUE)\ntypeof(messy_vector)\n\n[1] \"character\"\n\n\n\n\nLists\nLists are very much like vectors, but they can hold different data types (including things like other lists). You can essentially put anything into them and retain its native data type.\n\nCreated using list()\nWe access elements using single brackets [] (which returns a sub-list) or double brackets [[]] or $ (which extracts the actual object, e.g., another list, character, or vector).\n\n\n# Creating a list\ncamera_traps &lt;- list(\n  site_id = \"SITE-01\",\n  active = TRUE,\n  battery = 88.5,\n  target_species = c(\"affinis\", \"auricomus\", \"impatiens\")\n)\n\n# Exctracting/accessing elements\ncamera_traps$site_id\n\n[1] \"SITE-01\"\n\ncamera_traps[[4]][1] # list element 4, object 1 (i.e., first target species)\n\n[1] \"affinis\"\n\n\nWe can visualize lists using a series of nested boxes, as well as how different subsetting commands grab data from lists:\n\n\n\n\n\n\n\nData frames and tibbles\nMost of us will work with tabular data 90% of the time. Tabular data, that is, a standard excel or Google Sheets file, arranged in a two-dimensional grid of rows and columns, is what most of us are familiar using to aggregate data from experiments and observational studies. When we bring these data into R, we’ll bring them in as data frames. At their core, data frames are essentially lists (each list is a “column”) of equal-length vectors (each vector element is a “row”).\n\n\n\n\n\n\nAccessing data in data frames\nBecause data frames are essentially lists, the manner in which we access data is very similar. We’ll discuss more advanced/modern ways to access data in the coming weeks, but the base R ways to get at data are:\n\nExtract column:\n\nBy name:my_df$col_1 or my_df[, \"col_1\"] or my_df[[\"col_1\"]]\nBy index: my_df[, 1] or my_df[[1]]\n\nExtract row:\n\nmy_df[1, ] (extracts row 1 across all columns)\n\nExtract cell:\n\nmy_df[1, \"col_1\"] or my_df[1, 1]\n\nExtract range:\n\nmy_df[1:5, c(\"col_1\", \"col_2\")]\n\n\n\n\nOk, got data frames ✅, what the hell is a tibble?\nGreat question! A tibble is a type of data frame. But a data frame is not necessarily a tibble! Tibbles are a special type of data frame that belong to the Tidyverse: a series of R packages and a philosophy of data organization and presentation. The developers describe them as: &gt; “Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.”\nThe visualization capacity alone makes them worth using, and they play nicely with all of the other tidyverse packages that we’ll be using throughout this semester. Here are the big advantages of tibbles:\n\nNo unintended vector dropping (drop = FALSE by default): When subsetting a single column in a standard data.frame, base R silently simplifies the output into a 1D vector. A tibble always returns a 2D tibble unless explicitly told otherwise, preventing downstream code breakage in functions expecting tabular data.\n\nlibrary(tibble)\n\n# Base Data Frame\ndf &lt;- data.frame(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(df[, \"a\"]) \n# [1] \"integer\"  &lt;-- Automatically dropped to a vector!\n\n# Tibble\ntbl &lt;- tibble(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(tbl[, \"a\"]) \n# [1] \"tbl_df\" \"tbl\" \"data.frame\"  &lt;-- Remains a 1-column tibble!\n\nNo partial name matching: Base data frames try to guess column names if you make a typo or use shorthand. Tibbles require exact column matching and trigger a warning if a column doesn’t exist, preventing silent logical errors.\n\n# Base Data Frame (Silently matches \"species_name\" via \"$spec\")\ndf &lt;- data.frame(species_name = c(\"affinis\", \"impatiens\"))\ndf$spec\n# [1] \"affinis\" \"impatiens\"  &lt;-- Dangerous!\n\n# Tibble\ntbl &lt;- tibble(species_name = c(\"affinis\", \"impatiens\"))\ntbl$spec\n# NULL\n# Warning message: Unknown or uninitialised column: `spec`.\n\nBetter printing for large datasets: Printing a large data.framecan easily overwhelm your screen by dumping thousands of rows and wrapping dozens of columns. Tibbles automatically truncate output to 10 rows, fit columns to your console width, displays data types for every column, and adds colored text to help elements stand out.\n\nlibrary(tibble)\n# Creating a large-ish dataset\ndf_large  &lt;- data.frame(id = 1:100, x = runif(100), y = rnorm(100))\ntbl_large &lt;- as_tibble(df_large)\n\n# Printing base df floods the console with oodles of lines\nprint(df_large) \n\n     id          x            y\n1     1 0.46492480 -0.314698947\n2     2 0.69466776 -0.265077065\n3     3 0.31185704  1.126193983\n4     4 0.41833945  0.406114406\n5     5 0.32044518 -0.982835332\n6     6 0.67169532  0.111411215\n7     7 0.52864536 -1.714527925\n8     8 0.41561453 -0.832427146\n9     9 0.93387627  1.526734227\n10   10 0.82525953  0.236622665\n11   11 0.66214692 -1.132380580\n12   12 0.79385430 -1.809288837\n13   13 0.18140822  0.795108461\n14   14 0.83741549 -1.409567168\n15   15 0.24545186 -1.137772877\n16   16 0.89650986  1.292559740\n17   17 0.52120540 -1.106367726\n18   18 0.38432478  1.077540321\n19   19 0.92850882  0.043515817\n20   20 0.70357871  1.920972217\n21   21 0.41172948  2.091230473\n22   22 0.41687231 -0.495264566\n23   23 0.23130691 -0.531137261\n24   24 0.91129256 -1.132147347\n25   25 0.06999549 -0.270827220\n26   26 0.69188074  0.051940677\n27   27 0.49222002 -0.222358986\n28   28 0.68506735  0.025999735\n29   29 0.33507584 -0.793910096\n30   30 0.40586948  0.276098489\n31   31 0.04597987  0.955887499\n32   32 0.11424324 -1.023177470\n33   33 0.38502200 -0.573869516\n34   34 0.67209286  0.462881462\n35   35 0.13790929 -1.018582912\n36   36 0.87166114  1.044145185\n37   37 0.10342645 -0.778792542\n38   38 0.24480064  1.127813837\n39   39 0.10090042 -0.098877850\n40   40 0.26040244 -0.229080414\n41   41 0.33374197  0.857401726\n42   42 0.28283951  0.287159304\n43   43 0.76009367  2.419437449\n44   44 0.36967596  1.500185570\n45   45 0.31622943 -0.318389262\n46   46 0.44307578 -0.932713476\n47   47 0.01797240 -0.223537404\n48   48 0.21266070 -1.249047044\n49   49 0.16579352 -0.264505734\n50   50 0.35112107 -1.881009343\n51   51 0.06628302 -1.401066851\n52   52 0.95253105  0.408952321\n53   53 0.96040520  0.044416937\n54   54 0.64379223  1.270998915\n55   55 0.35094773 -0.010889295\n56   56 0.78134891  1.153551237\n57   57 0.99109299 -0.188678808\n58   58 0.03385731 -0.965307251\n59   59 0.10897902  1.214291262\n60   60 0.32750955 -0.077716304\n61   61 0.66878891  0.689625758\n62   62 0.86042697  1.061429618\n63   63 0.66360147  0.811504636\n64   64 0.52191394  1.182532185\n65   65 0.55176146 -1.206982850\n66   66 0.34179566 -0.199146146\n67   67 0.84524579 -2.529540433\n68   68 0.98463354  1.107934013\n69   69 0.62568729 -0.506620999\n70   70 0.73674207  0.628498883\n71   71 0.72858399 -2.439951666\n72   72 0.46862043 -0.662480522\n73   73 0.87048884 -0.794948840\n74   74 0.29552917  0.819517637\n75   75 0.27858479 -0.156690900\n76   76 0.77402081  1.761184700\n77   77 0.99407231  0.037905698\n78   78 0.57832949  0.496641563\n79   79 0.90950169 -1.199705867\n80   80 0.80466847 -0.292076050\n81   81 0.37096022  1.710093794\n82   82 0.71413561 -1.188408672\n83   83 0.18613886 -0.357089742\n84   84 0.99633818 -0.326829973\n85   85 0.55750108  1.073060876\n86   86 0.56024741 -0.496634434\n87   87 0.97130988  0.403607688\n88   88 0.79638452  0.664292529\n89   89 0.92847597  0.888208086\n90   90 0.89671001 -0.318692247\n91   91 0.66402687 -1.049820966\n92   92 0.69141626  0.134572688\n93   93 0.80136689 -0.025306055\n94   94 0.54575707 -0.369526079\n95   95 0.24067037 -0.763363577\n96   96 0.23038891  1.146488316\n97   97 0.02232980 -0.015947737\n98   98 0.45727128  0.002548197\n99   99 0.24864034 -0.701409873\n100 100 0.37342438  1.166442911\n\n# Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)\ntbl_large\n\n# A tibble: 100 × 3\n      id     x      y\n   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;\n 1     1 0.465 -0.315\n 2     2 0.695 -0.265\n 3     3 0.312  1.13 \n 4     4 0.418  0.406\n 5     5 0.320 -0.983\n 6     6 0.672  0.111\n 7     7 0.529 -1.71 \n 8     8 0.416 -0.832\n 9     9 0.934  1.53 \n10    10 0.825  0.237\n# ℹ 90 more rows\n\n\nBetter column construction: When creating a tibble, you can reference variables created earlier in the exact same call. Base data.frame throws an error if you attempt this.\n\n# Works in tibble\ntbl &lt;- tibble(\n  x = 1:5,\n  y = x * 2  # References 'x' immediately\n)\n\n\n\n\n\nFunctions\nFunctions are code objects that perform operations on some input (called arguments) and return some output. As we discussed last week, anything with some word followed by () is a function. R has thousands of built in functions, and packages that we install come with their own sets of functions. We can also create our own! In fact, we’ll spend a whole chunk of a class on this topic as knowing how to do this can save you a ton of time and make fewer mistakes than simply copying and pasting code over and over again.\nAs a quick example, we can create a function to calculate the rate at which we capture images of insects in a camera trap:\n\n# Defining our functions name and what it does\ncalculate_trap_rate &lt;- function(image_count, days_active) {\n  rate &lt;- image_count / days_active\n  return(rate)\n}\n\n# Using the function\ncalculate_trap_rate(image_count = 142, days_active = 7)\n\n[1] 20.28571",
+    "crumbs": [
+      "Content",
+      "Module 1: Introduction to Data Science and R",
+      "Week 2: Data structures, objects, code style, etc"
+    ]
+  },
+  {
+    "objectID": "content/w2-content.html#code-style",
+    "href": "content/w2-content.html#code-style",
+    "title": "Week 1",
+    "section": "Code Style 💃",
+    "text": "Code Style 💃\nStyle is important. But unlike in life, having your “own” style when coding, is not necessarily something to strive for. In this space, style means having code formatting that is predictable and readable. To quote R4DS again… &gt;“Good coding style is like correct punctuation: you can manage without it, butitsuremaesthingseasiertoread.”\nIt isn’t just a tedious exercise to make everything line up and look “pretty”. It legitimately helps both you and others be able to more quickly assess what your code is doing, and spot potential errors. remember, code is instruction to a an extremely inflexible, ridgid computer: they don’t like messy, confusing, and imprescise instructions! There is an implied contract between you and the computer: R will do the crap you don’t want to do provided that you are precise in your instructions.\n\nNaming files, objects\nIn R, object names must start with a letter and can only contain letters, numbers, _, and .. Object names should be descriptive and have some internal logic, and you’ll need to figure out how you want to deal with multiple words. There are several methods:\n\nSnake case: i_use_snake_case\nCamel case: iUseCamelCase\nPeriod case: period.case\nChaos case: You.DO_you &lt;– Resist entropy. Don’t do this.\n\nPersonally, I use a split convention. I use period case to name assigned R objects that are saved in the environment. For column names in tibbles/data frames, I use snake case. In my mind, this helps me keep R object names separated from column or variable names within my data. Do what works best for you, just be consistent!\nAnother thing you’ll need to do is be concise in your naming. The longer the object name is, the more keystrokes you need to enter to access/reference to it (increasing chances of mistakes, and it’s just annoying to have to type that much). That said, it’s better to have a longer, more descriptive name than an extremely short, easy to type one. Ultimately, you’ll save more time typing a longer name than searching your code for what thing.2 is. In the event you have many different objects that are variations on a theme, it’s better to distinguish them using a common prefix rather than a suffix as autocomplete works most efficiently that way. For example, spp.model.1.glm and spp.model.2.glm\nThere’s a million ways to figure out a naming convention that works for you, but the most important part is to be consistent in your application. A trick I use is appending suffixes for common object types in R so that I can easily tell what they are from the name:\n\n\n\nObject Type\nSuffix\nExamples\n\n\n\n\nData frame/tibble\n.df\nmydata.df\n\n\nList\n.list\nmylist.list\n\n\nModels/model type\n.lm, .glm, .glmm, .gam\nmodel1.gam\n\n\n\n\nReserved words 🤐\nWhen naming things, there are a few no-no words that you cannot use because R reserves them for specific uses.\n\n\n\n\n\n\n\n\nWord / Symbol\nCategory\nDescription\n\n\n\n\nif\nControl Flow\nExecutes code conditionally\n\n\nelse\nControl Flow\nAlternate execution branch for if\n\n\nfor\nControl Flow\nLoop over a collection or vector\n\n\nwhile\nControl Flow\nLoop while a condition is true\n\n\nrepeat\nControl Flow\nInfinite loop (requires break to exit)\n\n\nin\nControl Flow\nUsed within for loops to specify sequence iteration\n\n\nbreak\nControl Flow\nExits a loop immediately\n\n\nnext\nControl Flow\nSkips the rest of the current loop iteration\n\n\nfunction\nDefinition\nDefines a custom function\n\n\nTRUE\nConstant\nLogical true value\n\n\nFALSE\nConstant\nLogical false value\n\n\nNULL\nConstant\nRepresents an empty object or absent value\n\n\nNA\nConstant\nRepresents missing or unavailable data\n\n\nInf\nConstant\nPositive infinity\n\n\n-Inf\nConstant\nNegative infinity\n\n\nNaN\nConstant\n“Not a Number” (e.g., \\(0/0\\))\n\n\n\n\n\n\nSpaces\nSpaces are good! Spaces are your friend! White space, as it’s called (harkening back to the days of physially published things like newspapers and books), helps our eyes to more quickly assess what is happening in code. We should put spaces on either side of mathematical operators (except exponentiation ^) and around the assignment operator &lt;-. Also put spaces after commas, just like we would writing. You can also add spaces to improve code alignment: this makes it easier to digest/skim quickly.\n\n# Good spacing style\nz &lt;- (a + b)^4 / d\n\n# Bad spacing style\nz&lt;-( a + b )^4/d\n\n# Spaces after commas!\nmean(x, na.rm = TRUE)\n\n# Spaces for alignment\nflights |&gt; \n  mutate(\n    speed     = distance / air_time,\n    dep_hour  = dep_time %/% 100,\n    dep_min   = dep_time %% 100\n  )\n\n\n\nPipes\nWe will talk more about pipes when we get into data wranglin’ in a couple of weeks, but pipes are a great way to streamline your code and avoid creating intermediate objects that clutter your environment and take up memory. Briefly, a pipe takes stuff on its left and passes it along to the function on its right. So, x |&gt; f(y) is equivalent to f(x, y) and x |&gt; f(y) |&gt; g(z) is equivalent to g(f(x, y), z). In english, pipes basically translate to “then”. The point of introducing them here is to discuss how to style the code you write using pipes, not to get into their use per se.\nPipes should always have a space before them, and be the last thing on a line. This makes it easier to re-shuffle how things are ordered and quickly see the logic of a set of piped functions.\n\n# Strive for \nflights |&gt;  \n  filter(!is.na(arr_delay), !is.na(tailnum)) |&gt; \n  count(dest)\n\n# Avoid\nflights|&gt;filter(!is.na(arr_delay), !is.na(tailnum))|&gt;count(dest)\n\nIf the function you’re piping into has named arguments (e.g., mutate() or summarize()) put each argument on a new line. If it doesn’t (e.g., filter()), keep it on one line unless you can’t fit it all.\n\n# Strive for \nflights |&gt;  \n  group_by(tailnum) |&gt; \n  summarize(\n    delay = mean(arr_delay, na.rm = TRUE),\n    n = n()\n  )\n\n# Avoid\nflights|&gt;\n  group_by(tailnum) |&gt; \n  summarize(\n             delay = mean(arr_delay, na.rm = TRUE), \n             n = n()\n           )\n\n# Avoid\nflights|&gt;\n  group_by(tailnum) |&gt; \n  summarize(\n  delay = mean(arr_delay, na.rm = TRUE), \n  n = n()\n  )\n\n\n\nComments and code outline (via .qmd)\nOne key area to keep style and organization in mind is how you structure your scripts/markdown files from a meta-level. Rather than a bunch of jumbled code that flows endlessly for 500 lines, use hierarchical markdown structure or sectioning comments to delineate or break up your file into cohesive/logical pieces. Look at the frontmatter to download the template .qmd file that I use for all new notebooks.\n\n# 📦 LOAD PACKAGES\n\n# 💾 LOAD DATA\n## Tabular data\n\n## Spatial data\n\n# 🧹 CLEAN DATA\n## Dataset 1\n\n## Dataset 2\n\n# 🏗️ BUILD MODELS\n## Abundance models\n\n## Spatial models\n\n# 📈 VISUALIZE RESULTS\n## Abundance models\n\n## Spatial models\n\n\n\nStyle hacks\nThere are some great R packages/add-ins that you can configure to help you quickly re-format your code to have a cohesive style. The best option is probably the styleR package.",
+    "crumbs": [
+      "Content",
+      "Module 1: Introduction to Data Science and R",
+      "Week 2: Data structures, objects, code style, etc"
+    ]
+  },
+  {
+    "objectID": "workshop/w2-workshop.html",
+    "href": "workshop/w2-workshop.html",
+    "title": "Workshop 2: Data structures, objects, tibbles, etc.",
+    "section": "",
+    "text": "Download workshop data  .qmd template  Exercise code",
+    "crumbs": [
+      "Workshops",
+      "Module 1: Introduction to Data Science and R",
+      "Week 2: Data structures, objects, code style, etc"
+    ]
+  },
+  {
+    "objectID": "workshop/w2-workshop.html#frontmatter",
+    "href": "workshop/w2-workshop.html#frontmatter",
+    "title": "Workshop 2: Data structures, objects, tibbles, etc.",
+    "section": "",
+    "text": "Download workshop data  .qmd template  Exercise code",
+    "crumbs": [
+      "Workshops",
+      "Module 1: Introduction to Data Science and R",
+      "Week 2: Data structures, objects, code style, etc"
+    ]
+  },
+  {
+    "objectID": "workshop/w2-workshop.html#topical-exercises",
+    "href": "workshop/w2-workshop.html#topical-exercises",
+    "title": "Workshop 2: Data structures, objects, tibbles, etc.",
+    "section": "Topical exercises 🧑🏻‍💻",
+    "text": "Topical exercises 🧑🏻‍💻\n\nVectors\n\nExercise 1: Species names and survey counts (Vector Types)\nCreate a character vector named species containing \"Apis mellifera\", \"Bombus impatiens\", and \"Osmia lignaria\". Combine it with the numeric count vector individual_counts into a single vector named survey_data, then print the class of survey_data.\n\n\n\n\n\n\n\n\n\n\n\nExercise 2: Biomass calculations and standardized traps (Vector arithmetic & recycling)\nConvert insect dry weight values in milligrams (dry_weight_mg) to grams by dividing by 1000. Then subtract a 2-element trap-tare weight vector c(0.005, 0.008) to calculate the net insect mass in net_mass_g.\n\n\n\n\n\n\n\n\n\n\n\nExercise 3: Filtering quadrat sample data (Logical Subsetting)\nExtract values from stem_density (stems per \\(m^2\\)) that represent dense plots (&gt; 200 stems) AND are even numbers (%% 2 == 0). Store the resulting values in dense_even_plots.\n\n\n\n\n\n\n\n\n\n\n\nExercise 4: Imputing missing field data (NA handling)\nA field logger missed soil moisture readings due to a sensor malfunction. Calculate the mean of non-NA moisture values in soil_moisture (using na.rm = TRUE) and store it as mean_moisture. Then replace all missing NA values in soil_moisture with mean_moisture. This practice is called imputing.\n\n\n\n\n\n\n\n\n\n\n\nExercise 5: Indexing named biodiversity indices (Vector subsetting)\nYou have Shannon diversity index values for insect communities at 7 sampling sites. Extract the values for \"Site_B\" and \"Site_D\" by name into control_sites. Then remove the disturbance treatment sites (positions 6 and 7) using negative indexing into disturbed_sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLists\n\nExercise 1: Extracting elements from nesting sample lists\nA field survey stores site metadata, species observations, and environmental variables in a single list. Extract the temperatures vector by name into temp_vals, then extract the third species name (\"Ceratina dupla\") using double bracket indexing into third_species.\n\n\n\n\n\n\n\n\n\n\n\nExercise 2: Applying functions across list elements\nYou have a list containing insect trap count vectors from three sampling locations. Use lapply() to calculate the total abundance (sum()) for each site, then use unlist() to convert the result into a clean numeric vector named site_totals.\n\n\n\n\n\n\n\n\n\n\n\nExcrcise 3: Dynamic list modification\nCreate a list named pollinator_obs with two named vectors: bees = c(45, 32) and flies = c(12, 19). Then dynamically add a new element named butterflies containing c(8, 14), and update the bees element by adding 10 additional counts to each site. This also touches on vectorization which we worked on above!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTibbles\n\nExercise 1: Tibble creation and sequential column referencing\nCreate a tibble named tree_survey containing 5 trees with species names in column species, dbh (diameter at breast height in cm) in column dbh_cm with values c(12.4, 28.1, 8.5, 42.0, 19.3), and calculate basal_area_m2 directly inside the tibble() call using the formula (pi * (dbh_cm / 2)^2) / 10000.\n\n\n\n\n\n\n\n\n\n\n\nExercise 2: Base Data Frame vs. Tibble Column Subsetting (drop = FALSE)\nSubset column “parasite_load” from both the base data frame df_bees and the tibble tbl_bees using bracket notation [, \"parasite_load\"]. Print the class of each result to observe how base data frames silently simplify output to a 1D vector while tibbles preserve tabular structure.\n\n\n\n\n\n\n\n\n\n\n\nExercise 3: Partial Matching Prevention in Tibbles\nIn field data, column name typos can cause silent logical errors. Try accessing the “treatment” column of df_plots and tbl_plots using the shorthand $treat. Observe the difference in behavior.\n\n\n\n\n\n\n\n\n\n\n\nExercise 4: Extracting Rows, Columns, and Ranges\nGiven a data frame of water quality observations water_quality:\n1. Extract the first 3 rows across all columns into `top_samples`.\n\n2. Extract cell value at row 4, column \"dissolved_oxygen\" into `specific_do`.\n\n3. Extract rows 2 through 5 for columns \"site_id\" and \"pH\" into `pH_sub`.\n\n\n\n\n\n\n\n\n\n\n\nExercise 5: Converting and Inspecting Large Biological Datasets\nConvert the large insect sweep net data frame df_sweeps (100 rows) into a tibble named tbl_sweeps. Compare the console output of printing df_sweeps vs tbl_sweeps.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode style\n\nExcercise 1: Restyle the code below\nUsing the topics that we discussed earlier (and the resources in the content for Week 2), restyle the code included below to maximize readability. Some of the code elements contain stuff we haven’t talked about yet (like function and ggplot call styling). That’s ok! This is what the R style guide and Google are for. Work on this by yourself for a few minutes, and then chat with your neighbors/small groups to see if folks varied in their approach, or caught anything that you may have missed. We’ll discuss as a group briefly after that.\n\nlibrary(tidyverse)\n\nmy_dataset&lt;-read.csv(\"field_sampling_data.csv\")\nT&lt;-my_dataset\nT_2&lt;-T[T$count&gt;0,]\nx=T_2$count\nMeanCount=mean(x)\n\nFilter_Data_fn&lt;-function(df,Sp,site_name){\nif(Sp %in% df$species){\ndf_sub&lt;-df[df$species==Sp & df$site==site_name,]\ndf_sub$count_scaled&lt;-(df_sub$count-MeanCount)/sd(df_sub$count)\nreturn(df_sub)}else{\nprint(\"Species not found in this site!\");return(NULL)}}\n\nFinalData &lt;- Filter_Data_fn(T_2,\"Apis mellifera\",\"Site_A\")\n\nFinalData%&gt;%group_by(species,site)%&gt;%summarize(total=sum(count),mean_scaled=mean(count_scaled),sd_scaled=sd(count_scaled))%&gt;%filter(total&gt;10)\n\nggplot(FinalData,aes(x=count,y=count_scaled,color=species))+geom_point()+theme_bw()",
+    "crumbs": [
+      "Workshops",
+      "Module 1: Introduction to Data Science and R",
+      "Week 2: Data structures, objects, code style, etc"
+    ]
+  },
+  {
+    "objectID": "workshop/w2-workshop-key.html",
+    "href": "workshop/w2-workshop-key.html",
+    "title": "Workshop 2: Instructor Answer Key",
+    "section": "",
+    "text": "species &lt;- c(\"Apis mellifera\", \"Bombus impatiens\", \"Osmia lignaria\")\nindividual_counts &lt;- c(12, 45, 8)\nsurvey_data &lt;- c(species, individual_counts)\nclass(survey_data)\n# [1] \"character\"\n\n\n\n\n\ndry_weight_mg &lt;- c(120, 340, 85, 510, 230, 410)\ndry_weight_g &lt;- dry_weight_mg / 1000\nnet_mass_g &lt;- dry_weight_g - c(0.005, 0.008)\nnet_mass_g\n# [1] 0.115 0.332 0.080 0.502 0.225 0.402\n\n\n\n\n\nstem_density &lt;- c(145, 212, 88, 304, 199, 250, 180, 218)\ndense_even_plots &lt;- stem_density[stem_density &gt; 200 & stem_density %% 2 == 0]\ndense_even_plots\n# [1] 212 304 250 218\n\n\n\n\n\nsoil_moisture &lt;- c(0.24, NA, 0.31, 0.19, NA, 0.28, 0.22)\nmean_moisture &lt;- mean(soil_moisture, na.rm = TRUE)\nsoil_moisture[is.na(soil_moisture)] &lt;- mean_moisture\nsoil_moisture\n# [1] 0.24 0.248 0.31 0.19 0.248 0.28 0.22\n\n\n\n\n\nshannon_index &lt;- c(Site_A = 1.82, Site_B = 2.45, Site_C = 1.31, Site_D = 2.89, Site_E = 2.10, Ctrl_1 = 0.45, Ctrl_2 = 0.62)\ntarget_sites &lt;- shannon_index[c(\"Site_B\", \"Site_D\")]\nintact_sites &lt;- shannon_index[-c(6, 7)]\n\ntarget_sites\n# Site_B Site_D \n#   2.45   2.89 \n\nintact_sites\n# Site_A Site_B Site_C Site_D Site_E \n#   1.82   2.45   1.31   2.89   2.10"
+  },
+  {
+    "objectID": "workshop/w2-workshop-key.html#vectors",
+    "href": "workshop/w2-workshop-key.html#vectors",
+    "title": "Workshop 2: Instructor Answer Key",
+    "section": "",
+    "text": "species &lt;- c(\"Apis mellifera\", \"Bombus impatiens\", \"Osmia lignaria\")\nindividual_counts &lt;- c(12, 45, 8)\nsurvey_data &lt;- c(species, individual_counts)\nclass(survey_data)\n# [1] \"character\"\n\n\n\n\n\ndry_weight_mg &lt;- c(120, 340, 85, 510, 230, 410)\ndry_weight_g &lt;- dry_weight_mg / 1000\nnet_mass_g &lt;- dry_weight_g - c(0.005, 0.008)\nnet_mass_g\n# [1] 0.115 0.332 0.080 0.502 0.225 0.402\n\n\n\n\n\nstem_density &lt;- c(145, 212, 88, 304, 199, 250, 180, 218)\ndense_even_plots &lt;- stem_density[stem_density &gt; 200 & stem_density %% 2 == 0]\ndense_even_plots\n# [1] 212 304 250 218\n\n\n\n\n\nsoil_moisture &lt;- c(0.24, NA, 0.31, 0.19, NA, 0.28, 0.22)\nmean_moisture &lt;- mean(soil_moisture, na.rm = TRUE)\nsoil_moisture[is.na(soil_moisture)] &lt;- mean_moisture\nsoil_moisture\n# [1] 0.24 0.248 0.31 0.19 0.248 0.28 0.22\n\n\n\n\n\nshannon_index &lt;- c(Site_A = 1.82, Site_B = 2.45, Site_C = 1.31, Site_D = 2.89, Site_E = 2.10, Ctrl_1 = 0.45, Ctrl_2 = 0.62)\ntarget_sites &lt;- shannon_index[c(\"Site_B\", \"Site_D\")]\nintact_sites &lt;- shannon_index[-c(6, 7)]\n\ntarget_sites\n# Site_B Site_D \n#   2.45   2.89 \n\nintact_sites\n# Site_A Site_B Site_C Site_D Site_E \n#   1.82   2.45   1.31   2.89   2.10"
+  },
+  {
+    "objectID": "workshop/w2-workshop-key.html#lists",
+    "href": "workshop/w2-workshop-key.html#lists",
+    "title": "Workshop 2: Instructor Answer Key",
+    "section": "Lists",
+    "text": "Lists\n\nExercise 1\n\nsite_data &lt;- list(\n  site_id = \"MN_BEE_01\",\n  species = c(\"Lasioglossum vierecki\", \"Bombus vagans\", \"Ceratina dupla\", \"Agapostemon virescens\"),\n  environmental = list(temperatures = c(21.5, 23.0, 22.8), humidity = 64)\n)\n\ntemp_vals &lt;- site_data$environmental$temperatures\nthird_species &lt;- site_data$species[[3]]\n\ntemp_vals\n# [1] 21.5 23.0 22.8\n\nthird_species\n# [1] \"Ceratina dupla\"\n\n\n\nExercise 2\n\ntrap_counts &lt;- list(\n  Prairie = c(12, 18, 25, 9),\n  Forest_Edge = c(5, 8, 3, 11, 4),\n  Agriculture = c(30, 42, 38)\n)\n\ntotal_list &lt;- lapply(trap_counts, sum)\nsite_totals &lt;- unlist(total_list)\n\nsite_totals\n#     Prairie Forest_Edge Agriculture \n#          64          31         110\n\n\n\nExercise 3\n\npollinator_obs &lt;- list(\n  bees = c(45, 32),\n  flies = c(12, 19)\n)\n\npollinator_obs$butterflies &lt;- c(8, 14)\npollinator_obs$bees &lt;- pollinator_obs$bees + 10\n\npollinator_obs\n# $bees\n# [1] 55 42\n# \n# $flies\n# [1] 12 19\n# \n# $butterflies\n# [1]  8 14"
+  },
+  {
+    "objectID": "workshop/w2-workshop-key.html#tibblesdata-frames",
+    "href": "workshop/w2-workshop-key.html#tibblesdata-frames",
+    "title": "Workshop 2: Instructor Answer Key",
+    "section": "Tibbles/data frames",
+    "text": "Tibbles/data frames\n\nExercise 1\n\nlibrary(tibble)\n\ntree_survey &lt;- tibble(\n  species = c(\"Quercus alba\", \"Acer saccharum\", \"Pinus strobus\", \"Quercus rubra\", \"Betula alleghaniensis\"),\n  dbh_cm = c(12.4, 28.1, 8.5, 42.0, 19.3),\n  basal_area_m2 = (pi * (dbh_cm / 2)^2) / 10000\n)\n\ntree_survey\n\n\n\nExercise 2\n\ndf_bees &lt;- data.frame(site = c(\"A\", \"B\", \"C\"), parasite_load = c(0, 14, 3))\ntbl_bees &lt;- as_tibble(df_bees)\n\ndf_subset_class &lt;- class(df_bees[, \"parasite_load\"])\ntbl_subset_class &lt;- class(tbl_bees[, \"parasite_load\"])\n\ndf_subset_class\n# [1] \"numeric\"\n\ntbl_subset_class\n# [1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n\n\nExercise 3\n\ndf_plots &lt;- data.frame(treatment_group = c(\"Control\", \"Burned\", \"Grazed\"), diversity = c(1.2, 2.4, 1.8))\ntbl_plots &lt;- as_tibble(df_plots)\n\ndf_match &lt;- df_plots$treat\ntbl_match &lt;- tbl_plots$treat\n\ndf_match\n# [1] \"Control\" \"Burned\"  \"Grazed\"\n\ntbl_match\n# NULL\n# Warning message: Unknown or uninitialised column: `treat`.\n\n\n\nExercise 4\n\nwater_quality &lt;- data.frame(\n  site_id = paste0(\"Site_\", 1:6),\n  pH = c(6.8, 7.2, 7.1, 6.5, 7.4, 6.9),\n  dissolved_oxygen = c(8.2, 6.4, 7.9, 5.8, 8.0, 7.1)\n)\n\ntop_samples &lt;- water_quality[1:3, ]\nspecific_do &lt;- water_quality[4, \"dissolved_oxygen\"]\npH_sub &lt;- water_quality[2:5, c(\"site_id\", \"pH\")]\n\ntop_samples\nspecific_do\n# [1] 5.8\n\npH_sub\n\n\n\nExercise 5\n\nset.seed(42)\ndf_sweeps &lt;- data.frame(\n  sweep_id = 1:100,\n  sweeps_count = sample(15:50, 100, replace = TRUE),\n  biomass_g = runif(100, 0.5, 12.0)\n)\n\ntbl_sweeps &lt;- as_tibble(df_sweeps)\nprint(tbl_sweeps)\n# # A tibble: 100 × 3\n#    sweep_id sweeps_count biomass_g\n#       &lt;int&gt;        &lt;int&gt;     &lt;dbl&gt;\n#  1        1           48      9.51\n#  2        2           47     10.5 \n#  3        3           25      5.70\n#  4        4           45      3.38\n#  5        5           38      1.80\n#  6        6           33     11.1 \n#  7        7           41      5.57\n#  8        8           40      4.98\n#  9        9           34      8.72\n# 10       10           40      1.19\n# # ℹ 90 more rows"
+  },
+  {
+    "objectID": "workshop/w2-workshop-key.html#code-style",
+    "href": "workshop/w2-workshop-key.html#code-style",
+    "title": "Workshop 2: Instructor Answer Key",
+    "section": "Code Style",
+    "text": "Code Style\nKey Style Violations for Students to Fix\n* Variable Names: Replaced non-descriptive (T, x, T_2), camelCase (MeanCount, FinalData), and mixed Camel_Snake_Case (Filter_Data_fn) with clean snake_case. Overwrote the reserved logical T.\n\n* Spacing around operators: Added spaces around assignment (&lt;-, =) and mathematical operators (+, -, /, %&gt;%, ==).\n\n* Indentation and Line Breaks: Cleaned up crammed curly braces {} and functions squeezed onto single lines with semicolons ;.\n\n* Pipes & Long Lines: Split long tidyverse pipelines and ggplot layers across multiple lines (keeping lines under 80 characters) with operators placed at the end of lines.\n\n* Commas: Ensured a single space follows all commas (c(x, y) not c(x,y)).\n\nlibrary(tidyverse)\n\n# Load raw field sampling data\nfield_data &lt;- read.csv(\"field_sampling_data.csv\")\n\n# Filter for active observations\nactive_data &lt;- field_data[field_data$count &gt; 0, ]\n\nmean_count &lt;- mean(active_data$count)\n\n# Filter site data and calculate standardized counts\nfilter_site_data &lt;- function(df, species_name, site_name) {\n  if (species_name %in% df$species) {\n    df_sub &lt;- df[df$species == species_name & df$site == site_name, ]\n    df_sub$count_scaled &lt;- (df_sub$count - mean_count) / sd(df_sub$count)\n    return(df_sub)\n  } else {\n    print(\"Species not found in this site!\")\n    return(NULL)\n  }\n}\n\nfinal_data &lt;- filter_site_data(active_data, \"Apis mellifera\", \"Site_A\")\n\n# Summarize species totals\nsite_summary &lt;- final_data %&gt;%\n  group_by(species, site) %&gt;%\n  summarize(\n    total = sum(count),\n    mean_scaled = mean(count_scaled),\n    sd_scaled = sd(count_scaled)\n  ) %&gt;%\n  filter(total &gt; 10)\n\n# Plot raw vs. scaled counts\nggplot(final_data, aes(x = count, \n                       y = count_scaled, \n                       color = species)) +\n  geom_point() +\n  theme_bw()"
   },
   {
     "objectID": "workshop/w1-workshop.html",
@@ -393,90 +621,6 @@
     ]
   },
   {
-    "objectID": "workshop/workshop-index.html#completing-and-submitting-labs",
-    "href": "workshop/workshop-index.html#completing-and-submitting-labs",
-    "title": "Overview of workshops + basic info",
-    "section": "Completing and submitting labs",
-    "text": "Completing and submitting labs\nIn labs, we’ll be writing code in a couple of different ways, but primarily what I will be recommending is using an R Notebook to write, annotate, and interpret your code. R Notebooks are a type of Markdown file where we can mix formatted text, code chunks, and a whole bunch of other goodies. R Notebooks help to organize your code into sections and subsections, and will let you write about the output directly in the document rather than creating a Word document (shudder…). We’ll go through this a bit more in the first lab, but take a look at the following links to learn a bit more about R Notebooks and R Markdown.\n\nWriting code in R notebooks\nR Notebook (Markdown) cheatsheet",
-    "crumbs": [
-      "Workshops",
-      "Overview",
-      "Overview of workshops + basic info"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#setting-up-your-devenv-development-environment",
-    "href": "workshop/w1-workshop.html#setting-up-your-devenv-development-environment",
-    "title": "Workshop 1: Intro to data science and R",
-    "section": "Setting up your Devenv (Development Environment)",
-    "text": "Setting up your Devenv (Development Environment)\nRStudio is a highly customizable program that will let you nerd out to your heart’s content. Feel free! A few things that I suggest you customize right away will help you (and your collaborators/me) to debug and read your code.\n\nAfter launching RStudio, go to Tools —&gt; Global options.\nSelect the “Appearance” tab on the side, and select an editor theme that you like best. I highly recommend one where comments (text preceded by a #) are some shade of gray. This helps them be obvious without being obnoxiously bright and distracting.\nNext, select the “Code” tab on the side, and then select the “Display” panel. Enable:\nHighlight selected line\nAllow scroll past end of document\nHighlight function calls\nUse rainbow parentheses 🌈\n\nThese things will help you better catch syntax errors with missed parentheses, and help you and me quickly see where you’re editing in your R files.",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to data science and R"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#a-tour-of-the-rstudio-ide-and-gui",
-    "href": "workshop/w1-workshop.html#a-tour-of-the-rstudio-ide-and-gui",
-    "title": "Workshop 1: Intro to data science and R",
-    "section": "A tour of the RStudio IDE and GUI",
-    "text": "A tour of the RStudio IDE and GUI",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to data science and R"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#a-tour-of-the-r-studio-ide-and-gui",
-    "href": "workshop/w1-workshop.html#a-tour-of-the-r-studio-ide-and-gui",
-    "title": "Workshop 1: Intro to R, Project Organization, and the DevEnv",
-    "section": "A tour of the R studio IDE and GUI 💻",
-    "text": "A tour of the R studio IDE and GUI 💻\nIn it’s simplest, out-of-box form, R Studio is composed of four different sections, called panes:\n\n\nSource: This pane is where you will write/view R scripts. Some outputs (such as if you view a dataset using View()) will appear as a tab here.\nConsole/Terminal/Jobs: This is actually where you see the execution of commands. This is the same display you would see if you were using R at the command line without RStudio. You can work interactively (i.e. enter R commands here), but for the most part we will run a script (or lines in a script) in the source pane and watch their execution and output here. The “Terminal” tab give you access to the BASH terminal (the Linux operating system, unrelated to R). RStudio also allows you to run jobs (analyses) in the background. This is useful if some analysis will take a while to run. You can see the status of those jobs in the background.\nEnvironment/History: Here, RStudio will show you what datasets and objects (variables) you have created and which are defined in memory. You can also see some properties of objects/datasets such as their type and dimensions. The “History” tab contains a history of the R commands you’ve executed R.\nFiles/Plots/Packages/Help/Viewer: This multipurpose pane will show you the contents of directories on your computer. You can also use the “Files” tab to navigate and set the working directory. The “Plots” tab will show the output of any plots generated. In “Packages” you will see what packages are actively loaded, or you can attach installed packages. “Help” will display help files for R functions and packages. “Viewer” will allow you to view local web content (e.g. HTML outputs).\n\n\nSetting up your DevEnv (Development Environment)\nRStudio is a highly customizable program that will let you nerd out to your heart’s content. Feel free! A few things that I suggest you customize right away will help you (and your collaborators/me) to debug and read your code.\n\nAfter launching RStudio, go to Tools —&gt; Global options.\nSelect the “Appearance” tab on the side, and select an editor theme that you like best. I highly recommend one where comments (text preceded by a #) are some shade of gray. This helps them be obvious without being obnoxiously bright and distracting. There are no shortage of other themes out there:.\nNext, select the “Code” tab on the side, and then select the “Display” panel. Enable:\n\nHighlight selected line\nAllow scroll past end of document\nHighlight function calls\nUse rainbow parentheses 🌈\n\n\nThese things will help you better catch syntax errors with missed parentheses, and help you and me quickly see where you’re editing in your R files.",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to R, Project Organization, and the 'DevEnv'"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#basic-programming-in-r",
-    "href": "workshop/w1-workshop.html#basic-programming-in-r",
-    "title": "Workshop 1: Intro to R, Project Organization, and the DevEnv",
-    "section": "Basic programming in R 🧑🏻‍💻",
-    "text": "Basic programming in R 🧑🏻‍💻\nR is a functional programming language that is used to operate on objects. Objects are any piece of data that we store in memory, and perform different operations on, either using arithmetic or one or more R functions (things like sum() or mean()).\nFor example, we can create a variable called x and assign it a value of 23. In the console, enter the following:\n\nx &lt;- 23\n\nThe object we create here, is 23, but we use a variable, x, to point to that object in memory so that we can easily reference/use it in our various bits of code. The &lt;- is the assignment operator, and it tells R we want to create a new variable and store it in memory so that we can access it later. You’ll see the variable, x, pop up in your Environment pane after you run the code. If you were to just type in 23 without the operator, R acts like a giant calculator and just spits out the answer, in this case, 23. We can do things with this object, like math:\n\nx + 3   # Add 3 to x\n\n[1] 26\n\nx * 40  # Multiple x by 40\n\n[1] 920\n\nx %% 3  # Return the remainder of x / 3 (modulo) \n\n[1] 2\n\n\nOr use it inside of functions. An R function has three key properties:\n\nFunctions have a name (e.g. dir, getwd); note that functions are case sensitive!\nFollowing the name, functions have a pair of ()\nInside the parentheses, a function may take 0 or more arguments. The arguments include inputs to the function, and settings that modify how the function behaves.\n\n\nmean(x) # Calculates mean of our variable x\n\n[1] 23\n\nmean(x, na.rm = TRUE) # Calculates mean of our variable x, but also removes any NA values\n\n[1] 23\n\nsum(c(x, x, x)) # Calculates the sum of a vector containing three x variables\n\n[1] 69\n\n\nNote that all of the above lines of code spit out answers in the console, but don’t create any additional variables in our global environment. That’s because we haven’t use the assignment operator to tell R, “Hey, I’d like to save this bit of information so that I can use it later”. This is enough on basic programming for now, we’ll spend all next week talking about the various types of objects, how they’re structured, and how to access them next week. For now, let’s continue our little tour…",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to R, Project Organization, and the 'DevEnv'"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#project-and-code-organization",
-    "href": "workshop/w1-workshop.html#project-and-code-organization",
-    "title": "Workshop 1: Intro to R, Project Organization, and the DevEnv",
-    "section": "Project and code organization 💾",
-    "text": "Project and code organization 💾\nKeeping your work organized is an extremely important aspect of making your projects reproducible and a great way to help future you or collaborators make sense of what you’ve done. You can conduct your work and analyses in a piecemeal, chaotic fashion, but the goal of this class is to instill consisent, clear protocols to follow for all projects so that we properly document and allow our work to be easily reproduced/checked. The first step toward this is always using R Studio Projects (this is similar to the folder-based system that many other IDEs like VSCode and Positron use).\nR Studio projects basically act as a starting point for all of your work on a given…well, project. They allow us to:\n\nSave data, files, variables, packages related to a specific analysis project/paper\nEasily pickup where you last left off\nCollaborate by integrating tools such as version control using git (which we’ll cover more in the coming weeks)\n\nProjects also maintain a consistent file structure and relative pathing system so that your various scripts can easily locate dependent files, packages, data, etc. This concept is called a working directory. You can manually set this, but it’s not advised as you’ll need to reset it every single time you run a script or bit of code, and it will create headaches for anyone/machine that tries to run the code on another computer. By creating a project, you create an enclosed ecosystem that you can move around at will and everything will still work because the working directory is set relative to the project file (here, directory is just the technical term for a computer folder).\nWe’ll create a single R Studio project for this class, and manage all of the weekly tasks within that project. Later, we’ll initiate a git repository inside the project so that we explicitly track our files using version control, and link this to GitHub repo so our work will be (1) publically accessible and (2) backed up on a cloud-based service.\n\nTo create a project, go to the File menu, and click New Project….\nIf you already have a folder on your computer where you’d like to start your project, select Existing Directory and navigate to select that folder. If you want to create a new directory, select New Directory, and then select New Project. For the “Directory Name”, enter: ent3927-5927_fall-2026. For “Create project as subdirectory of”, click Browse… and then click Choose and navigate to whatever folder you want your project (and thereby project directory) to live inside.\nFor now, ignore the git and renv toggle boxes. We’ll discuss those more later.\nClick Create Project. In the “Files” tab of the lower right pane, you should see an R Studio project file, ent3927-5927_fall-2026.Rproj. R Studio projects end with the “.Rproj” file extension.\n\n\nProject directory structure\nA key to making projects easy to navigate is to use a consistent directory organizational structure. This way, code, data, reports, and other components of your project live in the same places and it reduces how much you need to huntfor things/remember where they are. It also (you’ll notice a theme here) makes it easy for collaborators or folks looking through your project to locate things if they’re organized in a logical fashion.\n\nmy-r-project/\n│\n├── .gitignore               # Excludes large, generated, or sensitive files from Git\n├── my-r-project.Rproj       # RStudio Project settings file\n├── README.md                # Project overview, setup instructions, and metadata\n├── project_notes.qmd.       # Digital notebook that has to-do lists, notes, etc.\n├── renv.lock                # (Optional) Snapshot of package dependencies for reproducibility\n│\n├── data/                    # All project data\n│   ├── raw/                 # Unmodified original data (Read-Only)\n│   └── processed/           # Cleaned, transformed, or intermediate data outputs\n│\n├── code/                    # Custom R scripts and functions\n│   ├── 01_data_cleaning.qmd # Data importing and wrangling scripts\n│   ├── 02_analysis.qmd      # Core analysis and statistical models\n│   └── utils.R              # Custom functions shared across scripts\n│\n├── output/                  # Non-code objects generated by analysis\n│   ├── figures/             # Exported plots (e.g., .png, .pdf)\n│   └── tables/              # Exported summary tables (e.g., .csv, .rds)\n│\n├── docs/                    # Final reports, Quarto docs, manuscripts, or presentation slides\n    ├── index.qmd            # Main Quarto report file\n    └── references.bib       # Citation bibliography\n\nEventually, it’s possible that you can keep your entire project from post-data collection onward in a single environment and even write your manuscruipts using Quarto.\n\n\nR Project workspace and .RData\nAs you create objects and conduct your analyis, your environment will accumulate more and more stuff. As new R users, you likely consider these objects to be “real” things that you can save and work with later. In fact, R Studio has nifty tools that allow you to explicitly save this global environment as an .RData file that will re-load when you boot up R Studio, allowing you to continue working with objects that you had created in previous sessions. This practice is OK for folks really new to R/R Studio, but I highly, highly, highly recommend that you don’t do this. The reason is that re-loading objects like this treats them as something “real”, when instead we should be treating the code that creates these objects as “real”.\nIntead, each time to reboot R Studio, re-run your code. Doing this ensures that your code produces consistent, reproducible results. This is scary, because it feels like you’re literally deleting your hard work and hoping for the best when you re-run your code. In my experience, this feeling fades quickly, and is a good way to reinforce that you are writing good, dependable, reproducible code that you can trust to behave and produce the expected output. For data or processes that may take a long time to run (as you work with big data more and more, some processes can take many minutes to run), create intermediate objects that you can save to the physical disk (e.g., cleaned data files, model output, figures, etc.).\nTo get in this habit early (which, again, I highly recommend), you can disable the autosaving of .RData files. Go to Tools and select Global Options…. In that menu, under the General | Basic settings, unselect “Restore .RData into workspace at startup” and select “Never” for “Save workspace to .RData on exit”.",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to R, Project Organization, and the 'DevEnv'"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#scripts-vs.-console",
-    "href": "workshop/w1-workshop.html#scripts-vs.-console",
-    "title": "Workshop 1: Intro to R, Project Organization, and the DevEnv",
-    "section": "Scripts vs. console 🖥️",
-    "text": "Scripts vs. console 🖥️\nSo far, we’ve just been using console to write code. This works, but as you may notice, we have no working history of our different lines of code. All the stuff we’ve entered is there, but we can’t edit it without re-entering it. When we write R code, we almost always use scripts. These take two basic forms: a simple text file (a .r script) or, a type of Markdown file (.Rmd) called an R Notebook. The next-generation of these files are called Quarto files (basically the same thing as .Rmd, but with added support for additional programming languages). There are advantages to each of these formats, and either one can work for conducting data analysis in any form. In general, this is what I recommend.\n\n.r files: use these to build stand-alone, complete automated scripts or custom functions that you may want to source either outside of R Studio (i.e., via a Terminal), or in different .Rmd or .r files.\n.Rmd (or .qmd) files: use these when you want to combine code, interactive plots, and written narrative into a single file that can be processed into publishable reports (either via .html or PDF).\n\n\nR Markdown and R Notebooks (now, Quarto documents!)\nIn general, I highly recommend using .Rmd (.qmd) notebooks to conduct your data analyses. This allows us to practice literate programming, combining code, narrative, figures, etc. into a seamless document that has a logical structure from to bottom. These documents necessarily center the output or results of your work, not just the code the produced it. This format allows you to more easily capture the how (i.e., your code) and the why and what you were thinking as you conducted your analysis.\nThese files are essentially specialized Markdown files, which is a light-weight way to write formatted text using a plain-text editor (i.e., R Studio or Positron). You can create headings, embed images, format in specialized ways using html or other style sheets (if you so choose), add code chunks that run and produce output\n\n\n\n\n\n\nNoteFun Fact!\n\n\n\nThis document you’re reading, and the entire website for this course, was built using Quarto and R (as was my lab website)! By harnessing the power of this tool, you can create super effective and light-weight online portals for your work to communicate your methods and findings.\n\n\n\nR Notebook structure\nThere are basically 3 main parts to any .rmd or .qmd file:\n\nAn (optional) YAML header surrounded by: ---\nChunks of R code surrounded by ```\nText mixed with simple text formatting like # heading and *italics*\n\nHere’s an example:\nHere is a simple Quarto document:\n\n---\ntitle: \"My First Quarto Analysis\"\nauthor: \"Your Name\"\nformat: html\n---\n\n# Example quarto document\n\nThis is a simple Quarto document.\n\n## Create the data\n\ndata &lt;- data.frame(\n  species = c(\"Bee\", \"Butterfly\", \"Fly\", \"Beetle\"),\n  abundance = c(12, 8, 15, 5)\n)\n\ndata\n\n## Make a plot\n\nlibrary(ggplot2)\n\nggplot(data, aes(x = species, y = abundance)) +\n  geom_col()\n\nWhen you are finished and want to export this to a report, you could render it as .html where it will look like this:",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to R, Project Organization, and the 'DevEnv'"
-    ]
-  },
-  {
     "objectID": "workshop/workshop-index.html#completing-and-submitting-workshop-reports",
     "href": "workshop/workshop-index.html#completing-and-submitting-workshop-reports",
     "title": "Overview of workshops + basic info",
@@ -489,254 +633,63 @@
     ]
   },
   {
-    "objectID": "workshop/w1-workshop.html#comments",
-    "href": "workshop/w1-workshop.html#comments",
-    "title": "Workshop 1: Intro to R, Project Organization, and the DevEnv",
-    "section": "Comments 📝",
-    "text": "Comments 📝\nYou have already seen comments in the code above. R ignores any text after a #. The purpose of these comments are to explain the why of your code, not the how or the what. To quote R for Data Science:\n\nFor data analysis code, use comments to explain your overall plan of attack and record important insights as you encounter them. There’s no way to re-capture this knowledge from the code itself\n\nYou can also leave little breadcrumbs for yourself as reminders of what exactly some output is, or why you’ve changed the argument of a function to a certain value. Comments are invaluable to future you and collaborators: use them!",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to R, Project Organization, and the 'DevEnv'"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#qmd",
-    "href": "workshop/w1-workshop.html#qmd",
-    "title": "Workshop 1: Intro to data science and R",
-    "section": "`````qmd",
-    "text": "`````qmd\ntitle: “My First Quarto Analysis” author: “Your Name” format: html —",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to data science and R"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#create-the-data",
-    "href": "workshop/w1-workshop.html#create-the-data",
-    "title": "Workshop 1: Intro to data science and R",
-    "section": "Create the data",
-    "text": "Create the data\n\ndata &lt;- data.frame(\n  species = c(\"Bee\", \"Butterfly\", \"Fly\", \"Beetle\"),\n  abundance = c(12, 8, 15, 5)\n)\n\ndata\n\n    species abundance\n1       Bee        12\n2 Butterfly         8\n3       Fly        15\n4    Beetle         5",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to data science and R"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#make-a-plot",
-    "href": "workshop/w1-workshop.html#make-a-plot",
-    "title": "Workshop 1: Intro to data science and R",
-    "section": "Make a plot",
-    "text": "Make a plot\n\nlibrary(ggplot2)\n\nggplot(data, aes(x = species, y = abundance)) +\n  geom_col()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipSuggestion:\n\n\n\nGo peek at the GitHub repository for this site to see how the various pages are constructed as .qmd files and compare that to the rendered, website version. You’ll get a sense of how the various formatting features of markdown work.",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to data science and R"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#this-will-render-as",
-    "href": "workshop/w1-workshop.html#this-will-render-as",
-    "title": "Workshop 1: Intro to data science and R",
-    "section": "This will render as:",
-    "text": "This will render as:\ntitle: “My First Quarto Analysis” author: “Your Name” format: html —",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to data science and R"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#example-quarto-document",
-    "href": "workshop/w1-workshop.html#example-quarto-document",
-    "title": "Workshop 1: Intro to R, Project Organization, and the DevEnv",
-    "section": "Example quarto document",
-    "text": "Example quarto document\nThis is a simple Quarto document.\n\nCreate the data\n\ndata &lt;- data.frame(\n  species = c(\"Bee\", \"Butterfly\", \"Fly\", \"Beetle\"),\n  abundance = c(12, 8, 15, 5)\n)\n\ndata\n\n    species abundance\n1       Bee        12\n2 Butterfly         8\n3       Fly        15\n4    Beetle         5\n\n\n\n\nMake a plot\n\nlibrary(ggplot2)\n\nggplot(data, aes(x = species, y = abundance)) +\n  geom_col()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipSuggestion:\n\n\n\nGo peek at the GitHub repository for this site to see how the various pages are constructed as .qmd files and compare that to the rendered, website version. You’ll get a sense of how the various formatting features of markdown work.",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to R, Project Organization, and the 'DevEnv'"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#packages",
-    "href": "workshop/w1-workshop.html#packages",
-    "title": "Workshop 1: Intro to R, Project Organization, and the DevEnv",
-    "section": "Packages 📦",
-    "text": "Packages 📦\nR ships with a huge number of useful, pre-loaded bits of code that you can use to load, manipulate, and model data. However, there’s also an even huger (sp?) world of code developed by others to complete various tasks from manipulating data, to loading and accessing data APIs, to building complex Baysian statistical models, to working with geospatial data. These bits of code developed by others are packaged as something called….well…packages. They’re sort of like apps on your phone; programs that operate either on their own or in conjunction with other packages to expand the baseline capabilities of R. Chances are, if you can think of it, there is a package that already exists to do it.\nTo get these packages, we have to first install them. We use R Studio’s package manager to do this. To install new packages, go to the Tools menu and select Install Packages…. In the Packages content box, you can start to enter the name and the list should auto-populate from the CRAN repository. Select install, and then the package will be downloaded from the interwebs and installed on your computer. Once installed, you can use it in perpituity – you don’t need to reinstall it every time you start R. However, packages are not static, and are frequently updated by the maintainers/authors. We can also use the same menu to update our packages. I recommend doing this at least once per month so that you’re keeping current with bug fixes, new features, etc.\nGreat! But, if you want to use the package, we first have to tell R to load it up. R packages are stored deep inside your computer, and when R Studio boots up, it loads the bare minimum number of packages to ensure our experience is a nimble and fast as possible. The more packages you load, the more stuff R has to keep track of in memory. Given this, we tend to load only the packages we need to complete a project/task, not the entirety of the R ecosystem! To load a package, we use the library() function.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.3     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nNeat! Loading the tidyverse packages actually loads 9!? packages altogether for data wrangling, visualization, and manipulating. In fact, about 95% of your every-day R tasks will likely be completed using one of those 9 packages. As you’ll learn in a few weeks, Tidyverse is, in fact, the law.\n\n\nBut how the f*** do I use these things?!\nPackages are the backbone of R and enable us to do way more than we’d ever be able to do on our own with base R functionality only. However, we do need to learn how to use the various bits of software that a package installs! There’s many ways to go about this, and the most basic one is to read the documentation for the package on CRAN. These are, often, very technical documents, but define the use cases, functions, and other features the package offers. Increasingly, package authors may also maintain a website for the package (often via github) that has more easy-to-follow and detailed instructions on how to use the various functions and features of a package. These websites often contain vingettes or articles walking through the common (or somtimes uncommon) uses-cases for the package. Check out this one for the cowplot package By Claus Wilke, which is dedicated to helping craft publication-quality figures in R: https://wilkelab.org/cowplot/.\nIf you have questions about using specific functions of a package, the quick way to get help is, again, to reference the documentation of the package within R Studio. To do this, we use the console and enter ? followed by the package and function. For example:\n\n?cowplot::plot_grid()\n\nWhich will open up the documentation for that function inside the Help pane in the lower right of the R Studio GUI:",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to R, Project Organization, and the 'DevEnv'"
-    ]
-  },
-  {
-    "objectID": "workshop/w1-workshop.html#frontmatter-1",
-    "href": "workshop/w1-workshop.html#frontmatter-1",
-    "title": "Workshop 1: Intro to data science and R",
+    "objectID": "content/content-index.html",
+    "href": "content/content-index.html",
+    "title": "Overview of lectures and lecture material",
     "section": "",
-    "text": "Download lab data",
+    "text": "Each week the content will be structured with the same headings to provide you with the material needed. The first section (outlined in yellow) will contain the Readings, Questions, and Slides for the week, followed by the online content of the learning & workshop material.\n\nReadings: required and optional readings that are pertinent to the topic covered that week. These will include primary literature, book chapters, websites, and other tidbits that I think provide a solid foundation on the skill sets that we cover each week.\nQuestions: these will be the motivating questions that guide each week’s materials; by the end of the class/workshop for that week, you should be able to answer these and/or use the developed skills to accomplish a certain set of tasks.\nSlides: these are the slides that I will use for the brief mini-lectures for each week for your reference.\n\n\n Download Webpage as PDF",
     "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 1: Intro to data science and R"
+      "Content",
+      "Overview",
+      "Overview of lectures and lecture material"
     ]
   },
   {
-    "objectID": "workshop/w2-workshop.html",
-    "href": "workshop/w2-workshop.html",
-    "title": "Workshop 2: Data structures, objects, tibbles, etc.",
-    "section": "",
-    "text": "Download workshop data  .qmd template  Exercise code",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 2: Data structures, objects, code style, etc"
-    ]
-  },
-  {
-    "objectID": "workshop/w2-workshop.html#frontmatter",
-    "href": "workshop/w2-workshop.html#frontmatter",
-    "title": "Workshop 2: Data structures, objects, tibbles, etc.",
-    "section": "",
-    "text": "Download workshop data  .qmd template  Exercise code",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 2: Data structures, objects, code style, etc"
-    ]
-  },
-  {
-    "objectID": "workshop/w2-workshop.html#tour-de-objects",
-    "href": "workshop/w2-workshop.html#tour-de-objects",
-    "title": "Workshop 1: Data structures, objects, tibbles, etc.",
-    "section": "Tour de Objects 🚴 🚴 🚴💨",
-    "text": "Tour de Objects 🚴 🚴 🚴💨\nAs we discussed last week, programming in R is all about creating, maniupulating, and operating on objects.\n\nThe atomic data types\nR has 6 basic (“atomic”) vector types, but 4 are most commonly used:\n\n\n\n\n\n\n\n\nType\nDescription\nExamples\n\n\n\n\nLogical\nBoolean values (TRUE / FALSE)\nTRUE, FALSE, T, F\n\n\nNumeric (Double)\nReal numbers (default numeric type)\n3.14, 42.0\n\n\nNumeric (Integer)\nWhole numbers (designated with L)\n42L\n\n\nCharacter\nText strings\n\"hello\", \"camera trap\"\n\n\nComplex / Raw\nImaginary numbers or raw bytes (rare)\n1 + 4i, charToRaw(\"A\")\n\n\n\n\n\n\n\n\n\nTipType Checking\n\n\n\nUse typeof() to check an object’s underlying storage type, and is.* functions (e.g., is.numeric(), is.character()) to test for specific types.\n\n\n\n# Create atomic variables\nmy_numeric   &lt;- 42.5\nmy_integer   &lt;- 42L\nmy_character &lt;- \"iBUG Lab\"\nmy_logical   &lt;- TRUE\n\n# Check types\ntypeof(my_numeric)\n\n[1] \"double\"\n\ntypeof(my_integer)\n\n[1] \"integer\"\n\nis.numeric(my_character)\n\n[1] FALSE\n\n\n\n\nVectors\nA vector is a 1-dimensional collection of elements of the same type (that is, all numeric, character, etc.). We create vectors using the c() function which combines or concatenates elements.\n\nMixing data types in R will perform implicit coercion, which basically means it will convert everything into the most flexible type. The flexibility of objects in R from most to least is: character &gt; double &gt; integer &gt; logical.\nIn R, many functions or operations are vectorized, meaning they will apply math/functions/operations to every element of the vector automatically\n\n\n# Creating a numeric vector\nmy_counts &lt;- c(12, 4, 30, 0)\n\n# Vectorized maths\nmy_counts_doubled &lt;- my_counts * 2\nmy_counts_doubled\n\n[1] 24  8 60  0\n\n# Coercion of data: what do you think this will be converted to?\nmessy_vector &lt;- c(1, \"shikaka\", TRUE)\ntypeof(messy_vector)\n\n[1] \"character\"\n\n\n\n\nLists\nLists are very much like vectors, but they can hold different data types (including things like other lists). You can essentially put anything into them and retain its native data type.\n\nCreated using list()\nWe access elements using single brackets [] (which returns a sub-list) or double brackets [[]] or $ (which extracts the actual object, e.g., another list, character, or vector).\n\n\n# Creating a list\ncamera_traps &lt;- list(\n  site_id = \"SITE-01\",\n  active = TRUE,\n  battery = 88.5,\n  target_species = c(\"affinis\", \"auricomus\", \"impatiens\")\n)\n\n# Exctracting/accessing elements\ncamera_traps$site_id\n\n[1] \"SITE-01\"\n\ncamera_traps[[4]][1] # list element 4, object 1 (i.e., first target species)\n\n[1] \"affinis\"\n\n\n\n\nData frames and tibbles\nMost of us will work with data frames 90% of the time. Tabular data, that is, a standard excel or Google Sheets file, arranged in a two-dimensional grid of rows and columns, is what most of us are familiar using to aggregate data from experiments and observational studies. When we bring these data into R, we’ll bring them in as data frames. At their core, data frames are essentially lists (each list is a “column”) of equal-length vectors (each vector element is a “row”).\n\n\nAccessing data in data frames\nBecause data frames are essentially lists, the manner in which we access data is very similar. We’ll discuss more advanced/modern ways to access data in the coming weeks, but the base R ways to get at data are:\n\nExtract column:\n\nBy name:my_df$col_1 or my_df[, \"col_1\"] or my_df[[\"col_1\"]]\nBy index: my_df[, 1] or my_df[[1]]\n\nExtract row:\n\nmy_df[1, ] (extracts row 1 across all columns)\n\nExtract cell:\n\nmy_df[1, \"col_1\"] or my_df[1, 1]\n\nExtract range:\n\nmy_df[1:5, c(\"col_1\", \"col_2\")]\n\n\n\n\nOk, got data frames ✅, what the hell is a tibble?\nGreat question! A tibble is a type of data frame. But a data frame is not necessarily a tibble! Tibbles are a special type of data frame that belong to the Tidyverse: a series of R packages and a philosophy of data organization and presentation. The developers describe them as: &gt; “Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.”\nThe visualization capacity alone makes them worth using, and they play nicely with all of the other tidyverse packages that we’ll be using throughout this semester. Here are the big advantages of tibbles:\n\nNo unintended vector dropping (drop = FALSE by default): When subsetting a single column in a standard data.frame, base R silently simplifies the output into a 1D vector. A tibble always returns a 2D tibble unless explicitly told otherwise, preventing downstream code breakage in functions expecting tabular data.\n\nlibrary(tibble)\n\n# Base Data Frame\ndf &lt;- data.frame(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(df[, \"a\"]) \n# [1] \"integer\"  &lt;-- Automatically dropped to a vector!\n\n# Tibble\ntbl &lt;- tibble(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(tbl[, \"a\"]) \n# [1] \"tbl_df\" \"tbl\" \"data.frame\"  &lt;-- Remains a 1-column tibble!\n\nNo partial name matching: Base data frames try to guess column names if you make a typo or use shorthand. Tibbles require exact column matching and trigger a warning if a column doesn’t exist, preventing silent logical errors.\n\n# Base Data Frame (Silently matches \"species_name\" via \"$spec\")\ndf &lt;- data.frame(species_name = c(\"affinis\", \"impatiens\"))\ndf$spec\n# [1] \"affinis\" \"impatiens\"  &lt;-- Dangerous!\n\n# Tibble\ntbl &lt;- tibble(species_name = c(\"affinis\", \"impatiens\"))\ntbl$spec\n# NULL\n# Warning message: Unknown or uninitialised column: `spec`.\n\nBetter printing for large datasets: Printing a large data.framecan easily overwhelm your screen by dumping thousands of rows and wrapping dozens of columns. Tibbles automatically truncate output to 10 rows, fit columns to your console width, displays data types for every column, and adds colored text to help elements stand out.\n\nlibrary(tibble)\n# Creating a large-ish dataset\ndf_large  &lt;- data.frame(id = 1:100, x = runif(100), y = rnorm(100))\ntbl_large &lt;- as_tibble(df_large)\n\n# Printing base df floods the console with oodles of lines\nprint(df_large) \n\n     id           x           y\n1     1 0.162385124  0.53642670\n2     2 0.569718401 -1.17325807\n3     3 0.326068717  0.36585884\n4     4 0.769109456 -0.44691791\n5     5 0.435431013  0.29628091\n6     6 0.301250291 -0.97676043\n7     7 0.820843544 -1.39090339\n8     8 0.022954133  2.41063763\n9     9 0.970591139  0.72085680\n10   10 0.001175386  0.40221523\n11   11 0.892476350 -0.48918093\n12   12 0.583072219  0.54878095\n13   13 0.868379319  0.98944237\n14   14 0.883154185  0.65545095\n15   15 0.549961827 -2.78343079\n16   16 0.502501731 -0.67363026\n17   17 0.963576595  0.14866094\n18   18 0.741289909  0.37818428\n19   19 0.765276885 -0.58339696\n20   20 0.860281993 -0.46899498\n21   21 0.871734290  1.12897195\n22   22 0.952800287  0.12007567\n23   23 0.187918930  0.36965287\n24   24 0.161983617 -0.09517183\n25   25 0.081008004 -0.41384404\n26   26 0.032242810  0.27480050\n27   27 0.542504238  1.19891291\n28   28 0.847087557 -1.42091921\n29   29 0.569046610 -0.67175770\n30   30 0.698433012 -0.21187478\n31   31 0.346049607 -0.11249873\n32   32 0.906902228 -1.36086208\n33   33 0.175641577 -0.81147918\n34   34 0.694814440 -1.29234572\n35   35 0.787606000  2.01204370\n36   36 0.164183301  1.28380375\n37   37 0.924495802 -0.06769495\n38   38 0.736729800 -0.73554432\n39   39 0.220203707  0.58615069\n40   40 0.899281360  0.91125361\n41   41 0.238652593 -0.21108145\n42   42 0.236534361 -0.54471266\n43   43 0.692425285 -0.71666121\n44   44 0.608845774  0.74206124\n45   45 0.095963847  0.91096638\n46   46 0.643232375  0.25834886\n47   47 0.652077162  0.05474690\n48   48 0.760911416 -0.62953448\n49   49 0.162188190 -0.40304269\n50   50 0.605917522 -1.18154654\n51   51 0.779530244 -1.28153078\n52   52 0.947308368 -0.51410233\n53   53 0.216184263  0.08253237\n54   54 0.099517293  0.49782847\n55   55 0.449256414  0.52670946\n56   56 0.407563966  1.50233610\n57   57 0.229565881  0.25790194\n58   58 0.255832218 -0.43403816\n59   59 0.638542281  0.27045906\n60   60 0.443044668  2.60345478\n61   61 0.907413159 -1.58340611\n62   62 0.512237108 -0.02619486\n63   63 0.237944331 -0.74377956\n64   64 0.614608636 -0.35188470\n65   65 0.343017985 -0.89776292\n66   66 0.824233036  1.31691946\n67   67 0.596999311 -0.37008698\n68   68 0.332679728 -0.76265480\n69   69 0.280586526 -0.47238249\n70   70 0.238203271 -0.94606768\n71   71 0.143608255 -0.58728399\n72   72 0.020734184  0.05861270\n73   73 0.409808623 -0.98087724\n74   74 0.600093385  0.79987348\n75   75 0.385846437 -0.75528664\n76   76 0.578662236  0.91958307\n77   77 0.929527161 -1.28542466\n78   78 0.935815670  0.82900118\n79   79 0.171982743  0.38634923\n80   80 0.488772659  1.18934630\n81   81 0.199658382 -1.15558736\n82   82 0.019069186  2.30714962\n83   83 0.161024560 -1.55750751\n84   84 0.879334563  0.06147661\n85   85 0.022305789  0.41511405\n86   86 0.879332085  1.49922581\n87   87 0.022025093  0.36787229\n88   88 0.742377442  0.57460644\n89   89 0.814843488 -1.21115256\n90   90 0.515578034  0.50258376\n91   91 0.092352990 -0.45210283\n92   92 0.374521013  1.80935960\n93   93 0.654518362 -2.04239622\n94   94 0.721162646  0.69147177\n95   95 0.382546087 -0.84381296\n96   96 0.922373063 -0.54333170\n97   97 0.005827209 -0.42797182\n98   98 0.364158373 -0.69452134\n99   99 0.447309552  0.04084613\n100 100 0.516741819 -2.20381302\n\n# Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)\ntbl_large\n\n# A tibble: 100 × 3\n      id       x      y\n   &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n 1     1 0.162    0.536\n 2     2 0.570   -1.17 \n 3     3 0.326    0.366\n 4     4 0.769   -0.447\n 5     5 0.435    0.296\n 6     6 0.301   -0.977\n 7     7 0.821   -1.39 \n 8     8 0.0230   2.41 \n 9     9 0.971    0.721\n10    10 0.00118  0.402\n# ℹ 90 more rows\n\n\nBetter column construction: When creating a tibble, you can reference variables created earlier in the exact same call. Base data.frame throws an error if you attempt this.\n\n# Works in tibble\ntbl &lt;- tibble(\n  x = 1:5,\n  y = x * 2  # References 'x' immediately\n)\n\n\n\n\n\nFunctions\nFunctions are code objects that perform operations on some input (called arguments) and return some output. As we discussed last week, anything with some word followed by () is a function. R has thousands of built in functions, and packages that we install come with their own sets of functions. We can also create our own! In fact, we’ll spend a whole chunk of a class on this topic as knowing how to do this can save you a ton of time and make fewer mistakes than simply copying and pasting code over and over again.\nAs a quick example, we can create a function to calculate the rate at which we capture images of insects in a camera trap:\n\n# Defining our functions name and what it does\ncalculate_trap_rate &lt;- function(image_count, days_active) {\n  rate &lt;- image_count / days_active\n  return(rate)\n}\n\n# Using the function\ncalculate_trap_rate(image_count = 142, days_active = 7)\n\n[1] 20.28571",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 2: Data structures, objects, code style, etc"
-    ]
-  },
-  {
-    "objectID": "workshop/w2-workshop.html#code-style",
-    "href": "workshop/w2-workshop.html#code-style",
-    "title": "Workshop 1: Data structures, objects, tibbles, etc.",
-    "section": "Code Style 💃",
-    "text": "Code Style 💃\nStyle is important. But unlike in life, having your “own” style when coding, is not necessarily something to strive for. In this space, style means having code formatting that is predictable and readable. To quote R4DS again… &gt;“Good coding style is like correct punctuation: you can manage without it, butitsuremaesthingseasiertoread.”\nIt isn’t just a tedious exercise to make everything line up and look “pretty”. It legitimately helps both you and others be able to more quickly assess what your code is doing, and spot potential errors. remember, code is instruction to a an extremely inflexible, ridgid computer: they don’t like messy, confusing, and imprescise instructions! There is an implied contract between you and the computer: R will do the crap you don’t want to do provided that you are precise in your instructions.\n\nNaming files, objects\nIn R, object names must start with a letter and can only contain letters, numbers, _, and .. Object names should be descriptive and have some internal logic, and you’ll need to figure out how you want to deal with multiple words. There are several methods:\n\nSnake case: i_use_snake_case\nCamel case: iUseCamelCase\nPeriod case: period.case\nChaos case: You.DO_you &lt;– Resist entropy. Don’t do this.\n\nPersonally, I use a split convention. I use period case to name assigned R objects that are saved in the environment. For column names in tibbles/data frames, I use snake case.\nAnother thing you’ll need to do is be concise in your naming. The longer the object name is, the more keystrokes you need to enter to access/reference to it (increasing chances of mistakes and it’s just annoying to have to type that much). That said, it’s better to have a longer, more descriptive name than an extremely short, easy to type one. Ultimately, you’ll save more time typing a longer name than searching your code for what thing.2 is. In the event you have many different objects that are variations on a theme, it’s better to distinguish them using a common prefix rather than a suffix as autocomplete works most efficiently that way. For example, spp.model.1.glm and spp.model.2.glm\nThere’s a million ways to figure out a naming convention that works for you, but the most important part is to be consistent in your application. I do use suffixes for common object types in R so that I can easily tell what they are from the name:\n\n\n\nObject Type\nSuffix\nExamples\n\n\n\n\nData frame/tibble\n.df\nmydata.df\n\n\nList\n.list\nmylist.list\n\n\nModels\n.lm, .glm, .glmm, .gam\nmodel1.gam\n\n\n\n\nReserved words 🤐\nWhen naming things, there are a few no-no words that you cannot use because R reserves them for specific uses.\n\n\n\n\n\n\n\n\nWord / Symbol\nCategory\nDescription\n\n\n\n\nif\nControl Flow\nExecutes code conditionally\n\n\nelse\nControl Flow\nAlternate execution branch for if\n\n\nfor\nControl Flow\nLoop over a collection or vector\n\n\nwhile\nControl Flow\nLoop while a condition is true\n\n\nrepeat\nControl Flow\nInfinite loop (requires break to exit)\n\n\nin\nControl Flow\nUsed within for loops to specify sequence iteration\n\n\nbreak\nControl Flow\nExits a loop immediately\n\n\nnext\nControl Flow\nSkips the rest of the current loop iteration\n\n\nfunction\nDefinition\nDefines a custom function\n\n\nTRUE\nConstant\nLogical true value\n\n\nFALSE\nConstant\nLogical false value\n\n\nNULL\nConstant\nRepresents an empty object or absent value\n\n\nNA\nConstant\nRepresents missing or unavailable data\n\n\nInf\nConstant\nPositive infinity\n\n\n-Inf\nConstant\nNegative infinity\n\n\nNaN\nConstant\n“Not a Number” (e.g., \\(0/0\\))\n\n\n\n\n\n\nSpaces\nSpaces are good! Spaces are your friend! White space, as it’s called (harkening back to the days of typewriters), helps our eyes to more quickly assess what is happening in code. We should put spaces on either side of mathematical operators (except exponentiation ^) and around the assignment operator &lt;-. Also put spaces after commas, just like we would writing. You can also add spaces to improve code alignment: this makes it easier to digest/skim quickly.\n\n# Good spacing style\nz &lt;- (a + b)^4 / d\n\n# Bad spacing style\nz&lt;-( a + b )^4/d\n\n# Spaces after commas!\nmean(x, na.rm = TRUE)\n\n# Spaces for alignment\nflights |&gt; \n  mutate(\n    speed     = distance / air_time,\n    dep_hour  = dep_time %/% 100,\n    dep_min   = dep_time %% 100\n  )\n\n\n\nPipes\nWe will talk more about pipes when we get into data wranglin’ in a couple of weeks, but pipes are a great way to streamline your code and avoid creating intermediate objects that clutter your environment and take up memory. Briefly, a pipe takes stuff on its left and passes it along to the function on its right. So, x |&gt; f(y) is equivalent to f(x, y) and x |&gt; f(y) |&gt; g(z) is equivalent to g(f(x, y), z). In english, pipes basically translate to “then”. The point of introducing them here is to discuss how to style the code you write using pipes, not to get into their use per se.\nPipes should always have a space before them, and be the last thing on a line. This makes it easier to re-shuffle how things are ordered and quickly see the logic of a set of piped functions.\n\n# Strive for \nflights |&gt;  \n  filter(!is.na(arr_delay), !is.na(tailnum)) |&gt; \n  count(dest)\n\n# Avoid\nflights|&gt;filter(!is.na(arr_delay), !is.na(tailnum))|&gt;count(dest)\n\nIf the function you’re piping into has named arguments (e.g., mutate() or summarize()) put each argument on a new line. If it doesn’t (e.g., filter()), keep it on one line unless you can’t fit it all.\n\n# Strive for \nflights |&gt;  \n  group_by(tailnum) |&gt; \n  summarize(\n    delay = mean(arr_delay, na.rm = TRUE),\n    n = n()\n  )\n\n# Avoid\nflights|&gt;\n  group_by(tailnum) |&gt; \n  summarize(\n             delay = mean(arr_delay, na.rm = TRUE), \n             n = n()\n           )\n\n# Avoid\nflights|&gt;\n  group_by(tailnum) |&gt; \n  summarize(\n  delay = mean(arr_delay, na.rm = TRUE), \n  n = n()\n  )\n\n\n\nComments and code outline (via .qmd)\nOne key area to keep style and organization in mind is how you structure your scripts/markdown files from a meta-level. Rather than a bunch of jumbled code that flows endlessly for 500 lines, use hierarchical markdown structure or sectioning comments to delineate or break up your file into cohesive/logical pieces. Look at the frontmatter to download the template .qmd file that I use for all new notebooks.\n\n# 📦 LOAD PACKAGES\n\n# 💾 LOAD DATA\n## Tabular data\n\n## Spatial data\n\n# 🧹 CLEAN DATA\n## Dataset 1\n\n## Dataset 2\n\n# 🏗️ BUILD MODELS\n## Abundance models\n\n## Spatial models\n\n# 📈 VISUALIZE RESULTS\n## Abundance models\n\n## Spatial models",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 2: Data structures, objects, code style, etc"
-    ]
-  },
-  {
-    "objectID": "workshop/w2-workshop.html#hands-on-exercises",
-    "href": "workshop/w2-workshop.html#hands-on-exercises",
-    "title": "Workshop 2: Data structures, objects, tibbles, etc.",
-    "section": "Hands-on exercises 🧑🏻‍💻",
-    "text": "Hands-on exercises 🧑🏻‍💻\n\nVectors\n\nExercise 1: Species names and survey counts (Vector Types)\nCreate a character vector named species containing \"Apis mellifera\", \"Bombus impatiens\", and \"Osmia lignaria\". Combine it with the numeric count vector individual_counts into a single vector named survey_data, then print the class of survey_data.\n\n\n\n\n\n\n\n\n\n\n\nExercise 2: Biomass calculations and standardized traps (Vector arithmetic & recycling)\nConvert insect dry weight values in milligrams (dry_weight_mg) to grams by dividing by 1000. Then subtract a 2-element trap-tare weight vector c(0.005, 0.008) to calculate the net insect mass in net_mass_g.\n\n\n\n\n\n\n\n\n\n\n\nExercise 3: Filtering quadrat sample data (Logical Subsetting)\nExtract values from stem_density (stems per \\(m^2\\)) that represent dense plots (&gt; 200 stems) AND are even numbers (%% 2 == 0). Store the resulting values in dense_even_plots.\n\n\n\n\n\n\n\n\n\n\n\nExercise 4: Imputing missing field data (NA handling)\nA field logger missed soil moisture readings due to a sensor malfunction. Calculate the mean of non-NA moisture values in soil_moisture (using na.rm = TRUE) and store it as mean_moisture. Then replace all missing NA values in soil_moisture with mean_moisture. This practice is called imputing.\n\n\n\n\n\n\n\n\n\n\n\nExercise 5: Indexing named biodiversity indices (Vector subsetting)\nYou have Shannon diversity index values for insect communities at 7 sampling sites. Extract the values for \"Site_B\" and \"Site_D\" by name into control_sites. Then remove the disturbance treatment sites (positions 6 and 7) using negative indexing into disturbed_sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLists\n\nExercise 1: Extracting elements from nesting sample lists\nA field survey stores site metadata, species observations, and environmental variables in a single list. Extract the temperatures vector by name into temp_vals, then extract the third species name (\"Ceratina dupla\") using double bracket indexing into third_species.\n\n\n\n\n\n\n\n\n\n\n\nExercise 2: Applying functions across list elements\nYou have a list containing insect trap count vectors from three sampling locations. Use lapply() to calculate the total abundance (sum()) for each site, then use unlist() to convert the result into a clean numeric vector named site_totals.\n\n\n\n\n\n\n\n\n\n\n\nExcrcise 3: Dynamic list modification\nCreate a list named pollinator_obs with two named vectors: bees = c(45, 32) and flies = c(12, 19). Then dynamically add a new element named butterflies containing c(8, 14), and update the bees element by adding 10 additional counts to each site. This also touches on vectorization which we worked on above!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTibbles\n\nExercise 1: Tibble creation and sequential column referencing\nCreate a tibble named tree_survey containing 5 trees with species names in column species, dbh (diameter at breast height in cm) in column dbh_cm with values c(12.4, 28.1, 8.5, 42.0, 19.3), and calculate basal_area_m2 directly inside the tibble() call using the formula (pi * (dbh_cm / 2)^2) / 10000.\n\n\n\n\n\n\n\n\n\n\n\nExercise 2: Base Data Frame vs. Tibble Column Subsetting (drop = FALSE)\nSubset column “parasite_load” from both the base data frame df_bees and the tibble tbl_bees using bracket notation [, \"parasite_load\"]. Print the class of each result to observe how base data frames silently simplify output to a 1D vector while tibbles preserve tabular structure.\n\n\n\n\n\n\n\n\n\n\n\nExercise 3: Partial Matching Prevention in Tibbles\nIn field data, column name typos can cause silent logical errors. Try accessing the “treatment” column of df_plots and tbl_plots using the shorthand $treat. Observe the difference in behavior.\n\n\n\n\n\n\n\n\n\n\n\nExercise 4: Extracting Rows, Columns, and Ranges\nGiven a data frame of water quality observations water_quality:\n1. Extract the first 3 rows across all columns into `top_samples`.\n\n2. Extract cell value at row 4, column \"dissolved_oxygen\" into `specific_do`.\n\n3. Extract rows 2 through 5 for columns \"site_id\" and \"pH\" into `pH_sub`.\n\n\n\n\n\n\n\n\n\n\n\nExercise 5: Converting and Inspecting Large Biological Datasets\nConvert the large insect sweep net data frame df_sweeps (100 rows) into a tibble named tbl_sweeps. Compare the console output of printing df_sweeps vs tbl_sweeps.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode style",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 2: Data structures, objects, code style, etc"
-    ]
-  },
-  {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
-    "section": "",
-    "text": "Below, you’ll find an ever-growing list of resources for learning and using R for data science. These include many of the resources that I have used help design and teach this class, and much more in-depth treatises of topics that we briefly cover in this survey course."
-  },
-  {
-    "objectID": "resources.html#books-on-data-science",
-    "href": "resources.html#books-on-data-science",
-    "title": "Resources",
-    "section": "Books on data science",
-    "text": "Books on data science"
-  },
-  {
-    "objectID": "resources.html#websites",
-    "href": "resources.html#websites",
-    "title": "Resources",
-    "section": "Websites",
-    "text": "Websites\n\nLearning R\n\nR Studio/Positron cheat sheets for various packages\n\n\n\nGit and GitHub\n\n\nData visualization\n\n\nLearning Quarto for reports and web pages"
-  },
-  {
-    "objectID": "resources.html#other-courses-at-the-u-i-recommend-for-statistics-and-data-science",
-    "href": "resources.html#other-courses-at-the-u-i-recommend-for-statistics-and-data-science",
-    "title": "Resources",
-    "section": "Other courses at the U I recommend for statistics and data science",
-    "text": "Other courses at the U I recommend for statistics and data science"
-  },
-  {
-    "objectID": "resources.html#other-courses-at-umn-that-i-recommend",
-    "href": "resources.html#other-courses-at-umn-that-i-recommend",
-    "title": "Resources",
-    "section": "Other courses at UMN that I recommend",
-    "text": "Other courses at UMN that I recommend"
-  },
-  {
-    "objectID": "content/w2-content.html",
-    "href": "content/w2-content.html",
+    "objectID": "content/w1-content.html",
+    "href": "content/w1-content.html",
     "title": "Week 1",
     "section": "",
-    "text": "R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 2: Workflow: Basics\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 4: Workflow: Code Style\n\n\n\n\n\n\n\n\n\nWhat are the atomic data types in R?\nHow do we create and access data in the fundamental R objects?\nHow should we style our code for maximal readability and accessibility?",
+    "text": "R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 6: Workflow: Scripts and Projects\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 8: Workflow: Getting Help\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 28: Quarto\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 29: Quarto Formats\n\n\n\n\n\n Buckley, Y. M. et al. Using dynamic documents to mend cracks in the reproducible research pipeline. J. Ecol. 113, 270–274 (2025)\n Fraser, H., Barnett, A., Parker, T. H. & Fidler, F. The role of replication studies in ecology. Ecol. Evol. 10, 5197–5207 (2020)\n Kelly, C. D. Rate and success of study replication in ecology and evolution. PeerJ 7, e7654 (2019)\n Filazzola, A. & Cahill, J. F. Replication in field ecology: Identifying challenges and proposing solutions. Methods Ecol. Evol. 12, 1780–1792 (2021)\n\n\n\n\n\n\nWhat is data science?\nHow does data science differ from statistics?\nWhat is the reproducibility crisis, where do issues arise, and how will we address them in this class?\nWhat are FAIR data?\n\n\n\n\n Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
     "crumbs": [
       "Content",
       "Module 1: Introduction to Data Science and R",
-      "Week 2: Data structures, objects, code style, etc"
+      "Week 1: Intro to data science and R: Project organization, RStudio, your 'devenv'"
     ]
   },
   {
-    "objectID": "content/w2-content.html#readings",
-    "href": "content/w2-content.html#readings",
+    "objectID": "content/w1-content.html#readings",
+    "href": "content/w1-content.html#readings",
     "title": "Week 1",
     "section": "",
-    "text": "R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 2: Workflow: Basics\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 4: Workflow: Code Style",
+    "text": "R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 6: Workflow: Scripts and Projects\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 8: Workflow: Getting Help\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 28: Quarto\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 29: Quarto Formats\n\n\n\n\n\n Buckley, Y. M. et al. Using dynamic documents to mend cracks in the reproducible research pipeline. J. Ecol. 113, 270–274 (2025)\n Fraser, H., Barnett, A., Parker, T. H. & Fidler, F. The role of replication studies in ecology. Ecol. Evol. 10, 5197–5207 (2020)\n Kelly, C. D. Rate and success of study replication in ecology and evolution. PeerJ 7, e7654 (2019)\n Filazzola, A. & Cahill, J. F. Replication in field ecology: Identifying challenges and proposing solutions. Methods Ecol. Evol. 12, 1780–1792 (2021)",
     "crumbs": [
       "Content",
       "Module 1: Introduction to Data Science and R",
-      "Week 2: Data structures, objects, code style, etc"
+      "Week 1: Intro to data science and R: Project organization, RStudio, your 'devenv'"
     ]
   },
   {
-    "objectID": "content/w2-content.html#questions-well-address-this-week",
-    "href": "content/w2-content.html#questions-well-address-this-week",
+    "objectID": "content/w1-content.html#questions-well-address-this-week",
+    "href": "content/w1-content.html#questions-well-address-this-week",
     "title": "Week 1",
     "section": "",
-    "text": "What are the atomic data types in R?\nHow do we create and access data in the fundamental R objects?\nHow should we style our code for maximal readability and accessibility?",
+    "text": "What is data science?\nHow does data science differ from statistics?\nWhat is the reproducibility crisis, where do issues arise, and how will we address them in this class?\nWhat are FAIR data?",
     "crumbs": [
       "Content",
       "Module 1: Introduction to Data Science and R",
-      "Week 2: Data structures, objects, code style, etc"
+      "Week 1: Intro to data science and R: Project organization, RStudio, your 'devenv'"
     ]
   },
   {
-    "objectID": "content/w2-content.html#tour-de-objects",
-    "href": "content/w2-content.html#tour-de-objects",
+    "objectID": "content/w1-content.html#slides",
+    "href": "content/w1-content.html#slides",
     "title": "Week 1",
-    "section": "Tour de Objects 🚴 🚴 🚴💨",
-    "text": "Tour de Objects 🚴 🚴 🚴💨\nAs we discussed last week, programming in R is all about creating, maniupulating, and operating on objects.\n\nThe atomic data types\nR has 6 basic (“atomic”) vector types, but 4 are most commonly used:\n\n\n\n\n\n\n\n\nType\nDescription\nExamples\n\n\n\n\nLogical\nBoolean values (TRUE / FALSE)\nTRUE, FALSE, T, F\n\n\nNumeric (Double)\nReal numbers (default numeric type)\n3.14, 42.0\n\n\nNumeric (Integer)\nWhole numbers (designated with L)\n42L\n\n\nCharacter\nText strings\n\"hello\", \"camera trap\"\n\n\nComplex / Raw\nImaginary numbers or raw bytes (rare)\n1 + 4i, charToRaw(\"A\")\n\n\n\n\n\n\n\n\n\nTipType Checking\n\n\n\nUse typeof() to check an object’s underlying storage type, and is.* functions (e.g., is.numeric(), is.character()) to test for specific types.\n\n\n\n# Create atomic variables\nmy_numeric   &lt;- 42.5\nmy_integer   &lt;- 42L\nmy_character &lt;- \"iBUG Lab\"\nmy_logical   &lt;- TRUE\n\n# Check types\ntypeof(my_numeric)\n\n[1] \"double\"\n\ntypeof(my_integer)\n\n[1] \"integer\"\n\nis.numeric(my_character)\n\n[1] FALSE\n\n\n\n\nVectors\nA vector is a 1-dimensional collection of elements of the same type (that is, all numeric, character, etc.). We create vectors using the c() function which combines or concatenates elements.\n\nMixing data types in R will perform implicit coercion, which basically means it will convert everything into the most flexible type. The flexibility of objects in R from most to least is: character &gt; double &gt; integer &gt; logical.\nIn R, many functions or operations are vectorized, meaning they will apply math/functions/operations to every element of the vector automatically\n\n\n# Creating a numeric vector\nmy_counts &lt;- c(12, 4, 30, 0)\n\n# Vectorized maths\nmy_counts_doubled &lt;- my_counts * 2\nmy_counts_doubled\n\n[1] 24  8 60  0\n\n# Coercion of data: what do you think this will be converted to?\nmessy_vector &lt;- c(1, \"shikaka\", TRUE)\ntypeof(messy_vector)\n\n[1] \"character\"\n\n\n\n\nLists\nLists are very much like vectors, but they can hold different data types (including things like other lists). You can essentially put anything into them and retain its native data type.\n\nCreated using list()\nWe access elements using single brackets [] (which returns a sub-list) or double brackets [[]] or $ (which extracts the actual object, e.g., another list, character, or vector).\n\n\n# Creating a list\ncamera_traps &lt;- list(\n  site_id = \"SITE-01\",\n  active = TRUE,\n  battery = 88.5,\n  target_species = c(\"affinis\", \"auricomus\", \"impatiens\")\n)\n\n# Exctracting/accessing elements\ncamera_traps$site_id\n\n[1] \"SITE-01\"\n\ncamera_traps[[4]][1] # list element 4, object 1 (i.e., first target species)\n\n[1] \"affinis\"\n\n\nWe can visualize lists using a series of nested boxes, as well as how different subsetting commands grab data from lists:\n\n\n\n\n\n\n\nData frames and tibbles\nMost of us will work with tabular data 90% of the time. Tabular data, that is, a standard excel or Google Sheets file, arranged in a two-dimensional grid of rows and columns, is what most of us are familiar using to aggregate data from experiments and observational studies. When we bring these data into R, we’ll bring them in as data frames. At their core, data frames are essentially lists (each list is a “column”) of equal-length vectors (each vector element is a “row”).\n\n\n\n\n\n\nAccessing data in data frames\nBecause data frames are essentially lists, the manner in which we access data is very similar. We’ll discuss more advanced/modern ways to access data in the coming weeks, but the base R ways to get at data are:\n\nExtract column:\n\nBy name:my_df$col_1 or my_df[, \"col_1\"] or my_df[[\"col_1\"]]\nBy index: my_df[, 1] or my_df[[1]]\n\nExtract row:\n\nmy_df[1, ] (extracts row 1 across all columns)\n\nExtract cell:\n\nmy_df[1, \"col_1\"] or my_df[1, 1]\n\nExtract range:\n\nmy_df[1:5, c(\"col_1\", \"col_2\")]\n\n\n\n\nOk, got data frames ✅, what the hell is a tibble?\nGreat question! A tibble is a type of data frame. But a data frame is not necessarily a tibble! Tibbles are a special type of data frame that belong to the Tidyverse: a series of R packages and a philosophy of data organization and presentation. The developers describe them as: &gt; “Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.”\nThe visualization capacity alone makes them worth using, and they play nicely with all of the other tidyverse packages that we’ll be using throughout this semester. Here are the big advantages of tibbles:\n\nNo unintended vector dropping (drop = FALSE by default): When subsetting a single column in a standard data.frame, base R silently simplifies the output into a 1D vector. A tibble always returns a 2D tibble unless explicitly told otherwise, preventing downstream code breakage in functions expecting tabular data.\n\nlibrary(tibble)\n\n# Base Data Frame\ndf &lt;- data.frame(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(df[, \"a\"]) \n# [1] \"integer\"  &lt;-- Automatically dropped to a vector!\n\n# Tibble\ntbl &lt;- tibble(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(tbl[, \"a\"]) \n# [1] \"tbl_df\" \"tbl\" \"data.frame\"  &lt;-- Remains a 1-column tibble!\n\nNo partial name matching: Base data frames try to guess column names if you make a typo or use shorthand. Tibbles require exact column matching and trigger a warning if a column doesn’t exist, preventing silent logical errors.\n\n# Base Data Frame (Silently matches \"species_name\" via \"$spec\")\ndf &lt;- data.frame(species_name = c(\"affinis\", \"impatiens\"))\ndf$spec\n# [1] \"affinis\" \"impatiens\"  &lt;-- Dangerous!\n\n# Tibble\ntbl &lt;- tibble(species_name = c(\"affinis\", \"impatiens\"))\ntbl$spec\n# NULL\n# Warning message: Unknown or uninitialised column: `spec`.\n\nBetter printing for large datasets: Printing a large data.framecan easily overwhelm your screen by dumping thousands of rows and wrapping dozens of columns. Tibbles automatically truncate output to 10 rows, fit columns to your console width, displays data types for every column, and adds colored text to help elements stand out.\n\nlibrary(tibble)\n# Creating a large-ish dataset\ndf_large  &lt;- data.frame(id = 1:100, x = runif(100), y = rnorm(100))\ntbl_large &lt;- as_tibble(df_large)\n\n# Printing base df floods the console with oodles of lines\nprint(df_large) \n\n     id          x           y\n1     1 0.34463465 -0.18609405\n2     2 0.70294981 -1.79952647\n3     3 0.10928662 -0.15577979\n4     4 0.98775918  0.11792202\n5     5 0.46235672  1.64435951\n6     6 0.54128748 -1.22832203\n7     7 0.26478053  0.20422044\n8     8 0.52969106 -0.47326200\n9     9 0.64282304 -1.20352509\n10   10 0.51157804  0.65569857\n11   11 0.89789363  0.46709006\n12   12 0.94559238 -0.33159712\n13   13 0.97842766 -0.37552830\n14   14 0.21182845  0.39246104\n15   15 0.05752031 -0.76873563\n16   16 0.68693351  0.43690308\n17   17 0.59898839 -0.02991532\n18   18 0.66523867  1.65553885\n19   19 0.29563283 -0.26618386\n20   20 0.04518521  1.44411861\n21   21 0.91651109  1.97588130\n22   22 0.02579631 -0.23060915\n23   23 0.97317837 -1.25980623\n24   24 0.84421656 -0.19447975\n25   25 0.03010634  1.40026770\n26   26 0.70287085 -0.40150041\n27   27 0.65515733  1.23834671\n28   28 0.97171306  0.67198994\n29   29 0.50336160  1.63360087\n30   30 0.77031588  0.48109247\n31   31 0.43732319 -1.06284491\n32   32 0.38989409 -0.61315859\n33   33 0.32026943  0.47354651\n34   34 0.47395315 -0.20301978\n35   35 0.64968630 -0.93179575\n36   36 0.69279082 -0.74544460\n37   37 0.43653171  0.93470265\n38   38 0.21164057  0.25441362\n39   39 0.54980596 -1.00352327\n40   40 0.91890199  0.55386568\n41   41 0.60644372  0.40998896\n42   42 0.48461515 -1.14276063\n43   43 0.04555318  0.84123568\n44   44 0.32791448  1.19284292\n45   45 0.16077926 -0.45311593\n46   46 0.76315637  0.25396210\n47   47 0.42839020  0.41999683\n48   48 0.09867021 -0.04016523\n49   49 0.55388266  0.13083561\n50   50 0.10304709  0.09362396\n51   51 0.74633437  1.20975653\n52   52 0.11965902  0.90938318\n53   53 0.20790942 -0.85529032\n54   54 0.40349571 -1.01822728\n55   55 0.15436624 -0.47018409\n56   56 0.40298268 -1.84637104\n57   57 0.05257961 -1.44589759\n58   58 0.32899874  0.19643970\n59   59 0.04224217  0.45228816\n60   60 0.18948743 -1.16387066\n61   61 0.62517830 -0.06082869\n62   62 0.68099248 -1.70409277\n63   63 0.61335116 -0.89889258\n64   64 0.39529764 -0.98802299\n65   65 0.97013341 -1.42594658\n66   66 0.50777086  0.30653248\n67   67 0.24089183  0.43958227\n68   68 0.09088714 -0.85822728\n69   69 0.32112719  0.17392450\n70   70 0.26280237  0.26052908\n71   71 0.58106371 -1.99937957\n72   72 0.82238114 -0.21285660\n73   73 0.03264664 -0.13638605\n74   74 0.89175526 -0.29329889\n75   75 0.38125829 -0.33389382\n76   76 0.18497414 -0.33994248\n77   77 0.74268282  2.04469489\n78   78 0.15139173  1.37533607\n79   79 0.05265712 -0.82909399\n80   80 0.97544646 -1.78786164\n81   81 0.81492673  0.09152090\n82   82 0.70743580  1.28884184\n83   83 0.93401392  0.18584571\n84   84 0.35751366 -1.56550444\n85   85 0.20088363 -0.59267144\n86   86 0.67780079 -0.41987282\n87   87 0.17676089  0.14503261\n88   88 0.70863932 -0.02485980\n89   89 0.97016861 -0.81777575\n90   90 0.88654295 -0.10098272\n91   91 0.86341827  0.86462518\n92   92 0.99698802  1.97330301\n93   93 0.97008935  0.47857577\n94   94 0.32654399 -0.15277253\n95   95 0.04307767  1.06614348\n96   96 0.44144882  1.47347545\n97   97 0.32024845 -1.09904176\n98   98 0.85223492 -0.37139114\n99   99 0.01127221 -1.05819415\n100 100 0.05433099  3.12316492\n\n# Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)\ntbl_large\n\n# A tibble: 100 × 3\n      id     x      y\n   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;\n 1     1 0.345 -0.186\n 2     2 0.703 -1.80 \n 3     3 0.109 -0.156\n 4     4 0.988  0.118\n 5     5 0.462  1.64 \n 6     6 0.541 -1.23 \n 7     7 0.265  0.204\n 8     8 0.530 -0.473\n 9     9 0.643 -1.20 \n10    10 0.512  0.656\n# ℹ 90 more rows\n\n\nBetter column construction: When creating a tibble, you can reference variables created earlier in the exact same call. Base data.frame throws an error if you attempt this.\n\n# Works in tibble\ntbl &lt;- tibble(\n  x = 1:5,\n  y = x * 2  # References 'x' immediately\n)\n\n\n\n\n\nFunctions\nFunctions are code objects that perform operations on some input (called arguments) and return some output. As we discussed last week, anything with some word followed by () is a function. R has thousands of built in functions, and packages that we install come with their own sets of functions. We can also create our own! In fact, we’ll spend a whole chunk of a class on this topic as knowing how to do this can save you a ton of time and make fewer mistakes than simply copying and pasting code over and over again.\nAs a quick example, we can create a function to calculate the rate at which we capture images of insects in a camera trap:\n\n# Defining our functions name and what it does\ncalculate_trap_rate &lt;- function(image_count, days_active) {\n  rate &lt;- image_count / days_active\n  return(rate)\n}\n\n# Using the function\ncalculate_trap_rate(image_count = 142, days_active = 7)\n\n[1] 20.28571",
+    "section": "",
+    "text": "Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
     "crumbs": [
       "Content",
       "Module 1: Introduction to Data Science and R",
-      "Week 2: Data structures, objects, code style, etc"
-    ]
-  },
-  {
-    "objectID": "content/w2-content.html#code-style",
-    "href": "content/w2-content.html#code-style",
-    "title": "Week 1",
-    "section": "Code Style 💃",
-    "text": "Code Style 💃\nStyle is important. But unlike in life, having your “own” style when coding, is not necessarily something to strive for. In this space, style means having code formatting that is predictable and readable. To quote R4DS again… &gt;“Good coding style is like correct punctuation: you can manage without it, butitsuremaesthingseasiertoread.”\nIt isn’t just a tedious exercise to make everything line up and look “pretty”. It legitimately helps both you and others be able to more quickly assess what your code is doing, and spot potential errors. remember, code is instruction to a an extremely inflexible, ridgid computer: they don’t like messy, confusing, and imprescise instructions! There is an implied contract between you and the computer: R will do the crap you don’t want to do provided that you are precise in your instructions.\n\nNaming files, objects\nIn R, object names must start with a letter and can only contain letters, numbers, _, and .. Object names should be descriptive and have some internal logic, and you’ll need to figure out how you want to deal with multiple words. There are several methods:\n\nSnake case: i_use_snake_case\nCamel case: iUseCamelCase\nPeriod case: period.case\nChaos case: You.DO_you &lt;– Resist entropy. Don’t do this.\n\nPersonally, I use a split convention. I use period case to name assigned R objects that are saved in the environment. For column names in tibbles/data frames, I use snake case. In my mind, this helps me keep R object names separated from column or variable names within my data. Do what works best for you, just be consistent!\nAnother thing you’ll need to do is be concise in your naming. The longer the object name is, the more keystrokes you need to enter to access/reference to it (increasing chances of mistakes, and it’s just annoying to have to type that much). That said, it’s better to have a longer, more descriptive name than an extremely short, easy to type one. Ultimately, you’ll save more time typing a longer name than searching your code for what thing.2 is. In the event you have many different objects that are variations on a theme, it’s better to distinguish them using a common prefix rather than a suffix as autocomplete works most efficiently that way. For example, spp.model.1.glm and spp.model.2.glm\nThere’s a million ways to figure out a naming convention that works for you, but the most important part is to be consistent in your application. A trick I use is appending suffixes for common object types in R so that I can easily tell what they are from the name:\n\n\n\nObject Type\nSuffix\nExamples\n\n\n\n\nData frame/tibble\n.df\nmydata.df\n\n\nList\n.list\nmylist.list\n\n\nModels/model type\n.lm, .glm, .glmm, .gam\nmodel1.gam\n\n\n\n\nReserved words 🤐\nWhen naming things, there are a few no-no words that you cannot use because R reserves them for specific uses.\n\n\n\n\n\n\n\n\nWord / Symbol\nCategory\nDescription\n\n\n\n\nif\nControl Flow\nExecutes code conditionally\n\n\nelse\nControl Flow\nAlternate execution branch for if\n\n\nfor\nControl Flow\nLoop over a collection or vector\n\n\nwhile\nControl Flow\nLoop while a condition is true\n\n\nrepeat\nControl Flow\nInfinite loop (requires break to exit)\n\n\nin\nControl Flow\nUsed within for loops to specify sequence iteration\n\n\nbreak\nControl Flow\nExits a loop immediately\n\n\nnext\nControl Flow\nSkips the rest of the current loop iteration\n\n\nfunction\nDefinition\nDefines a custom function\n\n\nTRUE\nConstant\nLogical true value\n\n\nFALSE\nConstant\nLogical false value\n\n\nNULL\nConstant\nRepresents an empty object or absent value\n\n\nNA\nConstant\nRepresents missing or unavailable data\n\n\nInf\nConstant\nPositive infinity\n\n\n-Inf\nConstant\nNegative infinity\n\n\nNaN\nConstant\n“Not a Number” (e.g., \\(0/0\\))\n\n\n\n\n\n\nSpaces\nSpaces are good! Spaces are your friend! White space, as it’s called (harkening back to the days of physially published things like newspapers and books), helps our eyes to more quickly assess what is happening in code. We should put spaces on either side of mathematical operators (except exponentiation ^) and around the assignment operator &lt;-. Also put spaces after commas, just like we would writing. You can also add spaces to improve code alignment: this makes it easier to digest/skim quickly.\n\n# Good spacing style\nz &lt;- (a + b)^4 / d\n\n# Bad spacing style\nz&lt;-( a + b )^4/d\n\n# Spaces after commas!\nmean(x, na.rm = TRUE)\n\n# Spaces for alignment\nflights |&gt; \n  mutate(\n    speed     = distance / air_time,\n    dep_hour  = dep_time %/% 100,\n    dep_min   = dep_time %% 100\n  )\n\n\n\nPipes\nWe will talk more about pipes when we get into data wranglin’ in a couple of weeks, but pipes are a great way to streamline your code and avoid creating intermediate objects that clutter your environment and take up memory. Briefly, a pipe takes stuff on its left and passes it along to the function on its right. So, x |&gt; f(y) is equivalent to f(x, y) and x |&gt; f(y) |&gt; g(z) is equivalent to g(f(x, y), z). In english, pipes basically translate to “then”. The point of introducing them here is to discuss how to style the code you write using pipes, not to get into their use per se.\nPipes should always have a space before them, and be the last thing on a line. This makes it easier to re-shuffle how things are ordered and quickly see the logic of a set of piped functions.\n\n# Strive for \nflights |&gt;  \n  filter(!is.na(arr_delay), !is.na(tailnum)) |&gt; \n  count(dest)\n\n# Avoid\nflights|&gt;filter(!is.na(arr_delay), !is.na(tailnum))|&gt;count(dest)\n\nIf the function you’re piping into has named arguments (e.g., mutate() or summarize()) put each argument on a new line. If it doesn’t (e.g., filter()), keep it on one line unless you can’t fit it all.\n\n# Strive for \nflights |&gt;  \n  group_by(tailnum) |&gt; \n  summarize(\n    delay = mean(arr_delay, na.rm = TRUE),\n    n = n()\n  )\n\n# Avoid\nflights|&gt;\n  group_by(tailnum) |&gt; \n  summarize(\n             delay = mean(arr_delay, na.rm = TRUE), \n             n = n()\n           )\n\n# Avoid\nflights|&gt;\n  group_by(tailnum) |&gt; \n  summarize(\n  delay = mean(arr_delay, na.rm = TRUE), \n  n = n()\n  )\n\n\n\nComments and code outline (via .qmd)\nOne key area to keep style and organization in mind is how you structure your scripts/markdown files from a meta-level. Rather than a bunch of jumbled code that flows endlessly for 500 lines, use hierarchical markdown structure or sectioning comments to delineate or break up your file into cohesive/logical pieces. Look at the frontmatter to download the template .qmd file that I use for all new notebooks.\n\n# 📦 LOAD PACKAGES\n\n# 💾 LOAD DATA\n## Tabular data\n\n## Spatial data\n\n# 🧹 CLEAN DATA\n## Dataset 1\n\n## Dataset 2\n\n# 🏗️ BUILD MODELS\n## Abundance models\n\n## Spatial models\n\n# 📈 VISUALIZE RESULTS\n## Abundance models\n\n## Spatial models\n\n\n\nStyle hacks\nThere are some great R packages/add-ins that you can configure to help you quickly re-format your code to have a cohesive style. The best option is probably the styleR package.",
-    "crumbs": [
-      "Content",
-      "Module 1: Introduction to Data Science and R",
-      "Week 2: Data structures, objects, code style, etc"
+      "Week 1: Intro to data science and R: Project organization, RStudio, your 'devenv'"
     ]
   },
   {
@@ -824,113 +777,6 @@
     ]
   },
   {
-    "objectID": "workshop/w2-workshop-key.html",
-    "href": "workshop/w2-workshop-key.html",
-    "title": "Workshop 2: Instructor Answer Key",
-    "section": "",
-    "text": "species &lt;- c(\"Apis mellifera\", \"Bombus impatiens\", \"Osmia lignaria\")\nindividual_counts &lt;- c(12, 45, 8)\nsurvey_data &lt;- c(species, individual_counts)\nclass(survey_data)\n# [1] \"character\"\n\n\n\n\n\ndry_weight_mg &lt;- c(120, 340, 85, 510, 230, 410)\ndry_weight_g &lt;- dry_weight_mg / 1000\nnet_mass_g &lt;- dry_weight_g - c(0.005, 0.008)\nnet_mass_g\n# [1] 0.115 0.332 0.080 0.502 0.225 0.402\n\n\n\n\n\nstem_density &lt;- c(145, 212, 88, 304, 199, 250, 180, 218)\ndense_even_plots &lt;- stem_density[stem_density &gt; 200 & stem_density %% 2 == 0]\ndense_even_plots\n# [1] 212 304 250 218\n\n\n\n\n\nsoil_moisture &lt;- c(0.24, NA, 0.31, 0.19, NA, 0.28, 0.22)\nmean_moisture &lt;- mean(soil_moisture, na.rm = TRUE)\nsoil_moisture[is.na(soil_moisture)] &lt;- mean_moisture\nsoil_moisture\n# [1] 0.24 0.248 0.31 0.19 0.248 0.28 0.22\n\n\n\n\n\nshannon_index &lt;- c(Site_A = 1.82, Site_B = 2.45, Site_C = 1.31, Site_D = 2.89, Site_E = 2.10, Ctrl_1 = 0.45, Ctrl_2 = 0.62)\ntarget_sites &lt;- shannon_index[c(\"Site_B\", \"Site_D\")]\nintact_sites &lt;- shannon_index[-c(6, 7)]\n\ntarget_sites\n# Site_B Site_D \n#   2.45   2.89 \n\nintact_sites\n# Site_A Site_B Site_C Site_D Site_E \n#   1.82   2.45   1.31   2.89   2.10"
-  },
-  {
-    "objectID": "workshop/w2-workshop-key.html#vectors",
-    "href": "workshop/w2-workshop-key.html#vectors",
-    "title": "Workshop 2: Instructor Answer Key",
-    "section": "",
-    "text": "species &lt;- c(\"Apis mellifera\", \"Bombus impatiens\", \"Osmia lignaria\")\nindividual_counts &lt;- c(12, 45, 8)\nsurvey_data &lt;- c(species, individual_counts)\nclass(survey_data)\n# [1] \"character\"\n\n\n\n\n\ndry_weight_mg &lt;- c(120, 340, 85, 510, 230, 410)\ndry_weight_g &lt;- dry_weight_mg / 1000\nnet_mass_g &lt;- dry_weight_g - c(0.005, 0.008)\nnet_mass_g\n# [1] 0.115 0.332 0.080 0.502 0.225 0.402\n\n\n\n\n\nstem_density &lt;- c(145, 212, 88, 304, 199, 250, 180, 218)\ndense_even_plots &lt;- stem_density[stem_density &gt; 200 & stem_density %% 2 == 0]\ndense_even_plots\n# [1] 212 304 250 218\n\n\n\n\n\nsoil_moisture &lt;- c(0.24, NA, 0.31, 0.19, NA, 0.28, 0.22)\nmean_moisture &lt;- mean(soil_moisture, na.rm = TRUE)\nsoil_moisture[is.na(soil_moisture)] &lt;- mean_moisture\nsoil_moisture\n# [1] 0.24 0.248 0.31 0.19 0.248 0.28 0.22\n\n\n\n\n\nshannon_index &lt;- c(Site_A = 1.82, Site_B = 2.45, Site_C = 1.31, Site_D = 2.89, Site_E = 2.10, Ctrl_1 = 0.45, Ctrl_2 = 0.62)\ntarget_sites &lt;- shannon_index[c(\"Site_B\", \"Site_D\")]\nintact_sites &lt;- shannon_index[-c(6, 7)]\n\ntarget_sites\n# Site_B Site_D \n#   2.45   2.89 \n\nintact_sites\n# Site_A Site_B Site_C Site_D Site_E \n#   1.82   2.45   1.31   2.89   2.10"
-  },
-  {
-    "objectID": "workshop/w2-workshop-key.html#lists",
-    "href": "workshop/w2-workshop-key.html#lists",
-    "title": "Workshop 2: Instructor Answer Key",
-    "section": "Lists",
-    "text": "Lists\n\nExercise 1\n\nsite_data &lt;- list(\n  site_id = \"MN_BEE_01\",\n  species = c(\"Lasioglossum vierecki\", \"Bombus vagans\", \"Ceratina dupla\", \"Agapostemon virescens\"),\n  environmental = list(temperatures = c(21.5, 23.0, 22.8), humidity = 64)\n)\n\ntemp_vals &lt;- site_data$environmental$temperatures\nthird_species &lt;- site_data$species[[3]]\n\ntemp_vals\n# [1] 21.5 23.0 22.8\n\nthird_species\n# [1] \"Ceratina dupla\"\n\n\n\nExercise 2\n\ntrap_counts &lt;- list(\n  Prairie = c(12, 18, 25, 9),\n  Forest_Edge = c(5, 8, 3, 11, 4),\n  Agriculture = c(30, 42, 38)\n)\n\ntotal_list &lt;- lapply(trap_counts, sum)\nsite_totals &lt;- unlist(total_list)\n\nsite_totals\n#     Prairie Forest_Edge Agriculture \n#          64          31         110\n\n\n\nExercise 3\n\npollinator_obs &lt;- list(\n  bees = c(45, 32),\n  flies = c(12, 19)\n)\n\npollinator_obs$butterflies &lt;- c(8, 14)\npollinator_obs$bees &lt;- pollinator_obs$bees + 10\n\npollinator_obs\n# $bees\n# [1] 55 42\n# \n# $flies\n# [1] 12 19\n# \n# $butterflies\n# [1]  8 14"
-  },
-  {
-    "objectID": "workshop/w2-workshop.html#topical-exercises",
-    "href": "workshop/w2-workshop.html#topical-exercises",
-    "title": "Workshop 2: Data structures, objects, tibbles, etc.",
-    "section": "Topical exercises 🧑🏻‍💻",
-    "text": "Topical exercises 🧑🏻‍💻\n\nVectors\n\nExercise 1: Species names and survey counts (Vector Types)\nCreate a character vector named species containing \"Apis mellifera\", \"Bombus impatiens\", and \"Osmia lignaria\". Combine it with the numeric count vector individual_counts into a single vector named survey_data, then print the class of survey_data.\n\n\n\n\n\n\n\n\n\n\n\nExercise 2: Biomass calculations and standardized traps (Vector arithmetic & recycling)\nConvert insect dry weight values in milligrams (dry_weight_mg) to grams by dividing by 1000. Then subtract a 2-element trap-tare weight vector c(0.005, 0.008) to calculate the net insect mass in net_mass_g.\n\n\n\n\n\n\n\n\n\n\n\nExercise 3: Filtering quadrat sample data (Logical Subsetting)\nExtract values from stem_density (stems per \\(m^2\\)) that represent dense plots (&gt; 200 stems) AND are even numbers (%% 2 == 0). Store the resulting values in dense_even_plots.\n\n\n\n\n\n\n\n\n\n\n\nExercise 4: Imputing missing field data (NA handling)\nA field logger missed soil moisture readings due to a sensor malfunction. Calculate the mean of non-NA moisture values in soil_moisture (using na.rm = TRUE) and store it as mean_moisture. Then replace all missing NA values in soil_moisture with mean_moisture. This practice is called imputing.\n\n\n\n\n\n\n\n\n\n\n\nExercise 5: Indexing named biodiversity indices (Vector subsetting)\nYou have Shannon diversity index values for insect communities at 7 sampling sites. Extract the values for \"Site_B\" and \"Site_D\" by name into control_sites. Then remove the disturbance treatment sites (positions 6 and 7) using negative indexing into disturbed_sites.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLists\n\nExercise 1: Extracting elements from nesting sample lists\nA field survey stores site metadata, species observations, and environmental variables in a single list. Extract the temperatures vector by name into temp_vals, then extract the third species name (\"Ceratina dupla\") using double bracket indexing into third_species.\n\n\n\n\n\n\n\n\n\n\n\nExercise 2: Applying functions across list elements\nYou have a list containing insect trap count vectors from three sampling locations. Use lapply() to calculate the total abundance (sum()) for each site, then use unlist() to convert the result into a clean numeric vector named site_totals.\n\n\n\n\n\n\n\n\n\n\n\nExcrcise 3: Dynamic list modification\nCreate a list named pollinator_obs with two named vectors: bees = c(45, 32) and flies = c(12, 19). Then dynamically add a new element named butterflies containing c(8, 14), and update the bees element by adding 10 additional counts to each site. This also touches on vectorization which we worked on above!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTibbles\n\nExercise 1: Tibble creation and sequential column referencing\nCreate a tibble named tree_survey containing 5 trees with species names in column species, dbh (diameter at breast height in cm) in column dbh_cm with values c(12.4, 28.1, 8.5, 42.0, 19.3), and calculate basal_area_m2 directly inside the tibble() call using the formula (pi * (dbh_cm / 2)^2) / 10000.\n\n\n\n\n\n\n\n\n\n\n\nExercise 2: Base Data Frame vs. Tibble Column Subsetting (drop = FALSE)\nSubset column “parasite_load” from both the base data frame df_bees and the tibble tbl_bees using bracket notation [, \"parasite_load\"]. Print the class of each result to observe how base data frames silently simplify output to a 1D vector while tibbles preserve tabular structure.\n\n\n\n\n\n\n\n\n\n\n\nExercise 3: Partial Matching Prevention in Tibbles\nIn field data, column name typos can cause silent logical errors. Try accessing the “treatment” column of df_plots and tbl_plots using the shorthand $treat. Observe the difference in behavior.\n\n\n\n\n\n\n\n\n\n\n\nExercise 4: Extracting Rows, Columns, and Ranges\nGiven a data frame of water quality observations water_quality:\n1. Extract the first 3 rows across all columns into `top_samples`.\n\n2. Extract cell value at row 4, column \"dissolved_oxygen\" into `specific_do`.\n\n3. Extract rows 2 through 5 for columns \"site_id\" and \"pH\" into `pH_sub`.\n\n\n\n\n\n\n\n\n\n\n\nExercise 5: Converting and Inspecting Large Biological Datasets\nConvert the large insect sweep net data frame df_sweeps (100 rows) into a tibble named tbl_sweeps. Compare the console output of printing df_sweeps vs tbl_sweeps.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode style\n\nExcercise 1: Restyle the code below\nUsing the topics that we discussed earlier (and the resources in the content for Week 2), restyle the code included below to maximize readability. Some of the code elements contain stuff we haven’t talked about yet (like function and ggplot call styling). That’s ok! This is what the R style guide and Google are for. Work on this by yourself for a few minutes, and then chat with your neighbors/small groups to see if folks varied in their approach, or caught anything that you may have missed. We’ll discuss as a group briefly after that.\n\nlibrary(tidyverse)\n\nmy_dataset&lt;-read.csv(\"field_sampling_data.csv\")\nT&lt;-my_dataset\nT_2&lt;-T[T$count&gt;0,]\nx=T_2$count\nMeanCount=mean(x)\n\nFilter_Data_fn&lt;-function(df,Sp,site_name){\nif(Sp %in% df$species){\ndf_sub&lt;-df[df$species==Sp & df$site==site_name,]\ndf_sub$count_scaled&lt;-(df_sub$count-MeanCount)/sd(df_sub$count)\nreturn(df_sub)}else{\nprint(\"Species not found in this site!\");return(NULL)}}\n\nFinalData &lt;- Filter_Data_fn(T_2,\"Apis mellifera\",\"Site_A\")\n\nFinalData%&gt;%group_by(species,site)%&gt;%summarize(total=sum(count),mean_scaled=mean(count_scaled),sd_scaled=sd(count_scaled))%&gt;%filter(total&gt;10)\n\nggplot(FinalData,aes(x=count,y=count_scaled,color=species))+geom_point()+theme_bw()",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 2: Data structures, objects, code style, etc"
-    ]
-  },
-  {
-    "objectID": "workshop/w2-workshop.html#putting-everything-together",
-    "href": "workshop/w2-workshop.html#putting-everything-together",
-    "title": "Workshop 2: Data structures, objects, tibbles, etc.",
-    "section": "Putting everything together",
-    "text": "Putting everything together",
-    "crumbs": [
-      "Workshops",
-      "Module 1: Introduction to Data Science and R",
-      "Week 2: Data structures, objects, code style, etc"
-    ]
-  },
-  {
-    "objectID": "workshop/w2-workshop-key.html#tibblesdata-frames",
-    "href": "workshop/w2-workshop-key.html#tibblesdata-frames",
-    "title": "Workshop 2: Instructor Answer Key",
-    "section": "Tibbles/data frames",
-    "text": "Tibbles/data frames\n\nExercise 1\n\nlibrary(tibble)\n\ntree_survey &lt;- tibble(\n  species = c(\"Quercus alba\", \"Acer saccharum\", \"Pinus strobus\", \"Quercus rubra\", \"Betula alleghaniensis\"),\n  dbh_cm = c(12.4, 28.1, 8.5, 42.0, 19.3),\n  basal_area_m2 = (pi * (dbh_cm / 2)^2) / 10000\n)\n\ntree_survey\n\n\n\nExercise 2\n\ndf_bees &lt;- data.frame(site = c(\"A\", \"B\", \"C\"), parasite_load = c(0, 14, 3))\ntbl_bees &lt;- as_tibble(df_bees)\n\ndf_subset_class &lt;- class(df_bees[, \"parasite_load\"])\ntbl_subset_class &lt;- class(tbl_bees[, \"parasite_load\"])\n\ndf_subset_class\n# [1] \"numeric\"\n\ntbl_subset_class\n# [1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n\n\nExercise 3\n\ndf_plots &lt;- data.frame(treatment_group = c(\"Control\", \"Burned\", \"Grazed\"), diversity = c(1.2, 2.4, 1.8))\ntbl_plots &lt;- as_tibble(df_plots)\n\ndf_match &lt;- df_plots$treat\ntbl_match &lt;- tbl_plots$treat\n\ndf_match\n# [1] \"Control\" \"Burned\"  \"Grazed\"\n\ntbl_match\n# NULL\n# Warning message: Unknown or uninitialised column: `treat`.\n\n\n\nExercise 4\n\nwater_quality &lt;- data.frame(\n  site_id = paste0(\"Site_\", 1:6),\n  pH = c(6.8, 7.2, 7.1, 6.5, 7.4, 6.9),\n  dissolved_oxygen = c(8.2, 6.4, 7.9, 5.8, 8.0, 7.1)\n)\n\ntop_samples &lt;- water_quality[1:3, ]\nspecific_do &lt;- water_quality[4, \"dissolved_oxygen\"]\npH_sub &lt;- water_quality[2:5, c(\"site_id\", \"pH\")]\n\ntop_samples\nspecific_do\n# [1] 5.8\n\npH_sub\n\n\n\nExercise 5\n\nset.seed(42)\ndf_sweeps &lt;- data.frame(\n  sweep_id = 1:100,\n  sweeps_count = sample(15:50, 100, replace = TRUE),\n  biomass_g = runif(100, 0.5, 12.0)\n)\n\ntbl_sweeps &lt;- as_tibble(df_sweeps)\nprint(tbl_sweeps)\n# # A tibble: 100 × 3\n#    sweep_id sweeps_count biomass_g\n#       &lt;int&gt;        &lt;int&gt;     &lt;dbl&gt;\n#  1        1           48      9.51\n#  2        2           47     10.5 \n#  3        3           25      5.70\n#  4        4           45      3.38\n#  5        5           38      1.80\n#  6        6           33     11.1 \n#  7        7           41      5.57\n#  8        8           40      4.98\n#  9        9           34      8.72\n# 10       10           40      1.19\n# # ℹ 90 more rows"
-  },
-  {
-    "objectID": "workshop/w2-workshop-key.html#code-style",
-    "href": "workshop/w2-workshop-key.html#code-style",
-    "title": "Workshop 2: Instructor Answer Key",
-    "section": "Code Style",
-    "text": "Code Style\nKey Style Violations for Students to Fix\n* Variable Names: Replaced non-descriptive (T, x, T_2), camelCase (MeanCount, FinalData), and mixed Camel_Snake_Case (Filter_Data_fn) with clean snake_case. Overwrote the reserved logical T.\n\n* Spacing around operators: Added spaces around assignment (&lt;-, =) and mathematical operators (+, -, /, %&gt;%, ==).\n\n* Indentation and Line Breaks: Cleaned up crammed curly braces {} and functions squeezed onto single lines with semicolons ;.\n\n* Pipes & Long Lines: Split long tidyverse pipelines and ggplot layers across multiple lines (keeping lines under 80 characters) with operators placed at the end of lines.\n\n* Commas: Ensured a single space follows all commas (c(x, y) not c(x,y)).\n\nlibrary(tidyverse)\n\n# Load raw field sampling data\nfield_data &lt;- read.csv(\"field_sampling_data.csv\")\n\n# Filter for active observations\nactive_data &lt;- field_data[field_data$count &gt; 0, ]\n\nmean_count &lt;- mean(active_data$count)\n\n# Filter site data and calculate standardized counts\nfilter_site_data &lt;- function(df, species_name, site_name) {\n  if (species_name %in% df$species) {\n    df_sub &lt;- df[df$species == species_name & df$site == site_name, ]\n    df_sub$count_scaled &lt;- (df_sub$count - mean_count) / sd(df_sub$count)\n    return(df_sub)\n  } else {\n    print(\"Species not found in this site!\")\n    return(NULL)\n  }\n}\n\nfinal_data &lt;- filter_site_data(active_data, \"Apis mellifera\", \"Site_A\")\n\n# Summarize species totals\nsite_summary &lt;- final_data %&gt;%\n  group_by(species, site) %&gt;%\n  summarize(\n    total = sum(count),\n    mean_scaled = mean(count_scaled),\n    sd_scaled = sd(count_scaled)\n  ) %&gt;%\n  filter(total &gt; 10)\n\n# Plot raw vs. scaled counts\nggplot(final_data, aes(x = count, \n                       y = count_scaled, \n                       color = species)) +\n  geom_point() +\n  theme_bw()"
-  },
-  {
-    "objectID": "content/w3-content.html",
-    "href": "content/w3-content.html",
-    "title": "Week 3",
-    "section": "",
-    "text": "Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2\n\n\n\n\n\n Happy Git with R by Jennifer Bryan\n R for the Rest of Us: How to use git and github with R\n\n\n\n\n\n\nWhat is git and version control more broadly?\nWhy should we use version control vs “easier” methods (i.e., file naming)\nHow do we initialize a git repo and track file changes?\nWhat are the basic git functions that we need to know for our work flows?\n\n\n\n\n Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 3: Go on, Git!"
-    ]
-  },
-  {
-    "objectID": "content/w3-content.html#readings",
-    "href": "content/w3-content.html#readings",
-    "title": "Week 3",
-    "section": "",
-    "text": "Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2\n\n\n\n\n\n Happy Git with R by Jennifer Bryan\n R for the Rest of Us: How to use git and github with R",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 3: Go on, Git!"
-    ]
-  },
-  {
-    "objectID": "content/w3-content.html#questions-well-address-this-week",
-    "href": "content/w3-content.html#questions-well-address-this-week",
-    "title": "Week 3",
-    "section": "",
-    "text": "What is git and version control more broadly?\nWhy should we use version control vs “easier” methods (i.e., file naming)\nHow do we initialize a git repo and track file changes?\nWhat are the basic git functions that we need to know for our work flows?",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 3: Go on, Git!"
-    ]
-  },
-  {
-    "objectID": "content/w3-content.html#slides",
-    "href": "content/w3-content.html#slides",
-    "title": "Week 3",
-    "section": "",
-    "text": "Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 3: Go on, Git!"
-    ]
-  },
-  {
     "objectID": "content/slides/w3-slides.html#what-well-cover-this-week",
     "href": "content/slides/w3-slides.html#what-well-cover-this-week",
     "title": "Week 3",
@@ -938,183 +784,38 @@
     "text": "What we’ll cover this week\n\n\n What is Git and version control?\n\n\n\n\n Why use Git over “easier” methods?"
   },
   {
-    "objectID": "content/w3-content.html#what-is-git",
-    "href": "content/w3-content.html#what-is-git",
-    "title": "Week 3",
-    "section": "What is Git?",
-    "text": "What is Git?",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 3: Go on, Git!"
-    ]
-  },
-  {
-    "objectID": "content/w3-content.html#but-cant-we-justkeep-a-bunch-of-different-files",
-    "href": "content/w3-content.html#but-cant-we-justkeep-a-bunch-of-different-files",
-    "title": "Week 3",
-    "section": "But can’t we just…keep a bunch of different files?",
-    "text": "But can’t we just…keep a bunch of different files?",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 3: Go on, Git!"
-    ]
-  },
-  {
-    "objectID": "content/w3-content.html#lets-git-started",
-    "href": "content/w3-content.html#lets-git-started",
-    "title": "Week 3",
-    "section": "Let’s Git started",
-    "text": "Let’s Git started\n\nInitializing a git repo\n\n\nTracking file changes\n\n\nBut not those! .gitignore files",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 3: Go on, Git!"
-    ]
-  },
-  {
-    "objectID": "content/w3-content.html#committing-your-work",
-    "href": "content/w3-content.html#committing-your-work",
-    "title": "Week 3",
-    "section": "Committing your work",
-    "text": "Committing your work",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 3: Go on, Git!"
-    ]
-  },
-  {
-    "objectID": "content/w4-content.html",
-    "href": "content/w4-content.html",
-    "title": "Week 4",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2\n Braga, P. H. P., et al., (2023). Not just for programmers: How GitHub can accelerate collaborative and reproducible research in ecology and evolution. Methods in Ecology and Evolution, 14, 1364–1380\n\n\n\n\n\n Happy Git with R by Jennifer Bryan\n R for the Rest of Us: How to use git and github with R\n\n\n\n\n\n\nGit, GitHub? What’s the difference?\nHow do we link our local git commits to GitHub?\nWhat does a daily workflow using git/GitHub look like?\nHow will we use GitHub for to submit/peer review our workshop reports?\nIf we have time, what other fancy things can we do with GitHub?\n\n\n\n\n Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 4: Go on, Git it onto GitHub"
-    ]
+    "text": "About this site"
   },
   {
-    "objectID": "content/w4-content.html#readings",
-    "href": "content/w4-content.html#readings",
-    "title": "Week 4",
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
     "section": "",
-    "text": "Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2\n Braga, P. H. P., et al., (2023). Not just for programmers: How GitHub can accelerate collaborative and reproducible research in ecology and evolution. Methods in Ecology and Evolution, 14, 1364–1380\n\n\n\n\n\n Happy Git with R by Jennifer Bryan\n R for the Rest of Us: How to use git and github with R",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 4: Go on, Git it onto GitHub"
-    ]
+    "text": "Below, you’ll find an ever-growing list of resources for learning and using R for data science. These include many of the resources that I have used help design and teach this class, and much more in-depth treatises of topics that we briefly cover in this survey course."
   },
   {
-    "objectID": "content/w4-content.html#questions-well-address-this-week",
-    "href": "content/w4-content.html#questions-well-address-this-week",
-    "title": "Week 4",
-    "section": "",
-    "text": "Git, GitHub? What’s the difference?\nHow do we link our local git commits to GitHub?\nWhat does a daily workflow using git/GitHub look like?\nHow will we use GitHub for to submit/peer review our workshop reports?\nIf we have time, what other fancy things can we do with GitHub?",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 4: Go on, Git it onto GitHub"
-    ]
+    "objectID": "resources.html#other-courses-at-umn-that-i-recommend",
+    "href": "resources.html#other-courses-at-umn-that-i-recommend",
+    "title": "Resources",
+    "section": "Other courses at UMN that I recommend",
+    "text": "Other courses at UMN that I recommend"
   },
   {
-    "objectID": "content/w4-content.html#slides",
-    "href": "content/w4-content.html#slides",
-    "title": "Week 4",
-    "section": "",
-    "text": "Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 4: Go on, Git it onto GitHub"
-    ]
+    "objectID": "resources.html#books-on-data-science",
+    "href": "resources.html#books-on-data-science",
+    "title": "Resources",
+    "section": "Books on data science",
+    "text": "Books on data science"
   },
   {
-    "objectID": "content/w4-content.html#git-github-whats-the-difference",
-    "href": "content/w4-content.html#git-github-whats-the-difference",
-    "title": "Week 4",
-    "section": "Git, GitHub? What’s the difference?",
-    "text": "Git, GitHub? What’s the difference?",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 4: Go on, Git it onto GitHub"
-    ]
-  },
-  {
-    "objectID": "content/w4-content.html#getting-github-setup",
-    "href": "content/w4-content.html#getting-github-setup",
-    "title": "Week 4",
-    "section": "Getting GitHub setup",
-    "text": "Getting GitHub setup\n\nGetting an account\n\n\nPersonal access token\n\n\nConnecting git project to GitHub",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 4: Go on, Git it onto GitHub"
-    ]
-  },
-  {
-    "objectID": "content/w4-content.html#the-daily-worksflow",
-    "href": "content/w4-content.html#the-daily-worksflow",
-    "title": "Week 4",
-    "section": "The daily worksflow",
-    "text": "The daily worksflow",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 4: Go on, Git it onto GitHub"
-    ]
-  },
-  {
-    "objectID": "content/w4-content.html#using-github-for-our-workshop-reports",
-    "href": "content/w4-content.html#using-github-for-our-workshop-reports",
-    "title": "Week 4",
-    "section": "Using GitHub for our workshop reports",
-    "text": "Using GitHub for our workshop reports\n\nComplete your work in a .qmd document or .r script (preferebly the former)\nCommit your work and push it to your course GitHub repository\nWithin your personal course repo, open an issue labeled using the following format: week1_lastname_firstname.\n\nInside the issue, paste your most recent commit SHA\nPaste the link to file to be reviewed\nTag (@) your assigned code peer reviewer\n\nComplete your assigned peer reviews\nJeremy provides additional feedback/suggestions, assigns grades, and closes the issues",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 4: Go on, Git it onto GitHub"
-    ]
-  },
-  {
-    "objectID": "content/w4-content.html#other-fanciness",
-    "href": "content/w4-content.html#other-fanciness",
-    "title": "Week 4",
-    "section": "Other fanciness 💅",
-    "text": "Other fanciness 💅",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 4: Go on, Git it onto GitHub"
-    ]
-  },
-  {
-    "objectID": "content/w4-content.html#the-daily-workflow",
-    "href": "content/w4-content.html#the-daily-workflow",
-    "title": "Week 4",
-    "section": "The daily workflow",
-    "text": "The daily workflow",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 4: Go on, Git it onto GitHub"
-    ]
-  },
-  {
-    "objectID": "content/w4-content.html#the-daily-workflow-using-gitgithub",
-    "href": "content/w4-content.html#the-daily-workflow-using-gitgithub",
-    "title": "Week 4",
-    "section": "The daily workflow using Git/GitHub",
-    "text": "The daily workflow using Git/GitHub",
-    "crumbs": [
-      "Content",
-      "Module 2: Git and GitHub fundamentals",
-      "Week 4: Go on, Git it onto GitHub"
-    ]
+    "objectID": "resources.html#websites",
+    "href": "resources.html#websites",
+    "title": "Resources",
+    "section": "Websites",
+    "text": "Websites\n\nLearning R\n\nR Studio/Positron cheat sheets for various packages\n\n\n\nGit and GitHub\n\n\nData visualization\n\n\nLearning Quarto for reports and web pages"
   }
 ]
