@@ -1,15 +1,13 @@
-group,week,date,title,content,lab,example
-Module 1: Thinking Like a Data Scientist,Week 1,9/11/26,Orientation & What is Data Science in Biology?,content/w1-content,lab/w1-lab,example/w1-example
-Module 1: Thinking Like a Data Scientist,Week 2,9/18/26,Project Organization & Reproducibility,content/w2-content,lab/w2-lab,example/w2-example
-Module 2: R for Data Handling & Exploration,Week 3,9/25/26,Intro to R and Rstudio,content/w3-content,lab/w3-lab,example/w3-example
-Module 2: R for Data Handling & Exploration,Week 4,10/2/26,Data Wrangling I,content/w4-content,lab/w4-lab,example/w4-example
-Module 2: R for Data Handling & Exploration,Week 5,10/9/26,Data Wrangling II,content/w5-content,lab/w5-lab,example/w5-example
-Module 2: R for Data Handling & Exploration,Week 6,10/16/26,Data Visualization,content/w6-content,lab/w6-lab,example/w6-example
-"Module 3: Automation, Functions, & Scaling Up",Week 7,10/23/26,Functions and Automation,content/w7-content,lab/w7-lab,example/w7-example
-"Module 3: Automation, Functions, & Scaling Up",Week 8,10/30/26,Multi-file Workflows,content/w8-content,lab/w8-lab,example/w8-example
-Module 4: Version Control & Open Science,Week 9,11/6/26,Git Fundamentals,content/w9-content,lab/w9-lab,example/w9-example
-Module 4: Version Control & Open Science,Week 10,11/13/26,GitHub Collaboration,content/w10-content,lab/w10-lab,example/w10-example
-Module 4: Version Control & Open Science,Week 11,11/20/26,Open Science & OSF,content/w11-content,lab/w11-lab,example/w11-example
-Module 5: Data Management & Databases,Week 12,11/27/26,Data Management & Metadata,content/w12-content,lab/w12-lab,example/w12-example
-Module 5: Data Management & Databases,Week 13,12/4/26,Databases & Data Quality,content/w13-content,lab/w13-lab,example/w13-example
-Module 6: Integration and Application,Week 14,12/11/26,Wrap-up and Final Project Presentations,content/w14-content,,example/w14-example
+group,week,date,title,content,workshop
+Module 1: Thinking Like a Data Scientist,Week 1,9/11/26,Orientation & What is Data Science in Biology?,content/w1-content,workshop/w1-workshop
+Module 1: Thinking Like a Data Scientist,Week 2,9/18/26,Project Organization & Reproducibility,content/w2-content,workshop/w2-workshop
+Module 2: Version Control & Open Science,Week 3,9/25/26,Git Fundamentals,content/w3-content,workshop/w3-workshop
+Module 2: Version Control & Open Science,Week 4,10/2/26,GitHub Collaboration,content/w4-content,workshop/w4-workshop
+Module 3: R for Data Handling & Exploration,Week 5,10/9/26,Data Wrangling I,content/w5-content,workshop/w5-workshop
+Module 3: R for Data Handling & Exploration,Week 6,10/16/26,Data Wrangling II,content/w6-content,workshop/w6-workshop
+Module 3: R for Data Handling & Exploration,Week 7,10/23/26,Data Visualization,content/w7-content,workshop/w7-workshop
+Module 3: R for Data Handling & Exploration,Week 8,10/30/26,EDA & Data Visualization II,content/w8-content,workshop/w8-workshop
+"Module 4: Automation, Functions, & Scaling Up",Week 9,11/6/26,Functions and Automation,content/w9-content,workshop/w9-workshop
+"Module 4: Automation, Functions, & Scaling Up",Week 10,11/13/26,Multi-file Workflows,content/w10-content,workshop/w10-workshop
+Module 5: Data Management & Databases,Week 11,11/20/26,Data Management & Metadata,content/w11-content,workshop/w11-workshop
+Module 5: Data Management & Databases,Week 12,12/4/26,Databases & Online Data Repositories,content/w12-content,workshop/w12-workshop

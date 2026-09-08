@@ -48,28 +48,28 @@ schedule <- schedule.df$data[[group_id]] %>%
                                              escape = F,
                                              align = "c",
                                              font_size = "x-large"))) %>%
-  mutate(lab = if_else(is.na(lab),
+  mutate(workshop = if_else(is.na(workshop),
                        true = NA,
                        false = cell_spec(fa("laptop-code"),
                                          format = "html",
-                                         link = paste0(.$lab, ".qmd"),
+                                         link = paste0(.$workshop, ".qmd"),
                                          # link = "content/w1-content.qmd",
                                          escape = F,
                                          align = "c",
                                          font_size = "x-large"))) %>%
-  mutate(example = if_else(is.na(example),
-                           true = NA,
-                           false = cell_spec(fa("file-code"),
-                                             format = "html",
-                                             link = paste0(.$example, ".qmd"),
-                                             # link = "content/w1-content.qmd",
-                                             escape = F,
-                                             align = "c",
-                                             font_size = "x-large"))) %>%
+  # mutate(example = if_else(is.na(example),
+  #                          true = NA,
+  #                          false = cell_spec(fa("file-code"),
+  #                                            format = "html",
+  #                                            link = paste0(.$example, ".qmd"),
+  #                                            # link = "content/w1-content.qmd",
+  #                                            escape = F,
+  #                                            align = "c",
+  #                                            font_size = "x-large"))) %>%
   # fill(4:6, .direction = "down") %>%
-  select(week, date, title, content, lab, example) %>%
+  select(week, date, title, content, workshop) %>%
   kbl(# col.names = c("Week", "Date", "Topic", "Content", "Lab", "Example"),
-      col.names = c("Week", "Date", "Topic", "Content", "Lab", "Example"),
+      col.names = c("Week", "Date", "Topic", "Content", "Workshop"),
       escape = FALSE,
       format = "html",
       align = c("lllccc")) %>%
@@ -78,7 +78,7 @@ schedule <- schedule.df$data[[group_id]] %>%
   column_spec(1, width = "15%", bold = TRUE) %>%
   column_spec(2, width = "15%") %>%
   column_spec(3, width = "40%", italic = TRUE) %>%
-  column_spec(4:6, width = "10%") %>%
+  column_spec(4:5, width = "10%") %>%
   collapse_rows(columns = c(1))
 
 cat(schedule)
