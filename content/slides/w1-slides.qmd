@@ -121,16 +121,16 @@ There's no one single definition of [data science]{.highlight-tomato}, but a bro
 [Statistics]{.highlight-tomato} uses data you have collected to quantify uncertainty and establish relationships. 
 
 ::: indented-text
-<i class="fa-solid fa-turn-up fa-rotate-90"></i> *Artisan baker*: exact recipe, understanding the why and trying to identify the mechanism of observed changes in data. **Inference driven**
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> Using statistical theory and mathematics to identify and understanding the mechanisms of observed changes in data. **Inference driven**
 :::
 
 
 . . . 
 
-[Data science]{.highlight-tomato} tries to build systems to extract knowledge and insights from structured and unstructured data we have not yet seen. 
+[Data science]{.highlight-tomato} tries to build systems to extract knowledge and insights from structured and unstructured data.
 
 ::: indented-text
-<i class="fa-solid fa-turn-up fa-rotate-90"></i> *Bread factory*: we don't care about the recipe, we want the final prediction to be the most accurate. **Prediction driven**
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> The tools, tricks, and methods that we use to find and mobilize data and apply statistical methods. **Process driven**
 :::
 
 . . . 

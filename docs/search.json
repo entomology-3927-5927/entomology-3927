@@ -289,7 +289,7 @@
     "href": "content/slides/w1-slides.html#data-science-statistics",
     "title": "Week 1",
     "section": "Data science ≠ statistics",
-    "text": "Data science ≠ statistics\n\nStatistics uses data you have collected to quantify uncertainty and establish relationships.\n\n Artisan baker: exact recipe, understanding the why and trying to identify the mechanism of observed changes in data. Inference driven\n\n\n\nData science tries to build systems to extract knowledge and insights from structured and unstructured data we have not yet seen.\n\n Bread factory: we don’t care about the recipe, we want the final prediction to be the most accurate. Prediction driven\n\n\n\n\n\n\n\n\n\nImportant\n\n\nData science could not exist without statistics! The math under the hood of all data science is derived from statistical theory."
+    "text": "Data science ≠ statistics\n\nStatistics uses data you have collected to quantify uncertainty and establish relationships.\n\n Using statistical theory and mathematics to identify and understanding the mechanisms of observed changes in data. Inference driven\n\n\n\nData science tries to build systems to extract knowledge and insights from structured and unstructured data.\n\n The tools, tricks, and methods that we use to find and mobilize data and apply statistical methods. Process driven\n\n\n\n\n\n\n\n\n\nImportant\n\n\nData science could not exist without statistics! The math under the hood of all data science is derived from statistical theory."
   },
   {
     "objectID": "content/slides/w1-slides.html#how-well-use-data-science-in-this-class",
