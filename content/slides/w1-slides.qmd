@@ -169,6 +169,12 @@ Conducting experiments in highly variable natural field conditions reduces our c
 **This is what this course is all about!**
 :::
 
+## Biology and ecology have an issue with reproducibility
+
+::: box-5-list
+A 2020 analysis by Culina et al., found that ~80% of ecology papers fail to provide enough detail to be computationally reproducible, with 73% failing to include anay accompanying analysis/code.
+:::
+
 
 ## Working with data has historically been the most opaque
 
