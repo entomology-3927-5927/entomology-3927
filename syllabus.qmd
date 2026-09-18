@@ -17,8 +17,6 @@ Description Researchers are typically well-trained in the theory and practice of
 
 This course is targeted for graduate students and upper-level undergraduate students working with or planning to work with quantitative data. This would include, but is not limited to, students from natural resources, ecology, biology, environmental science, and public health. Note that while we will briefly cover some aspects of data privacy, we will not focus on some legal aspects, such as HIPAA.
 
-# 
-
 # Student learning outcomes
 
 Upon successful completion of this course, students will be able to:
@@ -40,21 +38,19 @@ Weekly session: We will meet for one session per week, with a combination of lec
 # Schedule of topics
 
 | Unit | Week | Topic | Key Concepts / Skills |
-|:-----------------|:-----------------|:-----------------|:-----------------|
-| **1. Foundations: Thinking Like a Data Scientist** | Week 1 | What is Data Science in Ecology? | Data science vs. statistics; reproducibility crisis; workflow (data → insight → communication) |
-|  | Week 2 | Project Organization & Reproducibility | Folder structure; naming conventions; scripts vs. GUI; intro to R Markdown / Quarto |
-| **2. R for Data Handling & Exploration** | Week 3 | Intro to R & RStudio | Objects, data types; importing data; scripting basics |
-|  | Week 4 | Data Wrangling I | Tidy data principles; filtering, selecting, mutating |
-|  | Week 5 | Data Wrangling II | Joins; reshaping; missing data; pipelines |
-|  | Week 6 | Data Visualization | Visualization principles; exploratory plots; visualizing uncertainty |
-| **3. Automation, Functions, & Scaling Up** | Week 7 | Functions & Automation | Writing functions; reusable code; iteration (loops/map) |
-|  | Week 8 | Multi-file Workflows | Batch processing; project organization; scalable workflows |
-| **4. Version Control & Open Science** | Week 9 | Git Fundamentals | Version control concepts; commit, diff, history |
-|  | Week 10 | GitHub Collaboration | Repositories; branching; pull requests; sharing code |
-|  | Week 11 | Open Science & OSF | Transparency; preregistration; data sharing; OSF tools |
-| **5. Data Management & Databases** | Week 12 | Data Management & Metadata | Data management plans; metadata standards; documentation |
-|  | Week 13 | Databases & Data Quality | Relational data; structuring datasets; validation & QC |
-| **6. Integration & Application** | Week 14 | Final Project Presentations |  |
+| :---- | :---- | :---- | :---- |
+| **1\. Foundations: Thinking Like a Data Scientist** | Week 1: *2026-09-18* | What is Data Science in Ecology? | Data science vs. statistics; reproducibility crisis; workflow (data → insight → communication) |
+|  | Week 2: *2026-09-25*  | Project Organization & Reproducibility | Folder structure; naming conventions; scripts vs. GUI; intro to R Markdown / Quarto |
+| **2\. Version Control** | Week 3: *2026-10-02* | Git Fundamentals | Version control concepts; commit, diff, history |
+|  | Week 4: *2026-10-09* | GitHub Collaboration | Repositories; branching; pull requests; sharing code; course with GitHub |
+| **3\. R for Data Handling & Exploration** | Week 5: *2026-10-16* | Data Wrangling I | Tidy data principles; the basic verbs of tidyverse |
+|  | Week 6: *2026-10-23* | Data Wrangling II | Joins; reshaping; missing data; pipelines |
+|  | Week 7: *2026-10-30* | Data Visualization | Visualization principles; exploratory plots; visualizing uncertainty |
+|  | Week 8: *2026-11-06* | Data Visualization II | EDA and Advanced visuals (maps, complex figures) |
+| **3\. Automation, Functions, & Scaling Up** | Week 9: *2026-11-13* | Functions & Automation | Writing functions; reusable code; iteration (loops/map) |
+|  | Week 10: *2026-11-20* | Multi-file Workflows | Batch processing; project organization; scalable workflows |
+| **5\. Data Management & Databases** | Week 11: *2026-12-04* | Data Management & Metadata | Data management plans; metadata standards; documentation |
+|  | Week 12: *2026-12-11* | Databases & Data Quality | Relational data; structuring datasets; validation & QC |
 
 # Student assessments and grading
 

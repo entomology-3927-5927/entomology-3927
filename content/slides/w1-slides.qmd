@@ -209,4 +209,37 @@ Until the decade, the management, wrangling, analysis, and presentation of exper
 # {{< fa arrows-spin >}} The data life cycle and being FAIR {.bkrd-color-6}
 
 ## The data life cycle
+::: box-6-list
+In the past, we've had a very linear view of how data are created, analyzed, interpreted, and published. We now recognize that it's critical to make data *reusable* so that the scientific enterprise can replicate what we've done and apply the data to new questions or ideas. This makes the life of data a *cycle*.
+:::
 
+![](slide_media/week_1/data-life-cycle.png){width="50%" fig-align="center"}
+
+## Making data FAIR
+::: box-6-list
+To ensure we are closing the life cycle fully for our data, there are 4 [FAIR]{.highlight-tomato} principles we must follow:
+:::
+
+. . . 
+
+::: indented-text
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> **F**: Findable. The first step in (re)using data is to find them. Metadata and data should be easy to find for both humans and computers. Machine-readable metadata are essential for automatic discovery of datasets and services.
+:::
+
+. . . 
+
+::: indented-text
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> **A**: Accessible. Once the user finds the required data, she/he/they need to know how they can be accessed, possibly including authentication and authorisation.
+:::
+
+. . . 
+
+::: indented-text
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> **I**: Interoperable. The data usually need to be integrated with other data. In addition, the data need to interoperate with applications or workflows for analysis, storage, and processing.
+:::
+
+. . . 
+
+::: indented-text
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> **R**: Reusable. The ultimate goal of FAIR is to optimise the reuse of data. To achieve this, metadata and data should be well-described so that they can be replicated and/or combined in different settings.
+:::

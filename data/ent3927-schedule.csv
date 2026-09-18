@@ -1,13 +1,13 @@
 group,week,date,title,content,workshop
-Module 1: Thinking Like a Data Scientist,Week 1,9/11/26,Orientation & What is Data Science in Biology?,content/w1-content,workshop/w1-workshop
-Module 1: Thinking Like a Data Scientist,Week 2,9/18/26,Project Organization & Reproducibility,content/w2-content,workshop/w2-workshop
-Module 2: Version Control & Open Science,Week 3,9/25/26,Git Fundamentals,content/w3-content,workshop/w3-workshop
-Module 2: Version Control & Open Science,Week 4,10/2/26,GitHub Collaboration,content/w4-content,workshop/w4-workshop
-Module 3: R for Data Handling & Exploration,Week 5,10/9/26,Data Wrangling I,content/w5-content,workshop/w5-workshop
-Module 3: R for Data Handling & Exploration,Week 6,10/16/26,Data Wrangling II,content/w6-content,workshop/w6-workshop
-Module 3: R for Data Handling & Exploration,Week 7,10/23/26,Data Visualization,content/w7-content,workshop/w7-workshop
-Module 3: R for Data Handling & Exploration,Week 8,10/30/26,EDA & Data Visualization II,content/w8-content,workshop/w8-workshop
-"Module 4: Automation, Functions, & Scaling Up",Week 9,11/6/26,Functions and Automation,content/w9-content,workshop/w9-workshop
-"Module 4: Automation, Functions, & Scaling Up",Week 10,11/13/26,Multi-file Workflows,content/w10-content,workshop/w10-workshop
-Module 5: Data Management & Databases,Week 11,11/20/26,Data Management & Metadata,content/w11-content,workshop/w11-workshop
-Module 5: Data Management & Databases,Week 12,12/4/26,Databases & Online Data Repositories,content/w12-content,workshop/w12-workshop
+Module 1: Thinking Like a Data Scientist,Week 1,9/18/26,Orientation & What is Data Science in Biology?,content/w1-content,workshop/w1-workshop
+Module 1: Thinking Like a Data Scientist,Week 2,9/25/26,Project Organization & Reproducibility,content/w2-content,workshop/w2-workshop
+Module 2: Version Control & Open Science,Week 3,10/2/26,Git Fundamentals,content/w3-content,workshop/w3-workshop
+Module 2: Version Control & Open Science,Week 4,10/9/26,GitHub Collaboration,content/w4-content,workshop/w4-workshop
+Module 3: R for Data Handling & Exploration,Week 5,10/16/26,Data Wrangling I,content/w5-content,workshop/w5-workshop
+Module 3: R for Data Handling & Exploration,Week 6,10/23/26,Data Wrangling II,content/w6-content,workshop/w6-workshop
+Module 3: R for Data Handling & Exploration,Week 7,10/30/26,Data Visualization,content/w7-content,workshop/w7-workshop
+Module 3: R for Data Handling & Exploration,Week 8,11/6/26,EDA & Data Visualization II,content/w8-content,workshop/w8-workshop
+"Module 4: Automation, Functions, & Scaling Up",Week 9,11/13/26,Functions and Automation,content/w9-content,workshop/w9-workshop
+"Module 4: Automation, Functions, & Scaling Up",Week 10,11/20/26,Multi-file Workflows,content/w10-content,workshop/w10-workshop
+Module 5: Data Management & Databases,Week 11,12/4/26,Data Management & Metadata,content/w11-content,workshop/w11-workshop
+Module 5: Data Management & Databases,Week 12,12/11/26,Databases & Online Data Repositories,content/w12-content,workshop/w12-workshop

@@ -22,6 +22,7 @@ format:
 -   {{< fa file-pdf >}} [Fraser, H., Barnett, A., Parker, T. H. & Fidler, F. The role of replication studies in ecology. Ecol. Evol. 10, 5197–5207 (2020)](slides/slide_media/week_1/Hannah%20Fraser-2020-Ecology%20and%20Evolution.pdf)
 -   {{< fa file-pdf >}} [Kelly, C. D. Rate and success of study replication in ecology and evolution. PeerJ 7, e7654 (2019)](slides/slide_media/week_1/Clint%20D.%20Kelly-2019-PeerJ.pdf)
 -   {{< fa file-pdf >}} [Filazzola, A. & Cahill, J. F. Replication in field ecology: Identifying challenges and proposing solutions. Methods Ecol. Evol. 12, 1780–1792 (2021)](slides/slide_media/week_1/Alessandro%20Filazzola-2021-Methods%20in%20Ecology%20and%20Evolution.pdf)
+-   {{< fa file-pdf >}} [Griffin PC, Khadake J, LeMay KS et al. Best practice data life cycle approaches for the life sciences [version 2; peer review: 2 approved]. F1000Research 2018, 6:1618](content_media/w1/f1000research-6-16485.pdf)
 
 ## Questions we'll address this week
 

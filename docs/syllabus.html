@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -40,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2baf9616dcd62a487e8517e630363ef5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8ffc782f5f82527440da89487711ca4e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c96709ee289d8f9afca9c27adde60711.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -153,7 +156,6 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#audience" id="toc-audience" class="nav-link active" data-scroll-target="#audience">Audience</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   <li><a href="#student-learning-outcomes" id="toc-student-learning-outcomes" class="nav-link" data-scroll-target="#student-learning-outcomes">Student learning outcomes</a></li>
   <li><a href="#meeting-times" id="toc-meeting-times" class="nav-link" data-scroll-target="#meeting-times">Meeting times</a></li>
   <li><a href="#schedule-of-topics" id="toc-schedule-of-topics" class="nav-link" data-scroll-target="#schedule-of-topics">Schedule of topics</a></li>
@@ -212,9 +214,6 @@ ul.task-list li input[type="checkbox"] {
 <h1>Audience</h1>
 <p>This course is targeted for graduate students and upper-level undergraduate students working with or planning to work with quantitative data. This would include, but is not limited to, students from natural resources, ecology, biology, environmental science, and public health. Note that while we will briefly cover some aspects of data privacy, we will not focus on some legal aspects, such as HIPAA.</p>
 </section>
-<section id="section" class="level1">
-<h1></h1>
-</section>
 <section id="student-learning-outcomes" class="level1">
 <h1>Student learning outcomes</h1>
 <p>Upon successful completion of this course, students will be able to:</p>
@@ -250,87 +249,75 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>1. Foundations: Thinking Like a Data Scientist</strong></td>
-<td style="text-align: left;">Week 1</td>
+<td style="text-align: left;">Week 1: <em>2026-09-18</em></td>
 <td style="text-align: left;">What is Data Science in Ecology?</td>
 <td style="text-align: left;">Data science vs.&nbsp;statistics; reproducibility crisis; workflow (data → insight → communication)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: left;">Week 2</td>
+<td style="text-align: left;">Week 2: <em>2026-09-25</em></td>
 <td style="text-align: left;">Project Organization &amp; Reproducibility</td>
 <td style="text-align: left;">Folder structure; naming conventions; scripts vs.&nbsp;GUI; intro to R Markdown / Quarto</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>2. R for Data Handling &amp; Exploration</strong></td>
-<td style="text-align: left;">Week 3</td>
-<td style="text-align: left;">Intro to R &amp; RStudio</td>
-<td style="text-align: left;">Objects, data types; importing data; scripting basics</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Week 4</td>
-<td style="text-align: left;">Data Wrangling I</td>
-<td style="text-align: left;">Tidy data principles; filtering, selecting, mutating</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Week 5</td>
-<td style="text-align: left;">Data Wrangling II</td>
-<td style="text-align: left;">Joins; reshaping; missing data; pipelines</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Week 6</td>
-<td style="text-align: left;">Data Visualization</td>
-<td style="text-align: left;">Visualization principles; exploratory plots; visualizing uncertainty</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>3. Automation, Functions, &amp; Scaling Up</strong></td>
-<td style="text-align: left;">Week 7</td>
-<td style="text-align: left;">Functions &amp; Automation</td>
-<td style="text-align: left;">Writing functions; reusable code; iteration (loops/map)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Week 8</td>
-<td style="text-align: left;">Multi-file Workflows</td>
-<td style="text-align: left;">Batch processing; project organization; scalable workflows</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>4. Version Control &amp; Open Science</strong></td>
-<td style="text-align: left;">Week 9</td>
+<td style="text-align: left;"><strong>2. Version Control</strong></td>
+<td style="text-align: left;">Week 3: <em>2026-10-02</em></td>
 <td style="text-align: left;">Git Fundamentals</td>
 <td style="text-align: left;">Version control concepts; commit, diff, history</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: left;">Week 10</td>
+<td style="text-align: left;">Week 4: <em>2026-10-09</em></td>
 <td style="text-align: left;">GitHub Collaboration</td>
-<td style="text-align: left;">Repositories; branching; pull requests; sharing code</td>
+<td style="text-align: left;">Repositories; branching; pull requests; sharing code; course with GitHub</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>3. R for Data Handling &amp; Exploration</strong></td>
+<td style="text-align: left;">Week 5: <em>2026-10-16</em></td>
+<td style="text-align: left;">Data Wrangling I</td>
+<td style="text-align: left;">Tidy data principles; the basic verbs of tidyverse</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Week 6: <em>2026-10-23</em></td>
+<td style="text-align: left;">Data Wrangling II</td>
+<td style="text-align: left;">Joins; reshaping; missing data; pipelines</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
-<td style="text-align: left;">Week 11</td>
-<td style="text-align: left;">Open Science &amp; OSF</td>
-<td style="text-align: left;">Transparency; preregistration; data sharing; OSF tools</td>
+<td style="text-align: left;">Week 7: <em>2026-10-30</em></td>
+<td style="text-align: left;">Data Visualization</td>
+<td style="text-align: left;">Visualization principles; exploratory plots; visualizing uncertainty</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Week 8: <em>2026-11-06</em></td>
+<td style="text-align: left;">Data Visualization II</td>
+<td style="text-align: left;">EDA and Advanced visuals (maps, complex figures)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>3. Automation, Functions, &amp; Scaling Up</strong></td>
+<td style="text-align: left;">Week 9: <em>2026-11-13</em></td>
+<td style="text-align: left;">Functions &amp; Automation</td>
+<td style="text-align: left;">Writing functions; reusable code; iteration (loops/map)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Week 10: <em>2026-11-20</em></td>
+<td style="text-align: left;">Multi-file Workflows</td>
+<td style="text-align: left;">Batch processing; project organization; scalable workflows</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;"><strong>5. Data Management &amp; Databases</strong></td>
-<td style="text-align: left;">Week 12</td>
+<td style="text-align: left;">Week 11: <em>2026-12-04</em></td>
 <td style="text-align: left;">Data Management &amp; Metadata</td>
 <td style="text-align: left;">Data management plans; metadata standards; documentation</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"></td>
-<td style="text-align: left;">Week 13</td>
+<td style="text-align: left;">Week 12: <em>2026-12-11</em></td>
 <td style="text-align: left;">Databases &amp; Data Quality</td>
 <td style="text-align: left;">Relational data; structuring datasets; validation &amp; QC</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>6. Integration &amp; Application</strong></td>
-<td style="text-align: left;">Week 14</td>
-<td style="text-align: left;">Final Project Presentations</td>
-<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
