@@ -2,25 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeremy Hemberger">
 <meta name="dcterms.date" content="2026-09-25">
 
-<title>Week 1 – Entomology 3927/5927</title>
+<title>Week 2 – Entomology 3927/5927</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -80,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c96709ee289d8f9afca9c27adde60711.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -115,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -128,7 +122,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -154,8 +148,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -409,8 +402,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w1-content.html">Module 1: Introduction to Data Science and R</a></li><li class="breadcrumb-item"><a href="../content/w2-content.html">Week 2: Data structures, objects, code style, etc</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Week 1</h1>
-<p class="subtitle lead">Class orientation; What is data science?</p>
+<h1 class="title">Week 2</h1>
+<p class="subtitle lead">Data structures, objects, code style, etc.</p>
 </div>
 
 
@@ -516,7 +509,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Type Checking
+Type Checking
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -524,22 +517,22 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create atomic variables</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create atomic variables</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>my_numeric   <span class="ot">&lt;-</span> <span class="fl">42.5</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>my_integer   <span class="ot">&lt;-</span> <span class="dv">42</span>L</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>my_character <span class="ot">&lt;-</span> <span class="st">"iBUG Lab"</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>my_logical   <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check types</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_numeric)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_numeric)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "double"</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_integer)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_integer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "integer"</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(my_character)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(my_character)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -550,7 +543,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Type Converting
+Type Converting
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -566,26 +559,26 @@ window.Quarto = {
 <li>In R, many functions or operations are <em>vectorized</em>, meaning they will apply math/functions/operations to every element of the vector automatically.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a numeric vector</span></span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a numeric vector</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>my_counts <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">30</span>, <span class="dv">0</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectorized maths</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>my_counts_doubled <span class="ot">&lt;-</span> my_counts <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>my_counts_doubled</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>my_counts_doubled</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 24  8 60  0</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coercion of data: what do you think this will be converted to?</span></span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coercion of data: what do you think this will be converted to?</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>messy_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="st">"shikaka"</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(messy_vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(messy_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
 <p>Vectors can also have named elements which can be used to reference specific values:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">vial_1 =</span> <span class="dv">20</span>, <span class="at">vial_2 =</span> <span class="dv">43</span>, <span class="at">vial_3 =</span> <span class="dv">12</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>my_vector</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">vial_1 =</span> <span class="dv">20</span>, <span class="at">vial_2 =</span> <span class="dv">43</span>, <span class="at">vial_3 =</span> <span class="dv">12</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>my_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>vial_1 vial_2 vial_3 
     20     43     12 </code></pre>
@@ -600,7 +593,7 @@ window.Quarto = {
 <li>We access elements using single brackets <code>[]</code> (which returns a sub-list) or double brackets <code>[[]]</code> or <code>$</code> (which extracts the actual object, e.g., another list, character, or vector).</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a list</span></span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a list</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>camera_traps <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">site_id =</span> <span class="st">"SITE-01"</span>,</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">active =</span> <span class="cn">TRUE</span>,</span>
@@ -609,11 +602,11 @@ window.Quarto = {
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Exctracting/accessing elements</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>camera_traps<span class="sc">$</span>site_id</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>camera_traps<span class="sc">$</span>site_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "SITE-01"</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>camera_traps[[<span class="dv">4</span>]][<span class="dv">1</span>] <span class="co"># list element 4, object 1 (i.e., first target species)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>camera_traps[[<span class="dv">4</span>]][<span class="dv">1</span>] <span class="co"># list element 4, object 1 (i.e., first target species)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "affinis"</code></pre>
 </div>
@@ -663,7 +656,7 @@ window.Quarto = {
 <ol type="1">
 <li><p><strong>No unintended vector dropping (<code>drop = FALSE</code> by default):</strong> When subsetting a single column in a standard <code>data.frame</code>, base R silently simplifies the output into a 1D vector. A <code>tibble</code> always returns a 2D tibble unless explicitly told otherwise, preventing downstream code breakage in functions expecting tabular data.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Base Data Frame</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>))</span>
@@ -673,11 +666,11 @@ window.Quarto = {
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Tibble</span></span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>))</span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tbl[, <span class="st">"a"</span>]) </span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] "tbl_df" "tbl" "data.frame"  &lt;-- Remains a 1-column tibble!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] "tbl_df" "tbl" "data.frame"  &lt;-- Remains a 1-column tibble!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p><strong>No partial name matching:</strong> Base data frames try to guess column names if you make a typo or use shorthand. Tibbles require exact column matching and trigger a warning if a column doesn’t exist, preventing silent logical errors.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base Data Frame (Silently matches "species_name" via "$spec")</span></span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base Data Frame (Silently matches "species_name" via "$spec")</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">species_name =</span> <span class="fu">c</span>(<span class="st">"affinis"</span>, <span class="st">"impatiens"</span>))</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>spec</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] "affinis" "impatiens"  &lt;-- Dangerous!</span></span>
@@ -686,146 +679,146 @@ window.Quarto = {
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">species_name =</span> <span class="fu">c</span>(<span class="st">"affinis"</span>, <span class="st">"impatiens"</span>))</span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>tbl<span class="sc">$</span>spec</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># NULL</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Warning message: Unknown or uninitialised column: `spec`.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Warning message: Unknown or uninitialised column: `spec`.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p><strong>Better printing for large datasets:</strong> Printing a large <code>data.frame</code>can easily overwhelm your screen by dumping thousands of rows and wrapping dozens of columns. Tibbles automatically truncate output to 10 rows, fit columns to your console width, displays data types for every column, and adds colored text to help elements stand out.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a large-ish dataset</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df_large  <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">x =</span> <span class="fu">runif</span>(<span class="dv">100</span>), <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>tbl_large <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(df_large)</span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing base df floods the console with oodles of lines</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_large) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_large) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     id           x            y
-1     1 0.289947505 -0.700913050
-2     2 0.356096101 -0.544650967
-3     3 0.428934923  0.823194250
-4     4 0.209283213  0.054065283
-5     5 0.963333941 -0.745122099
-6     6 0.186523621 -0.401356665
-7     7 0.583203247  0.646965358
-8     8 0.234825898 -2.670313143
-9     9 0.065494865  1.028980505
-10   10 0.684000056  0.772061380
-11   11 0.527905829 -1.200831740
-12   12 0.736846513 -0.275976906
-13   13 0.163983810  1.241994632
-14   14 0.354047332  0.976274221
-15   15 0.250237616 -0.443182522
-16   16 0.962169258  0.103323971
-17   17 0.175917227 -0.832180073
-18   18 0.155573736  0.656791288
-19   19 0.609689536  0.770502662
-20   20 0.999218448 -0.579998640
-21   21 0.626499803 -1.956648427
-22   22 0.426923078 -0.092497820
-23   23 0.048540515  0.086617483
-24   24 0.685922013  1.098877825
-25   25 0.634381297 -2.425425954
-26   26 0.871447351 -2.290056544
-27   27 0.295112778  0.610870457
-28   28 0.996102376 -1.475997624
-29   29 0.186269511 -0.066928313
-30   30 0.354699777 -0.556251999
-31   31 0.944342834 -0.264793851
-32   32 0.668664940 -0.306849224
-33   33 0.280956272  0.217843493
-34   34 0.486312619  0.402870211
-35   35 0.208619528  1.807014695
-36   36 0.872133524 -1.012129856
-37   37 0.399962334  0.724470670
-38   38 0.336475430  0.419553914
-39   39 0.860431026 -0.570086635
-40   40 0.961573580  1.208642010
-41   41 0.048196988  1.147881449
-42   42 0.267780454 -0.676081914
-43   43 0.858610629  0.656679970
-44   44 0.288392761 -0.629607393
-45   45 0.130652187 -0.262307168
-46   46 0.004337505 -1.664997264
-47   47 0.409114721 -0.042568114
-48   48 0.941735313  1.404205185
-49   49 0.247854648 -0.040799353
-50   50 0.634829604  0.838941665
-51   51 0.861158798  1.571728864
-52   52 0.253829358  0.033522743
-53   53 0.633161015  0.883751029
-54   54 0.407068421  0.727115776
-55   55 0.762006141 -0.943995743
-56   56 0.906561449 -0.553947753
-57   57 0.688084656 -0.418301538
-58   58 0.536405799  0.546141425
-59   59 0.175549805 -0.031680692
-60   60 0.216014765  0.542011345
-61   61 0.404640732  0.357286440
-62   62 0.552791289  0.450366212
-63   63 0.413117537  1.220867760
-64   64 0.616968419  1.991420711
-65   65 0.703864813 -0.696652968
-66   66 0.396352161  0.172587577
-67   67 0.073752108 -1.854221140
-68   68 0.915928995  0.173731796
-69   69 0.719172605  0.225055829
-70   70 0.515846667 -0.889499178
-71   71 0.044936926  0.065246966
-72   72 0.033463330 -0.670191199
-73   73 0.871965945  0.402343243
-74   74 0.054192399 -0.514597484
-75   75 0.121990527  0.468870246
-76   76 0.403702263  0.864646050
-77   77 0.946282228  0.806410664
-78   78 0.314961786  0.703601558
-79   79 0.016488150  0.961832814
-80   80 0.999511161  0.793471089
-81   81 0.110935611 -1.007972672
-82   82 0.752619241  0.728305987
-83   83 0.130054720  0.600723029
-84   84 0.449050858 -1.076695728
-85   85 0.652198425  1.065027949
-86   86 0.866559700  0.449198698
-87   87 0.375641354  1.474090355
-88   88 0.905858819  0.792646047
-89   89 0.117689946 -0.229814471
-90   90 0.519952562  0.677462917
-91   91 0.001838876 -0.007628546
-92   92 0.679800476  1.161482936
-93   93 0.705875810 -0.071930221
-94   94 0.062186029  0.210271929
-95   95 0.746999351  0.413769433
-96   96 0.830650096 -0.472422907
-97   97 0.817348106  1.166963474
-98   98 0.286332710 -0.873962734
-99   99 0.143581399  1.248727609
-100 100 0.338033552  1.200705723</code></pre>
+<pre><code>     id            x           y
+1     1 0.6515860187 -0.34847860
+2     2 0.6919126995 -0.87621814
+3     3 0.8554262680 -0.94700319
+4     4 0.2740013395 -1.08881751
+5     5 0.8012682660 -2.01418662
+6     6 0.9933163663  0.90793368
+7     7 0.3114050420 -0.09966052
+8     8 0.0953226925 -0.83891258
+9     9 0.7921376973  2.04982236
+10   10 0.1854637912 -0.45126119
+11   11 0.3716019439  0.07452877
+12   12 0.0836265914  1.96315884
+13   13 0.3112454095  0.29878120
+14   14 0.3499398432  1.05676475
+15   15 0.2222411055 -0.10161074
+16   16 0.1092948457 -1.57495123
+17   17 0.4936761954 -0.17346494
+18   18 0.3424648591 -0.23781622
+19   19 0.1399639284 -0.71297301
+20   20 0.7402079508  1.36872297
+21   21 0.5579491744 -0.39269648
+22   22 0.6723700969 -0.51737282
+23   23 0.2692032077 -1.35407594
+24   24 0.7923577812  1.66465842
+25   25 0.4638247150  0.34156446
+26   26 0.8191997467 -0.23567381
+27   27 0.1233074469  0.71443843
+28   28 0.5169128622  1.17553359
+29   29 0.5681467801  2.00075006
+30   30 0.8771399462  0.11391749
+31   31 0.1754579670 -0.44705816
+32   32 0.0528373062  0.63044134
+33   33 0.8826413092  1.21677315
+34   34 0.4848387709 -1.73868525
+35   35 0.4140038402 -1.03511296
+36   36 0.8825547588  0.42450237
+37   37 0.4155135609 -0.08133870
+38   38 0.3573230132  0.32636884
+39   39 0.0976417027  0.84820540
+40   40 0.8636953128  0.73141895
+41   41 0.6766324732 -0.26099605
+42   42 0.3846691959  0.50251562
+43   43 0.2530073756  0.52651591
+44   44 0.6830317182  1.33931355
+45   45 0.1584724567  1.16162170
+46   46 0.5434758051  1.61291890
+47   47 0.2975551970 -0.23939573
+48   48 0.4537593955 -0.86642298
+49   49 0.1559634083 -1.04142710
+50   50 0.5939712503  0.58170815
+51   51 0.1764317607 -0.49220598
+52   52 0.5241664269  0.51852937
+53   53 0.3886928163  0.94460774
+54   54 0.3644123154  0.06945800
+55   55 0.8262798986 -0.43826056
+56   56 0.2458565820  0.24967881
+57   57 0.6744167299  0.86246137
+58   58 0.5789875097 -0.04768587
+59   59 0.0154494417 -1.80096195
+60   60 0.3410207590  0.45962716
+61   61 0.5543472527  0.38053297
+62   62 0.9581853873  0.36007375
+63   63 0.6966855656  0.87300784
+64   64 0.8956401618  0.14392796
+65   65 0.0119933186 -0.46628709
+66   66 0.7942386614  1.49103961
+67   67 0.5731147893  0.59497030
+68   68 0.5670505450  0.78489438
+69   69 0.0641514710  0.10032613
+70   70 0.2475926923  0.93975185
+71   71 0.9337138345 -0.34749500
+72   72 0.6895397408 -0.48257590
+73   73 0.5498080135 -0.50243470
+74   74 0.9272647281  0.63021444
+75   75 0.6665083377  1.07989787
+76   76 0.5496762688 -0.07664268
+77   77 0.4423172779 -0.64647483
+78   78 0.0005789152  0.10714225
+79   79 0.6325222815  0.81669925
+80   80 0.3491521832 -1.02351079
+81   81 0.4454395673 -0.51550469
+82   82 0.6071892816 -0.49159028
+83   83 0.9491862843 -0.34563979
+84   84 0.9106143108 -0.25876428
+85   85 0.7760102013  0.41975335
+86   86 0.7532502506  0.77636158
+87   87 0.5851221185  1.01987991
+88   88 0.0583906125 -0.90943552
+89   89 0.1482757095  0.11219868
+90   90 0.2654100114 -0.62583863
+91   91 0.4934458872  1.66846131
+92   92 0.1959358496  1.31249575
+93   93 0.2440649939  0.23179744
+94   94 0.5463333670 -0.63605888
+95   95 0.1724529136 -0.48925418
+96   96 0.2028966257  1.19855274
+97   97 0.5132321282 -0.72495401
+98   98 0.5862170614 -2.38383876
+99   99 0.9070351792 -1.22306044
+100 100 0.4978146588 -0.92719898</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tbl_large</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tbl_large</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 100 × 3
       id      x       y
    &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;
- 1     1 0.290  -0.701 
- 2     2 0.356  -0.545 
- 3     3 0.429   0.823 
- 4     4 0.209   0.0541
- 5     5 0.963  -0.745 
- 6     6 0.187  -0.401 
- 7     7 0.583   0.647 
- 8     8 0.235  -2.67  
- 9     9 0.0655  1.03  
-10    10 0.684   0.772 
+ 1     1 0.652  -0.348 
+ 2     2 0.692  -0.876 
+ 3     3 0.855  -0.947 
+ 4     4 0.274  -1.09  
+ 5     5 0.801  -2.01  
+ 6     6 0.993   0.908 
+ 7     7 0.311  -0.0997
+ 8     8 0.0953 -0.839 
+ 9     9 0.792   2.05  
+10    10 0.185  -0.451 
 # ℹ 90 more rows</code></pre>
 </div>
 </div></li>
 <li><p><strong>Better column construction:</strong> When creating a <code>tibble</code>, you can reference variables created earlier in the exact same call. Base <code>data.frame</code> throws an error if you attempt this.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Works in tibble</span></span>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Works in tibble</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> x <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># References 'x' immediately</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ol>
 </section>
@@ -835,14 +828,14 @@ window.Quarto = {
 <p>Functions are code objects that perform <em>operations</em> on some input (called <em>arguments</em>) and return some output. As we discussed last week, anything with some word followed by <code>()</code> is a function. R has thousands of built in functions, and packages that we install come with their own sets of functions. We can also create our own! In fact, we’ll spend a whole chunk of a class on this topic as knowing how to do this can save you a ton of time and make fewer mistakes than simply copying and pasting code over and over again.</p>
 <p>As a quick example, we can create a function to calculate the rate at which we capture images of insects in a camera trap:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining our functions name and what it does</span></span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining our functions name and what it does</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>calculate_trap_rate <span class="ot">&lt;-</span> <span class="cf">function</span>(image_count, days_active) {</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  rate <span class="ot">&lt;-</span> image_count <span class="sc">/</span> days_active</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(rate)</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the function</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">calculate_trap_rate</span>(<span class="at">image_count =</span> <span class="dv">142</span>, <span class="at">days_active =</span> <span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">calculate_trap_rate</span>(<span class="at">image_count =</span> <span class="dv">142</span>, <span class="at">days_active =</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 20.28571</code></pre>
 </div>
@@ -853,16 +846,16 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="handling-na-values">Handling NA values</h2>
 <p><code>NA</code> (“Not available”) is a special type of value in R that can occur for many reasons. It pops up in vectors and other data structures when there is no value for a particular position (or cell if using tabluar data). We can check for NA values using the <code>is.na()</code> function, which will return <code>TRUE</code> for any values that contain an <code>NA</code>. We can use that function along with vectors to replace NA values:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>my.vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="dv">3</span>)</span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>my.vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="dv">3</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(my.vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(my.vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NA values using the mean of our vector (called "imputing")</span></span>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NA values using the mean of our vector (called "imputing")</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>my.vector[<span class="fu">is.na</span>(my.vector)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(my.vector, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>my.vector</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>my.vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  1.0  4.0  4.5  4.0  5.0  4.5 10.0  3.0</code></pre>
 </div>
@@ -1015,7 +1008,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="spaces">Spaces</h3>
 <p>Spaces are good! Spaces are your friend! White space, as it’s called (harkening back to the days of physially published things like newspapers and books), helps our eyes to more quickly assess what is happening in code. We should put spaces on either side of mathematical operators (except exponentiation <code>^</code>) and around the assignment operator <code>&lt;-</code>. Also put spaces after commas, just like we would writing. You can also add spaces to improve code alignment: this makes it easier to digest/skim quickly.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good spacing style</span></span>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good spacing style</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (a <span class="sc">+</span> b)<span class="sc">^</span><span class="dv">4</span> <span class="sc">/</span> d</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad spacing style</span></span>
@@ -1030,7 +1023,7 @@ window.Quarto = {
 <span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">speed     =</span> distance <span class="sc">/</span> air_time,</span>
 <span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_hour  =</span> dep_time <span class="sc">%/%</span> <span class="dv">100</span>,</span>
 <span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_min   =</span> dep_time <span class="sc">%%</span> <span class="dv">100</span></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="pipes" class="level3">
@@ -1039,17 +1032,17 @@ window.Quarto = {
 <p>The OG form of the pipe was <code>%&gt;%</code> and it was introduced by the tidyverse <code>magrittr</code> package. Since then, it has been implemented into base R as <code>|&gt;</code>, but because I’ve used <code>%&gt;%</code> for so damn long, you’ll still see me using that. I’m trying to quit, I promise…</p>
 <p>Pipes should always have a space before them, and be the last thing on a line. This makes it easier to re-shuffle how things are ordered and quickly see the logic of a set of piped functions.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strive for </span></span>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strive for </span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span>  </span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(arr_delay), <span class="sc">!</span><span class="fu">is.na</span>(tailnum)) <span class="sc">|&gt;</span> </span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(dest)</span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Avoid</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>flights<span class="sc">|&gt;</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(arr_delay), <span class="sc">!</span><span class="fu">is.na</span>(tailnum))<span class="sc">|&gt;</span><span class="fu">count</span>(dest)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>flights<span class="sc">|&gt;</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(arr_delay), <span class="sc">!</span><span class="fu">is.na</span>(tailnum))<span class="sc">|&gt;</span><span class="fu">count</span>(dest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If the function you’re piping into has named arguments (e.g., <code>mutate()</code> or <code>summarize()</code>) put each argument on a new line. If it doesn’t (e.g., <code>filter()</code>), keep it on one line unless you can’t fit it all.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strive for </span></span>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strive for </span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span>  </span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tailnum) <span class="sc">|&gt;</span> </span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
@@ -1071,14 +1064,14 @@ window.Quarto = {
 <span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">delay =</span> <span class="fu">mean</span>(arr_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
 <span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">n</span>()</span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="comments-and-code-outline-via-.qmd" class="level3">
 <h3 class="anchored" data-anchor-id="comments-and-code-outline-via-.qmd">Comments and code outline (via <code>.qmd</code>)</h3>
 <p>One key area to keep style and organization in mind is how you structure your scripts/markdown files from a meta-level. Rather than a bunch of jumbled code that flows endlessly for 500 lines, use hierarchical markdown structure or sectioning comments to delineate or break up your file into cohesive/logical pieces. Look at the <a href="#frontmatter-‼️">frontmatter</a> to download the template <code>.qmd</code> file that I use for all new notebooks.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 📦 LOAD PACKAGES</span></span>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 📦 LOAD PACKAGES</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 💾 LOAD DATA</span></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Tabular data</span></span>
@@ -1098,7 +1091,7 @@ window.Quarto = {
 <span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 📈 VISUALIZE RESULTS</span></span>
 <span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Abundance models</span></span>
 <span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Spatial models</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Spatial models</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="style-hacks" class="level3">
@@ -1161,14 +1154,13 @@ window.Quarto = {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

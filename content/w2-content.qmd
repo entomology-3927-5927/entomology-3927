@@ -1,6 +1,6 @@
 ---
-title: "Week 1"
-subtitle: "Class orientation; What is data science?"
+title: "Week 2"
+subtitle: "Data structures, objects, code style, etc."
 author: Jeremy Hemberger
 date: last-modified
 date-format: long
@@ -14,8 +14,8 @@ format:
 
 ### Textbook
 
-- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 2: Workflow: Basics](https://r4ds.hadley.nz/workflow-basics.html)
-- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 4: Workflow: Code Style](https://r4ds.hadley.nz/workflow-style.html)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 2: Workflow: Basics](https://r4ds.hadley.nz/workflow-basics.html)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 4: Workflow: Code Style](https://r4ds.hadley.nz/workflow-style.html)
 
 ### Optional extras
 
@@ -70,13 +70,13 @@ is.numeric(my_character)
 
 We can use `as.*` functions to convert between atomic data types (e.g., `as.numeric("1")` if for some reason our numeric values were imported as character strings)
 :::
+
 ### Vectors
 
 A vector is a 1-dimensional collection of elements of the same *type* (that is, all numeric, character, etc.). We create vectors using the `c()` function which *combines* or *concatenates* elements.
 
-- Mixing data types in R will perform *implicit coercion*, which basically means it will convert everything into the most flexible type. The flexibility of objects in R from most to least is: `character > double > integer > logical`.
-- In R, many functions or operations are *vectorized*, meaning they will apply math/functions/operations to every element of the vector automatically.
-
+-   Mixing data types in R will perform *implicit coercion*, which basically means it will convert everything into the most flexible type. The flexibility of objects in R from most to least is: `character > double > integer > logical`.
+-   In R, many functions or operations are *vectorized*, meaning they will apply math/functions/operations to every element of the vector automatically.
 
 ```{r}
 #| label: vectors
@@ -103,8 +103,8 @@ my_vector
 
 Lists are very much like vectors, but they can hold *different data types* (including things like other lists). You can essentially put anything into them and retain its native data type.
 
-- Created using `list()`
-- We access elements using single brackets `[]` (which returns a sub-list) or double brackets `[[]]` or `$` (which extracts the actual object, e.g., another list, character, or vector).
+-   Created using `list()`
+-   We access elements using single brackets `[]` (which returns a sub-list) or double brackets `[[]]` or `$` (which extracts the actual object, e.g., another list, character, or vector).
 
 ```{r}
 #| label: lists
@@ -135,15 +135,15 @@ Most of us will work with *tabular data* 90% of the time. Tabular data, that is,
 
 Because data frames are essentially lists, the manner in which we access data is very similar. We'll discuss more advanced/modern ways to access data in the coming weeks, but the base R ways to get at data are:
 
-- **Extract column:**
-  - By name:`my_df$col_1` or `my_df[, "col_1"]` or `my_df[["col_1"]]`
-  - By index: `my_df[, 1]` or `my_df[[1]]`
-- **Extract row:**
-  - `my_df[1, ]` (extracts row 1 across all columns)
-- **Extract cell:**
-  - `my_df[1, "col_1"]` or `my_df[1, 1]`
-- **Extract range:**
-  - `my_df[1:5, c("col_1", "col_2")]`
+-   **Extract column:**
+    -   By name:`my_df$col_1` or `my_df[, "col_1"]` or `my_df[["col_1"]]`
+    -   By index: `my_df[, 1]` or `my_df[[1]]`
+-   **Extract row:**
+    -   `my_df[1, ]` (extracts row 1 across all columns)
+-   **Extract cell:**
+    -   `my_df[1, "col_1"]` or `my_df[1, 1]`
+-   **Extract range:**
+    -   `my_df[1:5, c("col_1", "col_2")]`
 
 #### Ok, got data frames ✅, what the hell is a tibble?
 
@@ -227,6 +227,7 @@ calculate_trap_rate(image_count = 142, days_active = 7)
 ```
 
 ## Handling NA values
+
 `NA` ("Not available") is a special type of value in R that can occur for many reasons. It pops up in vectors and other data structures when there is no value for a particular position (or cell if using tabluar data). We can check for NA values using the `is.na()` function, which will return `TRUE` for any values that contain an `NA`. We can use that function along with vectors to replace NA values:
 
 ```{r}
@@ -315,7 +316,7 @@ flights |>
 
 ### Pipes
 
-We will talk more about pipes when we get into data wranglin' in a couple of weeks, but pipes are a great way to streamline your code and avoid creating intermediate objects that clutter your environment and take up memory. Briefly, a pipe takes stuff on its left and passes it along to the function on its right. So, `x |> f(y)` is equivalent to `f(x, y)` and `x |> f(y) |> g(z)` is equivalent to `g(f(x, y), z)`. In english, pipes basically translate to "then". The point of introducing them here is to discuss how to *style* the code you write using pipes, not to get into their use per se. 
+We will talk more about pipes when we get into data wranglin' in a couple of weeks, but pipes are a great way to streamline your code and avoid creating intermediate objects that clutter your environment and take up memory. Briefly, a pipe takes stuff on its left and passes it along to the function on its right. So, `x |> f(y)` is equivalent to `f(x, y)` and `x |> f(y) |> g(z)` is equivalent to `g(f(x, y), z)`. In english, pipes basically translate to "then". The point of introducing them here is to discuss how to *style* the code you write using pipes, not to get into their use per se.
 
 The OG form of the pipe was `%>%` and it was introduced by the tidyverse `magrittr` package. Since then, it has been implemented into base R as `|>`, but because I've used `%>%` for so damn long, you'll still see me using that. I'm trying to quit, I promise...
 
