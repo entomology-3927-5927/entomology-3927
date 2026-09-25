@@ -195,6 +195,7 @@ pollinator_obs
 </br>
 
 ### Tibbles
+
 #### Exercise 1: Tibble creation and sequential column referencing
 
 Create a tibble named `tree_survey` containing 5 trees with species names in column `species`, dbh (diameter at breast height in cm) in column `dbh_cm` with values `c(12.4, 28.1, 8.5, 42.0, 19.3)`, and calculate `basal_area_m2` directly inside the `tibble()` call using the formula `(pi * (dbh_cm / 2)^2) / 10000`.
@@ -238,7 +239,7 @@ tbl_subset_class
 
 #### Exercise 3: Partial Matching Prevention in Tibbles
 
-In field data, column name typos can cause silent logical errors. Try accessing the "treatment" column of `df_plots` and `tbl_plots` using the shorthand $treat. Observe the difference in behavior.
+In field data, column name typos can cause silent logical errors. Try accessing the "treatment" column of `df_plots` and `tbl_plots` using the shorthand \$treat. Observe the difference in behavior.
 
 ```{webr}
 library(tibble)
@@ -262,11 +263,13 @@ tbl_match
 
 Given a data frame of water quality observations water_quality:
 
-    1. Extract the first 3 rows across all columns into `top_samples`.
+```         
+1. Extract the first 3 rows across all columns into `top_samples`.
 
-    2. Extract cell value at row 4, column "dissolved_oxygen" into `specific_do`.
+2. Extract cell value at row 4, column "dissolved_oxygen" into `specific_do`.
 
-    3. Extract rows 2 through 5 for columns "site_id" and "pH" into `pH_sub`.
+3. Extract rows 2 through 5 for columns "site_id" and "pH" into `pH_sub`.
+```
 
 ```{webr}
 water_quality <- data.frame(
@@ -320,6 +323,7 @@ print(tbl_sweeps)
 </br>
 
 ### Code style
+
 #### Excercise 1: Restyle the code below
 
 Using the topics that we discussed earlier (and the resources in the [content for Week 2](../content/w2-content.qmd)), restyle the code included below to maximize readability. Some of the code elements contain stuff we haven't talked about yet (like function and ggplot call styling). That's ok! This is what the [R style guide](https://style.tidyverse.org/) and Google are for. Work on this by yourself for a few minutes, and then chat with your neighbors/small groups to see if folks varied in their approach, or caught anything that you may have missed. We'll discuss as a group briefly after that.

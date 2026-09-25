@@ -2,25 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeremy Hemberger">
-<meta name="dcterms.date" content="2026-09-01">
+<meta name="dcterms.date" content="2026-09-21">
 
 <title>Week 3 – Entomology 3927/5927</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -45,10 +39,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c96709ee289d8f9afca9c27adde60711.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -90,8 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -322,6 +315,13 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-is-git" id="toc-what-is-git" class="nav-link active" data-scroll-target="#what-is-git">What is Git?</a></li>
   <li><a href="#but-cant-we-justkeep-a-bunch-of-different-files" id="toc-but-cant-we-justkeep-a-bunch-of-different-files" class="nav-link" data-scroll-target="#but-cant-we-justkeep-a-bunch-of-different-files">But can’t we just…keep a bunch of different files?</a></li>
+  <li><a href="#a-git-glossary" id="toc-a-git-glossary" class="nav-link" data-scroll-target="#a-git-glossary">A Git Glossary</a>
+  <ul class="collapse">
+  <li><a href="#core-concepts" id="toc-core-concepts" class="nav-link" data-scroll-target="#core-concepts">🏗️ Core Concepts</a></li>
+  <li><a href="#saving-history" id="toc-saving-history" class="nav-link" data-scroll-target="#saving-history">📸 Saving &amp; History</a></li>
+  <li><a href="#branching-merging" id="toc-branching-merging" class="nav-link" data-scroll-target="#branching-merging">🌿 Branching &amp; Merging</a></li>
+  <li><a href="#essential-git-commands-quick-reference" id="toc-essential-git-commands-quick-reference" class="nav-link" data-scroll-target="#essential-git-commands-quick-reference">🛠️ Essential Git Commands Quick Reference</a></li>
+  </ul></li>
   <li><a href="#lets-git-started" id="toc-lets-git-started" class="nav-link" data-scroll-target="#lets-git-started">Let’s Git started</a>
   <ul class="collapse">
   <li><a href="#initializing-a-git-repo" id="toc-initializing-a-git-repo" class="nav-link" data-scroll-target="#initializing-a-git-repo">Initializing a git repo</a></li>
@@ -329,7 +329,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#but-not-those-.gitignore-files" id="toc-but-not-those-.gitignore-files" class="nav-link" data-scroll-target="#but-not-those-.gitignore-files">But not those! <code>.gitignore</code> files</a></li>
   </ul></li>
   <li><a href="#committing-your-work" id="toc-committing-your-work" class="nav-link" data-scroll-target="#committing-your-work"><code>Commit</code>ting your work</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#great-now-lets-do-all-of-this-in-rstudio" id="toc-great-now-lets-do-all-of-this-in-rstudio" class="nav-link" data-scroll-target="#great-now-lets-do-all-of-this-in-rstudio">Great! Now let’s do all of this in RStudio!</a></li>
   </ul>
 </nav>
     </div>
@@ -356,7 +356,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 1, 2026</p>
+      <p class="date">September 21, 2026</p>
     </div>
   </div>
   
@@ -417,12 +417,133 @@ Tip
 <p><br></p>
 <section id="what-is-git" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-git">What is Git?</h2>
+<p>Git is a version control system meant to help us keep track of changes in our code and project files inside of a repository (i.e., folder) in a highly structured way. It’s sort of like track changes in MS Word/Google Docs, but way more powerful and carefully structured. Git doesn’t <em>just</em> help us manage changes to our code, but to anything inside of a typical data science project (e.g., figures, reports, manuscripts, data, etc.). Many of the biggest perks of using Git come out when you are working collaboratively on projects.</p>
 </section>
 <section id="but-cant-we-justkeep-a-bunch-of-different-files" class="level2">
 <h2 class="anchored" data-anchor-id="but-cant-we-justkeep-a-bunch-of-different-files">But can’t we just…keep a bunch of different files?</h2>
+<p>You sure can. Or you can use Google Drive or Box or whatever other cloud-based data storage you prefer. As a solo scientist, there are a bunch of other ways you can use to backup your project, but learning Git will help prepare you for when you inevitably have to work with other people on a project, and learning the process now when things are simpler is way easier than learning it when you land your first job and are under duress. The problem with building your own, bespoke system to organize your workflow and code/document versions is that, while it is implicitly easy for you to understand, that likely isn’t the case for anyone else! Git forces us to adopt certain conventions and rules that everyone else also needs to follow, which greatly facilitates other folks being able to pick up your project and figure out what is going on. Otherwise, they’re dependent on you leaving a good enough trail of breadcrumbs to explain your internal logic, which typically doesn’t happen.</p>
+</section>
+<section id="a-git-glossary" class="level2">
+<h2 class="anchored" data-anchor-id="a-git-glossary">A Git Glossary</h2>
+<section id="core-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="core-concepts">🏗️ Core Concepts</h3>
+<section id="repository-repo" class="level4">
+<h4 class="anchored" data-anchor-id="repository-repo">Repository (Repo)</h4>
+<ul>
+<li><strong>What it is:</strong> The folder or storage space where your project lives, including all files, commit history, and revision tracking data.</li>
+<li><strong>Types:</strong>
+<ul>
+<li><strong>Local Repository:</strong> The copy of the project residing on your personal computer.</li>
+<li><strong>Remote Repository:</strong> The hosted copy of the project stored on a server or cloud service like GitHub, GitLab, or Bitbucket.</li>
+</ul></li>
+</ul>
+</section>
+<section id="working-directory-working-tree" class="level4">
+<h4 class="anchored" data-anchor-id="working-directory-working-tree">Working Directory (Working Tree)</h4>
+<p>The local directory on your machine where you are currently editing files. Changes made here are not tracked by Git until you add (stage) them.</p>
+</section>
+<section id="staging-area-index" class="level4">
+<h4 class="anchored" data-anchor-id="staging-area-index">Staging Area (Index)</h4>
+<p>An intermediate “preview” area where you prepare changes before saving them to the repository history. Staging allows you to selectively choose which modified files should be included in your next commit.</p>
+<hr>
+</section>
+</section>
+<section id="saving-history" class="level3">
+<h3 class="anchored" data-anchor-id="saving-history">📸 Saving &amp; History</h3>
+<section id="commit" class="level4">
+<h4 class="anchored" data-anchor-id="commit">Commit</h4>
+<ul>
+<li><strong>Noun:</strong> A snapshot of your repository’s state at a specific point in time.</li>
+<li><strong>Verb:</strong> The action of saving your staged changes to the repository history along with a descriptive message (e.g., <code>git commit -m "Add login feature"</code>).</li>
+</ul>
+</section>
+<section id="commit-hash-sha" class="level4">
+<h4 class="anchored" data-anchor-id="commit-hash-sha">Commit Hash / SHA</h4>
+<p>A unique 40-character alphanumeric ID (e.g., <code>a1b2c3d...</code>) generated automatically for every commit. It allows Git to track and reference specific snapshots precisely.</p>
+</section>
+<section id="head" class="level4">
+<h4 class="anchored" data-anchor-id="head">HEAD</h4>
+<p>A pointer or reference to the currently checked-out commit or branch you are actively working on.</p>
+<hr>
+</section>
+</section>
+<section id="branching-merging" class="level3">
+<h3 class="anchored" data-anchor-id="branching-merging">🌿 Branching &amp; Merging</h3>
+<section id="branch" class="level4">
+<h4 class="anchored" data-anchor-id="branch">Branch</h4>
+<p>An independent line of development. The default main branch is usually called <code>main</code> (or historically <code>master</code>). Creating a new branch allows you to experiment or build features without affecting the stable code on the main branch.</p>
+</section>
+<section id="checkout-switch" class="level4">
+<h4 class="anchored" data-anchor-id="checkout-switch">Checkout / Switch</h4>
+<p>The process of moving between different branches or restoring files from past commits.</p>
+</section>
+<section id="merge" class="level4">
+<h4 class="anchored" data-anchor-id="merge">Merge</h4>
+<p>The process of combining changes from one branch into another (for example, integrating a feature branch into the <code>main</code> branch).</p>
+</section>
+<section id="merge-conflict" class="level4">
+<h4 class="anchored" data-anchor-id="merge-conflict">Merge Conflict</h4>
+<p>A situation that occurs when Git cannot automatically reconcile differences between two commits (usually when two people modify the same line of the same file). Conflicts must be resolved manually by choosing which changes to keep.</p>
+<hr>
+</section>
+</section>
+<section id="essential-git-commands-quick-reference" class="level3">
+<h3 class="anchored" data-anchor-id="essential-git-commands-quick-reference">🛠️ Essential Git Commands Quick Reference</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Command</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>git init</code></td>
+<td style="text-align: left;">Initialize a brand-new Git repository in the current folder.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>git clone &lt;url&gt;</code></td>
+<td style="text-align: left;">Copy an existing remote repository to your local machine.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>git status</code></td>
+<td style="text-align: left;">Check the current state of your working directory and staging area.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>git add &lt;file&gt;</code></td>
+<td style="text-align: left;">Add specific files to the staging area (use <code>git add .</code> to stage all changes).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>git commit -m "msg"</code></td>
+<td style="text-align: left;">Save staged changes with a descriptive message.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>git branch</code></td>
+<td style="text-align: left;">List all local branches or create a new branch.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>git switch &lt;branch&gt;</code></td>
+<td style="text-align: left;">Switch to the specified branch.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>git pull</code></td>
+<td style="text-align: left;">Fetch and merge changes from the remote repository.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>git push</code></td>
+<td style="text-align: left;">Upload local commits to the remote repository.</td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="lets-git-started" class="level2">
 <h2 class="anchored" data-anchor-id="lets-git-started">Let’s Git started</h2>
+<p>To start, we’re going to work with Git entirely separate from R and R Studio. The purpose of this is two-fold: 1. Git is relevant way beyond just R as a programming language 2. It’s easier to learn the machinations of Git without having to simultaenously learn the ins and outs of RStudio’s Git interface!</p>
 <section id="initializing-a-git-repo" class="level3">
 <h3 class="anchored" data-anchor-id="initializing-a-git-repo">Initializing a git repo</h3>
 </section>
@@ -436,8 +557,8 @@ Tip
 <section id="committing-your-work" class="level2">
 <h2 class="anchored" data-anchor-id="committing-your-work"><code>Commit</code>ting your work</h2>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<section id="great-now-lets-do-all-of-this-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="great-now-lets-do-all-of-this-in-rstudio">Great! Now let’s do all of this in RStudio!</h2>
 
 
 </section>
@@ -494,14 +615,13 @@ Tip
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

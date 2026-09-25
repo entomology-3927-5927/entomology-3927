@@ -2,29 +2,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jeremy Hemberger">
+<meta name="dcterms.date" content="2026-09-22">
 
-<title>w3-workshop – Entomology 3927/5927</title>
+<title>Workshop 3: Go on, Git! – Entomology 3927/5927</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -43,10 +74,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c96709ee289d8f9afca9c27adde60711.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -88,8 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -313,17 +343,220 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lets-git-started" id="toc-lets-git-started" class="nav-link active" data-scroll-target="#lets-git-started">Let’s Git started</a></li>
+  <li><a href="#step-by-step-git-cli-walkthrough-for-beginners" id="toc-step-by-step-git-cli-walkthrough-for-beginners" class="nav-link" data-scroll-target="#step-by-step-git-cli-walkthrough-for-beginners">🚀 Step-by-Step Git CLI Walkthrough for Beginners</a>
+  <ul class="collapse">
+  <li><a href="#step-1-install-git-verify" id="toc-step-1-install-git-verify" class="nav-link" data-scroll-target="#step-1-install-git-verify">Step 1: Install Git &amp; Verify</a></li>
+  <li><a href="#step-2-configure-your-identity" id="toc-step-2-configure-your-identity" class="nav-link" data-scroll-target="#step-2-configure-your-identity">Step 2: Configure Your Identity</a></li>
+  <li><a href="#step-3-create-a-project-directory-initialize-git" id="toc-step-3-create-a-project-directory-initialize-git" class="nav-link" data-scroll-target="#step-3-create-a-project-directory-initialize-git">Step 3: Create a Project Directory &amp; Initialize Git</a></li>
+  <li><a href="#step-4-create-a-file-check-status" id="toc-step-4-create-a-file-check-status" class="nav-link" data-scroll-target="#step-4-create-a-file-check-status">Step 4: Create a File &amp; Check Status</a></li>
+  <li><a href="#step-5-stage-the-file-add-to-index" id="toc-step-5-stage-the-file-add-to-index" class="nav-link" data-scroll-target="#step-5-stage-the-file-add-to-index">Step 5: Stage the File (Add to Index)</a></li>
+  <li><a href="#step-6-commit-the-file" id="toc-step-6-commit-the-file" class="nav-link" data-scroll-target="#step-6-commit-the-file">Step 6: Commit the File</a></li>
+  <li><a href="#step-7-modify-a-file-view-differences" id="toc-step-7-modify-a-file-view-differences" class="nav-link" data-scroll-target="#step-7-modify-a-file-view-differences">Step 7: Modify a File &amp; View Differences</a></li>
+  <li><a href="#step-8-stage-commit-the-updates" id="toc-step-8-stage-commit-the-updates" class="nav-link" data-scroll-target="#step-8-stage-commit-the-updates">Step 8: Stage &amp; Commit the Updates</a></li>
+  <li><a href="#step-9-view-your-commit-history" id="toc-step-9-view-your-commit-history" class="nav-link" data-scroll-target="#step-9-view-your-commit-history">Step 9: View Your Commit History</a></li>
+  </ul></li>
+  <li><a href="#summary-of-workflow-cycle-in-git" id="toc-summary-of-workflow-cycle-in-git" class="nav-link" data-scroll-target="#summary-of-workflow-cycle-in-git">🎯 Summary of Workflow Cycle in Git</a></li>
+  <li><a href="#but-not-those-.gitignore-files" id="toc-but-not-those-.gitignore-files" class="nav-link" data-scroll-target="#but-not-those-.gitignore-files">But not those! <code>.gitignore</code> files</a></li>
+  <li><a href="#great-now-lets-do-all-of-this-in-rstudio" id="toc-great-now-lets-do-all-of-this-in-rstudio" class="nav-link" data-scroll-target="#great-now-lets-do-all-of-this-in-rstudio">Great! Now let’s do all of this in RStudio!</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/w3-workshop.html">Module 2: Git and GitHub fundamentals</a></li><li class="breadcrumb-item"><a href="../workshop/w3-workshop.html">Week 3: Go on, Git!</a></li></ol></nav></header>
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/w3-workshop.html">Module 2: Git and GitHub fundamentals</a></li><li class="breadcrumb-item"><a href="../workshop/w3-workshop.html">Week 3: Go on, Git!</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Workshop 3: Go on, Git!</h1>
+<p class="subtitle lead">Entomology 3927 - Fall 2026</p>
+</div>
 
 
 
+<div class="quarto-title-meta column-body">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeremy Hemberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 22, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="lets-git-started" class="level2">
+<h2 class="anchored" data-anchor-id="lets-git-started">Let’s Git started</h2>
+<p>To start, we’re going to work with Git entirely separate from R and R Studio, at least initially. The purpose of this is two-fold: 1. Git is relevant way beyond just R as a programming language 2. It’s easier to learn the machinations of Git without having to simultaenously learn the ins and outs of RStudio’s Git interface!</p>
+<p>To do this, we’ll be working in the terminal <em>within</em> RStudio. I’m doing things this way so that we’re all working with the same software, rather than having to navigate the intracacies of how different CLIs (command-line interfaces) operate on different operating systems!</p>
+</section>
+<section id="step-by-step-git-cli-walkthrough-for-beginners" class="level2">
+<h2 class="anchored" data-anchor-id="step-by-step-git-cli-walkthrough-for-beginners">🚀 Step-by-Step Git CLI Walkthrough for Beginners</h2>
+<p>This hands-on guide walks through your very first Git workflow using the command-line interface (CLI).</p>
+<hr>
+<section id="step-1-install-git-verify" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-install-git-verify">Step 1: Install Git &amp; Verify</h3>
+<section id="installation" class="level4">
+<h4 class="anchored" data-anchor-id="installation">Installation</h4>
+<ul>
+<li><strong>macOS:</strong> Open Terminal and type <code>git --version</code> (macOS will prompt you to install Xcode Command Line Tools if not installed), or use Homebrew: <code>brew install git</code>.</li>
+<li><strong>Windows:</strong> Download and run the installer from <a href="https://git-scm.com/">git-scm.com</a> (includes <strong>Git Bash</strong>, a Linux-like terminal).</li>
+<li><strong>Linux (Ubuntu/Debian):</strong> Run <code>sudo apt update &amp;&amp; sudo apt install git</code>.</li>
+</ul>
+</section>
+<section id="check-installation" class="level4">
+<h4 class="anchored" data-anchor-id="check-installation">Check Installation</h4>
+<p>Open your terminal or terminal application and verify Git is ready:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Example output: git version 2.45.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="step-2-configure-your-identity" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-configure-your-identity">Step 2: Configure Your Identity</h3>
+<p>Before making commits, set your name and email. Git attaches this information to every commit you make.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your.email@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="step-3-create-a-project-directory-initialize-git" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-create-a-project-directory-initialize-git">Step 3: Create a Project Directory &amp; Initialize Git</h3>
+<ol type="1">
+<li>Create a new folder for your project and navigate into it:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> my-first-repo</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my-first-repo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Initialize a new Git repository in this directory:</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: Initialized empty Git repository in /path/to/my-first-repo/.git/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="step-4-create-a-file-check-status" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-create-a-file-check-status">Step 4: Create a File &amp; Check Status</h3>
+<ol type="1">
+<li>Create a simple text file:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Check the status of your repository:</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Output:</strong></p>
+<pre class="text"><code>On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+    README.md
+
+nothing added to commit but untracked files present (use "git add" to track)</code></pre>
+<p>Notice that <code>README.md</code> is <strong>Untracked</strong>. Git sees the file, but it isn’t monitoring changes yet.</p>
+<hr>
+</section>
+<section id="step-5-stage-the-file-add-to-index" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-stage-the-file-add-to-index">Step 5: Stage the File (Add to Index)</h3>
+<p>Move the file to the <strong>Staging Area</strong> using <code>git add</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Check the status again:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Output:</strong></p>
+<pre class="text"><code>On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+    new file:   README.md</code></pre>
+<p>The file is now staged and ready to be saved in history!</p>
+<hr>
+</section>
+<section id="step-6-commit-the-file" class="level3">
+<h3 class="anchored" data-anchor-id="step-6-commit-the-file">Step 6: Commit the File</h3>
+<p>Save the staged snapshot to your local Git history with a descriptive message:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit: Add README file"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Output:</strong></p>
+<pre class="text"><code>[main (root-commit) 7a8b9c0] Initial commit: Add README file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md</code></pre>
+<hr>
+</section>
+<section id="step-7-modify-a-file-view-differences" class="level3">
+<h3 class="anchored" data-anchor-id="step-7-modify-a-file-view-differences">Step 7: Modify a File &amp; View Differences</h3>
+<ol type="1">
+<li>Add a new line to <code>README.md</code>:</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Learning Git via the command line!"</span> <span class="op">&gt;&gt;</span> README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Check what changed using <code>git diff</code>:</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Output:</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">diff --git a/README.md b/README.md</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>index a1b2c3d..e4f5g6h 100644</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="dt">--- a/README.md</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="dt">+++ b/README.md</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="dt">@@ -1 +1,2 @@</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a> # My First Project</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="va">+Learning Git via the command line!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="step-8-stage-commit-the-updates" class="level3">
+<h3 class="anchored" data-anchor-id="step-8-stage-commit-the-updates">Step 8: Stage &amp; Commit the Updates</h3>
+<ol type="1">
+<li>Stage all modified files at once:</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Commit the new change:</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Update README with learning goal"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="step-9-view-your-commit-history" class="level3">
+<h3 class="anchored" data-anchor-id="step-9-view-your-commit-history">Step 9: View Your Commit History</h3>
+<p>Display the history of all commits made in this project:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Output:</strong></p>
+<pre class="text"><code>e4f5g6h (HEAD -&gt; main) Update README with learning goal
+7a8b9c0 Initial commit: Add README file</code></pre>
+<hr>
+</section>
+</section>
+<section id="summary-of-workflow-cycle-in-git" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-workflow-cycle-in-git">🎯 Summary of Workflow Cycle in Git</h2>
+<pre><code>1. Make / Edit Files  --&gt;  2. git add &lt;file&gt;  --&gt;  3. git commit -m "message"  --&gt;  4. git log
+   (Working Directory)        (Staging Area)           (Local Repository)             (View History)</code></pre>
+<p>The inevitable question after learning all of this is, well, how often should I commit my changes? There are a few general rules around this, but it will vary from person-to-person, project-to-project, and whether you’re working solo or collaboratively.</p>
+<p>My general suggestions: 1.</p>
+</section>
+<section id="but-not-those-.gitignore-files" class="level2">
+<h2 class="anchored" data-anchor-id="but-not-those-.gitignore-files">But not those! <code>.gitignore</code> files</h2>
+</section>
+<section id="great-now-lets-do-all-of-this-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="great-now-lets-do-all-of-this-in-rstudio">Great! Now let’s do all of this in RStudio!</h2>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -377,14 +610,13 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -9,24 +9,28 @@ format:
     theme: ../styles.scss
 ---
 
-:::{.content-callout1}
+:::: content-callout1
 ## Readings
+
 ### Suggested papers
-- {{< fa file-pdf >}} [Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2](content_media/w3/peerj-preprints-3159.pdf)
+
+-   {{< fa file-pdf >}} [Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2](content_media/w3/peerj-preprints-3159.pdf)
 
 ### Online/optional extras
--   {{< fa file-code >}} [Happy Git with R by Jennifer Bryan ](https://happygitwithr.com/)
+
+-   {{< fa file-code >}} [Happy Git with R by Jennifer Bryan](https://happygitwithr.com/)
 -   {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
 
 ## Questions we'll address this week
-1. What is git and version control more broadly?
-2. Why should we use version control vs "easier" methods (i.e., file naming)
-3. How do we initialize a git repo and track file changes?
-4. What are the basic git functions that we need to know for our work flows?
+
+1.  What is git and version control more broadly?
+2.  Why should we use version control vs "easier" methods (i.e., file naming)
+3.  How do we initialize a git repo and track file changes?
+4.  What are the basic git functions that we need to know for our work flows?
 
 ## Slides
 
-[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w3-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w3-slides.html?print-pdf){.btn .btn-primary role="button"} 
+[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w3-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w3-slides.html?print-pdf){.btn .btn-primary role="button"}
 
 <iframe src="slides/w3-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
 
@@ -35,25 +39,89 @@ format:
 ::: callout-tip
 **Tip**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
 :::
-:::
+::::
 
 </br>
 
 ## What is Git?
-
+Git is a version control system meant to help us keep track of changes in our code and project files inside of a repository (i.e., folder) in a highly structured way. It's sort of like track changes in MS Word/Google Docs, but way more powerful and carefully structured. Git doesn't *just* help us manage changes to our code, but to anything inside of a typical data science project (e.g., figures, reports, manuscripts, data, etc.). Many of the biggest perks of using Git come out when you are working collaboratively on projects. 
 
 ## But can't we just...keep a bunch of different files?
+You sure can. Or you can use Google Drive or Box or whatever other cloud-based data storage you prefer. As a solo scientist, there are a bunch of other ways you can use to backup your project, but learning Git will help prepare you for when you inevitably have to work with other people on a project, and learning the process now when things are simpler is way easier than learning it when you land your first job and are under duress. The problem with building your own, bespoke system to organize your workflow and code/document versions is that, while it is implicitly easy for you to understand, that likely isn't the case for anyone else! Git forces us to adopt certain conventions and rules that everyone else also needs to follow, which greatly facilitates other folks being able to pick up your project and figure out what is going on. Otherwise, they're dependent on you leaving a good enough trail of breadcrumbs to explain your internal logic, which typically doesn't happen. 
 
+## A Git Glossary
+### 🏗️ Core Concepts
 
-## Let's Git started
-### Initializing a git repo
+#### Repository (Repo)
+* **What it is:** The folder or storage space where your project lives, including all files, commit history, and revision tracking data.
+* **Types:**
+  * **Local Repository:** The copy of the project residing on your personal computer.
+  * **Remote Repository:** The hosted copy of the project stored on a server or cloud service like GitHub, GitLab, or Bitbucket.
 
-### Tracking file changes
+#### Working Directory (Working Tree)
+The local directory on your machine where you are currently editing files. Changes made here are not tracked by Git until you add (stage) them.
 
-### But not those! `.gitignore` files
+#### Staging Area (Index)
+An intermediate "preview" area where you prepare changes before saving them to the repository history. Staging allows you to selectively choose which modified files should be included in your next commit.
 
+---
 
-## `Commit`ting your work
+### 📸 Saving & History
 
+#### Commit
+* **Noun:** A snapshot of your repository's state at a specific point in time.
+* **Verb:** The action of saving your staged changes to the repository history along with a descriptive message (e.g., `git commit -m "Add login feature"`).
 
-## 
+#### Commit Hash / SHA
+A unique 40-character alphanumeric ID (e.g., `a1b2c3d...`) generated automatically for every commit. It allows Git to track and reference specific snapshots precisely.
+
+#### HEAD
+A pointer or reference to the currently checked-out commit or branch you are actively working on.
+
+---
+
+### 🌿 Branching & Merging
+
+#### Branch
+An independent line of development. The default main branch is usually called `main` (or historically `master`). Creating a new branch allows you to experiment or build features without affecting the stable code on the main branch.
+
+#### Checkout / Switch
+The process of moving between different branches or restoring files from past commits.
+
+#### Merge
+The process of combining changes from one branch into another (for example, integrating a feature branch into the `main` branch).
+
+#### Merge Conflict
+A situation that occurs when Git cannot automatically reconcile differences between two commits (usually when two people modify the same line of the same file). Conflicts must be resolved manually by choosing which changes to keep.
+
+---
+
+### 🛠️ Essential Git Commands Quick Reference
+
+| Command | Description |
+| :--- | :--- |
+| `git init` | Initialize a brand-new Git repository in the current folder. |
+| `git clone <url>` | Copy an existing remote repository to your local machine. |
+| `git status` | Check the current state of your working directory and staging area. |
+| `git add <file>` | Add specific files to the staging area (use `git add .` to stage all changes). |
+| `git commit -m "msg"` | Save staged changes with a descriptive message. |
+| `git branch` | List all local branches or create a new branch. |
+| `git switch <branch>` | Switch to the specified branch. |
+| `git pull` | Fetch and merge changes from the remote repository. |
+| `git push` | Upload local commits to the remote repository. |
+
+</br>
+
+## 🎯 Summary of Workflow Cycle in Git
+
+```
+1. Make / Edit Files  -->  2. git add <file>  -->  3. git commit -m "message"  -->  4. git log
+   (Working Directory)        (Staging Area)           (Local Repository)             (View History)
+```
+
+The inevitable question after learning all of this is, well, how often should I commit my changes? There are a few general rules around this, but it will vary from person-to-person, project-to-project, and whether you're working solo or collaboratively.
+
+My general suggestions:
+1. Make small, meaningful commits
+2. Commit more frequently when working on "high risk"
+3. Adopt a commit-ammend workflow

@@ -1,0 +1,217 @@
+---
+title: "Workshop 3: Go on, Git!"
+subtitle: "Entomology 3927 - Fall 2026"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+engine: knitr
+toc: true
+format:
+  live-html:
+    theme: 
+    - ../styles.scss
+    highlight-style: ayu
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+## Let's Git started
+To start, we're going to work with Git entirely separate from R and R Studio, at least initially. The purpose of this is two-fold: 
+1. Git is relevant way beyond just R as a programming language
+2. It's easier to learn the machinations of Git without having to simultaenously learn the ins and outs of RStudio's Git interface! 
+
+To do this, we'll be working in the terminal *within* RStudio. I'm doing things this way so that we're all working with the same software, rather than having to navigate the intracacies of how different CLIs (command-line interfaces) operate on different operating systems!
+
+## 🚀 Step-by-Step Git CLI Walkthrough for Beginners
+
+This hands-on guide walks through your very first Git workflow using the command-line interface (CLI).
+
+---
+
+### Step 1: Install Git & Verify
+
+#### Installation
+* **macOS:** Open Terminal and type `git --version` (macOS will prompt you to install Xcode Command Line Tools if not installed), or use Homebrew: `brew install git`.
+* **Windows:** Download and run the installer from [git-scm.com](https://git-scm.com/) (includes **Git Bash**, a Linux-like terminal).
+* **Linux (Ubuntu/Debian):** Run `sudo apt update && sudo apt install git`.
+
+#### Check Installation
+Open your terminal or terminal application and verify Git is ready:
+
+```bash
+git --version
+# Example output: git version 2.45.0
+```
+
+---
+
+### Step 2: Configure Your Identity
+
+Before making commits, set your name and email. Git attaches this information to every commit you make.
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
+
+---
+
+### Step 3: Create a Project Directory & Initialize Git
+
+1. Create a new folder for your project and navigate into it:
+
+```bash
+mkdir my-first-repo
+cd my-first-repo
+```
+
+2. Initialize a new Git repository in this directory:
+
+```bash
+git init
+# Output: Initialized empty Git repository in /path/to/my-first-repo/.git/
+```
+
+---
+
+### Step 4: Create a File & Check Status
+
+1. Create a simple text file:
+
+```bash
+echo "# My First Project" > README.md
+```
+
+2. Check the status of your repository:
+
+```bash
+git status
+```
+
+**Output:**
+```text
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+Notice that `README.md` is **Untracked**. Git sees the file, but it isn't monitoring changes yet.
+
+---
+
+### Step 5: Stage the File (Add to Index)
+
+Move the file to the **Staging Area** using `git add`:
+
+```bash
+git add README.md
+```
+
+Check the status again:
+
+```bash
+git status
+```
+
+**Output:**
+```text
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   README.md
+```
+
+The file is now staged and ready to be saved in history!
+
+---
+
+### Step 6: Commit the File
+
+Save the staged snapshot to your local Git history with a descriptive message:
+
+```bash
+git commit -m "Initial commit: Add README file"
+```
+
+**Output:**
+```text
+[main (root-commit) 7a8b9c0] Initial commit: Add README file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+```
+
+---
+
+### Step 7: Modify a File & View Differences
+
+1. Add a new line to `README.md`:
+
+```bash
+echo "Learning Git via the command line!" >> README.md
+```
+
+2. Check what changed using `git diff`:
+
+```bash
+git diff
+```
+
+**Output:**
+```diff
+diff --git a/README.md b/README.md
+index a1b2c3d..e4f5g6h 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,2 @@
+ # My First Project
++Learning Git via the command line!
+```
+
+---
+
+### Step 8: Stage & Commit the Updates
+
+1. Stage all modified files at once:
+
+```bash
+git add .
+```
+
+2. Commit the new change:
+
+```bash
+git commit -m "Update README with learning goal"
+```
+
+---
+
+### Step 9: View Your Commit History
+
+Display the history of all commits made in this project:
+
+```bash
+git log --oneline
+```
+
+**Output:**
+```text
+e4f5g6h (HEAD -> main) Update README with learning goal
+7a8b9c0 Initial commit: Add README file
+```
+
+---
+
+
+
+## But not those! `.gitignore` files
+
+## Great! Now let's do all of this in RStudio! 
