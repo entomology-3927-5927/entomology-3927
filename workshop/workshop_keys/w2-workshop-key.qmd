@@ -13,7 +13,9 @@ format:
 ---
 
 ## Vectors
+
 ### Exercise 1
+
 ```{r eval=FALSE}
 species <- c("Apis mellifera", "Bombus impatiens", "Osmia lignaria")
 individual_counts <- c(12, 45, 8)
@@ -23,6 +25,7 @@ class(survey_data)
 ```
 
 ### Exercise 2
+
 ```{r eval=FALSE}
 dry_weight_mg <- c(120, 340, 85, 510, 230, 410)
 dry_weight_g <- dry_weight_mg / 1000
@@ -32,6 +35,7 @@ net_mass_g
 ```
 
 ### Exercise 3
+
 ```{r eval=FALSE}
 stem_density <- c(145, 212, 88, 304, 199, 250, 180, 218)
 dense_even_plots <- stem_density[stem_density > 200 & stem_density %% 2 == 0]
@@ -40,6 +44,7 @@ dense_even_plots
 ```
 
 ### Exercise 4
+
 ```{r eval=FALSE}
 soil_moisture <- c(0.24, NA, 0.31, 0.19, NA, 0.28, 0.22)
 mean_moisture <- mean(soil_moisture, na.rm = TRUE)
@@ -49,7 +54,8 @@ soil_moisture
 ```
 
 ### Exercise 5
-```{r eval=FALSE} 
+
+```{r eval=FALSE}
 shannon_index <- c(Site_A = 1.82, Site_B = 2.45, Site_C = 1.31, Site_D = 2.89, Site_E = 2.10, Ctrl_1 = 0.45, Ctrl_2 = 0.62)
 target_sites <- shannon_index[c("Site_B", "Site_D")]
 intact_sites <- shannon_index[-c(6, 7)]
@@ -63,9 +69,10 @@ intact_sites
 #   1.82   2.45   1.31   2.89   2.10
 ```
 
-
 ## Lists
+
 ### Exercise 1
+
 ```{r eval=FALSE}
 site_data <- list(
   site_id = "MN_BEE_01",
@@ -84,6 +91,7 @@ third_species
 ```
 
 ### Exercise 2
+
 ```{r eval=FALSE}
 trap_counts <- list(
   Prairie = c(12, 18, 25, 9),
@@ -122,6 +130,7 @@ pollinator_obs
 ```
 
 ## Tibbles/data frames
+
 ### Exercise 1
 
 ```{r eval=FALSE}
@@ -190,6 +199,7 @@ pH_sub
 ```
 
 ### Exercise 5
+
 ```{r eval=FALSE}
 set.seed(42)
 df_sweeps <- data.frame(
@@ -217,17 +227,20 @@ print(tbl_sweeps)
 ```
 
 ## Code Style
+
 Key Style Violations for Students to Fix
 
-    * Variable Names: Replaced non-descriptive (T, x, T_2), camelCase (MeanCount, FinalData), and mixed Camel_Snake_Case (Filter_Data_fn) with clean snake_case. Overwrote the reserved logical T.
+```         
+* Variable Names: Replaced non-descriptive (T, x, T_2), camelCase (MeanCount, FinalData), and mixed Camel_Snake_Case (Filter_Data_fn) with clean snake_case. Overwrote the reserved logical T.
 
-    * Spacing around operators: Added spaces around assignment (<-, =) and mathematical operators (+, -, /, %>%, ==).
+* Spacing around operators: Added spaces around assignment (<-, =) and mathematical operators (+, -, /, %>%, ==).
 
-    * Indentation and Line Breaks: Cleaned up crammed curly braces {} and functions squeezed onto single lines with semicolons ;.
+* Indentation and Line Breaks: Cleaned up crammed curly braces {} and functions squeezed onto single lines with semicolons ;.
 
-    * Pipes & Long Lines: Split long tidyverse pipelines and ggplot layers across multiple lines (keeping lines under 80 characters) with operators placed at the end of lines.
+* Pipes & Long Lines: Split long tidyverse pipelines and ggplot layers across multiple lines (keeping lines under 80 characters) with operators placed at the end of lines.
 
-    * Commas: Ensured a single space follows all commas (c(x, y) not c(x,y)).
+* Commas: Ensured a single space follows all commas (c(x, y) not c(x,y)).
+```
 
 ```{r eval=FALSE}
 library(tidyverse)

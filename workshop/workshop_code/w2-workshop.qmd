@@ -6,20 +6,7 @@ date: last-modified
 date-format: long
 engine: knitr
 toc: true
-format:
-  live-html:
-    theme: 
-    - ../styles.scss
-    highlight-style: ayu
 ---
-
-{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
-
-## Frontmatter ‼️
-
-[{{< fa file-code >}} `.qmd` template](workshop_code/qmd-template.qmd){.btn .btn-primary download="qmd-template.qmd"} [{{< fa file-code >}} Exercise code](workshop_code/w2-workshop.qmd){.btn .btn-primary download="w2-workshop.qmd"}
-
-</br> </br>
 
 ## Topical exercises 🧑🏻‍💻
 
@@ -29,7 +16,7 @@ format:
 
 Create a character vector named `species` containing `"Apis mellifera"`, `"Bombus impatiens"`, and `"Osmia lignaria"`. Combine it with the numeric count vector `individual_counts` into a single vector named `survey_data`, then print the class of `survey_data`.
 
-```{webr}
+```{r eval=FALSE} 
 # 1. Create species character vector
 species <- ______
 
@@ -49,7 +36,7 @@ class(survey_data)
 
 Convert insect dry weight values in milligrams (`dry_weight_mg`) to grams by dividing by 1000. Then subtract a 2-element trap-tare weight vector `c(0.005, 0.008)` to calculate the net insect mass in `net_mass_g`.
 
-```{webr}
+```{r eval=FALSE}
 dry_weight_mg <- c(120, 340, 85, 510, 230, 410)
 
 # 1. Convert milligrams to grams
@@ -69,7 +56,7 @@ net_mass_g
 
 Extract values from `stem_density` (stems per $m^2$) that represent **dense plots** (\> 200 stems) AND are **even numbers** (`%% 2 == 0`). Store the resulting values in `dense_even_plots`.
 
-```{webr}
+```{r eval=FALSE}
 stem_density <- c(145, 212, 88, 304, 199, 250, 180, 218)
 
 # Filter stem_density for values > 200 AND even
@@ -84,7 +71,7 @@ dense_even_plots
 
 A field logger missed soil moisture readings due to a sensor malfunction. Calculate the mean of non-`NA` moisture values in `soil_moisture` (using `na.rm = TRUE`) and store it as `mean_moisture`. Then replace all missing `NA` values in `soil_moisture` with `mean_moisture`. This practice is called *imputing*.
 
-```{webr}
+```{r eval=FALSE}
 soil_moisture <- c(0.24, NA, 0.31, 0.19, NA, 0.28, 0.22)
 
 # 1. Calculate mean of valid readings
@@ -102,7 +89,7 @@ soil_moisture
 
 You have Shannon diversity index values for insect communities at 7 sampling sites. Extract the values for `"Site_B"` and `"Site_D"` by name into `control_sites`. Then remove the disturbance treatment sites (positions 6 and 7) using negative indexing into `disturbed_sites`.
 
-```{webr}
+```{r eval=FALSE}
 shannon_index <- c(Site_A = 1.82, Site_B = 2.45, Site_C = 1.31, Site_D = 2.89, Site_E = 2.10, Ctrl_1 = 0.45, Ctrl_2 = 0.62)
 
 # 1. Extract Site_B and Site_D by name
@@ -127,7 +114,7 @@ disturbed_sites
 
 A field survey stores site metadata, species observations, and environmental variables in a single list. Extract the `temperatures` vector by name into `temp_vals`, then extract the third species name (`"Ceratina dupla"`) using double bracket indexing into `third_species`.
 
-```{webr}
+```{r eval=FALSE}
 site_data <- list(
   site_id = "MN_BEE_01",
   species = c("Lasioglossum vierecki", "Bombus vagans", "Ceratina dupla", "Agapostemon virescens"),
@@ -150,7 +137,7 @@ third_species
 
 You have a list containing insect trap count vectors from three sampling locations. Use `lapply()` to calculate the total abundance (`sum()`) for each site, then use `unlist()` to convert the result into a clean numeric vector named site_totals.
 
-```{webr}
+```{r eval=FALSE}
 trap_counts <- list(
   Prairie = c(12, 18, 25, 9),
   Forest_Edge = c(5, 8, 3, 11, 4),
@@ -172,7 +159,7 @@ site_totals
 
 Create a list named pollinator_obs with two named vectors: bees = c(45, 32) and flies = c(12, 19). Then dynamically add a new element named butterflies containing c(8, 14), and update the bees element by adding 10 additional counts to each site. This also touches on *vectorization* which we worked on above!
 
-```{webr}
+```{r eval=FALSE}
 # 1. Create the initial list with bees and flies
 pollinator_obs <- list(
   bees = ______,
@@ -200,7 +187,7 @@ pollinator_obs
 
 Create a tibble named `tree_survey` containing 5 trees with species names in column `species`, dbh (diameter at breast height in cm) in column `dbh_cm` with values `c(12.4, 28.1, 8.5, 42.0, 19.3)`, and calculate `basal_area_m2` directly inside the `tibble()` call using the formula `(pi * (dbh_cm / 2)^2) / 10000`.
 
-```{webr}
+```{r eval=FALSE}
 library(tibble)
 
 # Create the tree_survey tibble referencing dbh_cm to compute basal_area_m2
@@ -219,7 +206,7 @@ tree_survey
 
 Subset column "parasite_load" from both the base data frame df_bees and the tibble `tbl_bees` using bracket notation `[, "parasite_load"]`. Print the class of each result to observe how base data frames silently simplify output to a 1D vector while tibbles preserve tabular structure.
 
-```{webr}
+```{r eval=FALSE}
 library(tibble)
 
 df_bees <- data.frame(site = c("A", "B", "C"), parasite_load = c(0, 14, 3))
@@ -241,7 +228,7 @@ tbl_subset_class
 
 In field data, column name typos can cause silent logical errors. Try accessing the "treatment" column of `df_plots` and `tbl_plots` using the shorthand \$treat. Observe the difference in behavior.
 
-```{webr}
+```{r eval=FALSE}
 library(tibble)
 
 df_plots <- data.frame(treatment_group = c("Control", "Burned", "Grazed"), diversity = c(1.2, 2.4, 1.8))
@@ -271,7 +258,7 @@ Given a data frame of water quality observations water_quality:
 3. Extract rows 2 through 5 for columns "site_id" and "pH" into `pH_sub`.
 ```
 
-```{webr}
+```{r eval=FALSE}
 water_quality <- data.frame(
   site_id = paste0("Site_", 1:6),
   pH = c(6.8, 7.2, 7.1, 6.5, 7.4, 6.9),
@@ -298,7 +285,7 @@ pH_sub
 
 Convert the large insect sweep net data frame `df_sweeps` (100 rows) into a tibble named `tbl_sweeps`. Compare the console output of printing `df_sweeps` vs `tbl_sweeps`.
 
-```{webr}
+```{r eval=FALSE}
 library(tibble)
 
 # Simulated large sampling dataset
@@ -351,7 +338,7 @@ FinalData%>%group_by(species,site)%>%summarize(total=sum(count),mean_scaled=mean
 ggplot(FinalData,aes(x=count,y=count_scaled,color=species))+geom_point()+theme_bw()
 ```
 
-```{webr}
+```{r eval=FALSE}
 # Enter your re-factored code here. Make sure to run it all to ensure 
 your style adjustments dont cause any syntax errors!
 

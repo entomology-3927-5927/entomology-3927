@@ -1,0 +1,52 @@
+---
+title: "Title of your project"
+subtitle: "Subtitle (e.g., 'Data cleaning, STI/CTI calculations, and modeling')"
+date: last-modified
+date-format: long
+toc: true
+toc-depth: 3
+number-sections: true
+format:
+  html:
+    theme: cosmo
+    code-fold: show
+    code-tools: true
+    code-copy: true
+    embed-resources: true
+    df-print: paged
+execute:
+  warning: true
+  message: false
+  echo: true
+---
+
+**Name:** 
+**Email:** 
+**Institution:** 
+
+# 📦 LOAD PACKAGES
+```{r}
+test <- 4
+```
+
+# 💾 LOAD DATA
+## Tabular
+```{r}
+```
+
+## Spatial
+
+# 🧹 CLEAN DATA
+```{r}
+```
+
+# 🏗️ MODEL DATA
+## Model 1: X vs Y
+```{r}
+```
+
+## Model 2: T-test
+
+# 📈 VISUALIZE DATA
+```{r}
+```

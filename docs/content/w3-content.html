@@ -2,19 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeremy Hemberger">
-<meta name="dcterms.date" content="2026-09-21">
+<meta name="dcterms.date" content="2026-09-25">
 
 <title>Week 3 – Entomology 3927/5927</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -39,10 +45,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c96709ee289d8f9afca9c27adde60711.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -84,7 +90,8 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -322,14 +329,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#branching-merging" id="toc-branching-merging" class="nav-link" data-scroll-target="#branching-merging">🌿 Branching &amp; Merging</a></li>
   <li><a href="#essential-git-commands-quick-reference" id="toc-essential-git-commands-quick-reference" class="nav-link" data-scroll-target="#essential-git-commands-quick-reference">🛠️ Essential Git Commands Quick Reference</a></li>
   </ul></li>
-  <li><a href="#lets-git-started" id="toc-lets-git-started" class="nav-link" data-scroll-target="#lets-git-started">Let’s Git started</a>
-  <ul class="collapse">
-  <li><a href="#initializing-a-git-repo" id="toc-initializing-a-git-repo" class="nav-link" data-scroll-target="#initializing-a-git-repo">Initializing a git repo</a></li>
-  <li><a href="#tracking-file-changes" id="toc-tracking-file-changes" class="nav-link" data-scroll-target="#tracking-file-changes">Tracking file changes</a></li>
-  <li><a href="#but-not-those-.gitignore-files" id="toc-but-not-those-.gitignore-files" class="nav-link" data-scroll-target="#but-not-those-.gitignore-files">But not those! <code>.gitignore</code> files</a></li>
-  </ul></li>
-  <li><a href="#committing-your-work" id="toc-committing-your-work" class="nav-link" data-scroll-target="#committing-your-work"><code>Commit</code>ting your work</a></li>
-  <li><a href="#great-now-lets-do-all-of-this-in-rstudio" id="toc-great-now-lets-do-all-of-this-in-rstudio" class="nav-link" data-scroll-target="#great-now-lets-do-all-of-this-in-rstudio">Great! Now let’s do all of this in RStudio!</a></li>
+  <li><a href="#summary-of-workflow-cycle-in-git" id="toc-summary-of-workflow-cycle-in-git" class="nav-link" data-scroll-target="#summary-of-workflow-cycle-in-git">🎯 Summary of Workflow Cycle in Git</a></li>
   </ul>
 </nav>
     </div>
@@ -356,7 +356,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 21, 2026</p>
+      <p class="date">September 25, 2026</p>
     </div>
   </div>
   
@@ -539,26 +539,15 @@ Tip
 </tr>
 </tbody>
 </table>
+<p><br></p>
 </section>
 </section>
-<section id="lets-git-started" class="level2">
-<h2 class="anchored" data-anchor-id="lets-git-started">Let’s Git started</h2>
-<p>To start, we’re going to work with Git entirely separate from R and R Studio. The purpose of this is two-fold: 1. Git is relevant way beyond just R as a programming language 2. It’s easier to learn the machinations of Git without having to simultaenously learn the ins and outs of RStudio’s Git interface!</p>
-<section id="initializing-a-git-repo" class="level3">
-<h3 class="anchored" data-anchor-id="initializing-a-git-repo">Initializing a git repo</h3>
-</section>
-<section id="tracking-file-changes" class="level3">
-<h3 class="anchored" data-anchor-id="tracking-file-changes">Tracking file changes</h3>
-</section>
-<section id="but-not-those-.gitignore-files" class="level3">
-<h3 class="anchored" data-anchor-id="but-not-those-.gitignore-files">But not those! <code>.gitignore</code> files</h3>
-</section>
-</section>
-<section id="committing-your-work" class="level2">
-<h2 class="anchored" data-anchor-id="committing-your-work"><code>Commit</code>ting your work</h2>
-</section>
-<section id="great-now-lets-do-all-of-this-in-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="great-now-lets-do-all-of-this-in-rstudio">Great! Now let’s do all of this in RStudio!</h2>
+<section id="summary-of-workflow-cycle-in-git" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-workflow-cycle-in-git">🎯 Summary of Workflow Cycle in Git</h2>
+<pre><code>1. Make / Edit Files  --&gt;  2. git add &lt;file&gt;  --&gt;  3. git commit -m "message"  --&gt;  4. git log
+   (Working Directory)        (Staging Area)           (Local Repository)             (View History)</code></pre>
+<p>The inevitable question after learning all of this is, well, how often should I commit my changes? There are a few general rules around this, but it will vary from person-to-person, project-to-project, and whether you’re working solo or collaboratively.</p>
+<p>My general suggestions: 1. Make small, meaningful commits 2. Commit more frequently when working on “high risk” 3. Adopt a commit-ammend workflow</p>
 
 
 </section>
@@ -615,13 +604,14 @@ Tip
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

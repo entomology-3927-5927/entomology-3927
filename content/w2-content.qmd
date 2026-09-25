@@ -75,7 +75,8 @@ We can use `as.*` functions to convert between atomic data types (e.g., `as.nume
 A vector is a 1-dimensional collection of elements of the same *type* (that is, all numeric, character, etc.). We create vectors using the `c()` function which *combines* or *concatenates* elements.
 
 - Mixing data types in R will perform *implicit coercion*, which basically means it will convert everything into the most flexible type. The flexibility of objects in R from most to least is: `character > double > integer > logical`.
-- In R, many functions or operations are *vectorized*, meaning they will apply math/functions/operations to every element of the vector automatically
+- In R, many functions or operations are *vectorized*, meaning they will apply math/functions/operations to every element of the vector automatically.
+
 
 ```{r}
 #| label: vectors
@@ -89,6 +90,13 @@ my_counts_doubled
 # Coercion of data: what do you think this will be converted to?
 messy_vector <- c(1, "shikaka", TRUE)
 typeof(messy_vector)
+```
+
+Vectors can also have named elements which can be used to reference specific values:
+
+```{r}
+my_vector <- c(vial_1 = 20, vial_2 = 43, vial_3 = 12)
+my_vector
 ```
 
 ### Lists
@@ -216,6 +224,20 @@ calculate_trap_rate <- function(image_count, days_active) {
 
 # Using the function
 calculate_trap_rate(image_count = 142, days_active = 7)
+```
+
+## Handling NA values
+`NA` ("Not available") is a special type of value in R that can occur for many reasons. It pops up in vectors and other data structures when there is no value for a particular position (or cell if using tabluar data). We can check for NA values using the `is.na()` function, which will return `TRUE` for any values that contain an `NA`. We can use that function along with vectors to replace NA values:
+
+```{r}
+my.vector <- c(1, 4, NA, 4, 5, NA, 10, 3)
+
+is.na(my.vector)
+
+# Replace NA values using the mean of our vector (called "imputing")
+my.vector[is.na(my.vector)] <- mean(my.vector, na.rm = TRUE)
+
+my.vector
 ```
 
 ## Code Style 💃

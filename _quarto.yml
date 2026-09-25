@@ -1,7 +1,8 @@
 project:
   type: website
   output-dir: docs
-
+render:
+  - "!workshop/workshop_code/"
 website:
   # google-analytics: "G-9QW2N0QB7G"
   title: "Entomology 3927/5927"
