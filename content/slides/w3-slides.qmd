@@ -41,5 +41,86 @@ format:
 
 # WTF is Git? {.bkrd-color-1}
 
+## WTF is Git?
 
-# Why use Git over "easier" methods? {.bkrd-color-2}
+::: box-1-list
+**Git is a version control system.**
+
+It helps us keep track of changes to a variety of different file types in a software development or data analysis project, including:
+:::
+
+- code
+- project files
+- figures
+- reports and manuscripts
+- other text-based project documents
+
+Think of it as **Track Changes on steroids**.
+
+---
+
+## Why version control?
+
+::: {.columns}
+::: {.column width="50%"}
+**Without Git**
+
+- `analysis_final.R`
+- `analysis_final2.R`
+- `analysis_final_really_final.R`
+- `analysis_final_SUPER_FINAL.R`
+:::
+
+::: {.column width="50%"}
+**With Git**
+
+A project has a **history**.
+
+You can see:
+
+- what changed
+- when it changed
+- who changed it
+- why it changed
+- previous versions
+:::
+:::
+
+---
+
+## "Can't I just keep different files?"
+
+**Sure.**
+
+You can also use:
+
+- Google Drive
+- Box
+- Dropbox
+- other backup systems
+
+. . . 
+
+::: box-1-list
+But a bespoke system is usually **your system**.
+
+Git gives collaborators a shared set of conventions for understanding a project that don't depend on reading your mind or hoping for useful metadata.
+:::
+
+## Why learn Git now?
+
+Git becomes especially useful when you work with other people.
+
+::: {.incremental}
+- You don't have to remember every change yourself.
+- Someone else can pick up your project and understand its history.
+- You can experiment without destroying a working version.
+- You can recover from mistakes.
+- Your workflow becomes reproducible and shareable.
+:::
+
+. . . 
+
+::: {.callout-tip}
+Learning the process now is easier than learning it under deadline pressure.
+:::

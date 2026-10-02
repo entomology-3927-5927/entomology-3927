@@ -44,62 +44,114 @@ format:
 </br>
 
 ## What is Git?
-Git is a version control system meant to help us keep track of changes in our code and project files inside of a repository (i.e., folder) in a highly structured way. It's sort of like track changes in MS Word/Google Docs, but way more powerful and carefully structured. Git doesn't *just* help us manage changes to our code, but to anything inside of a typical data science project (e.g., figures, reports, manuscripts, data, etc.). Many of the biggest perks of using Git come out when you are working collaboratively on projects. 
+
+Git is a version control system meant to help us keep track of changes in our code and project files inside of a repository (i.e., folder) in a highly structured way. It's sort of like track changes in MS Word/Google Docs, but way more powerful and carefully structured. Git doesn't *just* help us manage changes to our code, but to anything inside of a typical data science project (e.g., figures, reports, manuscripts, data, etc.). Many of the biggest perks of using Git come out when you are working collaboratively on projects.
 
 ## But can't we just...keep a bunch of different files?
-You sure can. Or you can use Google Drive or Box or whatever other cloud-based data storage you prefer. As a solo scientist, there are a bunch of other ways you can use to backup your project, but learning Git will help prepare you for when you inevitably have to work with other people on a project, and learning the process now when things are simpler is way easier than learning it when you land your first job and are under duress. The problem with building your own, bespoke system to organize your workflow and code/document versions is that, while it is implicitly easy for you to understand, that likely isn't the case for anyone else! Git forces us to adopt certain conventions and rules that everyone else also needs to follow, which greatly facilitates other folks being able to pick up your project and figure out what is going on. Otherwise, they're dependent on you leaving a good enough trail of breadcrumbs to explain your internal logic, which typically doesn't happen. 
+
+You sure can. Or you can use Google Drive or Box or whatever other cloud-based data storage you prefer. As a solo scientist, there are a bunch of other ways you can use to backup your project, but learning Git will help prepare you for when you inevitably have to work with other people on a project, and learning the process now when things are simpler is way easier than learning it when you land your first job and are under duress. The problem with building your own, bespoke system to organize your workflow and code/document versions is that, while it is implicitly easy for you to understand, that likely isn't the case for anyone else! Git forces us to adopt certain conventions and rules that everyone else also needs to follow, which greatly facilitates other folks being able to pick up your project and figure out what is going on. Otherwise, they're dependent on you leaving a good enough trail of breadcrumbs to explain your internal logic, which typically doesn't happen.
+
+
+## Working in the command line interface (CLI, or terminal)
+
+Working in the Linux terminal via the Command Line Interface (CLI) relies on a few core commands for navigation, file management, and Git operations.
+
+## Basic File System & Navigation
+
+* **`pwd`** (Print Working Directory)  
+  * **Purpose:** Shows the full path of the current directory you are in.  
+  * **Example:** `pwd` \$\\rightarrow\$ `/home/user/projects`
+* **`ls`** (List)  
+  * **Purpose:** Lists all files and folders in the current directory. Use \-la to show hidden files (like .git) and detailed permissions.  
+  * **Example:** ls \-la  
+* **`cd`** (Change Directory)  
+  * **Purpose:** Moves into a specified folder.  
+  * **Example:** cd projects/my-app (move into my-app) or cd .. (move up one directory level)  
+* **`mkdir`** (Make Directory)  
+  * **Purpose:** Creates a new directory/folder.  
+  * **Example:** mkdir new-folder  
+* **`touch`**  
+  * **Purpose:** Creates a new, empty file.  
+  * **Example:** touch index.html
+
+### File Maintenance & Operations
+
+| Command | Purpose | Example |
+| :---- | :---- | :---- |
+| **`cp`** | Copies files or directories (use \-r for folders). | `cp file.txt backup.txt` |
+| **`mv`** | Moves or renames files and directories. | `mv oldname.txt newname.txt` |
+| **`rm`** | Removes (deletes) files. Use \-rf carefully for non-empty folders. | `rm unused.txt` |
+| **`cat`** | Outputs the complete contents of a file directly to the terminal. | `cat README.md` |
+| **`nano`** | Opens a simple, beginner-friendly text editor directly in the terminal. | `nano config.json` |
+
+::: {.callout-warning}
+Be careful with `rm`! There is no recycle bin or undoing in the terminal.
+:::
+
+</br>
 
 ## A Git Glossary
+
 ### 🏗️ Core Concepts
 
-#### Repository (Repo)
-* **What it is:** The folder or storage space where your project lives, including all files, commit history, and revision tracking data.
-* **Types:**
-  * **Local Repository:** The copy of the project residing on your personal computer.
-  * **Remote Repository:** The hosted copy of the project stored on a server or cloud service like GitHub, GitLab, or Bitbucket.
+#### Repository (often called a "repo")
 
-#### Working Directory (Working Tree)
+-   **What it is:** The folder or storage space where your project lives, including all files, commit history, and revision tracking data.
+-   **Types:**
+    -   **Local Repository:** The copy of the project residing on your personal computer.
+    -   **Remote Repository:** The hosted copy of the project stored on a server or cloud service like GitHub, GitLab, or Bitbucket.
+
+#### Working Directory (a.k.a., Working Tree)
+
 The local directory on your machine where you are currently editing files. Changes made here are not tracked by Git until you add (stage) them.
 
-#### Staging Area (Index)
+#### Staging Area (a.k.a., Index)
+
 An intermediate "preview" area where you prepare changes before saving them to the repository history. Staging allows you to selectively choose which modified files should be included in your next commit.
 
----
+------------------------------------------------------------------------
 
 ### 📸 Saving & History
 
 #### Commit
-* **Noun:** A snapshot of your repository's state at a specific point in time.
-* **Verb:** The action of saving your staged changes to the repository history along with a descriptive message (e.g., `git commit -m "Add login feature"`).
+
+-   **Noun:** A snapshot of your repository's state at a specific point in time.
+-   **Verb:** The action of saving your staged changes to the repository history along with a descriptive message (e.g., `git commit -m "Add login feature"`).
 
 #### Commit Hash / SHA
+
 A unique 40-character alphanumeric ID (e.g., `a1b2c3d...`) generated automatically for every commit. It allows Git to track and reference specific snapshots precisely.
 
 #### HEAD
-A pointer or reference to the currently checked-out commit or branch you are actively working on.
 
----
+A pointer or reference to the currently checked-out commit or branch you are actively working on. Think of this as a "📍 You are here" marker on a map.
+
+------------------------------------------------------------------------
 
 ### 🌿 Branching & Merging
 
 #### Branch
+
 An independent line of development. The default main branch is usually called `main` (or historically `master`). Creating a new branch allows you to experiment or build features without affecting the stable code on the main branch.
 
 #### Checkout / Switch
+
 The process of moving between different branches or restoring files from past commits.
 
 #### Merge
+
 The process of combining changes from one branch into another (for example, integrating a feature branch into the `main` branch).
 
 #### Merge Conflict
+
 A situation that occurs when Git cannot automatically reconcile differences between two commits (usually when two people modify the same line of the same file). Conflicts must be resolved manually by choosing which changes to keep.
 
----
+------------------------------------------------------------------------
 
 ### 🛠️ Essential Git Commands Quick Reference
 
 | Command | Description |
-| :--- | :--- |
+|:-----------------------------------|:-----------------------------------|
 | `git init` | Initialize a brand-new Git repository in the current folder. |
 | `git clone <url>` | Copy an existing remote repository to your local machine. |
 | `git status` | Check the current state of your working directory and staging area. |
@@ -112,16 +164,81 @@ A situation that occurs when Git cannot automatically reconcile differences betw
 
 </br>
 
-## 🎯 Summary of Workflow Cycle in Git
+# But not those! `.gitignore` files
+Great! We've now gotten a bit of pratice with the git commands that will be ~95% of your daily git workflow. After we get things off the ground, it's easy to say, "hey, let's use git to track all of my project documents!". Not so fast...
 
+Git is excellent for tracking changes made to our source code and documentation (think, anything written by us) including `.r`, `.rmd`, `.qmd`, and `.md` documents and the rendered `.html` version of these (if applicable). We don't want to track really large objects like our data/databases, or binary files (things like `.pdf` or `.docx`). Unless we manually control staging each file in our project, the Git functionality built into R Studio will automatically assume you want everything tracked and can clog up your staging pane. To alleviate this, and to make sure we don't accidentally track a massive data file that will take a ton of time (and get rejected when we learn how to sync to GitHub), we can tell git to *ignore* certain files, types of files, or folders. That's what the `.gitignore` file in your repository does!
+
+It's basically a blank text file where you input exactly what you want to ignore. You can:
+
+* Ignore a specific file: `myfile.xls` <-- write the whole name of the file with extension
+* Ignore a type of file: `*.pdf` <-- the `*` here is a wildcard, meaning it will select all files with the `.pdf` extension.
+* Ignore a folder and all files therein: `data/my_folder/` <-- these paths need to relative to the location of your `.gitignore` file!
+
+Here's an example of a `.gitignore` file:
+```bash
+# History & Workspace State
+.Rhistory
+.RData
+.Ruserdata
+
+# RStudio Project Details
+.Rproj.user/
+
+# Biological Data Files (Raw & Heavy Intermediates)
+data/raw/
+*.fastq
+*.fastq.gz
+*.bam
+*.sam
+*.vcf
+*.h5ad
+*.rds
+
+# Knitr / Quarto Cache Directories
+*_cache/
+*_files/
+
+# Package Management (if using renv)
+renv/library/
+renv/python/
+renv/staging/
+
+# Environmental & Credentials (API keys for NCBI, Ensembl, etc.)
+.Renviron
+.env
 ```
+
+...and an example of which bits of a hypothetical project directory we would and would not track using Git: 
+
+```{.text .bg-light .p-2 .border}
+my-r-project/
+├── .gitignore             <-- Excludes heavy raw and cleaned data
+├── my-project.Rproj       <-- Tracked (defines project root)
+├── README.md              <-- Tracked (project summary & data sources)
+├── renv.lock              <-- Tracked (reproducible package environment)
+├── data/
+│   ├── raw/               <-- Ignored by Git (contains fastq, bam, massive CSVs)
+│   └── metadata.csv       <-- Tracked (small sample sheet)
+├── R/
+│   ├── 01_data_cleaning.R <-- Tracked (data cleaning)
+│   └── 02_analysis.Rmd    <-- Tracked (statistical analysis)
+└── results/
+    └── figures/           <-- Tracked or selective export folder
+```
+
+
+## Summary of Workflow Cycle in Git
+
+```         
 1. Make / Edit Files  -->  2. git add <file>  -->  3. git commit -m "message"  -->  4. git log
    (Working Directory)        (Staging Area)           (Local Repository)             (View History)
 ```
 
 The inevitable question after learning all of this is, well, how often should I commit my changes? There are a few general rules around this, but it will vary from person-to-person, project-to-project, and whether you're working solo or collaboratively.
 
-My general suggestions:
-1. Make small, meaningful commits
-2. Commit more frequently when working on "high risk"
-3. Adopt a commit-ammend workflow
+My general suggestions: 
+
+1. Make small, meaningful commits with *concise*, but *interpretable* commit messages
+2. Commit more frequently when working on "high risk" 
+3. Adopt a commit-ammend workflow (we will walk through this in the workshop)

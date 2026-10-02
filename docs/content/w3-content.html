@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeremy Hemberger">
-<meta name="dcterms.date" content="2026-09-25">
+<meta name="dcterms.date" content="2026-10-01">
 
 <title>Week 3 – Entomology 3927/5927</title>
 <style>
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -315,6 +350,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-is-git" id="toc-what-is-git" class="nav-link active" data-scroll-target="#what-is-git">What is Git?</a></li>
   <li><a href="#but-cant-we-justkeep-a-bunch-of-different-files" id="toc-but-cant-we-justkeep-a-bunch-of-different-files" class="nav-link" data-scroll-target="#but-cant-we-justkeep-a-bunch-of-different-files">But can’t we just…keep a bunch of different files?</a></li>
+  <li><a href="#working-in-the-command-line-interface-cli-or-terminal" id="toc-working-in-the-command-line-interface-cli-or-terminal" class="nav-link" data-scroll-target="#working-in-the-command-line-interface-cli-or-terminal">Working in the command line interface (CLI, or terminal)</a></li>
+  <li><a href="#basic-file-system-navigation" id="toc-basic-file-system-navigation" class="nav-link" data-scroll-target="#basic-file-system-navigation">Basic File System &amp; Navigation</a>
+  <ul class="collapse">
+  <li><a href="#file-maintenance-operations" id="toc-file-maintenance-operations" class="nav-link" data-scroll-target="#file-maintenance-operations">File Maintenance &amp; Operations</a></li>
+  </ul></li>
   <li><a href="#a-git-glossary" id="toc-a-git-glossary" class="nav-link" data-scroll-target="#a-git-glossary">A Git Glossary</a>
   <ul class="collapse">
   <li><a href="#core-concepts" id="toc-core-concepts" class="nav-link" data-scroll-target="#core-concepts">🏗️ Core Concepts</a></li>
@@ -322,7 +362,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#branching-merging" id="toc-branching-merging" class="nav-link" data-scroll-target="#branching-merging">🌿 Branching &amp; Merging</a></li>
   <li><a href="#essential-git-commands-quick-reference" id="toc-essential-git-commands-quick-reference" class="nav-link" data-scroll-target="#essential-git-commands-quick-reference">🛠️ Essential Git Commands Quick Reference</a></li>
   </ul></li>
-  <li><a href="#summary-of-workflow-cycle-in-git" id="toc-summary-of-workflow-cycle-in-git" class="nav-link" data-scroll-target="#summary-of-workflow-cycle-in-git">🎯 Summary of Workflow Cycle in Git</a></li>
+  <li><a href="#but-not-those-.gitignore-files" id="toc-but-not-those-.gitignore-files" class="nav-link" data-scroll-target="#but-not-those-.gitignore-files">But not those! <code>.gitignore</code> files</a>
+  <ul class="collapse">
+  <li><a href="#summary-of-workflow-cycle-in-git" id="toc-summary-of-workflow-cycle-in-git" class="nav-link" data-scroll-target="#summary-of-workflow-cycle-in-git">Summary of Workflow Cycle in Git</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -349,7 +392,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 25, 2026</p>
+      <p class="date">October 1, 2026</p>
     </div>
   </div>
   
@@ -416,12 +459,112 @@ Tip
 <h2 class="anchored" data-anchor-id="but-cant-we-justkeep-a-bunch-of-different-files">But can’t we just…keep a bunch of different files?</h2>
 <p>You sure can. Or you can use Google Drive or Box or whatever other cloud-based data storage you prefer. As a solo scientist, there are a bunch of other ways you can use to backup your project, but learning Git will help prepare you for when you inevitably have to work with other people on a project, and learning the process now when things are simpler is way easier than learning it when you land your first job and are under duress. The problem with building your own, bespoke system to organize your workflow and code/document versions is that, while it is implicitly easy for you to understand, that likely isn’t the case for anyone else! Git forces us to adopt certain conventions and rules that everyone else also needs to follow, which greatly facilitates other folks being able to pick up your project and figure out what is going on. Otherwise, they’re dependent on you leaving a good enough trail of breadcrumbs to explain your internal logic, which typically doesn’t happen.</p>
 </section>
+<section id="working-in-the-command-line-interface-cli-or-terminal" class="level2">
+<h2 class="anchored" data-anchor-id="working-in-the-command-line-interface-cli-or-terminal">Working in the command line interface (CLI, or terminal)</h2>
+<p>Working in the Linux terminal via the Command Line Interface (CLI) relies on a few core commands for navigation, file management, and Git operations.</p>
+</section>
+<section id="basic-file-system-navigation" class="level2">
+<h2 class="anchored" data-anchor-id="basic-file-system-navigation">Basic File System &amp; Navigation</h2>
+<ul>
+<li><strong><code>pwd</code></strong> (Print Working Directory)
+<ul>
+<li><strong>Purpose:</strong> Shows the full path of the current directory you are in.<br>
+</li>
+<li><strong>Example:</strong> <code>pwd</code> $\rightarrow$ <code>/home/user/projects</code></li>
+</ul></li>
+<li><strong><code>ls</code></strong> (List)
+<ul>
+<li><strong>Purpose:</strong> Lists all files and folders in the current directory. Use -la to show hidden files (like .git) and detailed permissions.<br>
+</li>
+<li><strong>Example:</strong> ls -la<br>
+</li>
+</ul></li>
+<li><strong><code>cd</code></strong> (Change Directory)
+<ul>
+<li><strong>Purpose:</strong> Moves into a specified folder.<br>
+</li>
+<li><strong>Example:</strong> cd projects/my-app (move into my-app) or cd .. (move up one directory level)<br>
+</li>
+</ul></li>
+<li><strong><code>mkdir</code></strong> (Make Directory)
+<ul>
+<li><strong>Purpose:</strong> Creates a new directory/folder.<br>
+</li>
+<li><strong>Example:</strong> mkdir new-folder<br>
+</li>
+</ul></li>
+<li><strong><code>touch</code></strong>
+<ul>
+<li><strong>Purpose:</strong> Creates a new, empty file.<br>
+</li>
+<li><strong>Example:</strong> touch index.html</li>
+</ul></li>
+</ul>
+<section id="file-maintenance-operations" class="level3">
+<h3 class="anchored" data-anchor-id="file-maintenance-operations">File Maintenance &amp; Operations</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Command</th>
+<th style="text-align: left;">Purpose</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>cp</code></strong></td>
+<td style="text-align: left;">Copies files or directories (use -r for folders).</td>
+<td style="text-align: left;"><code>cp file.txt backup.txt</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><code>mv</code></strong></td>
+<td style="text-align: left;">Moves or renames files and directories.</td>
+<td style="text-align: left;"><code>mv oldname.txt newname.txt</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>rm</code></strong></td>
+<td style="text-align: left;">Removes (deletes) files. Use -rf carefully for non-empty folders.</td>
+<td style="text-align: left;"><code>rm unused.txt</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><code>cat</code></strong></td>
+<td style="text-align: left;">Outputs the complete contents of a file directly to the terminal.</td>
+<td style="text-align: left;"><code>cat README.md</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>nano</code></strong></td>
+<td style="text-align: left;">Opens a simple, beginner-friendly text editor directly in the terminal.</td>
+<td style="text-align: left;"><code>nano config.json</code></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be careful with <code>rm</code>! There is no recycle bin or undoing in the terminal.</p>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
 <section id="a-git-glossary" class="level2">
 <h2 class="anchored" data-anchor-id="a-git-glossary">A Git Glossary</h2>
 <section id="core-concepts" class="level3">
 <h3 class="anchored" data-anchor-id="core-concepts">🏗️ Core Concepts</h3>
-<section id="repository-repo" class="level4">
-<h4 class="anchored" data-anchor-id="repository-repo">Repository (Repo)</h4>
+<section id="repository-often-called-a-repo" class="level4">
+<h4 class="anchored" data-anchor-id="repository-often-called-a-repo">Repository (often called a “repo”)</h4>
 <ul>
 <li><strong>What it is:</strong> The folder or storage space where your project lives, including all files, commit history, and revision tracking data.</li>
 <li><strong>Types:</strong>
@@ -431,12 +574,12 @@ Tip
 </ul></li>
 </ul>
 </section>
-<section id="working-directory-working-tree" class="level4">
-<h4 class="anchored" data-anchor-id="working-directory-working-tree">Working Directory (Working Tree)</h4>
+<section id="working-directory-a.k.a.-working-tree" class="level4">
+<h4 class="anchored" data-anchor-id="working-directory-a.k.a.-working-tree">Working Directory (a.k.a., Working Tree)</h4>
 <p>The local directory on your machine where you are currently editing files. Changes made here are not tracked by Git until you add (stage) them.</p>
 </section>
-<section id="staging-area-index" class="level4">
-<h4 class="anchored" data-anchor-id="staging-area-index">Staging Area (Index)</h4>
+<section id="staging-area-a.k.a.-index" class="level4">
+<h4 class="anchored" data-anchor-id="staging-area-a.k.a.-index">Staging Area (a.k.a., Index)</h4>
 <p>An intermediate “preview” area where you prepare changes before saving them to the repository history. Staging allows you to selectively choose which modified files should be included in your next commit.</p>
 <hr>
 </section>
@@ -456,7 +599,7 @@ Tip
 </section>
 <section id="head" class="level4">
 <h4 class="anchored" data-anchor-id="head">HEAD</h4>
-<p>A pointer or reference to the currently checked-out commit or branch you are actively working on.</p>
+<p>A pointer or reference to the currently checked-out commit or branch you are actively working on. Think of this as a “📍 You are here” marker on a map.</p>
 <hr>
 </section>
 </section>
@@ -535,14 +678,75 @@ Tip
 <p><br></p>
 </section>
 </section>
+<section id="but-not-those-.gitignore-files" class="level1">
+<h1>But not those! <code>.gitignore</code> files</h1>
+<p>Great! We’ve now gotten a bit of pratice with the git commands that will be ~95% of your daily git workflow. After we get things off the ground, it’s easy to say, “hey, let’s use git to track all of my project documents!”. Not so fast…</p>
+<p>Git is excellent for tracking changes made to our source code and documentation (think, anything written by us) including <code>.r</code>, <code>.rmd</code>, <code>.qmd</code>, and <code>.md</code> documents and the rendered <code>.html</code> version of these (if applicable). We don’t want to track really large objects like our data/databases, or binary files (things like <code>.pdf</code> or <code>.docx</code>). Unless we manually control staging each file in our project, the Git functionality built into R Studio will automatically assume you want everything tracked and can clog up your staging pane. To alleviate this, and to make sure we don’t accidentally track a massive data file that will take a ton of time (and get rejected when we learn how to sync to GitHub), we can tell git to <em>ignore</em> certain files, types of files, or folders. That’s what the <code>.gitignore</code> file in your repository does!</p>
+<p>It’s basically a blank text file where you input exactly what you want to ignore. You can:</p>
+<ul>
+<li>Ignore a specific file: <code>myfile.xls</code> &lt;– write the whole name of the file with extension</li>
+<li>Ignore a type of file: <code>*.pdf</code> &lt;– the <code>*</code> here is a wildcard, meaning it will select all files with the <code>.pdf</code> extension.</li>
+<li>Ignore a folder and all files therein: <code>data/my_folder/</code> &lt;– these paths need to relative to the location of your <code>.gitignore</code> file!</li>
+</ul>
+<p>Here’s an example of a <code>.gitignore</code> file:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># History &amp; Workspace State</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">.Rhistory</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">.RData</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">.Ruserdata</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># RStudio Project Details</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">.Rproj.user/</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Biological Data Files (Raw &amp; Heavy Intermediates)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">data/raw/</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">*.fastq</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">*.fastq.gz</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ex">*.bam</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">*.sam</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ex">*.vcf</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ex">*.h5ad</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ex">*.rds</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Knitr / Quarto Cache Directories</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ex">*_cache/</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ex">*_files/</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Package Management (if using renv)</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ex">renv/library/</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ex">renv/python/</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ex">renv/staging/</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Environmental &amp; Credentials (API keys for NCBI, Ensembl, etc.)</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ex">.Renviron</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ex">.env</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>…and an example of which bits of a hypothetical project directory we would and would not track using Git:</p>
+<pre class="text bg-light p-2 border"><code>my-r-project/
+├── .gitignore             &lt;-- Excludes heavy raw and cleaned data
+├── my-project.Rproj       &lt;-- Tracked (defines project root)
+├── README.md              &lt;-- Tracked (project summary &amp; data sources)
+├── renv.lock              &lt;-- Tracked (reproducible package environment)
+├── data/
+│   ├── raw/               &lt;-- Ignored by Git (contains fastq, bam, massive CSVs)
+│   └── metadata.csv       &lt;-- Tracked (small sample sheet)
+├── R/
+│   ├── 01_data_cleaning.R &lt;-- Tracked (data cleaning)
+│   └── 02_analysis.Rmd    &lt;-- Tracked (statistical analysis)
+└── results/
+    └── figures/           &lt;-- Tracked or selective export folder</code></pre>
 <section id="summary-of-workflow-cycle-in-git" class="level2">
-<h2 class="anchored" data-anchor-id="summary-of-workflow-cycle-in-git">🎯 Summary of Workflow Cycle in Git</h2>
+<h2 class="anchored" data-anchor-id="summary-of-workflow-cycle-in-git">Summary of Workflow Cycle in Git</h2>
 <pre><code>1. Make / Edit Files  --&gt;  2. git add &lt;file&gt;  --&gt;  3. git commit -m "message"  --&gt;  4. git log
    (Working Directory)        (Staging Area)           (Local Repository)             (View History)</code></pre>
 <p>The inevitable question after learning all of this is, well, how often should I commit my changes? There are a few general rules around this, but it will vary from person-to-person, project-to-project, and whether you’re working solo or collaboratively.</p>
-<p>My general suggestions: 1. Make small, meaningful commits 2. Commit more frequently when working on “high risk” 3. Adopt a commit-ammend workflow</p>
+<p>My general suggestions:</p>
+<ol type="1">
+<li>Make small, meaningful commits with <em>concise</em>, but <em>interpretable</em> commit messages</li>
+<li>Commit more frequently when working on “high risk”</li>
+<li>Adopt a commit-ammend workflow (we will walk through this in the workshop)</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
