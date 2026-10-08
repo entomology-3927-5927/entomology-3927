@@ -1,0 +1,32 @@
+---
+title: "Workshop 4: Go on, Git it onto GitHub!"
+subtitle: "Entomology 3927 - Fall 2026"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+engine: knitr
+toc: true
+format:
+  live-html:
+    theme: 
+    - ../styles.scss
+    highlight-style: ayu
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+## 📦 Packages we'll need for today
+```{r eval=FALSE}
+# Install packages
+install.packages(c("gitcreds", "usethis"))
+
+# Load packages
+library(gitcreds)
+library(usethis)
+```
+
+## Connecting Git and GitHub in RStudio
+The first thing we need to do is get RStudio talking to GitHub so that we can get credentialed, and start creating projects and repos in GitHub and create the connection between our local work and remote repos. 
+
+### Generating and storing our Personal Access Token (PAT)
+W first need to 

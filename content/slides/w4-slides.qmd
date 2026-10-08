@@ -1,0 +1,136 @@
+---
+title: "Week 4"
+subtitle: "Go on, Git it onto GitHub!"
+editor:
+  mode: source
+format:
+  revealjs: 
+    # center-title-slide: false
+    output-file: w4-slides.html
+    theme: ["simple", "slide_styles/slide-styles.scss"]
+    # navigation-mode: vertical
+    smaller: true
+    slide-number: c/t
+    chalkboard: 
+      buttons: true
+    preview-links: auto
+    auto-stretch: false
+    transition: fade
+    transition-speed: slow
+    logo: /media/ent-3927-header.png
+    css: ["default", "slide_styles/slide-styles.scss"]
+    # footer: '[https://jhemberger.github.io/entomology-5126/](https://jhemberger.github.io/entomology-5126/)'
+---
+
+## What we'll cover this week {.smaller}
+
+. . .
+
+::: box-1-list
+[<i class="fa-brands fa-git-alt"></i>]{.margin-1} What is GitHub?
+:::
+
+. . .
+
+::: box-3-list
+[{{< fa clipboard-list >}}]{.margin-1} Setting up GitHub
+:::
+
+. . .
+
+::: box-2-list
+[{{< fa clipboard-list >}}]{.margin-1} Touring GitHub
+:::
+
+# {{< fa brands github >}} What is GitHub? {.bkrd-color-1}
+
+## GitHub is the online home for our Git projects
+::: box-1-list
+GitHub is sort of like a GoogleDrive or Box service specifically for code-based projects that utilize Git as a version control system. GitHub provides a home for your Git-based projects on the web.
+:::
+
+. . . 
+
+::: indented-text
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> It allows other people (or you) to see your stuff, sync up with the most current development/version, and even make changes/work collaboratively. 
+:::
+
+. . . 
+
+::: indented-text
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> From a the perspective of reproducible science, GitHub provides an essentially universally accessible home for our projects so that anyone can access, download, run, reporpose, and cite our work.
+:::
+
+. . . 
+
+:::{.callout-note}
+There are several other hosting services -- things like BitBucket and GitLab -- that can do the same thing. We focus on GitHub because of its ubiquity and wide-spread use and perks it provides academics. 
+:::
+
+
+# Setting up GitHub {.bkrd-color-3}
+
+## 🪙 Personal Access Tokens (PAT)
+::: box-3-list
+We won't be able to just magically start "talking" to our GitHub account from RStudio. If it were that easy, everyone would be able to do it and nothing would be secure! We need to configure out access!
+:::
+
+. . . 
+
+::: indented-text
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> Rather than giving Git locally our username and password, we'll use [Personal Access Tokens]{.highlight-tomato} 
+:::
+
+. . . 
+
+::: indented-text
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> Username and passwords is like giving someone the masterkey to a building; they can use it to go anywhere and do anything (including deleting your whole-ass account and everything in it 😬)
+:::
+
+. . . 
+
+::: indented-text
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> A PAT is like a special keycard created for a single job (like RStudio) that can only unlock specific doors and automatically expires after a set period.
+:::
+
+## Connecting Git projects to GitHub
+::: box-3-list
+So far, we've been working entirely [locally]{.highlight-tomato} with our R projects and Git repos. We now need to get these pieces connected and talking to our "offsite" platform that safely hosts our project and ensures we never lose our work locally.
+:::
+
+. . . 
+
+::: indented-text
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> Because our GitHub will host multiple projects/repositories, we need to ensure our local Git commits and project point to the *correct* project. 
+:::
+
+. . . 
+
+::: indented-text
+<i class="fa-solid fa-turn-up fa-rotate-90"></i> Recall from earlier slides that this amounts to configuring our "remote" project location via Git. Our git repo on GitHub is the remote!
+:::
+
+## Connecting Git projects to GitHub
+::: box-3-list
+There are three primary ways to connect Git projects (i.e., RStudio projects) to GitHub. I outline each below, and in the workshop we'll work through some of these. 
+:::
+
+. . . 
+
+1. **New project, GitHub first:** the easiest way to get a project up and running
+
+. . . 
+
+2. **Existing project, GitHub first:** a sort of create and copy approach. Not the best option, but it works just fine
+
+. . . 
+
+3. **Existing project, GitHub last:** the "proper" way to connect existing project especially when you have an existing Git repo up and running in the project
+
+. . . 
+
+:::{.callout-tip}
+I suggest you use the first option whenever possible, followed by 3, and finally 2. While 2 works, you run the risk of improperly copying or moving files and it sort of adds a lot of unncessary work.
+:::
+
+# Touring GitHub {.bkrd-color-2}

@@ -2,19 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeremy Hemberger">
-<meta name="dcterms.date" content="2026-09-18">
+<meta name="dcterms.date" content="2026-10-08">
 
 <title>Week 4 – Entomology 3927/5927</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -39,10 +45,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c96709ee289d8f9afca9c27adde60711.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -84,7 +90,8 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -313,14 +320,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#git-github-whats-the-difference" id="toc-git-github-whats-the-difference" class="nav-link active" data-scroll-target="#git-github-whats-the-difference">Git, GitHub? What’s the difference?</a></li>
-  <li><a href="#getting-github-setup" id="toc-getting-github-setup" class="nav-link" data-scroll-target="#getting-github-setup">Getting GitHub setup</a>
+  <li><a href="#git-github-whats-the-difference" id="toc-git-github-whats-the-difference" class="nav-link active" data-scroll-target="#git-github-whats-the-difference">Git, GitHub? What’s the difference?</a>
   <ul class="collapse">
-  <li><a href="#getting-an-account" id="toc-getting-an-account" class="nav-link" data-scroll-target="#getting-an-account">Getting an account</a></li>
-  <li><a href="#personal-access-token" id="toc-personal-access-token" class="nav-link" data-scroll-target="#personal-access-token">Personal access token</a></li>
-  <li><a href="#connecting-git-project-to-github" id="toc-connecting-git-project-to-github" class="nav-link" data-scroll-target="#connecting-git-project-to-github">Connecting git project to GitHub</a></li>
+  <li><a href="#ok-but-why-github-instead-of-just-google-drive" id="toc-ok-but-why-github-instead-of-just-google-drive" class="nav-link" data-scroll-target="#ok-but-why-github-instead-of-just-google-drive">OK, but why GitHub instead of just Google Drive?</a></li>
   </ul></li>
-  <li><a href="#the-daily-workflow-using-gitgithub" id="toc-the-daily-workflow-using-gitgithub" class="nav-link" data-scroll-target="#the-daily-workflow-using-gitgithub">The daily workflow using Git/GitHub</a></li>
+  <li><a href="#getting-github-setup" id="toc-getting-github-setup" class="nav-link" data-scroll-target="#getting-github-setup">Getting GitHub Setup</a>
+  <ul class="collapse">
+  <li><a href="#personal-access-tokens-pat" id="toc-personal-access-tokens-pat" class="nav-link" data-scroll-target="#personal-access-tokens-pat">Personal Access Tokens (PAT)</a></li>
+  <li><a href="#connecting-git-projects-to-github" id="toc-connecting-git-projects-to-github" class="nav-link" data-scroll-target="#connecting-git-projects-to-github">Connecting Git Projects to GitHub</a></li>
+  </ul></li>
+  <li><a href="#the-daily-workflow-using-git-github" id="toc-the-daily-workflow-using-git-github" class="nav-link" data-scroll-target="#the-daily-workflow-using-git-github">The Daily Workflow Using Git &amp; GitHub</a></li>
   <li><a href="#using-github-for-our-workshop-reports" id="toc-using-github-for-our-workshop-reports" class="nav-link" data-scroll-target="#using-github-for-our-workshop-reports">Using GitHub for our workshop reports</a></li>
   <li><a href="#other-fanciness" id="toc-other-fanciness" class="nav-link" data-scroll-target="#other-fanciness">Other fanciness 💅</a></li>
   </ul>
@@ -349,7 +358,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 18, 2026</p>
+      <p class="date">October 8, 2026</p>
     </div>
   </div>
   
@@ -412,24 +421,125 @@ Tip
 <p><br></p>
 <section id="git-github-whats-the-difference" class="level2">
 <h2 class="anchored" data-anchor-id="git-github-whats-the-difference">Git, GitHub? What’s the difference?</h2>
+<p>It’s common for beginners to confuse Git and GitHub or treat them as the same tool, but they play distinct roles in our project workflow:</p>
+<ul>
+<li><strong>Git (Local):</strong> A version control system that runs locally on your machine. Think of Git like <strong>“Track Changes” in Microsoft Word</strong>. It keeps a detailed history of every snapshot (commit) you create in your project folder.</li>
+<li><strong>GitHub (Cloud):</strong> An online platform that hosts Git repositories on the web. Think of GitHub like <strong>Google Drive or Box</strong> designed specifically for code-based version control projects using Git.</li>
+</ul>
+<section id="ok-but-why-github-instead-of-just-google-drive" class="level3">
+<h3 class="anchored" data-anchor-id="ok-but-why-github-instead-of-just-google-drive">OK, but why GitHub instead of just Google Drive?</h3>
+<ol type="1">
+<li><strong>Cloud Backup &amp; Version Vault:</strong> Your code and history live safely off-site. If your laptop breaks or RStudio crashes, your project history remains secure on GitHub’s servers.</li>
+<li><strong>Reproducible Science &amp; Access:</strong> GitHub provides an accessible home for your data science projects so anyone can access, download, run, repurpose, and cite your work.</li>
+<li><strong>Portfolio &amp; Sharing:</strong> Your GitHub profile acts as an interactive portfolio of your R code, Quarto reports, and visualizations for future employers or collaborators.</li>
+<li><strong>Collaborative Workflow:</strong> Multiple people can work on the same R project simultaneously without emailing <code>.zip</code> files or creating messy file names like <code>analysis_v2_final_FINAL.R</code>.</li>
+<li><strong>Purpose-built:</strong> GitHub is built for software/code projects. It has all sorts of neat bells and whistles to enable code review, handling issues, and distributing code to others. Box and Drive are basically just internet folders, nothing else.</li>
+</ol>
+<blockquote class="blockquote">
+<p><strong>Note on Alternatives:</strong> There are other Git hosting services—such as BitBucket and GitLab—that provide similar capabilities. We focus on GitHub due to its widespread adoption in the R community and the extensive perks it offers academics and open-science researchers.</p>
+</blockquote>
+<hr>
+</section>
 </section>
 <section id="getting-github-setup" class="level2">
-<h2 class="anchored" data-anchor-id="getting-github-setup">Getting GitHub setup</h2>
-<section id="getting-an-account" class="level3">
-<h3 class="anchored" data-anchor-id="getting-an-account">Getting an account</h3>
+<h2 class="anchored" data-anchor-id="getting-github-setup">Getting GitHub Setup</h2>
+<section id="personal-access-tokens-pat" class="level3">
+<h3 class="anchored" data-anchor-id="personal-access-tokens-pat">Personal Access Tokens (PAT)</h3>
+<p>We cannot simply start “talking” to GitHub from RStudio without configuration—if it were that easy, anyone could access and edit your repositories! Instead, we need a secure authentication method.</p>
+<p>GitHub deprecated (i.e., got rid of) standard passwords for Git operations in 2021. Rather than providing RStudio or local Git with your account username and password, we use a <strong>Personal Access Token (PAT)</strong>.</p>
+<section id="why-use-a-pat-instead-of-a-password" class="level4">
+<h4 class="anchored" data-anchor-id="why-use-a-pat-instead-of-a-password">Why Use a PAT Instead of a Password?</h4>
+<ul>
+<li><strong>Passwords are master keys:</strong> Using your account username and password is like giving someone the <strong>master key</strong> to your entire building. They can unlock every room, edit account settings, or even delete your account entirely.</li>
+<li><strong>PATs are like keycards:</strong> A <strong>PAT</strong> is like a specialized keycard issued for a specific job (such as RStudio). It can only unlock specific doors (e.g., uploading and updating code) and automatically expires after a set time frame.</li>
+</ul>
 </section>
-<section id="personal-access-token" class="level3">
-<h3 class="anchored" data-anchor-id="personal-access-token">Personal access token</h3>
+<section id="benefits-of-pat-authentication" class="level4">
+<h4 class="anchored" data-anchor-id="benefits-of-pat-authentication">Benefits of PAT Authentication</h4>
+<ul>
+<li><strong>Scoped Permissions:</strong> A PAT grants only the specific privileges needed for RStudio (reading and writing code) without exposing your sensitive account settings.</li>
+<li><strong>Instant Revocation:</strong> If your computer is lost or stolen, you can revoke the PAT instantly in GitHub settings without changing your main password.</li>
+<li><strong>Expiration Dates:</strong> PATs expire periodically (e.g., after 30, 60, or 90 days), encouraging good security hygiene.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>There’s a package for that!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In our workshops, we will configure your PAT using helper functions from the <code>usethis</code> and <code>gitcreds</code> R packages.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="connecting-git-project-to-github" class="level3">
-<h3 class="anchored" data-anchor-id="connecting-git-project-to-github">Connecting git project to GitHub</h3>
+</section>
+<section id="connecting-git-projects-to-github" class="level3">
+<h3 class="anchored" data-anchor-id="connecting-git-projects-to-github">Connecting Git Projects to GitHub</h3>
+<p>So far, we have worked entirely <strong>locally</strong> with our R projects and Git repositories. Connecting our local projects to GitHub requires configuring a <strong>remote</strong>—an off-site location on GitHub’s servers where our local commits will be pushed.</p>
+<p>There are three primary strategies for connecting an RStudio project to GitHub:</p>
+<section id="new-project-github-first-recommended" class="level4">
+<h4 class="anchored" data-anchor-id="new-project-github-first-recommended">1. New Project, GitHub First (recommended)</h4>
+<ul>
+<li><strong>The Approach:</strong> Create a brand new, empty repository on GitHub first (initializing it with a <code>README.md</code> file), then clone it directly into a new RStudio Project via <code>File &gt; New Project &gt; Version Control &gt; Git</code>.</li>
+<li><strong>When to Use:</strong> Whenever you are starting a fresh project from scratch. This is the smoothest, least error-prone method.</li>
+</ul>
+</section>
+<section id="existing-project-github-first" class="level4">
+<h4 class="anchored" data-anchor-id="existing-project-github-first">2. Existing Project, GitHub First</h4>
+<ul>
+<li><strong>The Approach:</strong> Create a repository on GitHub first, clone it locally, and then manually copy your existing R scripts and data files into the newly created folder.</li>
+<li><strong>When to Use:</strong> Useful when you have unstructured work on your computer that you want to move into a shiny new project.</li>
+<li><strong>Caution:</strong> You run the risk of misplacing files during copying, which adds unnecessary extra steps.</li>
+</ul>
+</section>
+<section id="existing-project-github-last-the-proper-way-for-existing-local-repos" class="level4">
+<h4 class="anchored" data-anchor-id="existing-project-github-last-the-proper-way-for-existing-local-repos">3. Existing Project, GitHub Last (The “proper” way for existing local repos)</h4>
+<ul>
+<li><strong>The Approach:</strong> For an existing RStudio project that already has a local Git repository initialized, create a matching empty repository on GitHub (without a <code>README</code>), link the local repository to the GitHub remote via the command line or helper packages, and push your existing history up.</li>
+<li><strong>When to Use:</strong> When you already have an established R project with a local Git commit history that you want to preserve and publish online.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Always try <strong>Option 1</strong> first when starting new work. Use <strong>Option 3</strong> if you already have an existing local Git history. Avoid <strong>Option 2</strong> unless necessary.</p>
+</div>
+</div>
+<hr>
 </section>
 </section>
-<section id="the-daily-workflow-using-gitgithub" class="level2">
-<h2 class="anchored" data-anchor-id="the-daily-workflow-using-gitgithub">The daily workflow using Git/GitHub</h2>
+</section>
+<section id="the-daily-workflow-using-git-github" class="level2">
+<h2 class="anchored" data-anchor-id="the-daily-workflow-using-git-github">The Daily Workflow Using Git &amp; GitHub</h2>
+<pre class="text"><code>          [ Local Computer ]                       [ GitHub Cloud ]
+
++------------------------------------+    Push    +----------------+
+|  Edit Code  --&gt;  Stage  --&gt; Commit | ---------&gt; |  Remote Repo   |
+|                                    | &lt;--------- |                |
++------------------------------------+    Pull    +----------------+</code></pre>
+<p>Once your project is linked to GitHub, your day-to-day workflow inside RStudio centers on five main actions:</p>
+<ol type="1">
+<li><strong>Pull (First Action of the Day):</strong> Before making new edits, click <strong>Pull</strong> in RStudio’s Git pane to download any remote changes from GitHub to your computer. This is especially important for collaborative projects. For solo projects, it likely won’t matter.</li>
+<li><strong>Work &amp; Edit:</strong> Write R code, build Quarto/RMarkdown reports, or modify data scripts as usual.</li>
+<li><strong>Stage:</strong> Open the RStudio <strong>Git Pane</strong>, select the checkboxes next to the modified files you wish to group together.</li>
+<li><strong>Commit:</strong> Click <strong>Commit</strong>, type a brief, clear message describing <em>what</em> and <em>why</em> you changed (e.g., <code>"Clean species distribution data"</code>), and click commit to save the snapshot locally.</li>
+<li><strong>Push:</strong> Click <strong>Push</strong> in RStudio to upload your new local commits <em>up</em> to GitHub.</li>
+</ol>
+<hr>
 </section>
 <section id="using-github-for-our-workshop-reports" class="level2">
 <h2 class="anchored" data-anchor-id="using-github-for-our-workshop-reports">Using GitHub for our workshop reports</h2>
+<p>We’ll be using GitHub in class for the next 8 weeks to track, submit, and peer-review our workshop reports. Today, we’ll introduce and work through getting everything setup so that our local Git projects talk to GitHub, and then walk through a quick example of how we’ll use GitHub for our assignments.</p>
 <ol type="1">
 <li>Complete your work in a <code>.qmd</code> document or <code>.r</code> script (preferebly the former)</li>
 <li>Commit your work and push it to your course GitHub repository</li>
@@ -501,13 +611,14 @@ Tip
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

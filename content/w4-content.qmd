@@ -9,26 +9,30 @@ format:
     theme: ../styles.scss
 ---
 
-:::{.content-callout1}
+:::: content-callout1
 ## Readings
+
 ### Suggested papers
+
 - {{< fa file-pdf >}} [Bryan J. 2017. Excuse me, do you have a moment to talk about version control? PeerJ Preprints 5:e3159v2](content_media/w3/peerj-preprints-3159.pdf)
-- {{< fa file-pdf >}} [Braga, P. H. P., et al., (2023). Not just for programmers: How GitHub can accelerate collaborative and reproducible research in ecology and evolution. Methods in Ecology and Evolution, 14, 1364–1380](content_media/w4/Methods Ecol Evol - 2023 - Braga - Not just for programmers How GitHub can accelerate collaborative and reproducible.pdf)
+- {{< fa file-pdf >}} [Braga, P. H. P., et al., (2023). Not just for programmers: How GitHub can accelerate collaborative and reproducible research in ecology and evolution. Methods in Ecology and Evolution, 14, 1364–1380](content_media/w4/Methods%20Ecol%20Evol%20-%202023%20-%20Braga%20-%20Not%20just%20for%20programmers%20How%20GitHub%20can%20accelerate%20collaborative%20and%20reproducible.pdf)
 
 ### Online/optional extras
--   {{< fa file-code >}} [Happy Git with R by Jennifer Bryan ](https://happygitwithr.com/)
--   {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
+
+- {{< fa file-code >}} [Happy Git with R by Jennifer Bryan](https://happygitwithr.com/)
+- {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
 
 ## Questions we'll address this week
-1. Git, GitHub? What's the difference?
-2. How do we link our local git commits to GitHub?
-3. What does a daily workflow using git/GitHub look like?
-4. How will we use GitHub for to submit/peer review our workshop reports?
-5. If we have time, what other fancy things can we do with GitHub?
+
+1.  Git, GitHub? What's the difference?
+2.  How do we link our local git commits to GitHub?
+3.  What does a daily workflow using git/GitHub look like?
+4.  How will we use GitHub for to submit/peer review our workshop reports?
+5.  If we have time, what other fancy things can we do with GitHub?
 
 ## Slides
 
-[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w4-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w4-slides.html?print-pdf){.btn .btn-primary role="button"} 
+[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w4-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w4-slides.html?print-pdf){.btn .btn-primary role="button"}
 
 <iframe src="slides/w4-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
 
@@ -37,30 +41,110 @@ format:
 ::: callout-tip
 **Tip**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
 :::
-:::
+::::
 
 </br>
 
 ## Git, GitHub? What's the difference?
 
-## Getting GitHub setup
-### Getting an account
+It's common for beginners to confuse Git and GitHub or treat them as the same tool, but they play distinct roles in our project workflow:
 
-### Personal access token
+* **Git (Local):** A version control system that runs locally on your machine. Think of Git like **"Track Changes" in Microsoft Word**. It keeps a detailed history of every snapshot (commit) you create in your project folder.
+* **GitHub (Cloud):** An online platform that hosts Git repositories on the web. Think of GitHub like **Google Drive or Box** designed specifically for code-based version control projects using Git.
 
-### Connecting git project to GitHub
+### OK, but why GitHub instead of just Google Drive?
 
-## The daily workflow using Git/GitHub
+1. **Cloud Backup & Version Vault:** Your code and history live safely off-site. If your laptop breaks or RStudio crashes, your project history remains secure on GitHub’s servers.
+2. **Reproducible Science & Access:** GitHub provides an accessible home for your data science projects so anyone can access, download, run, repurpose, and cite your work.
+3. **Portfolio & Sharing:** Your GitHub profile acts as an interactive portfolio of your R code, Quarto reports, and visualizations for future employers or collaborators.
+4. **Collaborative Workflow:** Multiple people can work on the same R project simultaneously without emailing `.zip` files or creating messy file names like `analysis_v2_final_FINAL.R`.
+5. **Purpose-built:** GitHub is built for software/code projects. It has all sorts of neat bells and whistles to enable code review, handling issues, and distributing code to others. Box and Drive are basically just internet folders, nothing else.
+
+> **Note on Alternatives:** There are other Git hosting services—such as BitBucket and GitLab—that provide similar capabilities. We focus on GitHub due to its widespread adoption in the R community and the extensive perks it offers academics and open-science researchers.
+
+---
+
+## Getting GitHub Setup
+
+### Personal Access Tokens (PAT)
+
+We cannot simply start "talking" to GitHub from RStudio without configuration—if it were that easy, anyone could access and edit your repositories! Instead, we need a secure authentication method.
+
+GitHub deprecated (i.e., got rid of) standard passwords for Git operations in 2021. Rather than providing RStudio or local Git with your account username and password, we use a **Personal Access Token (PAT)**.
+
+#### Why Use a PAT Instead of a Password?
+
+* **Passwords are master keys:** Using your account username and password is like giving someone the **master key** to your entire building. They can unlock every room, edit account settings, or even delete your account entirely.
+* **PATs are like keycards:** A **PAT** is like a specialized keycard issued for a specific job (such as RStudio). It can only unlock specific doors (e.g., uploading and updating code) and automatically expires after a set time frame.
+
+#### Benefits of PAT Authentication
+* **Scoped Permissions:** A PAT grants only the specific privileges needed for RStudio (reading and writing code) without exposing your sensitive account settings.
+* **Instant Revocation:** If your computer is lost or stolen, you can revoke the PAT instantly in GitHub settings without changing your main password.
+* **Expiration Dates:** PATs expire periodically (e.g., after 30, 60, or 90 days), encouraging good security hygiene.
+
+:::{.callout-tip}
+# There's a package for that!
+In our workshops, we will configure your PAT using helper functions from the `usethis` and `gitcreds` R packages.
+:::
+
+---
+
+### Connecting Git Projects to GitHub
+
+So far, we have worked entirely **locally** with our R projects and Git repositories. Connecting our local projects to GitHub requires configuring a **remote**—an off-site location on GitHub's servers where our local commits will be pushed.
+
+There are three primary strategies for connecting an RStudio project to GitHub:
+
+#### 1. New Project, GitHub First (recommended)
+* **The Approach:** Create a brand new, empty repository on GitHub first (initializing it with a `README.md` file), then clone it directly into a new RStudio Project via `File > New Project > Version Control > Git`.
+* **When to Use:** Whenever you are starting a fresh project from scratch. This is the smoothest, least error-prone method.
+
+#### 2. Existing Project, GitHub First
+* **The Approach:** Create a repository on GitHub first, clone it locally, and then manually copy your existing R scripts and data files into the newly created folder.
+* **When to Use:** Useful when you have unstructured work on your computer that you want to move into a shiny new project.
+* **Caution:** You run the risk of misplacing files during copying, which adds unnecessary extra steps.
+
+#### 3. Existing Project, GitHub Last (The "proper" way for existing local repos)
+* **The Approach:** For an existing RStudio project that already has a local Git repository initialized, create a matching empty repository on GitHub (without a `README`), link the local repository to the GitHub remote via the command line or helper packages, and push your existing history up.
+* **When to Use:** When you already have an established R project with a local Git commit history that you want to preserve and publish online.
+
+:::{.callout-tip}
+Always try **Option 1** first when starting new work. Use **Option 3** if you already have an existing local Git history. Avoid **Option 2** unless necessary.
+:::
+
+---
+
+## The Daily Workflow Using Git & GitHub
+
+```text
+          [ Local Computer ]                       [ GitHub Cloud ]
+
++------------------------------------+    Push    +----------------+
+|  Edit Code  -->  Stage  --> Commit | ---------> |  Remote Repo   |
+|                                    | <--------- |                |
++------------------------------------+    Pull    +----------------+
+```
+
+Once your project is linked to GitHub, your day-to-day workflow inside RStudio centers on five main actions:
+
+1. **Pull (First Action of the Day):** Before making new edits, click **Pull** in RStudio's Git pane to download any remote changes from GitHub to your computer. This is especially important for collaborative projects. For solo projects, it likely won't matter.
+2. **Work & Edit:** Write R code, build Quarto/RMarkdown reports, or modify data scripts as usual.
+3. **Stage:** Open the RStudio **Git Pane**, select the checkboxes next to the modified files you wish to group together.
+4. **Commit:** Click **Commit**, type a brief, clear message describing *what* and *why* you changed (e.g., `"Clean species distribution data: prep for modeling"`), and click commit to save the snapshot locally.
+5. **Push:** Click **Push** in RStudio to upload your new local commits *up* to GitHub.
+
+---
 
 ## Using GitHub for our workshop reports
+We'll be using GitHub in class for the next 8 weeks to track, submit, and peer-review our workshop reports. Today, we'll introduce and work through getting everything setup so that our local Git projects talk to GitHub, and then walk through a quick example of how we'll use GitHub for our assignments. 
 
-1. Complete your work in a `.qmd` document or `.r` script (preferebly the former)
-2. Commit your work and push it to your course GitHub repository
-3. Within your personal course repo, open an issue labeled using the following format: `week1_lastname_firstname`. 
-     - Inside the issue, paste your most recent commit SHA
-     - Paste the link to file to be reviewed
-     - Tag (@) your assigned code peer reviewer
-4. Complete your assigned peer reviews
-5. Jeremy provides additional feedback/suggestions, assigns grades, and closes the issues
+1.  Complete your work in a `.qmd` document or `.r` script (preferebly the former)
+2.  Commit your work and push it to your course GitHub repository
+3.  Within your personal course repo, open an issue labeled using the following format: `week1_lastname_firstname`.
+    - Inside the issue, paste your most recent commit SHA
+    - Paste the link to file to be reviewed
+    - Tag (\@) your assigned code peer reviewer
+4.  Complete your assigned peer reviews
+5.  Jeremy provides additional feedback/suggestions, assigns grades, and closes the issues
 
 ## Other fanciness 💅
