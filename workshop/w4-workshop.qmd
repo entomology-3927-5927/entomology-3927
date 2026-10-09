@@ -7,8 +7,6 @@ date-format: long
 engine: knitr
 toc: true
 format:
-  html:
-    code-overflow: wrap
   live-html:
     theme: 
     - ../styles.scss

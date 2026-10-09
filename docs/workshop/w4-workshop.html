@@ -1,25 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../media/web-favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f61bb49692769fd4d59dff09a93467d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+
+<meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -389,9 +371,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/w3-workshop.html">Module 2: Git and GitHub fundamentals</a></li><li class="breadcrumb-item"><a href="../workshop/w4-workshop.html">Week 4: Go on, Git it onto GitHub</a></li></ol></nav><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/w3-workshop.html">Module 2: Git and GitHub fundamentals</a></li><li class="breadcrumb-item"><a href="../workshop/w4-workshop.html">Week 4: Go on, Git it onto GitHub</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/w3-workshop.html">Module 2: Git and GitHub fundamentals</a></li><li class="breadcrumb-item"><a href="../workshop/w4-workshop.html">Week 4: Go on, Git it onto GitHub</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Workshop 4: Go on, Git it onto GitHub!</h1>
 <p class="subtitle lead">Entomology 3927 - Fall 2026</p>
@@ -399,7 +381,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -431,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gitcreds)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -456,7 +438,7 @@ Public service announcement!
 <h3 class="anchored" data-anchor-id="generating-and-storing-our-personal-access-token-pat">Generating and storing our Personal Access Token (PAT)</h3>
 <p>We’ll be using the <code>usethis</code> and <code>gitcreds</code> packages to get and apply our PAT. In an R script or terminal, follow along below:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This will ask you to open a web browser page and take you to your GitHub account to create the PAT. The page it loads will look like this:</p>
 <p><img src="./workshop_media/w4/pat.png" class="img-fluid"></p>
@@ -469,7 +451,7 @@ Public service announcement!
 <p>This will generate your PAT, which should now be displayed on your screen. Copy it and don’t leave this page quite yet. If you close it, you won’t be able to see your token ever again and will need to generate a new one if you lose it. The PAT looks something like this: <code>ghp_A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u</code></p>
 <p>Now that we have that, we need to pass it along to R Studio to authenticate our connection with GitHub.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This will open up a dialog in the R console, and prompt you to paste your PAT. Add it, and save and exit</p>
 <pre class="text bg-light p-2 border"><code>? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code></pre>
@@ -580,7 +562,7 @@ The hallway smelt of boiled cabbage and old rag mats. At one end of it a coloure
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="in">├── code/               # Source code, R/Python scripts, or Quarto files (.qmd)</span></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="in">├── output/             # Generated plots, figures, and compiled reports</span></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="in">├── .gitignore          # Files ignored by Git</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="in">└── README.md           # Repository documentation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="in">└── README.md           # Repository documentation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great! The last thing we’ll do here is to stage, commit, and push the changes we’ve made. You should know how to do that now; go ahead and make it happen! Chat with each other if you are confused or having issues. Take your time! It’s easier to ask questions and do it right now than it is to have to figure out how to undo something you’re rushing to do.</p>
 <hr>
@@ -595,7 +577,7 @@ The hallway smelt of boiled cabbage and old rag mats. At one end of it a coloure
 <p>Let’s say you just committed some work to your git repo locally but then realize you made a mistake or you broke your code. We can “undo” this commit, or go back several commits if necessary provided they haven’t been pushed to your remote GitHub repo.</p>
 <section id="soft-reset-keep-your-local-changes-just-undo-the-commit" class="level4">
 <h4 class="anchored" data-anchor-id="soft-reset-keep-your-local-changes-just-undo-the-commit">Soft reset: keep your local changes, just undo the commit</h4>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--soft</span> <span class="op">&lt;</span>commit-hash<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--soft</span> <span class="op">&lt;</span>commit-hash<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The commit hash is the unique identifier of the commit you want to step back to. For example, if your history looks like this: <code>A ➔ B ➔ C ➔ D</code>, and <code>D</code> is your latest commit you want to undo, you would specify the commit hash of <code>C</code>, the last stable commit. After the reset, your git history would look like: <code>A ➔ B ➔ C</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -613,7 +595,7 @@ Note
 </section>
 <section id="hard-reset-delete-local-changes-and-undo-the-commit" class="level4">
 <h4 class="anchored" data-anchor-id="hard-reset-delete-local-changes-and-undo-the-commit">Hard reset: delete local changes, and undo the commit</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> <span class="op">&lt;</span>commit-hash<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> <span class="op">&lt;</span>commit-hash<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -638,7 +620,7 @@ Warning
 <li><strong>Command:</strong> <code>git revert &lt;commit_C_hash&gt;</code></li>
 <li><strong>After:</strong> <code>A ➔ B ➔ C ➔ D ➔ C'</code> (Where <code>C'</code> perfectly cancels out C)</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert <span class="op">&lt;</span>commit_hash<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert <span class="op">&lt;</span>commit_hash<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Here’s a direct comparison of the two approaches:</p>
 <table class="caption-top table">
 <colgroup>
