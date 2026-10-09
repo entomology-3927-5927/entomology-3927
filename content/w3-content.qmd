@@ -51,40 +51,39 @@ Git is a version control system meant to help us keep track of changes in our co
 
 You sure can. Or you can use Google Drive or Box or whatever other cloud-based data storage you prefer. As a solo scientist, there are a bunch of other ways you can use to backup your project, but learning Git will help prepare you for when you inevitably have to work with other people on a project, and learning the process now when things are simpler is way easier than learning it when you land your first job and are under duress. The problem with building your own, bespoke system to organize your workflow and code/document versions is that, while it is implicitly easy for you to understand, that likely isn't the case for anyone else! Git forces us to adopt certain conventions and rules that everyone else also needs to follow, which greatly facilitates other folks being able to pick up your project and figure out what is going on. Otherwise, they're dependent on you leaving a good enough trail of breadcrumbs to explain your internal logic, which typically doesn't happen.
 
-
 ## Working in the command line interface (CLI, or terminal)
 
 Working in the Linux terminal via the Command Line Interface (CLI) relies on a few core commands for navigation, file management, and Git operations.
 
 ## Basic File System & Navigation
 
-* **`pwd`** (Print Working Directory)  
-  * **Purpose:** Shows the full path of the current directory you are in.  
-  * **Example:** `pwd` \$\\rightarrow\$ `/home/user/projects`
-* **`ls`** (List)  
-  * **Purpose:** Lists all files and folders in the current directory. Use \-la to show hidden files (like .git) and detailed permissions.  
-  * **Example:** ls \-la  
-* **`cd`** (Change Directory)  
-  * **Purpose:** Moves into a specified folder.  
-  * **Example:** cd projects/my-app (move into my-app) or cd .. (move up one directory level)  
-* **`mkdir`** (Make Directory)  
-  * **Purpose:** Creates a new directory/folder.  
-  * **Example:** mkdir new-folder  
-* **`touch`**  
-  * **Purpose:** Creates a new, empty file.  
-  * **Example:** touch index.html
+-   **`pwd`** (Print Working Directory)
+    -   **Purpose:** Shows the full path of the current directory you are in.\
+    -   **Example:** `pwd` \$\\rightarrow\$ `/home/user/projects`
+-   **`ls`** (List)
+    -   **Purpose:** Lists all files and folders in the current directory. Use -la to show hidden files (like .git) and detailed permissions.\
+    -   **Example:** ls -la\
+-   **`cd`** (Change Directory)
+    -   **Purpose:** Moves into a specified folder.\
+    -   **Example:** cd projects/my-app (move into my-app) or cd .. (move up one directory level)\
+-   **`mkdir`** (Make Directory)
+    -   **Purpose:** Creates a new directory/folder.\
+    -   **Example:** mkdir new-folder\
+-   **`touch`**
+    -   **Purpose:** Creates a new, empty file.\
+    -   **Example:** touch index.html
 
 ### File Maintenance & Operations
 
 | Command | Purpose | Example |
-| :---- | :---- | :---- |
-| **`cp`** | Copies files or directories (use \-r for folders). | `cp file.txt backup.txt` |
+|:-----------------------|:-----------------------|:-----------------------|
+| **`cp`** | Copies files or directories (use -r for folders). | `cp file.txt backup.txt` |
 | **`mv`** | Moves or renames files and directories. | `mv oldname.txt newname.txt` |
-| **`rm`** | Removes (deletes) files. Use \-rf carefully for non-empty folders. | `rm unused.txt` |
+| **`rm`** | Removes (deletes) files. Use -rf carefully for non-empty folders. | `rm unused.txt` |
 | **`cat`** | Outputs the complete contents of a file directly to the terminal. | `cat README.md` |
 | **`nano`** | Opens a simple, beginner-friendly text editor directly in the terminal. | `nano config.json` |
 
-::: {.callout-warning}
+::: callout-warning
 Be careful with `rm`! There is no recycle bin or undoing in the terminal.
 :::
 
@@ -165,18 +164,20 @@ A situation that occurs when Git cannot automatically reconcile differences betw
 </br>
 
 # But not those! `.gitignore` files
-Great! We've now gotten a bit of pratice with the git commands that will be ~95% of your daily git workflow. After we get things off the ground, it's easy to say, "hey, let's use git to track all of my project documents!". Not so fast...
+
+Great! We've now gotten a bit of pratice with the git commands that will be \~95% of your daily git workflow. After we get things off the ground, it's easy to say, "hey, let's use git to track all of my project documents!". Not so fast...
 
 Git is excellent for tracking changes made to our source code and documentation (think, anything written by us) including `.r`, `.rmd`, `.qmd`, and `.md` documents and the rendered `.html` version of these (if applicable). We don't want to track really large objects like our data/databases, or binary files (things like `.pdf` or `.docx`). Unless we manually control staging each file in our project, the Git functionality built into R Studio will automatically assume you want everything tracked and can clog up your staging pane. To alleviate this, and to make sure we don't accidentally track a massive data file that will take a ton of time (and get rejected when we learn how to sync to GitHub), we can tell git to *ignore* certain files, types of files, or folders. That's what the `.gitignore` file in your repository does!
 
 It's basically a blank text file where you input exactly what you want to ignore. You can:
 
-* Ignore a specific file: `myfile.xls` <-- write the whole name of the file with extension
-* Ignore a type of file: `*.pdf` <-- the `*` here is a wildcard, meaning it will select all files with the `.pdf` extension.
-* Ignore a folder and all files therein: `data/my_folder/` <-- these paths need to relative to the location of your `.gitignore` file!
+-   Ignore a specific file: `myfile.xls` \<-- write the whole name of the file with extension
+-   Ignore a type of file: `*.pdf` \<-- the `*` here is a wildcard, meaning it will select all files with the `.pdf` extension.
+-   Ignore a folder and all files therein: `data/my_folder/` \<-- these paths need to relative to the location of your `.gitignore` file!
 
 Here's an example of a `.gitignore` file:
-```bash
+
+``` bash
 # History & Workspace State
 .Rhistory
 .RData
@@ -209,9 +210,9 @@ renv/staging/
 .env
 ```
 
-...and an example of which bits of a hypothetical project directory we would and would not track using Git: 
+...and an example of which bits of a hypothetical project directory we would and would not track using Git:
 
-```{.text .bg-light .p-2 .border}
+``` {.text .bg-light .p-2 .border}
 my-r-project/
 ├── .gitignore             <-- Excludes heavy raw and cleaned data
 ├── my-project.Rproj       <-- Tracked (defines project root)
@@ -227,7 +228,6 @@ my-r-project/
     └── figures/           <-- Tracked or selective export folder
 ```
 
-
 ## Summary of Workflow Cycle in Git
 
 ```         
@@ -237,8 +237,8 @@ my-r-project/
 
 The inevitable question after learning all of this is, well, how often should I commit my changes? There are a few general rules around this, but it will vary from person-to-person, project-to-project, and whether you're working solo or collaboratively.
 
-My general suggestions: 
+My general suggestions:
 
-1. Make small, meaningful commits with *concise*, but *interpretable* commit messages
-2. Commit more frequently when working on "high risk" 
-3. Adopt a commit-ammend workflow (we will walk through this in the workshop)
+1.  Make small, meaningful commits with *concise*, but *interpretable* commit messages
+2.  Commit more frequently when working on "high risk"
+3.  Adopt a commit-ammend workflow (we will walk through this in the workshop)

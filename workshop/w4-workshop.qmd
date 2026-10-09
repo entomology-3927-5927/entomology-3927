@@ -7,6 +7,8 @@ date-format: long
 engine: knitr
 toc: true
 format:
+  html:
+    code-overflow: wrap
   live-html:
     theme: 
     - ../styles.scss
@@ -16,6 +18,7 @@ format:
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
 ## 📦 Packages we'll need for today
+
 ```{r eval=FALSE}
 # Install packages
 install.packages(c("gitcreds", "usethis"))
@@ -25,8 +28,226 @@ library(gitcreds)
 library(usethis)
 ```
 
+:::{.callout-important}
+# Public service announcement!
+Learning all of this for the first time can be a bit mind-bending and scary (commits sound so...well, committing!). Don't fret! You will screw something up or break something or so bungle your git/project up that you'll need to create a brand new one, move files to there, and start from scratch. It happens! This is part of the learning process, and the only way it gets easier is with practice and making and learning from mistakes. 
+:::
+
+------------------------------------------------------------------------
+
+</br>
+
 ## Connecting Git and GitHub in RStudio
-The first thing we need to do is get RStudio talking to GitHub so that we can get credentialed, and start creating projects and repos in GitHub and create the connection between our local work and remote repos. 
+
+The first thing we need to do is get RStudio talking to GitHub so that we can get credentialed, and start creating projects and repos in GitHub and create the connection between our local work and remote repos.
 
 ### Generating and storing our Personal Access Token (PAT)
-W first need to 
+
+We'll be using the `usethis` and `gitcreds` packages to get and apply our PAT. In an R script or terminal, follow along below:
+
+```{r eval=FALSE}
+usethis::create_github_token()
+```
+
+This will ask you to open a web browser page and take you to your GitHub account to create the PAT. The page it loads will look like this:
+
+![](./workshop_media/w4/pat.png)
+
+Configure the following settings:
+
+1. Enter a note/description for the PAT: this can include that it's for your personal laptop, or something similar. Because I have multiple computers, each one has a PAT with a descriptive name for that contains that computer's name. 
+2. Ensure that `repo` (and all child items), `workflow`, `gist`, and `user` (and all child items) are selected. These settings are called "scopes", and it's akin to programming your keycard with what rooms or buildings you can access.
+3. Select <kbd>Generate token</kbd> on the bottom
+
+This will generate your PAT, which should now be displayed on your screen. Copy it and don't leave this page quite yet. If you close it, you won't be able to see your token ever again and will need to generate a new one if you lose it. The PAT looks something like this: `ghp_A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u`
+
+Now that we have that, we need to pass it along to R Studio to authenticate our connection with GitHub. 
+
+```{r eval=FALSE}
+gitcreds::gitcreds_set()
+```
+
+This will open up a dialog in the R console, and prompt you to paste your PAT. Add it, and save and exit
+
+```{.text .bg-light .p-2 .border}
+? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+You can then hit <kbd>Enter</kbd> and it will save your credentials. Your console should display something like this:
+
+```{.text .bg-light .p-2 .border}
+-> Adding new credentials...
+-> Removing credentials from cache...
+-> Done.
+```
+
+### Establish connection: New project, GitHub first
+Excellent! Now we have our session authenticated, but let's make sure we can communicate with GitHub from R Studio by creating a test project, adding some stuff and committing locally, and then trying to `push` our work up to our GitHub remote. 
+
+Go to https://github.com and make sure you are logged in and in your account (not the course organization).
+
+1. Near “Repositories”, click the big green <kbd>New repository</kbd> button. Or, if you are on your own profile page, click on <kbd>Repositories</kbd>, then click the big green <kbd>New</kbd> button. From the GitHub Dashboard, you can also select the big `+` button and select <kbd>New repository</kbd>. 
+2. Fill in the relevant details:
+    * **Repository template:** No template.
+    * **Repository name:** myrepo or whatever you wish (we’ll delete this soon).
+    * **Description:** “Repository for testing my Git/GitHub setup” or similar. It’s nice to have something here, so you’ll see it appear in the README.
+    * Public.
+    * **Initialize this repository with:** Add a README file.
+3. Click the big green button that says <kbd>Create repository</kbd>.
+4. Now click the big green button that says <kbd><> Code</kbd>.
+5. Copy a clone URL to your clipboard. This will be the HTTPS URL (this is the "address" for our remote).
+
+Now, we'll setup a brand new project in R Studio *from* our GitHub repo that we just created. Thinking back to the mini-lecture today, this is known as a "New project, GitHub first" approach. 
+
+1.  **Create a project:** go to the <kbd>File</kbd> menu, and click <kbd>New Project...</kbd>, and then select <kbd>Version Control</kbd>, and then finally <kbd>Git</kbd>
+2.  **Adjust project details:** enter the URL we copied from GitHub in the `Repository URL` box. It will auto-populate the name of the project directory from this URL. **I recommend that you keep this the same so the link between the local project and remote is explicit**. 
+3. **Adjust your local project location:** Navigate to wherever you want your repository/project directory (folder) to be created. Personally, I have a folder on my computer called `r_projects` or `github_projects` where all of my local project files live. 
+4. **Create project:** You can toggle the "open in new window" if you want (this creates a new R Studio session separate from the one you're currently in), otherwise, leave it unchecked and select <kbd>Create project</kbd>.
+
+R Studio will now create a brand new project by **cloning** the GitHub repository that we created online. It'll initiate a `.gitignore` file and a `.Rproj` file inside your local project folder. It will also contain the `README.md` file that GitHub created online. Super duper. Let's go ahead and make some adjustments to the README that we can commit, and then push up to GitHub as a test that our connection is working and our authentication process was successful.
+
+Open the readme, and add some text. It could be whatever you want, perhaps this: 
+
+```{.text .bg-light .p-2 .border}
+It was a bright cold day in April, and the clocks were striking thirteen. Winston Smith, his chin nuzzled into his breast in an effort to escape the vile wind, slipped quickly through the glass doors of Victory Mansions, though not quickly enough to prevent a swirl of gritty dust from entering along with him.
+
+The hallway smelt of boiled cabbage and old rag mats. At one end of it a coloured poster, too large for indoor display, had been tacked to the wall. It depicted simply an enormous face, more than a metre wide: the face of a man of about forty-five, with a heavy black moustache and ruggedly handsome features. Winston made for the stairs. It was no use trying the lift. Even at the best of times it was seldom working, and at present the electric current was cut off during daylight hours. It was part of the economy drive in preparation for Hate Week. The flat was seven flights up, and Winston, who was thirty-nine and had a varicose ulcer above his right ankle, went slowly, resting several times on the way. On each landing, opposite the lift-shaft, the poster with the enormous face gazed from the wall. It was one of those pictures which are so contrived that the eyes follow you about when you move. BIG BROTHER IS WATCHING YOU, the caption beneath it ran. 
+```
+
+Save the file. You should see it pop up in your git pane in R Studio showing that it was modified. The next steps are all things we learned last week! Go ahead and:
+
+1. **Stage your changes:** Stage your modified `README.md` file along with any other untracked files (your `.gitignore` and `.Rproj` files, for example). 
+2. **Commit your changes:** Be sure to enter a meaningful commit message!
+
+Great! We've made a snapshot locally by creating this commit. Now comes the new part of the workflow, let's `push` our changes to GitHub!
+
+3. **Push changes:** In the Git pane, select the <kbd>Push</kbd> button. 
+
+You'll see a dialog box pop up that shows the status of the push. It should take a few seconds, and then show a cursor icon indicating the Push was successful. 
+
+Now, go to your GitHub project page and refresh. You should see your new files you've pushed pop up, and if you open your `README.md` file, your new text will also be there. Hooray! Bonus points to anyone who can name the book from which these are the first two paragraphs. 
+
+Excellent - we now have confirmed our connection/authentication, and are ready to get to work! We can delete this project both locally, and in our GitHub. Navigate to the settings of your repo on GitHub and scroll to the bottom. Select <kbd>Delete this repository</kbd> and follow the prompts to do so. Notice how hard it is to do this -- this is by design!
+
+------------------------------------------------------------------------
+
+</br>
+
+## Taking ownership of your course repo
+We can now have you take ownership of the repository that I created for each of you that we'll use for the remainder of the course. This will be where you conduct all of your workshop reports, do peer review, and where you'll host your final projects. The good news is this is very simple -- we just did the same thing above! 
+
+### Establish connection: New project, GitHub first
+We'll use the same process to clone our already created GitHub repository to our local machine. However, this time, you'll navigate to the course organization page, find the repository with your name associated with it, and copy the HTTPS `.git` URL. 
+
+I have already configured (hopefully...🤞) the permissions for each of these repositories so that each of you have *push* access to your repo only, but *pull* access to everyone else's. This basically means you can only commit changes to your repo, but you can interact and see everyone elses. This will faciliate peer review later on!
+
+So, just to be more explicit, here's what we're going to do:
+
+1. **Get your repo HTTPS URL:** Navigate to your class repo and copy the `.git` HTTPS URL. 
+2.  **Create a project:** go to the <kbd>File</kbd> menu, and click <kbd>New Project...</kbd>, and then select <kbd>Version Control</kbd>, and then finally <kbd>Git</kbd>
+3.  **Adjust project details:** enter the URL we copied from GitHub in the `Repository URL` box. It will auto-populate the name of the project directory from this URL. **I recommend that you keep this the same so the link between the local project and remote is explicit**. 
+4. **Adjust your local project location:** Navigate to wherever you want your repository/project directory (folder) to be created. Personally, I have a folder on my computer called `r_projects` or `github_projects` where all of my local project files live. 
+5. **Create project:** You can toggle the "open in new window" if you want (this creates a new R Studio session separate from the one you're currently in), otherwise, leave it unchecked and select <kbd>Create project</kbd>.
+
+This will create the folder and project we'll use for everything else this semester. Let's go ahead and get it organized. Create the following directory structure inside of your local project:
+
+```{.text .bg-light .p-2 .border}
+my-r-project/
+│
+├── .gitignore               # Excludes large, generated, or sensitive files from Git -- this will also already be there
+├── my-r-project.Rproj       # RStudio Project settings file -- this will already be there
+├── README.md                # Project overview, setup instructions, and metadata
+├── project_notes.qmd        # Digital notebook that has to-do lists, notes, etc.
+│
+├── data/                    # All project data
+│   ├── raw/                 # Unmodified original data (Read-Only)
+│   └── processed/           # Cleaned, transformed, or intermediate data outputs
+│
+├── code/                    # Custom R scripts and functions
+│
+├── output/                  # Non-code objects generated by analysis
+│   ├── figures/             # Exported plots (e.g., .png, .pdf)
+│   └── tables/              # Exported summary tables (e.g., .csv, .rds)
+│
+├── docs/                    # Final reports, Quarto docs, manuscripts, or presentation slides
+
+```
+
+After you do that, let's go ahead and create a project readme and adjust it. This will be the first thing folks see when they look in your repository, and the purpose is to inform them about the purpose, use, and contents of your project. I provided a light scaffold below. Feel free to copy and adjust. 
+
+```{md}
+# [Project Title / Assignment Name]
+**Name:** YOUR-NAME-HERE
+**Program:** YOUR-PROGRAM-HERE
+**Degree:** MS OR PHD OR N/A
+
+## 🔍 Overview
+
+[Provide a short paragraph describing the context of the project. Explain the background problem, project goals, and key findings or outcomes. If applicable, add a screenshot, image, or GIF below to visually demonstrate the project.]
+
+---
+
+## 📂 Repository Structure
+
+```text
+├── data/               # Raw and processed datasets (Note: large files tracked via .gitignore)
+├── docs/               # Assignment documentation, reports, or slides
+├── code/               # Source code, R/Python scripts, or Quarto files (.qmd)
+├── output/             # Generated plots, figures, and compiled reports
+├── .gitignore          # Files ignored by Git
+└── README.md           # Repository documentation
+```
+
+Great! The last thing we'll do here is to stage, commit, and push the changes we've made. You should know how to do that now; go ahead and make it happen! Chat with each other if you are confused or having issues. Take your time! It's easier to ask questions and do it right now than it is to have to figure out how to undo something you're rushing to do. 
+
+------------------------------------------------------------------------
+
+</br>
+
+## Time traveling
+We've talked up a big perk of Git/GitHub being the ability to go back in time to previous commits if something gets messed up in our project. There's a couple different ways to do this, depending on what stage your commit is at. 
+
+### Undoing a commit, when your work is only local (i.e., you haven't pushed yet): the `reset`
+Let's say you just committed some work to your git repo locally but then realize you made a mistake or you broke your code. We can "undo" this commit, or go back several commits if necessary provided they haven't been pushed to your remote GitHub repo. 
+
+#### Soft reset: keep your local changes, just undo the commit
+```bash
+git reset --soft <commit-hash>
+```
+
+The commit hash is the unique identifier of the commit you want to step back to. For example, if your history looks like this: `A ➔ B ➔ C ➔ D`, and `D` is your latest commit you want to undo, you would specify the commit hash of `C`, the last stable commit. After the reset, your git history would look like: `A ➔ B ➔ C`.
+
+:::{.callout-note}
+Soft resets will delete your commit but *keep* your local work as is.  
+:::
+
+#### Hard reset: delete local changes, and undo the commit
+```bash
+git reset --hard <commit-hash>
+```
+
+:::{.callout-warning}
+Hard resets will delete your commit and throw away all of the modifications you made to your file. 
+:::
+
+### Undoing a commit, when your work has already been pushed to GitHub: the `revert`
+This is a bit more complicated, and best practice for this is to not use `reset` because `reset` is effectively deleting and re-writing history -- not good practice for code and work in the public record on GitHub! 
+
+Instead, we'll use `revert`, which allows us to step back top previous commits, but keeps our entire commit history. For example: 
+
+* **Before:** `A ➔ B ➔ C ➔ D` (You want to undo `C`)
+* **Command:** `git revert <commit_C_hash>`
+* **After:** `A ➔ B ➔ C ➔ D ➔ C'` (Where `C'` perfectly cancels out C)
+
+```bash
+git revert <commit_hash>
+```
+
+Here's a direct comparison of the two approaches:
+
+| **Feature**     | **git revert**                               | **git reset**                                         |
+|-----------------|----------------------------------------------|-------------------------------------------------------|
+| Primary Purpose | Undo the effects of a specific commit safely | Rewind the branch history to a specific state         |
+| History Impact  | Preserves history (adds a new commit)        | Rewrites history (deletes/removes commits)            |
+| Target Scope    | Can target any specific commit in the past   | Targets a point in time, dropping everything after it |
+| Remote Safety   | Safe for shared, pushed code                 | Dangerous for pushed code (requires a force-push)     |

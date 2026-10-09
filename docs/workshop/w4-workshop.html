@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../media/web-favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f61bb49692769fd4d59dff09a93467d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeremy Hemberger">
-<meta name="dcterms.date" content="2026-10-08">
+<meta name="dcterms.date" content="2026-10-09">
 
 <title>Workshop 4: Go on, Git it onto GitHub! – Entomology 3927/5927</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -80,10 +92,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0edad7f0897b4c7815ad90a4132624c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d1d7fb2b4eab353701143688219f528d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
@@ -129,8 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -363,14 +374,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#connecting-git-and-github-in-rstudio" id="toc-connecting-git-and-github-in-rstudio" class="nav-link" data-scroll-target="#connecting-git-and-github-in-rstudio">Connecting Git and GitHub in RStudio</a>
   <ul class="collapse">
   <li><a href="#generating-and-storing-our-personal-access-token-pat" id="toc-generating-and-storing-our-personal-access-token-pat" class="nav-link" data-scroll-target="#generating-and-storing-our-personal-access-token-pat">Generating and storing our Personal Access Token (PAT)</a></li>
+  <li><a href="#establish-connection-new-project-github-first" id="toc-establish-connection-new-project-github-first" class="nav-link" data-scroll-target="#establish-connection-new-project-github-first">Establish connection: New project, GitHub first</a></li>
+  </ul></li>
+  <li><a href="#taking-ownership-of-your-course-repo" id="toc-taking-ownership-of-your-course-repo" class="nav-link" data-scroll-target="#taking-ownership-of-your-course-repo">Taking ownership of your course repo</a>
+  <ul class="collapse">
+  <li><a href="#establish-connection-new-project-github-first-1" id="toc-establish-connection-new-project-github-first-1" class="nav-link" data-scroll-target="#establish-connection-new-project-github-first-1">Establish connection: New project, GitHub first</a></li>
+  </ul></li>
+  <li><a href="#time-traveling" id="toc-time-traveling" class="nav-link" data-scroll-target="#time-traveling">Time traveling</a>
+  <ul class="collapse">
+  <li><a href="#undoing-a-commit-when-your-work-is-only-local-i.e.-you-havent-pushed-yet-the-reset" id="toc-undoing-a-commit-when-your-work-is-only-local-i.e.-you-havent-pushed-yet-the-reset" class="nav-link" data-scroll-target="#undoing-a-commit-when-your-work-is-only-local-i.e.-you-havent-pushed-yet-the-reset">Undoing a commit, when your work is only local (i.e., you haven’t pushed yet): the <code>reset</code></a></li>
+  <li><a href="#undoing-a-commit-when-your-work-has-already-been-pushed-to-github-the-revert" id="toc-undoing-a-commit-when-your-work-has-already-been-pushed-to-github-the-revert" class="nav-link" data-scroll-target="#undoing-a-commit-when-your-work-has-already-been-pushed-to-github-the-revert">Undoing a commit, when your work has already been pushed to GitHub: the <code>revert</code></a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/w3-workshop.html">Module 2: Git and GitHub fundamentals</a></li><li class="breadcrumb-item"><a href="../workshop/w4-workshop.html">Week 4: Go on, Git it onto GitHub</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/w3-workshop.html">Module 2: Git and GitHub fundamentals</a></li><li class="breadcrumb-item"><a href="../workshop/w4-workshop.html">Week 4: Go on, Git it onto GitHub</a></li></ol></nav><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/w3-workshop.html">Module 2: Git and GitHub fundamentals</a></li><li class="breadcrumb-item"><a href="../workshop/w4-workshop.html">Week 4: Go on, Git it onto GitHub</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Workshop 4: Go on, Git it onto GitHub!</h1>
 <p class="subtitle lead">Entomology 3927 - Fall 2026</p>
@@ -378,7 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -390,7 +411,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 8, 2026</p>
+      <p class="date">October 9, 2026</p>
     </div>
   </div>
   
@@ -405,20 +426,256 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="packages-well-need-for-today" class="level2">
 <h2 class="anchored" data-anchor-id="packages-well-need-for-today">📦 Packages we’ll need for today</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"gitcreds"</span>, <span class="st">"usethis"</span>))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gitcreds)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Public service announcement!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Learning all of this for the first time can be a bit mind-bending and scary (commits sound so…well, committing!). Don’t fret! You will screw something up or break something or so bungle your git/project up that you’ll need to create a brand new one, move files to there, and start from scratch. It happens! This is part of the learning process, and the only way it gets easier is with practice and making and learning from mistakes.</p>
+</div>
+</div>
+<hr>
+<p><br></p>
 </section>
 <section id="connecting-git-and-github-in-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="connecting-git-and-github-in-rstudio">Connecting Git and GitHub in RStudio</h2>
 <p>The first thing we need to do is get RStudio talking to GitHub so that we can get credentialed, and start creating projects and repos in GitHub and create the connection between our local work and remote repos.</p>
 <section id="generating-and-storing-our-personal-access-token-pat" class="level3">
 <h3 class="anchored" data-anchor-id="generating-and-storing-our-personal-access-token-pat">Generating and storing our Personal Access Token (PAT)</h3>
-<p>W first need to</p>
+<p>We’ll be using the <code>usethis</code> and <code>gitcreds</code> packages to get and apply our PAT. In an R script or terminal, follow along below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will ask you to open a web browser page and take you to your GitHub account to create the PAT. The page it loads will look like this:</p>
+<p><img src="./workshop_media/w4/pat.png" class="img-fluid"></p>
+<p>Configure the following settings:</p>
+<ol type="1">
+<li>Enter a note/description for the PAT: this can include that it’s for your personal laptop, or something similar. Because I have multiple computers, each one has a PAT with a descriptive name for that contains that computer’s name.</li>
+<li>Ensure that <code>repo</code> (and all child items), <code>workflow</code>, <code>gist</code>, and <code>user</code> (and all child items) are selected. These settings are called “scopes”, and it’s akin to programming your keycard with what rooms or buildings you can access.</li>
+<li>Select <kbd>Generate token</kbd> on the bottom</li>
+</ol>
+<p>This will generate your PAT, which should now be displayed on your screen. Copy it and don’t leave this page quite yet. If you close it, you won’t be able to see your token ever again and will need to generate a new one if you lose it. The PAT looks something like this: <code>ghp_A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u</code></p>
+<p>Now that we have that, we need to pass it along to R Studio to authenticate our connection with GitHub.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will open up a dialog in the R console, and prompt you to paste your PAT. Add it, and save and exit</p>
+<pre class="text bg-light p-2 border"><code>? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code></pre>
+<p>You can then hit <kbd>Enter</kbd> and it will save your credentials. Your console should display something like this:</p>
+<pre class="text bg-light p-2 border"><code>-&gt; Adding new credentials...
+-&gt; Removing credentials from cache...
+-&gt; Done.</code></pre>
+</section>
+<section id="establish-connection-new-project-github-first" class="level3">
+<h3 class="anchored" data-anchor-id="establish-connection-new-project-github-first">Establish connection: New project, GitHub first</h3>
+<p>Excellent! Now we have our session authenticated, but let’s make sure we can communicate with GitHub from R Studio by creating a test project, adding some stuff and committing locally, and then trying to <code>push</code> our work up to our GitHub remote.</p>
+<p>Go to https://github.com and make sure you are logged in and in your account (not the course organization).</p>
+<ol type="1">
+<li>Near “Repositories”, click the big green <kbd>New repository</kbd> button. Or, if you are on your own profile page, click on <kbd>Repositories</kbd>, then click the big green <kbd>New</kbd> button. From the GitHub Dashboard, you can also select the big <code>+</code> button and select <kbd>New repository</kbd>.</li>
+<li>Fill in the relevant details:
+<ul>
+<li><strong>Repository template:</strong> No template.</li>
+<li><strong>Repository name:</strong> myrepo or whatever you wish (we’ll delete this soon).</li>
+<li><strong>Description:</strong> “Repository for testing my Git/GitHub setup” or similar. It’s nice to have something here, so you’ll see it appear in the README.</li>
+<li>Public.</li>
+<li><strong>Initialize this repository with:</strong> Add a README file.</li>
+</ul></li>
+<li>Click the big green button that says <kbd>Create repository</kbd>.</li>
+<li>Now click the big green button that says <kbd>&lt;&gt; Code</kbd>.</li>
+<li>Copy a clone URL to your clipboard. This will be the HTTPS URL (this is the “address” for our remote).</li>
+</ol>
+<p>Now, we’ll setup a brand new project in R Studio <em>from</em> our GitHub repo that we just created. Thinking back to the mini-lecture today, this is known as a “New project, GitHub first” approach.</p>
+<ol type="1">
+<li><strong>Create a project:</strong> go to the <kbd>File</kbd> menu, and click <kbd>New Project…</kbd>, and then select <kbd>Version Control</kbd>, and then finally <kbd>Git</kbd></li>
+<li><strong>Adjust project details:</strong> enter the URL we copied from GitHub in the <code>Repository URL</code> box. It will auto-populate the name of the project directory from this URL. <strong>I recommend that you keep this the same so the link between the local project and remote is explicit</strong>.</li>
+<li><strong>Adjust your local project location:</strong> Navigate to wherever you want your repository/project directory (folder) to be created. Personally, I have a folder on my computer called <code>r_projects</code> or <code>github_projects</code> where all of my local project files live.</li>
+<li><strong>Create project:</strong> You can toggle the “open in new window” if you want (this creates a new R Studio session separate from the one you’re currently in), otherwise, leave it unchecked and select <kbd>Create project</kbd>.</li>
+</ol>
+<p>R Studio will now create a brand new project by <strong>cloning</strong> the GitHub repository that we created online. It’ll initiate a <code>.gitignore</code> file and a <code>.Rproj</code> file inside your local project folder. It will also contain the <code>README.md</code> file that GitHub created online. Super duper. Let’s go ahead and make some adjustments to the README that we can commit, and then push up to GitHub as a test that our connection is working and our authentication process was successful.</p>
+<p>Open the readme, and add some text. It could be whatever you want, perhaps this:</p>
+<pre class="text bg-light p-2 border"><code>It was a bright cold day in April, and the clocks were striking thirteen. Winston Smith, his chin nuzzled into his breast in an effort to escape the vile wind, slipped quickly through the glass doors of Victory Mansions, though not quickly enough to prevent a swirl of gritty dust from entering along with him.
+
+The hallway smelt of boiled cabbage and old rag mats. At one end of it a coloured poster, too large for indoor display, had been tacked to the wall. It depicted simply an enormous face, more than a metre wide: the face of a man of about forty-five, with a heavy black moustache and ruggedly handsome features. Winston made for the stairs. It was no use trying the lift. Even at the best of times it was seldom working, and at present the electric current was cut off during daylight hours. It was part of the economy drive in preparation for Hate Week. The flat was seven flights up, and Winston, who was thirty-nine and had a varicose ulcer above his right ankle, went slowly, resting several times on the way. On each landing, opposite the lift-shaft, the poster with the enormous face gazed from the wall. It was one of those pictures which are so contrived that the eyes follow you about when you move. BIG BROTHER IS WATCHING YOU, the caption beneath it ran. </code></pre>
+<p>Save the file. You should see it pop up in your git pane in R Studio showing that it was modified. The next steps are all things we learned last week! Go ahead and:</p>
+<ol type="1">
+<li><strong>Stage your changes:</strong> Stage your modified <code>README.md</code> file along with any other untracked files (your <code>.gitignore</code> and <code>.Rproj</code> files, for example).</li>
+<li><strong>Commit your changes:</strong> Be sure to enter a meaningful commit message!</li>
+</ol>
+<p>Great! We’ve made a snapshot locally by creating this commit. Now comes the new part of the workflow, let’s <code>push</code> our changes to GitHub!</p>
+<ol start="3" type="1">
+<li><strong>Push changes:</strong> In the Git pane, select the <kbd>Push</kbd> button.</li>
+</ol>
+<p>You’ll see a dialog box pop up that shows the status of the push. It should take a few seconds, and then show a cursor icon indicating the Push was successful.</p>
+<p>Now, go to your GitHub project page and refresh. You should see your new files you’ve pushed pop up, and if you open your <code>README.md</code> file, your new text will also be there. Hooray! Bonus points to anyone who can name the book from which these are the first two paragraphs.</p>
+<p>Excellent - we now have confirmed our connection/authentication, and are ready to get to work! We can delete this project both locally, and in our GitHub. Navigate to the settings of your repo on GitHub and scroll to the bottom. Select <kbd>Delete this repository</kbd> and follow the prompts to do so. Notice how hard it is to do this – this is by design!</p>
+<hr>
+<p><br></p>
+</section>
+</section>
+<section id="taking-ownership-of-your-course-repo" class="level2">
+<h2 class="anchored" data-anchor-id="taking-ownership-of-your-course-repo">Taking ownership of your course repo</h2>
+<p>We can now have you take ownership of the repository that I created for each of you that we’ll use for the remainder of the course. This will be where you conduct all of your workshop reports, do peer review, and where you’ll host your final projects. The good news is this is very simple – we just did the same thing above!</p>
+<section id="establish-connection-new-project-github-first-1" class="level3">
+<h3 class="anchored" data-anchor-id="establish-connection-new-project-github-first-1">Establish connection: New project, GitHub first</h3>
+<p>We’ll use the same process to clone our already created GitHub repository to our local machine. However, this time, you’ll navigate to the course organization page, find the repository with your name associated with it, and copy the HTTPS <code>.git</code> URL.</p>
+<p>I have already configured (hopefully…🤞) the permissions for each of these repositories so that each of you have <em>push</em> access to your repo only, but <em>pull</em> access to everyone else’s. This basically means you can only commit changes to your repo, but you can interact and see everyone elses. This will faciliate peer review later on!</p>
+<p>So, just to be more explicit, here’s what we’re going to do:</p>
+<ol type="1">
+<li><strong>Get your repo HTTPS URL:</strong> Navigate to your class repo and copy the <code>.git</code> HTTPS URL.</li>
+<li><strong>Create a project:</strong> go to the <kbd>File</kbd> menu, and click <kbd>New Project…</kbd>, and then select <kbd>Version Control</kbd>, and then finally <kbd>Git</kbd></li>
+<li><strong>Adjust project details:</strong> enter the URL we copied from GitHub in the <code>Repository URL</code> box. It will auto-populate the name of the project directory from this URL. <strong>I recommend that you keep this the same so the link between the local project and remote is explicit</strong>.</li>
+<li><strong>Adjust your local project location:</strong> Navigate to wherever you want your repository/project directory (folder) to be created. Personally, I have a folder on my computer called <code>r_projects</code> or <code>github_projects</code> where all of my local project files live.</li>
+<li><strong>Create project:</strong> You can toggle the “open in new window” if you want (this creates a new R Studio session separate from the one you’re currently in), otherwise, leave it unchecked and select <kbd>Create project</kbd>.</li>
+</ol>
+<p>This will create the folder and project we’ll use for everything else this semester. Let’s go ahead and get it organized. Create the following directory structure inside of your local project:</p>
+<pre class="text bg-light p-2 border"><code>my-r-project/
+│
+├── .gitignore               # Excludes large, generated, or sensitive files from Git -- this will also already be there
+├── my-r-project.Rproj       # RStudio Project settings file -- this will already be there
+├── README.md                # Project overview, setup instructions, and metadata
+├── project_notes.qmd        # Digital notebook that has to-do lists, notes, etc.
+│
+├── data/                    # All project data
+│   ├── raw/                 # Unmodified original data (Read-Only)
+│   └── processed/           # Cleaned, transformed, or intermediate data outputs
+│
+├── code/                    # Custom R scripts and functions
+│
+├── output/                  # Non-code objects generated by analysis
+│   ├── figures/             # Exported plots (e.g., .png, .pdf)
+│   └── tables/              # Exported summary tables (e.g., .csv, .rds)
+│
+├── docs/                    # Final reports, Quarto docs, manuscripts, or presentation slides
+</code></pre>
+<p>After you do that, let’s go ahead and create a project readme and adjust it. This will be the first thing folks see when they look in your repository, and the purpose is to inform them about the purpose, use, and contents of your project. I provided a light scaffold below. Feel free to copy and adjust.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># [Project Title / Assignment Name]</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>**Name:** YOUR-NAME-HERE</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>**Program:** YOUR-PROGRAM-HERE</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>**Degree:** MS OR PHD OR N/A</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Overview</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Provide a short paragraph describing the context of the project. Explain the background problem, project goals, and key findings or outcomes. If applicable, add a screenshot, image, or GIF below to visually demonstrate the project.</span><span class="co">]</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📂 Repository Structure</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="in">├── data/               # Raw and processed datasets (Note: large files tracked via .gitignore)</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="in">├── docs/               # Assignment documentation, reports, or slides</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="in">├── code/               # Source code, R/Python scripts, or Quarto files (.qmd)</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="in">├── output/             # Generated plots, figures, and compiled reports</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="in">├── .gitignore          # Files ignored by Git</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="in">└── README.md           # Repository documentation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Great! The last thing we’ll do here is to stage, commit, and push the changes we’ve made. You should know how to do that now; go ahead and make it happen! Chat with each other if you are confused or having issues. Take your time! It’s easier to ask questions and do it right now than it is to have to figure out how to undo something you’re rushing to do.</p>
+<hr>
+<p><br></p>
+</section>
+</section>
+<section id="time-traveling" class="level2">
+<h2 class="anchored" data-anchor-id="time-traveling">Time traveling</h2>
+<p>We’ve talked up a big perk of Git/GitHub being the ability to go back in time to previous commits if something gets messed up in our project. There’s a couple different ways to do this, depending on what stage your commit is at.</p>
+<section id="undoing-a-commit-when-your-work-is-only-local-i.e.-you-havent-pushed-yet-the-reset" class="level3">
+<h3 class="anchored" data-anchor-id="undoing-a-commit-when-your-work-is-only-local-i.e.-you-havent-pushed-yet-the-reset">Undoing a commit, when your work is only local (i.e., you haven’t pushed yet): the <code>reset</code></h3>
+<p>Let’s say you just committed some work to your git repo locally but then realize you made a mistake or you broke your code. We can “undo” this commit, or go back several commits if necessary provided they haven’t been pushed to your remote GitHub repo.</p>
+<section id="soft-reset-keep-your-local-changes-just-undo-the-commit" class="level4">
+<h4 class="anchored" data-anchor-id="soft-reset-keep-your-local-changes-just-undo-the-commit">Soft reset: keep your local changes, just undo the commit</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--soft</span> <span class="op">&lt;</span>commit-hash<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The commit hash is the unique identifier of the commit you want to step back to. For example, if your history looks like this: <code>A ➔ B ➔ C ➔ D</code>, and <code>D</code> is your latest commit you want to undo, you would specify the commit hash of <code>C</code>, the last stable commit. After the reset, your git history would look like: <code>A ➔ B ➔ C</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soft resets will delete your commit but <em>keep</em> your local work as is.</p>
+</div>
+</div>
+</section>
+<section id="hard-reset-delete-local-changes-and-undo-the-commit" class="level4">
+<h4 class="anchored" data-anchor-id="hard-reset-delete-local-changes-and-undo-the-commit">Hard reset: delete local changes, and undo the commit</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> <span class="op">&lt;</span>commit-hash<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hard resets will delete your commit and throw away all of the modifications you made to your file.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="undoing-a-commit-when-your-work-has-already-been-pushed-to-github-the-revert" class="level3">
+<h3 class="anchored" data-anchor-id="undoing-a-commit-when-your-work-has-already-been-pushed-to-github-the-revert">Undoing a commit, when your work has already been pushed to GitHub: the <code>revert</code></h3>
+<p>This is a bit more complicated, and best practice for this is to not use <code>reset</code> because <code>reset</code> is effectively deleting and re-writing history – not good practice for code and work in the public record on GitHub!</p>
+<p>Instead, we’ll use <code>revert</code>, which allows us to step back top previous commits, but keeps our entire commit history. For example:</p>
+<ul>
+<li><strong>Before:</strong> <code>A ➔ B ➔ C ➔ D</code> (You want to undo <code>C</code>)</li>
+<li><strong>Command:</strong> <code>git revert &lt;commit_C_hash&gt;</code></li>
+<li><strong>After:</strong> <code>A ➔ B ➔ C ➔ D ➔ C'</code> (Where <code>C'</code> perfectly cancels out C)</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert <span class="op">&lt;</span>commit_hash<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here’s a direct comparison of the two approaches:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 38%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Feature</strong></th>
+<th><strong>git revert</strong></th>
+<th><strong>git reset</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Primary Purpose</td>
+<td>Undo the effects of a specific commit safely</td>
+<td>Rewind the branch history to a specific state</td>
+</tr>
+<tr class="even">
+<td>History Impact</td>
+<td>Preserves history (adds a new commit)</td>
+<td>Rewrites history (deletes/removes commits)</td>
+</tr>
+<tr class="odd">
+<td>Target Scope</td>
+<td>Can target any specific commit in the past</td>
+<td>Targets a point in time, dropping everything after it</td>
+</tr>
+<tr class="even">
+<td>Remote Safety</td>
+<td>Safe for shared, pushed code</td>
+<td>Dangerous for pushed code (requires a force-push)</td>
+</tr>
+</tbody>
+</table>
 
 
 <script type="ojs-module-contents">
@@ -501,14 +758,13 @@ window._ojs.runtime.interpretFromScriptTags();
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

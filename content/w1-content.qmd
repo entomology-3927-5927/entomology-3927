@@ -9,20 +9,23 @@ format:
     theme: ../styles.scss
 ---
 
-:::{.content-callout1}
+:::: content-callout1
 ## Readings
+
 ### Textbook
+
 -   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 6: Workflow: Scripts and Projects](https://r4ds.hadley.nz/workflow-scripts.html)
 -   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 8: Workflow: Getting Help](https://r4ds.hadley.nz/workflow-help.html)
 -   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 28: Quarto](https://r4ds.hadley.nz/quarto.html)
 -   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 29: Quarto Formats](https://r4ds.hadley.nz/quarto-formats.html)
 
 ### Recommended papers
+
 -   {{< fa file-pdf >}} [Buckley, Y. M. et al. Using dynamic documents to mend cracks in the reproducible research pipeline. J. Ecol. 113, 270–274 (2025)](slides/slide_media/week_1/Yvonne%20M.%20Buckley-2025-Journal%20of%20Ecology.pdf)
 -   {{< fa file-pdf >}} [Fraser, H., Barnett, A., Parker, T. H. & Fidler, F. The role of replication studies in ecology. Ecol. Evol. 10, 5197–5207 (2020)](slides/slide_media/week_1/Hannah%20Fraser-2020-Ecology%20and%20Evolution.pdf)
 -   {{< fa file-pdf >}} [Kelly, C. D. Rate and success of study replication in ecology and evolution. PeerJ 7, e7654 (2019)](slides/slide_media/week_1/Clint%20D.%20Kelly-2019-PeerJ.pdf)
 -   {{< fa file-pdf >}} [Filazzola, A. & Cahill, J. F. Replication in field ecology: Identifying challenges and proposing solutions. Methods Ecol. Evol. 12, 1780–1792 (2021)](slides/slide_media/week_1/Alessandro%20Filazzola-2021-Methods%20in%20Ecology%20and%20Evolution.pdf)
--   {{< fa file-pdf >}} [Griffin PC, Khadake J, LeMay KS et al. Best practice data life cycle approaches for the life sciences [version 2; peer review: 2 approved]. F1000Research 2018, 6:1618](content_media/w1/f1000research-6-16485.pdf)
+-   {{< fa file-pdf >}} [Griffin PC, Khadake J, LeMay KS et al. Best practice data life cycle approaches for the life sciences \[version 2; peer review: 2 approved\]. F1000Research 2018, 6:1618](content_media/w1/f1000research-6-16485.pdf)
 
 ## Questions we'll address this week
 
@@ -33,7 +36,7 @@ format:
 
 ## Slides
 
-[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w1-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w1-slides.html?print-pdf){.btn .btn-primary role="button"} 
+[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w1-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w1-slides.html?print-pdf){.btn .btn-primary role="button"}
 
 <iframe src="slides/w1-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
 
@@ -42,8 +45,7 @@ format:
 ::: callout-tip
 **Tip**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
 :::
-
-:::
+::::
 
 </br>
 
@@ -65,10 +67,10 @@ RStudio is a highly customizable program that will let you nerd out to your hear
 1.  After launching RStudio, go to <kbd>Tools</kbd> ---\> <kbd>Global options</kbd>.
 2.  Select the "Appearance" tab on the side, and select an editor theme that you like best. I highly recommend one where comments (text preceded by a #) are some shade of gray. This helps them be obvious without being obnoxiously bright and distracting. There are no shortage of [other themes out there:](https://github.com/max-alletsee/rstudio-themes).
 3.  Next, select the "Code" tab on the side, and then select the "Display" panel. Enable:
-    - [x] `Highlight selected line`
-    - [x] `Allow scroll past end of document`
-    - [x] `Highlight function calls`
-    - [x] `Use rainbow parentheses` 🌈
+    -   [x] `Highlight selected line`
+    -   [x] `Allow scroll past end of document`
+    -   [x] `Highlight function calls`
+    -   [x] `Use rainbow parentheses` 🌈
 
 These things will help you better catch syntax errors with missed parentheses, and help you and me quickly see where you're editing in your R files.
 
@@ -92,9 +94,9 @@ x %% 3  # Return the remainder of x / 3 (modulo)
 
 Or use it inside of **functions**. An R function has three key properties:
 
-- Functions have a name (e.g. `dir`, `getwd`); note that *functions are case sensitive*!
-- Following the name, functions have a pair of ()
-- Inside the parentheses, a function may take 0 or more arguments. The arguments include inputs to the function, and settings that modify how the function behaves.
+-   Functions have a name (e.g. `dir`, `getwd`); note that *functions are case sensitive*!
+-   Following the name, functions have a pair of ()
+-   Inside the parentheses, a function may take 0 or more arguments. The arguments include inputs to the function, and settings that modify how the function behaves.
 
 ```{r}
 mean(x) # Calculates mean of our variable x
@@ -146,8 +148,8 @@ Which will open up the documentation for that function inside the `Help` pane in
 
 So far, we've just been using console to write code. This works, but as you may notice, we have no working history of our different lines of code. All the stuff we've entered is there, but we can't edit it without re-entering it. When we write R code, we almost always use scripts. These take two basic forms: a simple text file (a `.r` script) or, a type of Markdown file (`.Rmd`) called an R Notebook. The next-generation of these files are called Quarto files (basically the same thing as `.Rmd`, but with added support for additional programming languages). There are advantages to each of these formats, and either one can work for conducting data analysis in any form. In general, this is what I recommend.
 
-- `.r` files: use these to build stand-alone, complete automated scripts or custom functions that you may want to source either outside of R Studio (i.e., via a Terminal), or in different `.Rmd` or `.r` files.
-- `.Rmd` (or `.qmd`) files: use these when you want to combine code, interactive plots, and written narrative into a single file that can be processed into publishable reports (either via .html or PDF).
+-   `.r` files: use these to build stand-alone, complete automated scripts or custom functions that you may want to source either outside of R Studio (i.e., via a Terminal), or in different `.Rmd` or `.r` files.
+-   `.Rmd` (or `.qmd`) files: use these when you want to combine code, interactive plots, and written narrative into a single file that can be processed into publishable reports (either via .html or PDF).
 
 ### R Markdown and R Notebooks (now, Quarto documents!)
 
@@ -201,7 +203,7 @@ ggplot(data, aes(x = species, y = abundance)) +
 
 When you are finished and want to export this to a report, you could render it as `.html` where it will look like this:
 
-:::{.content-callout2}
+::: content-callout2
 ## Example quarto document
 
 This is a simple Quarto document.
@@ -237,9 +239,9 @@ Keeping your work organized is an extremely important aspect of making your proj
 
 R Studio projects basically act as a starting point for all of your work on a given...well, project. They allow us to:
 
-- Save data, files, variables, packages related to a specific analysis project/paper
-- Easily pickup where you last left off
-- Collaborate by integrating tools such as version control using git (which we'll cover more in the coming weeks)
+-   Save data, files, variables, packages related to a specific analysis project/paper
+-   Easily pickup where you last left off
+-   Collaborate by integrating tools such as version control using git (which we'll cover more in the coming weeks)
 
 Projects also maintain a consistent file structure and relative pathing system so that your various scripts can easily locate dependent files, packages, data, etc. This concept is called a **working directory**. You can manually set this, but it's not advised as you'll need to reset it every single time you run a script or bit of code, and it will create headaches for anyone/machine that tries to run the code on another computer. By creating a project, you create an enclosed ecosystem that you can move around at will and everything will still work because the working directory is set relative to the project file (here, directory is just the technical term for a computer folder).
 

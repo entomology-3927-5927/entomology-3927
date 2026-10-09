@@ -27,9 +27,9 @@ To do this, we'll be working in the terminal *within* RStudio. I'm doing things 
 
 #### Installation
 
-- **macOS:** Open Terminal and type `git --version` (macOS will prompt you to install Xcode Command Line Tools if not installed), or use Homebrew: `brew install git`.
-- **Windows:** Download and run the installer from [git-scm.com](https://git-scm.com/install/windows) (includes **Git Bash**, a Linux-like terminal).
-- **Linux (Ubuntu/Debian):** Run `sudo apt update && sudo apt install git`.
+-   **macOS:** Open Terminal and type `git --version` (macOS will prompt you to install Xcode Command Line Tools if not installed), or use Homebrew: `brew install git`.
+-   **Windows:** Download and run the installer from [git-scm.com](https://git-scm.com/install/windows) (includes **Git Bash**, a Linux-like terminal).
+-   **Linux (Ubuntu/Debian):** Run `sudo apt update && sudo apt install git`.
 
 #### Check Installation
 
