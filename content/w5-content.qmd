@@ -1,0 +1,100 @@
+---
+title: "Week 5"
+subtitle: "Data Wranglin' Pt. I"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+format:
+  html:
+    theme: ../styles.scss
+---
+
+:::: content-callout1
+## Readings
+- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
+- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
+- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 7: Data import](https://r4ds.hadley.nz/data-import.html)
+
+### Online/optional extras
+
+- {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
+- {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
+
+## Questions we'll address this week
+
+1.  What is Tidy data? How do we get our data Tidy?
+2.  How do we import data into R?
+3.  How can we transform our data to model and report?
+
+## Slides
+
+[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w5-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w5-slides.html?print-pdf){.btn .btn-primary role="button"}
+
+<iframe src="slides/w4-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
+
+</iframe>
+
+::: callout-tip
+**Tip**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
+:::
+::::
+
+</br>
+
+## {{< fa hat-cowboy >}} Data wranglin'
+In many of your statistics courses so far, you've probably worked a lot with very clean, ready-to-analyze data to emphasize learning statistical concepts over data handling. *However, We're all biologists or ecologists working with biological and ecological data, which are rarely as neatly packaged*. We'll often need to clean things up, get rid of problematic or missing observations, or create new variables/impute missing data. 
+
+When it comes to analyzing data, 75% or more of your time will be taken up collating, recording, arranging, and tidying your data in preparation for the actual statistical analysis. This process I call **data wrangling**. These steps are as crucial as your analsyes: misteps when wrangling your data into shape can result in ommitting or including data incorrectly, calculating incorrect summaries or new variables. The wrangling steps are also the least documented in the literature or when people publish the code for their analyses; they'll often just include the statistical treatise but not how the data went from raw --> ready to analyze. This is a mistake, and a lot can be hidden by not including the details of how your data are prepared.
+
+## Tidy data
+The first step in our data wranglin' is to get our data **tidy**. This isn't just a euphamism, but an acutal data theory spearheaded by Hadley Wickham and the RStudio/Positron development team. A dataset is tidy when it meets these three criteria: 
+
+1. **Each variable is a column:** variables measure same attribute across different units
+2. **Each observation is a row:** an observation contains all the values measured on a single unit across all variables
+3. **Each value is a cell:** every cell contains single, discrete measurement or value 
+
+![](https://r4ds.hadley.nz/images/tidy-1.png)
+
+Getting your data into this structure is not just for kicks. It (1) provides a standardized, consistent way to store data that anyone can pick up and use and (2) it plays very nice with R's vectorized nature (remember back to week 2 where we talked about vectorized functions). Much of the time, the way that we collect and record data is *not* aligned with the Tidy method. So, how do we get our data to be tidy? 
+
+### Lengthening data
+The most common way we have to manipulate a raw data source to make it tidy is to *lengthen* it. We lengthen data when folks have recorded variable names as column headers. For example: 
+
+```{r include=FALSE}
+library(tidyverse)
+
+# Create a reproducible, larger wide dataset
+set.seed(123)
+
+tree.count.df <- tibble(
+  site_id = rep(paste0("Plot_", sprintf("%02d", 1:5)), each = 2),
+  year = rep(c(2023, 2024), times = 5),
+  habitat_type = rep(c("Upland", "Riparian", "Wetland", "Upland", "Riparian"), each = 2),
+  soil_ph = round(runif(10, 4.8, 7.2), 1),
+  canopy_cover_pct = round(runif(10, 35, 90), 0),
+  # Wide species abundance columns
+  oak_count = sample(0:15, 10, replace = TRUE),
+  maple_count = sample(0:22, 10, replace = TRUE),
+  pine_count = sample(0:10, 10, replace = TRUE),
+  birch_count = sample(0:14, 10, replace = TRUE),
+  cedar_count = sample(0:8, 10, replace = TRUE)
+)
+```
+
+```{r}
+tree.count.df
+```
+
+Here, we have a tibble that records data on tree counts in different plots and habitats. Rather than recording each observation as a single row, we have multiple species counts contained in a single row. That is to say, we have "wide" data. If we wanted to plot all of our species in a single figure, the current format wouldn't allow us to easily do that as there are 5 columns containing species abundances. What we can do, is **pivot** this into a "long" dataset that is tidy using the `pivot_longer()` function in the `tidyr` package:
+
+```{r}
+tree.count.tidy.df <- tree.count.df %>%
+  pivot_longer(
+    cols = ends_with("_count"),     # Select only the species count columns
+    names_to = "species",           # Name of the new column for species names
+    values_to = "abundance"         # Name of the new column for counts
+  ) %>%
+  mutate(species = str_remove(species, "_count")) # Clean up the "_count" suffix
+
+tree.count.tidy.df
+```

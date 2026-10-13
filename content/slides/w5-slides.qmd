@@ -1,0 +1,45 @@
+---
+title: "Week 5"
+subtitle: "Data Wrangling Pt. I!"
+editor:
+  mode: source
+format:
+  revealjs: 
+    # center-title-slide: false
+    output-file: w5-slides.html
+    theme: ["simple", "slide_styles/slide-styles.scss"]
+    # navigation-mode: vertical
+    smaller: true
+    slide-number: c/t
+    chalkboard: 
+      buttons: true
+    preview-links: auto
+    auto-stretch: false
+    transition: fade
+    transition-speed: slow
+    logo: /media/ent-3927-header.png
+    css: ["default", "slide_styles/slide-styles.scss"]
+    # footer: '[https://jhemberger.github.io/entomology-5126/](https://jhemberger.github.io/entomology-5126/)'
+---
+
+## What we'll cover this week {.smaller}
+
+. . .
+
+::: box-1-list
+[<i class="fa-brands fa-git-alt"></i>]{.margin-1} Tidy data principles
+:::
+
+. . .
+
+::: box-3-list
+[{{< fa clipboard-list >}}]{.margin-1} Data wrangling first steps: import and tidy
+:::
+
+. . .
+
+::: box-2-list
+[{{< fa clipboard-list >}}]{.margin-1} Transforming data: the big 3 Tidyverse verbs
+:::
+
+# Tidy data principles {.bkrd-color-1}

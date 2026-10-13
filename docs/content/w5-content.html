@@ -2,23 +2,66 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jeremy Hemberger">
+<meta name="dcterms.date" content="2026-10-13">
 
-<title>w5-content – Entomology 3927/5927</title>
+<title>Week 5 – Entomology 3927/5927</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -37,10 +80,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c96709ee289d8f9afca9c27adde60711.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -82,7 +125,8 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -306,17 +350,168 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin" class="nav-link active" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin"><i class="fa-solid fa-hat-cowboy" aria-label="hat-cowboy"></i> Data wranglin’</a></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data">Tidy data</a>
+  <ul class="collapse">
+  <li><a href="#lengthening-data" id="toc-lengthening-data" class="nav-link" data-scroll-target="#lengthening-data">Lengthening data</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w5-content.html">Module 3: Basic data wrangling and visualization in R</a></li><li class="breadcrumb-item"><a href="../content/w5-content.html">Week 5: Data wrangling 1</a></li></ol></nav></header>
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w5-content.html">Module 3: Basic data wrangling and visualization in R</a></li><li class="breadcrumb-item"><a href="../content/w5-content.html">Week 5: Data wrangling 1</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Week 5</h1>
+<p class="subtitle lead">Data Wranglin’ Pt. I</p>
+</div>
 
 
 
+<div class="quarto-title-meta column-body">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeremy Hemberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 13, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<div class="content-callout1">
+<section id="readings" class="level2">
+<h2 class="anchored" data-anchor-id="readings">Readings</h2>
+<ul>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://r4ds.hadley.nz/data-transform.html">R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 3: Data transformation</a></li>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://r4ds.hadley.nz/data-tidy.html">R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 5: Data tidying</a></li>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://r4ds.hadley.nz/data-import.html">R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 7: Data import</a></li>
+</ul>
+<section id="onlineoptional-extras" class="level3">
+<h3 class="anchored" data-anchor-id="onlineoptional-extras">Online/optional extras</h3>
+<ul>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://datacarpentry.github.io/semester-biology/materials/tidy-data/">Tidy Data: Data Carpentry</a></li>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r">R for the Rest of Us: How to use git and github with R</a></li>
+</ul>
+</section>
+</section>
+<section id="questions-well-address-this-week" class="level2">
+<h2 class="anchored" data-anchor-id="questions-well-address-this-week">Questions we’ll address this week</h2>
+<ol type="1">
+<li>What is Tidy data? How do we get our data Tidy?</li>
+<li>How do we import data into R?</li>
+<li>How can we transform our data to model and report?</li>
+</ol>
+</section>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<p><a href="slides/w5-slides.html" class="btn btn-primary" role="button"><i class="fa-solid fa-up-right-from-square" aria-label="up-right-from-square"></i> Open slides in full screen mode</a> <a href="slides/w5-slides.html?print-pdf" class="btn btn-primary" role="button"><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> Download slides as a PDF</a></p>
+<iframe src="slides/w4-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
+</iframe>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Tip</strong>: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.</p>
+</div>
+</div>
+</section>
+</div>
+<p><br></p>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin" class="level2">
+<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin"><i class="fa-solid fa-hat-cowboy" aria-label="hat-cowboy"></i> Data wranglin’</h2>
+<p>In many of your statistics courses so far, you’ve probably worked a lot with very clean, ready-to-analyze data to emphasize learning statistical concepts over data handling. <em>However, We’re all biologists or ecologists working with biological and ecological data, which are rarely as neatly packaged</em>. We’ll often need to clean things up, get rid of problematic or missing observations, or create new variables/impute missing data.</p>
+<p>When it comes to analyzing data, 75% or more of your time will be taken up collating, recording, arranging, and tidying your data in preparation for the actual statistical analysis. This process I call <strong>data wrangling</strong>. These steps are as crucial as your analsyes: misteps when wrangling your data into shape can result in ommitting or including data incorrectly, calculating incorrect summaries or new variables. The wrangling steps are also the least documented in the literature or when people publish the code for their analyses; they’ll often just include the statistical treatise but not how the data went from raw –&gt; ready to analyze. This is a mistake, and a lot can be hidden by not including the details of how your data are prepared.</p>
+</section>
+<section id="tidy-data" class="level2">
+<h2 class="anchored" data-anchor-id="tidy-data">Tidy data</h2>
+<p>The first step in our data wranglin’ is to get our data <strong>tidy</strong>. This isn’t just a euphamism, but an acutal data theory spearheaded by Hadley Wickham and the RStudio/Positron development team. A dataset is tidy when it meets these three criteria:</p>
+<ol type="1">
+<li><strong>Each variable is a column:</strong> variables measure same attribute across different units</li>
+<li><strong>Each observation is a row:</strong> an observation contains all the values measured on a single unit across all variables</li>
+<li><strong>Each value is a cell:</strong> every cell contains single, discrete measurement or value</li>
+</ol>
+<p><img src="https://r4ds.hadley.nz/images/tidy-1.png" class="img-fluid"></p>
+<p>Getting your data into this structure is not just for kicks. It (1) provides a standardized, consistent way to store data that anyone can pick up and use and (2) it plays very nice with R’s vectorized nature (remember back to week 2 where we talked about vectorized functions). Much of the time, the way that we collect and record data is <em>not</em> aligned with the Tidy method. So, how do we get our data to be tidy?</p>
+<section id="lengthening-data" class="level3">
+<h3 class="anchored" data-anchor-id="lengthening-data">Lengthening data</h3>
+<p>The most common way we have to manipulate a raw data source to make it tidy is to <em>lengthen</em> it. We lengthen data when folks have recorded variable names as column headers. For example:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tree.count.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 10
+   site_id  year habitat_type soil_ph canopy_cover_pct oak_count maple_count
+   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;            &lt;dbl&gt;     &lt;int&gt;       &lt;int&gt;
+ 1 Plot_01  2023 Upland           5.5               88         8           8
+ 2 Plot_01  2024 Upland           6.7               60        11          18
+ 3 Plot_02  2023 Riparian         5.8               72         8           3
+ 4 Plot_02  2024 Riparian         6.9               66         8          13
+ 5 Plot_03  2023 Wetland          7.1               41        12          16
+ 6 Plot_03  2024 Wetland          4.9               84         2          10
+ 7 Plot_04  2023 Upland           6.1               49         7           6
+ 8 Plot_04  2024 Upland           6.9               37         9          20
+ 9 Plot_05  2023 Riparian         6.1               53         6          11
+10 Plot_05  2024 Riparian         5.9               87         9          14
+# ℹ 3 more variables: pine_count &lt;int&gt;, birch_count &lt;int&gt;, cedar_count &lt;int&gt;</code></pre>
+</div>
+</div>
+<p>Here, we have a tibble that records data on tree counts in different plots and habitats. Rather than recording each observation as a single row, we have multiple species counts contained in a single row. That is to say, we have “wide” data. If we wanted to plot all of our species in a single figure, the current format wouldn’t allow us to easily do that as there are 5 columns containing species abundances. What we can do, is <strong>pivot</strong> this into a “long” dataset that is tidy using the <code>pivot_longer()</code> function in the <code>tidyr</code> package:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tree.count.tidy.df <span class="ot">&lt;-</span> tree.count.df <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">ends_with</span>(<span class="st">"_count"</span>),     <span class="co"># Select only the species count columns</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"species"</span>,           <span class="co"># Name of the new column for species names</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span>         <span class="co"># Name of the new column for counts</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_remove</span>(species, <span class="st">"_count"</span>)) <span class="co"># Clean up the "_count" suffix</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>tree.count.tidy.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 50 × 7
+   site_id  year habitat_type soil_ph canopy_cover_pct species abundance
+   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;       &lt;int&gt;
+ 1 Plot_01  2023 Upland           5.5               88 oak             8
+ 2 Plot_01  2023 Upland           5.5               88 maple           8
+ 3 Plot_01  2023 Upland           5.5               88 pine            9
+ 4 Plot_01  2023 Upland           5.5               88 birch          10
+ 5 Plot_01  2023 Upland           5.5               88 cedar           1
+ 6 Plot_01  2024 Upland           6.7               60 oak            11
+ 7 Plot_01  2024 Upland           6.7               60 maple          18
+ 8 Plot_01  2024 Upland           6.7               60 pine            6
+ 9 Plot_01  2024 Upland           6.7               60 birch           5
+10 Plot_01  2024 Upland           6.7               60 cedar           0
+# ℹ 40 more rows</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -370,13 +565,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
