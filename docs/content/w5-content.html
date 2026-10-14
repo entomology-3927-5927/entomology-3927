@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeremy Hemberger">
-<meta name="dcterms.date" content="2026-10-13">
+<meta name="dcterms.date" content="2026-10-14">
 
 <title>Week 5 – Entomology 3927/5927</title>
 <style>
@@ -356,9 +356,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin" class="nav-link active" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin"><i class="fa-solid fa-hat-cowboy" aria-label="hat-cowboy"></i> Data wranglin’</a></li>
-  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data">Tidy data</a>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><img src="content_media/w5/week5-wranglin.png" class="img-fluid"></a></li>
+  <li><a href="#importing-data-the-readr-package" id="toc-importing-data-the-readr-package" class="nav-link" data-scroll-target="#importing-data-the-readr-package">💾 Importing data: the <code>readr</code> package</a>
+  <ul class="collapse">
+  <li><a href="#importing-from-files" id="toc-importing-from-files" class="nav-link" data-scroll-target="#importing-from-files">Importing from files</a></li>
+  <li><a href="#importing-from-google-sheets" id="toc-importing-from-google-sheets" class="nav-link" data-scroll-target="#importing-from-google-sheets">Importing from Google Sheets</a></li>
+  </ul></li>
+  <li><a href="#tidy-data-the-tidyr-package" id="toc-tidy-data-the-tidyr-package" class="nav-link" data-scroll-target="#tidy-data-the-tidyr-package">🧹 Tidy data: the <code>tidyr</code> package</a>
   <ul class="collapse">
   <li><a href="#lengthening-data" id="toc-lengthening-data" class="nav-link" data-scroll-target="#lengthening-data">Lengthening data</a></li>
+  <li><a href="#widening-data" id="toc-widening-data" class="nav-link" data-scroll-target="#widening-data">Widening data</a></li>
+  </ul></li>
+  <li><a href="#transforming-data" id="toc-transforming-data" class="nav-link" data-scroll-target="#transforming-data">⚙️ Transforming data</a>
+  <ul class="collapse">
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><code>filter()</code></a></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><code>select()</code></a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><code>mutate()</code></a></li>
+  <li><a href="#summarize" id="toc-summarize" class="nav-link" data-scroll-target="#summarize"><code>summarize()</code></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -386,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 13, 2026</p>
+      <p class="date">October 14, 2026</p>
     </div>
   </div>
   
@@ -446,11 +460,41 @@ Tip
 <section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin" class="level2">
 <h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin"><i class="fa-solid fa-hat-cowboy" aria-label="hat-cowboy"></i> Data wranglin’</h2>
 <p>In many of your statistics courses so far, you’ve probably worked a lot with very clean, ready-to-analyze data to emphasize learning statistical concepts over data handling. <em>However, We’re all biologists or ecologists working with biological and ecological data, which are rarely as neatly packaged</em>. We’ll often need to clean things up, get rid of problematic or missing observations, or create new variables/impute missing data.</p>
-<p>When it comes to analyzing data, 75% or more of your time will be taken up collating, recording, arranging, and tidying your data in preparation for the actual statistical analysis. This process I call <strong>data wrangling</strong>. These steps are as crucial as your analsyes: misteps when wrangling your data into shape can result in ommitting or including data incorrectly, calculating incorrect summaries or new variables. The wrangling steps are also the least documented in the literature or when people publish the code for their analyses; they’ll often just include the statistical treatise but not how the data went from raw –&gt; ready to analyze. This is a mistake, and a lot can be hidden by not including the details of how your data are prepared.</p>
+<p>When it comes to analyzing data, 75% or more of your time will be taken up collating, recording, arranging, and tidying your data in preparation for the actual statistical analysis. This process I call <strong>data wrangling</strong> or <strong>data cleaning</strong>. These steps are as crucial as your analsyes: misteps when wrangling your data into shape can result in ommitting or including data incorrectly, calculating incorrect summaries or new variables. The wrangling steps are also the least documented in the literature or when people publish the code for their analyses; they’ll often just include the statistical treatise but not how the data went from raw –&gt; ready to analyze. This is a mistake, and a lot can be hidden by not including the details of how your data are prepared.</p>
+<p>We’ll discuss the three basic steps of data wrangling today and next week: <strong>importing</strong>, <strong>tidying</strong>, and <strong>transforming</strong> data.</p>
 </section>
-<section id="tidy-data" class="level2">
-<h2 class="anchored" data-anchor-id="tidy-data">Tidy data</h2>
-<p>The first step in our data wranglin’ is to get our data <strong>tidy</strong>. This isn’t just a euphamism, but an acutal data theory spearheaded by Hadley Wickham and the RStudio/Positron development team. A dataset is tidy when it meets these three criteria:</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"><img src="content_media/w5/week5-wranglin.png" class="img-fluid"></h2>
+<p><br></p>
+</section>
+<section id="importing-data-the-readr-package" class="level2">
+<h2 class="anchored" data-anchor-id="importing-data-the-readr-package">💾 Importing data: the <code>readr</code> package</h2>
+<p>The first step in data wranglin’ is to actually get data into R! This process is usually pretty trivial if you are working with well-created and maintained tabular data, but can sometimes be frustrating if your data files contain mistakes that cause variables/columns to get imported as incorrect atomic data types (recall <a href="https://entomology-3927-5927.github.io/entomology-3927/content/w2-content.html#the-atomic-data-types">atomic data</a> from week 2!).</p>
+<section id="importing-from-files" class="level3">
+<h3 class="anchored" data-anchor-id="importing-from-files">Importing from files</h3>
+<p>Most folks will need to import data from files saved in your project. Here, I assume you have saved your files in your project’s working directory (inside your <code>data/raw/</code> folder, for example), and all of my file pathing will reflect that assumption.</p>
+<p>Taking a look at our <a href="https://github.com/rstudio/cheatsheets/blob/main/data-import.pdf"><code>readr</code></a> cheat sheet, we can see that we have several functions that allow us to import data files:</p>
+<ol type="1">
+<li><code>read_csv()</code>: importing comma separated value files (most common for tabular data)</li>
+<li><code>read_delim()</code>: importing text-delimited files of any kind</li>
+</ol>
+<p>We’ll mostly be using <code>read_csv()</code>. For example:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my.data.df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"./data/raw/raw-data.csv"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="importing-from-google-sheets" class="level3">
+<h3 class="anchored" data-anchor-id="importing-from-google-sheets">Importing from Google Sheets</h3>
+<hr>
+<p><br></p>
+</section>
+</section>
+<section id="tidy-data-the-tidyr-package" class="level2">
+<h2 class="anchored" data-anchor-id="tidy-data-the-tidyr-package">🧹 Tidy data: the <code>tidyr</code> package</h2>
+<p>The second step in our data wranglin’ is to get our data <strong>tidy</strong>. This isn’t just a euphamism, but an acutal data theory spearheaded by Hadley Wickham and the RStudio/Positron development team. A dataset is tidy when it meets these three criteria:</p>
 <ol type="1">
 <li><strong>Each variable is a column:</strong> variables measure same attribute across different units</li>
 <li><strong>Each observation is a row:</strong> an observation contains all the values measured on a single unit across all variables</li>
@@ -462,7 +506,7 @@ Tip
 <h3 class="anchored" data-anchor-id="lengthening-data">Lengthening data</h3>
 <p>The most common way we have to manipulate a raw data source to make it tidy is to <em>lengthen</em> it. We lengthen data when folks have recorded variable names as column headers. For example:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tree.count.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tree.count.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 10
    site_id  year habitat_type soil_ph canopy_cover_pct oak_count maple_count
@@ -482,15 +526,15 @@ Tip
 </div>
 <p>Here, we have a tibble that records data on tree counts in different plots and habitats. Rather than recording each observation as a single row, we have multiple species counts contained in a single row. That is to say, we have “wide” data. If we wanted to plot all of our species in a single figure, the current format wouldn’t allow us to easily do that as there are 5 columns containing species abundances. What we can do, is <strong>pivot</strong> this into a “long” dataset that is tidy using the <code>pivot_longer()</code> function in the <code>tidyr</code> package:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tree.count.tidy.df <span class="ot">&lt;-</span> tree.count.df <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">ends_with</span>(<span class="st">"_count"</span>),     <span class="co"># Select only the species count columns</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"species"</span>,           <span class="co"># Name of the new column for species names</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span>         <span class="co"># Name of the new column for counts</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_remove</span>(species, <span class="st">"_count"</span>)) <span class="co"># Clean up the "_count" suffix</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>tree.count.tidy.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tree.count.tidy.df <span class="ot">&lt;-</span> tree.count.df <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">ends_with</span>(<span class="st">"_count"</span>),     <span class="co"># Select only the species count columns</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"species"</span>,           <span class="co"># Name of the new column for species names</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span>         <span class="co"># Name of the new column for counts</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_remove</span>(species, <span class="st">"_count"</span>)) <span class="co"># Clean up the "_count" suffix</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>tree.count.tidy.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 50 × 7
    site_id  year habitat_type soil_ph canopy_cover_pct species abundance
@@ -508,6 +552,245 @@ Tip
 # ℹ 40 more rows</code></pre>
 </div>
 </div>
+<p>There are 3 key arguments to this function:</p>
+<ol type="1">
+<li><code>cols</code>: specifies the columns that need to be “pivoted” (which columns are NOT variables)</li>
+<li><code>names_to</code>: how we want to name the variable stored as column names. Here, <code>species</code></li>
+<li><code>values_to</code>: how we want to name the variable stored as values. Here, <code>abundance</code></li>
+</ol>
+<p>Excellent! We now have our data in tidy form and ready to plot, model, or do whatever else we’d like to do with it. Visually, this is how this pivot is working out:</p>
+<p><img src="https://r4ds.hadley.nz/diagrams/tidy-data/variables.png" class="img-fluid quarto-figure quarto-figure-center" style="width:60.0%"> <img src="https://r4ds.hadley.nz/diagrams/tidy-data/column-names.png" class="img-fluid quarto-figure quarto-figure-center" style="width:60.0%"> <img src="https://r4ds.hadley.nz/diagrams/tidy-data/cell-values.png" class="img-fluid quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</section>
+<section id="widening-data" class="level3">
+<h3 class="anchored" data-anchor-id="widening-data">Widening data</h3>
+<p>The second most common way we have to manipulate a raw data source to make it tidy or compatible with certain data packages is to <em>widen</em> it. We widen data when folks have scattered observations across multiple rows. We commonly need to widen data in order to conduct ecological analyses. For example:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>untidy.plot.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  plot_id  date       metric           value
+  &lt;chr&gt;    &lt;date&gt;     &lt;chr&gt;            &lt;dbl&gt;
+1 Plot_101 2026-06-15 canopy_cover_pct  85  
+2 Plot_101 2026-06-15 soil_ph            6.2
+3 Plot_101 2026-06-15 litter_depth_cm    4.5
+4 Plot_102 2026-06-15 canopy_cover_pct  42  
+5 Plot_102 2026-06-15 soil_ph            7.1
+6 Plot_102 2026-06-15 litter_depth_cm    1.2</code></pre>
+</div>
+</div>
+<p>Here, our unit of interest, plot, is replicated across multiple and metric contains many variables. We can widen it by:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tidy.plot.df <span class="ot">&lt;-</span> untidy.plot.df  <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from  =</span> metric,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> value</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>tidy.plot.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  plot_id  date       canopy_cover_pct soil_ph litter_depth_cm
+  &lt;chr&gt;    &lt;date&gt;                &lt;dbl&gt;   &lt;dbl&gt;           &lt;dbl&gt;
+1 Plot_101 2026-06-15               85     6.2             4.5
+2 Plot_102 2026-06-15               42     7.1             1.2</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Long <em>or</em> Wide data can be “tidy”
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>From Hadley’s book:</p>
+<blockquote class="blockquote">
+<p>Another challenge is that, for a given dataset, it can be impossible to label the longer or the wider version as the “tidy” one. This is partly a reflection of our definition of tidy data, where we said tidy data has one variable in each column, but we didn’t actually define what a variable is (and it’s surprisingly hard to do so). It’s totally fine to be pragmatic and to say a variable is whatever makes your analysis easiest. So if you’re stuck figuring out how to do some computation, consider switching up the organisation of your data; don’t be afraid to untidy, transform, and re-tidy as needed!</p>
+</blockquote>
+</div>
+</div>
+<hr>
+<p><br></p>
+</section>
+</section>
+<section id="transforming-data" class="level2">
+<h2 class="anchored" data-anchor-id="transforming-data">⚙️ Transforming data</h2>
+<section id="filter" class="level3">
+<h3 class="anchored" data-anchor-id="filter"><code>filter()</code></h3>
+</section>
+<section id="select" class="level3">
+<h3 class="anchored" data-anchor-id="select"><code>select()</code></h3>
+<p>There are several <strong>helper functions</strong> that assist with selecting variables of various types or that contain certain strings. These functions can be helpful across many dplyr or tidyverse actions.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 27%">
+<col style="width: 45%">
+<col style="width: 2%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Category</strong></th>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Selecting Columns</strong></td>
+<td><code>everything()</code></td>
+<td>Selects all remaining columns</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>starts_with("prefix")</code></td>
+<td>Matches names starting with a string</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>ends_with("suffix")</code></td>
+<td>Matches names ending with a string</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>contains("literal")</code></td>
+<td>Matches names containing a literal string</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>matches("regex")</code></td>
+<td>Matches names matching a regular expression</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>num_range("prefix", range)</code></td>
+<td>Matches numerical ranges in column names</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>where(fn)</code></td>
+<td>Selects columns where a function returns TRUE</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>any_of(vars) / all_of(vars)</code></td>
+<td>Selects columns defined in a character vector</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Filtering &amp; Indexing</strong></td>
+<td><code>n()</code></td>
+<td>Returns the number of rows in the current group</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>row_number()</code></td>
+<td>Returns consecutive row indices (1, 2, 3…)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>between(x, left, right)</code></td>
+<td>Shortcut for x &gt;= left &amp; x &lt;= right</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>near(x, y)</code></td>
+<td>Tests numerical equality with tolerance</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>if_any() / if_all()</code></td>
+<td>Applies a predicate condition across multiple columns</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Conditional Transformation</strong></td>
+<td><code>case_when(...)</code></td>
+<td>Multi-case if-else vectorization</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>if_else(condition, true, false)</code></td>
+<td>Type-safe single conditional statement</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>coalesce(...)</code></td>
+<td>Replaces NA values with the first non-missing value</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>na_if(x, y)</code></td>
+<td>Replaces specified values y with NA</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Summary &amp; Windowing</strong></td>
+<td><code>n_distinct(x)</code></td>
+<td>Counts the number of unique values</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>lead(x) / lag(x)</code></td>
+<td>Shifts a vector forward or backward</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>first(x) / last(x) / nth(x, n)</code></td>
+<td>Extracts specific elements from a vector or group</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>cume_dist(x) / percent_rank(x)</code></td>
+<td>Calculates cumulative distribution or percentile rank</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>min_rank(x) / dense_rank(x)</code></td>
+<td>Ranks values (handling ties differently)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Multi-Column Operations</strong></td>
+<td><code>across(.cols, .fns)</code></td>
+<td>Applies functions across multiple columns simultaneously</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>pick(...)</code></td>
+<td>Selects columns to pass inside dynamic inline functions</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mutate" class="level3">
+<h3 class="anchored" data-anchor-id="mutate"><code>mutate()</code></h3>
+</section>
+<section id="summarize" class="level3">
+<h3 class="anchored" data-anchor-id="summarize"><code>summarize()</code></h3>
 
 
 </section>
