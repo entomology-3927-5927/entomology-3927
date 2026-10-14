@@ -11,14 +11,15 @@ format:
 
 :::: content-callout1
 ## Readings
-- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
-- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
-- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 7: Data import](https://r4ds.hadley.nz/data-import.html)
+
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 7: Data import](https://r4ds.hadley.nz/data-import.html)
 
 ### Online/optional extras
 
-- {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
-- {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
+-   {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
+-   {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
 
 ## Questions we'll address this week
 
@@ -41,28 +42,34 @@ format:
 
 </br>
 
-## {{< fa hat-cowboy >}} Data wranglin'
-In many of your statistics courses so far, you've probably worked a lot with very clean, ready-to-analyze data to emphasize learning statistical concepts over data handling. *However, We're all biologists or ecologists working with biological and ecological data, which are rarely as neatly packaged*. We'll often need to clean things up, get rid of problematic or missing observations, or create new variables/impute missing data. 
+```{r include=FALSE}
+library(tidyverse)
+```
 
-When it comes to analyzing data, 75% or more of your time will be taken up collating, recording, arranging, and tidying your data in preparation for the actual statistical analysis. This process I call **data wrangling** or **data cleaning**. These steps are as crucial as your analsyes: misteps when wrangling your data into shape can result in ommitting or including data incorrectly, calculating incorrect summaries or new variables. The wrangling steps are also the least documented in the literature or when people publish the code for their analyses; they'll often just include the statistical treatise but not how the data went from raw --> ready to analyze. This is a mistake, and a lot can be hidden by not including the details of how your data are prepared.
+## {{< fa hat-cowboy >}} Data wranglin'
+
+In many of your statistics courses so far, you've probably worked a lot with very clean, ready-to-analyze data to emphasize learning statistical concepts over data handling. *However, We're all biologists or ecologists working with biological and ecological data, which are rarely as neatly packaged*. We'll often need to clean things up, get rid of problematic or missing observations, or create new variables/impute missing data.
+
+When it comes to analyzing data, 75% or more of your time will be taken up collating, recording, arranging, and tidying your data in preparation for the actual statistical analysis. This process I call **data wrangling** or **data cleaning**. These steps are as crucial as your analsyes: misteps when wrangling your data into shape can result in ommitting or including data incorrectly, calculating incorrect summaries or new variables. The wrangling steps are also the least documented in the literature or when people publish the code for their analyses; they'll often just include the statistical treatise but not how the data went from raw --\> ready to analyze. This is a mistake, and a lot can be hidden by not including the details of how your data are prepared.
 
 We'll discuss the three basic steps of data wrangling today and next week: **importing**, **tidying**, and **transforming** data.
 
-![](content_media/w5/week5-wranglin.png)
----
+## ![](content_media/w5/week5-wranglin.png)
 
 </br>
 
 ## 💾 Importing data: the `readr` package
-The first step in data wranglin' is to actually get data into R! This process is usually pretty trivial if you are working with well-created and maintained tabular data, but can sometimes be frustrating if your data files contain mistakes that cause variables/columns to get imported as incorrect atomic data types (recall [atomic data](https://entomology-3927-5927.github.io/entomology-3927/content/w2-content.html#the-atomic-data-types) from week 2!). 
+
+The first step in data wranglin' is to actually get data into R! This process is usually pretty trivial if you are working with well-created and maintained tabular data, but can sometimes be frustrating if your data files contain mistakes that cause variables/columns to get imported as incorrect atomic data types (recall [atomic data](https://entomology-3927-5927.github.io/entomology-3927/content/w2-content.html#the-atomic-data-types) from week 2!).
 
 ### Importing from files
-Most folks will need to import data from files saved in your project. Here, I assume you have saved your files in your project's working directory (inside your `data/raw/` folder, for example), and all of my file pathing will reflect that assumption. 
+
+Most folks will need to import data from files saved in your project. Here, I assume you have saved your files in your project's working directory (inside your `data/raw/` folder, for example), and all of my file pathing will reflect that assumption.
 
 Taking a look at our [`readr`](https://github.com/rstudio/cheatsheets/blob/main/data-import.pdf) cheat sheet, we can see that we have several functions that allow us to import data files:
 
-1. `read_csv()`: importing comma separated value files (most common for tabular data)
-2. `read_delim()`: importing text-delimited files of any kind
+1.  `read_csv()`: importing comma separated value files (most common for tabular data)
+2.  `read_delim()`: importing text-delimited files of any kind
 
 We'll mostly be using `read_csv()`. For example:
 
@@ -73,29 +80,31 @@ my.data.df <- read_csv(
 )
 ```
 
+When you import data using any of the `read_*()` functions, the function will automatically try to guess whether you have column names as part of your data, what the proper text delimiter is, and what the type of atomic data each column represents (logical, numeric, character). Usually, it does a very good job of this, but if you have any mistakes in your recorded data (comma instead of decimal point, text in a column that otherwise contains numbers). 
+
 ### Importing from Google Sheets
 
----
+------------------------------------------------------------------------
 
 </br>
 
 ## 🧹 Tidy data: the `tidyr` package
-The second step in our data wranglin' is to get our data **tidy**. This isn't just a euphamism, but an acutal data theory spearheaded by Hadley Wickham and the RStudio/Positron development team. A dataset is tidy when it meets these three criteria: 
 
-1. **Each variable is a column:** variables measure same attribute across different units
-2. **Each observation is a row:** an observation contains all the values measured on a single unit across all variables
-3. **Each value is a cell:** every cell contains single, discrete measurement or value 
+The second step in our data wranglin' is to get our data **tidy**. This isn't just a euphamism, but an acutal data theory spearheaded by Hadley Wickham and the RStudio/Positron development team. A dataset is tidy when it meets these three criteria:
+
+1.  **Each variable is a column:** variables measure same attribute across different units
+2.  **Each observation is a row:** an observation contains all the values measured on a single unit across all variables
+3.  **Each value is a cell:** every cell contains single, discrete measurement or value
 
 ![](https://r4ds.hadley.nz/images/tidy-1.png)
 
-Getting your data into this structure is not just for kicks. It (1) provides a standardized, consistent way to store data that anyone can pick up and use and (2) it plays very nice with R's vectorized nature (remember back to week 2 where we talked about vectorized functions). Much of the time, the way that we collect and record data is *not* aligned with the Tidy method. So, how do we get our data to be tidy? 
+Getting your data into this structure is not just for kicks. It (1) provides a standardized, consistent way to store data that anyone can pick up and use and (2) it plays very nice with R's vectorized nature (remember back to week 2 where we talked about vectorized functions). Much of the time, the way that we collect and record data is *not* aligned with the Tidy method. So, how do we get our data to be tidy?
 
 ### Lengthening data
-The most common way we have to manipulate a raw data source to make it tidy is to *lengthen* it. We lengthen data when folks have recorded variable names as column headers. For example: 
+
+The most common way we have to manipulate a raw data source to make it tidy is to *lengthen* it. We lengthen data when folks have recorded variable names as column headers. For example:
 
 ```{r include=FALSE}
-library(tidyverse)
-
 # Create a reproducible, larger wide dataset
 set.seed(123)
 
@@ -134,18 +143,17 @@ tree.count.tidy.df
 
 There are 3 key arguments to this function:
 
-1. `cols`: specifies the columns that need to be "pivoted" (which columns are NOT variables)
-2. `names_to`: how we want to name the variable stored as column names. Here, `species`
-3. `values_to`: how we want to name the variable stored as values. Here, `abundance` 
+1.  `cols`: specifies the columns that need to be "pivoted" (which columns are NOT variables)
+2.  `names_to`: how we want to name the variable stored as column names. Here, `species`
+3.  `values_to`: how we want to name the variable stored as values. Here, `abundance`
 
-Excellent! We now have our data in tidy form and ready to plot, model, or do whatever else we'd like to do with it. Visually, this is how this pivot is working out: 
+Excellent! We now have our data in tidy form and ready to plot, model, or do whatever else we'd like to do with it. Visually, this is how this pivot is working out:
 
-![](https://r4ds.hadley.nz/diagrams/tidy-data/variables.png){fig-align="center" width="60%"}
-![](https://r4ds.hadley.nz/diagrams/tidy-data/column-names.png){fig-align="center" width="60%"}
-![](https://r4ds.hadley.nz/diagrams/tidy-data/cell-values.png){fig-align="center" width="60%"}
+![](https://r4ds.hadley.nz/diagrams/tidy-data/variables.png){fig-align="center" width="60%"} ![](https://r4ds.hadley.nz/diagrams/tidy-data/column-names.png){fig-align="center" width="60%"} ![](https://r4ds.hadley.nz/diagrams/tidy-data/cell-values.png){fig-align="center" width="60%"}
 
 ### Widening data
-The second most common way we have to manipulate a raw data source to make it tidy or compatible with certain data packages is to *widen* it. We widen data when folks have scattered observations across multiple rows. We commonly need to widen data in order to conduct ecological analyses. For example: 
+
+The second most common way we have to manipulate a raw data source to make it tidy or compatible with certain data packages is to *widen* it. We widen data when folks have scattered observations across multiple rows. We commonly need to widen data in order to conduct ecological analyses. For example:
 
 ```{r include=FALSE}
 untidy.plot.df <- tibble(
@@ -172,16 +180,15 @@ tidy.plot.df <- untidy.plot.df  %>%
 tidy.plot.df
 ```
 
-:::{.callout-important}
+::: callout-important
 # Long *or* Wide data can be "tidy"
 
-From Hadley's book: 
+From Hadley's book:
 
 > Another challenge is that, for a given dataset, it can be impossible to label the longer or the wider version as the “tidy” one. This is partly a reflection of our definition of tidy data, where we said tidy data has one variable in each column, but we didn’t actually define what a variable is (and it’s surprisingly hard to do so). It’s totally fine to be pragmatic and to say a variable is whatever makes your analysis easiest. So if you’re stuck figuring out how to do some computation, consider switching up the organisation of your data; don’t be afraid to untidy, transform, and re-tidy as needed!
 :::
 
-
----
+------------------------------------------------------------------------
 
 </br>
 
@@ -191,34 +198,34 @@ From Hadley's book:
 
 ### `select()`
 
-There are several **helper functions** that assist with selecting variables of various types or that contain certain strings. These functions can be helpful across many dplyr or tidyverse actions. 
+There are several **helper functions** that assist with selecting variables of various types or that contain certain strings. These functions can be helpful across many dplyr or tidyverse actions.
 
-| **Category**                   | **Function**                      | **Description**                                          |   |
-|--------------------------------|-----------------------------------|----------------------------------------------------------|---|
-| **Selecting Columns**          | `everything()`                    | Selects all remaining columns                            |   |
-|                                | `starts_with("prefix")`           | Matches names starting with a string                     |   |
-|                                | `ends_with("suffix")`             | Matches names ending with a string                       |   |
-|                                | `contains("literal")`             | Matches names containing a literal string                |   |
-|                                | `matches("regex")`                | Matches names matching a regular expression              |   |
-|                                | `num_range("prefix", range)`      | Matches numerical ranges in column names                 |   |
-|                                | `where(fn)`                       | Selects columns where a function returns TRUE            |   |
-|                                | `any_of(vars) / all_of(vars)`     | Selects columns defined in a character vector            |   |
-| **Filtering & Indexing**       | `n()`                             | Returns the number of rows in the current group          |   |
-|                                | `row_number()`                    | Returns consecutive row indices (1, 2, 3...)             |   |
-|                                | `between(x, left, right)`         | Shortcut for x >= left & x <= right                      |   |
-|                                | `near(x, y)`                      | Tests numerical equality with tolerance                  |   |
-|                                | `if_any() / if_all()`             | Applies a predicate condition across multiple columns    |   |
-| **Conditional Transformation** | `case_when(...)`                  | Multi-case if-else vectorization                         |   |
-|                                | `if_else(condition, true, false)` | Type-safe single conditional statement                   |   |
-|                                | `coalesce(...)`                   | Replaces NA values with the first non-missing value      |   |
-|                                | `na_if(x, y)`                     | Replaces specified values y with NA                      |   |
-| **Summary & Windowing**        | `n_distinct(x)`                   | Counts the number of unique values                       |   |
-|                                | `lead(x) / lag(x)`                | Shifts a vector forward or backward                      |   |
-|                                | `first(x) / last(x) / nth(x, n)`  | Extracts specific elements from a vector or group        |   |
-|                                |` cume_dist(x) / percent_rank(x)`  | Calculates cumulative distribution or percentile rank    |   |
-|                                | `min_rank(x) / dense_rank(x)`     | Ranks values (handling ties differently)                 |   |
-| **Multi-Column Operations**    | `across(.cols, .fns)`             | Applies functions across multiple columns simultaneously |   |
-|                                | `pick(...)`                       | Selects columns to pass inside dynamic inline functions  |   |
+| **Category** | **Function** | **Description** |   |
+|--------------|----------------|----------------------------|--------------|
+| **Selecting Columns** | `everything()` | Selects all remaining columns |  |
+|  | `starts_with("prefix")` | Matches names starting with a string |  |
+|  | `ends_with("suffix")` | Matches names ending with a string |  |
+|  | `contains("literal")` | Matches names containing a literal string |  |
+|  | `matches("regex")` | Matches names matching a regular expression |  |
+|  | `num_range("prefix", range)` | Matches numerical ranges in column names |  |
+|  | `where(fn)` | Selects columns where a function returns TRUE |  |
+|  | `any_of(vars) / all_of(vars)` | Selects columns defined in a character vector |  |
+| **Filtering & Indexing** | `n()` | Returns the number of rows in the current group |  |
+|  | `row_number()` | Returns consecutive row indices (1, 2, 3...) |  |
+|  | `between(x, left, right)` | Shortcut for x \>= left & x \<= right |  |
+|  | `near(x, y)` | Tests numerical equality with tolerance |  |
+|  | `if_any() / if_all()` | Applies a predicate condition across multiple columns |  |
+| **Conditional Transformation** | `case_when(...)` | Multi-case if-else vectorization |  |
+|  | `if_else(condition, true, false)` | Type-safe single conditional statement |  |
+|  | `coalesce(...)` | Replaces NA values with the first non-missing value |  |
+|  | `na_if(x, y)` | Replaces specified values y with NA |  |
+| **Summary & Windowing** | `n_distinct(x)` | Counts the number of unique values |  |
+|  | `lead(x) / lag(x)` | Shifts a vector forward or backward |  |
+|  | `first(x) / last(x) / nth(x, n)` | Extracts specific elements from a vector or group |  |
+|  | `cume_dist(x) / percent_rank(x)` | Calculates cumulative distribution or percentile rank |  |
+|  | `min_rank(x) / dense_rank(x)` | Ranks values (handling ties differently) |  |
+| **Multi-Column Operations** | `across(.cols, .fns)` | Applies functions across multiple columns simultaneously |  |
+|  | `pick(...)` | Selects columns to pass inside dynamic inline functions |  |
 
 ### `mutate()`
 
