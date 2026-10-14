@@ -12,14 +12,14 @@ format:
 :::: content-callout1
 ## Readings
 
--   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
--   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
--   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 7: Data import](https://r4ds.hadley.nz/data-import.html)
+- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
+- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
+- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 7: Data import](https://r4ds.hadley.nz/data-import.html)
 
 ### Online/optional extras
 
--   {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
--   {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
+- {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
+- {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
 
 ## Questions we'll address this week
 
@@ -80,9 +80,116 @@ my.data.df <- read_csv(
 )
 ```
 
-When you import data using any of the `read_*()` functions, the function will automatically try to guess whether you have column names as part of your data, what the proper text delimiter is, and what the type of atomic data each column represents (logical, numeric, character). Usually, it does a very good job of this, but if you have any mistakes in your recorded data (comma instead of decimal point, text in a column that otherwise contains numbers). 
+When you import data using any of the `read_*()` functions, the function will automatically try to guess whether you have column names as part of your data, what the proper text delimiter is, and what the type of atomic data each column represents (logical, numeric, character). Usually, it does a very good job of this, but if you have any mistakes in your recorded data (comma instead of decimal point, text in a column that otherwise contains numbers), it may import the data with the columns incorrectly classified, and that will create issues down the line when you want to plot, model, or work with these data. Given this, it's important that we immediately check our imported data for issues. We can do this by calling `str()` (short for *structure*) or using the tidyverse `glimpse()` function to give us a summary of our imported data and inspect it for issues. 
+
+Alternatively, if you know your data structure we can explcitly tell the `read_*()` function what your columns should be by passing it a vector of the data types:
+
+```{r eval=FALSE}
+my.data.df <- read_csv(
+    "./data/raw/raw-data.csv",
+    col_names = TRUE, 
+    col_types = c("c", "c", "n", "n", "f")
+)
+```
+
+In this code, we're telling R that our imported data has 5 columns that are, in order, character, character, numeric, numeric, and factor atomic data. This will force these columns to parse the data in this format, but it will throw a warning to you indicating that there was a parsing error:
+
+```{r}
+bees <- read_csv(
+  "./content_data/w5/bees.csv",
+  col_types = cols(
+    site = col_character(),
+    bumble_bees = col_double()
+  )
+)
+
+bees
+
+problems(bees)
+```
 
 ### Importing from Google Sheets
+We'll spend more time on importing data from the internet a bit later in the course, but for now, it's important that we discuss Google Sheets because many people likely use it to record data from experiments. I highly recommend this, because we have tools that allow us to import directly from your online sheet without having to download `.csv` files anytime something changes. This eliminates busy work and makes our workflows more easily reproducible. 
+
+The syntax for importing from Google Sheets is similar, we just need to give it details about the sheet ID and sheet name we wish to import from:
+
+```{r include=FALSE}
+set.seed(3927)
+library(googlesheets4)
+library(googledrive)
+
+pollinators <- data.frame(
+  site = sample(sprintf("Site_%02d", 1:20), 200, replace = TRUE),
+  habitat = sample(
+    c("prairie", "restored_prairie", "bee_lawn", "crop_edge"),
+    200, replace = TRUE
+  ),
+  species = sample(
+    c("Bombus_impatiens",
+      "Bombus_griseocollis",
+      "Bombus_bimaculatus",
+      "Apis_mellifera",
+      "Halictus_rubicundus"),
+    200, replace = TRUE
+  ),
+  temperature_C = round(rnorm(200, 24, 4), 1),
+  flowers_per_m2 = round(runif(200, 5, 80), 1),
+  bee_count = sample(0:25, 200, replace = TRUE),
+  survey_minutes = sample(c(10, 15, 20, 30), 200, replace = TRUE)
+)
+
+# gs4_deauth()
+# drive_deauth()
+# gs4_auth(
+#    scopes = c(
+#      "https://www.googleapis.com/auth/spreadsheets",
+#      "https://www.googleapis.com/auth/drive"
+#    )
+# )
+
+# drive_auth(
+#    scopes = c(
+#      "https://www.googleapis.com/auth/spreadsheets",
+#      "https://www.googleapis.com/auth/drive"
+#    )
+# )
+
+# Create sheet
+# ss <- gs4_create("gs4-import")
+# folder <- drive_find(type = "folder", pattern = "example-data", n_max = 1)
+
+# # Move it to the desired Google Drive folder
+# drive_mv(
+#    file = ss,
+#    path = folder
+# )
+
+# sheet_write(
+#   data = pollinators,
+#   ss = ss
+# )
+```
+
+
+```{r eval=FALSE}
+# Using full URL
+read_sheet("https://docs.google.com/spreadsheets/d/1pmjuATrm7_PCOvlr9HwYsNfBG9d7SApBM87Y0wcQOyk/edit?gid=780380257#gid=780380257")
+
+# Using sheet ID only
+read_sheet("1pmjuATrm7_PCOvlr9HwYsNfBG9d7SApBM87Y0wcQOyk")
+
+# a googledrive "dribble" (this is a way to search and get the "access code" for the file in your drive)
+googledrive::drive_get("gs4-import") %>% 
+  read_sheet()
+```
+
+:::{.callout-note}
+# Need to authenticate!
+In order to access files in your Google Drive, you'll need to authenticate your RStudio session to access your drive. Use the `gs4_auth()` function for that and follow the web prompts to authorize. 
+:::
+
+### Doing quick data cleaning on imported files: the `janitor` package
+
 
 ------------------------------------------------------------------------
 
@@ -201,7 +308,7 @@ From Hadley's book:
 There are several **helper functions** that assist with selecting variables of various types or that contain certain strings. These functions can be helpful across many dplyr or tidyverse actions.
 
 | **Category** | **Function** | **Description** |   |
-|--------------|----------------|----------------------------|--------------|
+|----------------|----------------|-------------------------|----------------|
 | **Selecting Columns** | `everything()` | Selects all remaining columns |  |
 |  | `starts_with("prefix")` | Matches names starting with a string |  |
 |  | `ends_with("suffix")` | Matches names ending with a string |  |
