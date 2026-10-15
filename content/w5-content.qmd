@@ -12,14 +12,14 @@ format:
 :::: content-callout1
 ## Readings
 
-- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
-- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
-- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 7: Data import](https://r4ds.hadley.nz/data-import.html)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 7: Data import](https://r4ds.hadley.nz/data-import.html)
 
 ### Online/optional extras
 
-- {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
-- {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
+-   {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
+-   {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
 
 ## Questions we'll address this week
 
@@ -80,7 +80,7 @@ my.data.df <- read_csv(
 )
 ```
 
-When you import data using any of the `read_*()` functions, the function will automatically try to guess whether you have column names as part of your data, what the proper text delimiter is, and what the type of atomic data each column represents (logical, numeric, character). Usually, it does a very good job of this, but if you have any mistakes in your recorded data (comma instead of decimal point, text in a column that otherwise contains numbers), it may import the data with the columns incorrectly classified, and that will create issues down the line when you want to plot, model, or work with these data. Given this, it's important that we immediately check our imported data for issues. We can do this by calling `str()` (short for *structure*) or using the tidyverse `glimpse()` function to give us a summary of our imported data and inspect it for issues. 
+When you import data using any of the `read_*()` functions, the function will automatically try to guess whether you have column names as part of your data, what the proper text delimiter is, and what the type of atomic data each column represents (logical, numeric, character). Usually, it does a very good job of this, but if you have any mistakes in your recorded data (comma instead of decimal point, text in a column that otherwise contains numbers), it may import the data with the columns incorrectly classified, and that will create issues down the line when you want to plot, model, or work with these data. Given this, it's important that we immediately check our imported data for issues. We can do this by calling `str()` (short for *structure*) or using the tidyverse `glimpse()` function to give us a summary of our imported data and inspect it for issues.
 
 Alternatively, if you know your data structure we can explcitly tell the `read_*()` function what your columns should be by passing it a vector of the data types:
 
@@ -109,7 +109,8 @@ problems(bees)
 ```
 
 ### Importing from Google Sheets
-We'll spend more time on importing data from the internet a bit later in the course, but for now, it's important that we discuss Google Sheets because many people likely use it to record data from experiments. I highly recommend this, because we have tools that allow us to import directly from your online sheet without having to download `.csv` files anytime something changes. This eliminates busy work and makes our workflows more easily reproducible. 
+
+We'll spend more time on importing data from the internet a bit later in the course, but for now, it's important that we discuss Google Sheets because many people likely use it to record data from experiments. I highly recommend this, because we have tools that allow us to import directly from your online sheet without having to download `.csv` files anytime something changes. This eliminates busy work and makes our workflows more easily reproducible.
 
 The syntax for importing from Google Sheets is similar, we just need to give it details about the sheet ID and sheet name we wish to import from:
 
@@ -118,7 +119,7 @@ set.seed(3927)
 library(googlesheets4)
 library(googledrive)
 
-pollinators <- data.frame(
+pollinators <- tibble(
   site = sample(sprintf("Site_%02d", 1:20), 200, replace = TRUE),
   habitat = sample(
     c("prairie", "restored_prairie", "bee_lawn", "crop_edge"),
@@ -170,26 +171,75 @@ pollinators <- data.frame(
 # )
 ```
 
-
 ```{r eval=FALSE}
+library(googlesheets4)
+library(googledrive)
 # Using full URL
 read_sheet("https://docs.google.com/spreadsheets/d/1pmjuATrm7_PCOvlr9HwYsNfBG9d7SApBM87Y0wcQOyk/edit?gid=780380257#gid=780380257")
 
 # Using sheet ID only
-read_sheet("1pmjuATrm7_PCOvlr9HwYsNfBG9d7SApBM87Y0wcQOyk")
+read_sheet(
+  "1pmjuATrm7_PCOvlr9HwYsNfBG9d7SApBM87Y0wcQOyk",
+  sheet = "pollinators" # Name of the sheet or tab in the spreadsheet if there are multiple
+  )
 
 # a googledrive "dribble" (this is a way to search and get the "access code" for the file in your drive)
 googledrive::drive_get("gs4-import") %>% 
   read_sheet()
 ```
 
-:::{.callout-note}
+::: callout-note
 # Need to authenticate!
-In order to access files in your Google Drive, you'll need to authenticate your RStudio session to access your drive. Use the `gs4_auth()` function for that and follow the web prompts to authorize. 
+
+In order to access files in your Google Drive, you'll need to authenticate your RStudio session to access your drive. Use the `gs4_auth()` function for that and follow the web prompts to authorize.
 :::
 
 ### Doing quick data cleaning on imported files: the `janitor` package
+Once we import our data, we can do a few quick things to clean it up and standardize it. The `janitor` package has some really helpful functions to go through messy column names and clean them up. Notice how in our dataset below, we have column names that don't adhere to the data naming conventions we discussed in week 2. The names have special characters, spaces, and all sorts of shenannigans: 
 
+![](https://i.makeagif.com/media/9-29-2021/ZCNMjF.mp4)
+
+```{r include=FALSE}
+messy.names.df <- tibble(
+  `Specimen ID#`           = c("PLANT_001", "PLANT_002", "PLANT_003", "PLANT_004", "PLANT_005"),
+  ` Genus & Species `      = c("Arabidopsis thaliana", "Solanum lycopersicum", "Arabidopsis thaliana", "Zea mays", "Solanum lycopersicum"),
+  `Leaf Area (cm^2)`       = c(12.4, 45.2, 10.8, 112.0, 38.6),
+  `Leaf Area (cm^2)`       = c(12.1, 44.8, 11.2, 110.5, 39.1), # Duplicated column name (e.g., technical replicate)
+  `Chlorophyll_a+b (ug/mg)` = c(2.1, 1.8, 2.4, 3.1, 1.6),
+  `Soil pH`                = c(6.5, 5.8, 6.7, 6.2, 5.9),
+  `Percent_NDVI (%)`       = c(0.72, 0.65, 0.78, 0.85, 0.61),
+  `DATE collected!`       = c("2026-05-10", "2026-05-10", "2026-05-11", "2026-05-11", "2026-05-12"),
+  ` Notes / Comments `     = c("healthy", "mild chlorosis", "healthy", "damaged leaf", "pest presence"),
+  .name_repair = "minimal"
+)
+
+write_csv(
+  messy.names.df,
+  "content_data/w5/messy-names.csv"
+)
+```
+
+```{r}
+messy.names.df
+names(messy.names.df)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(janitor)
+
+clean.names.df <- clean_names(messy.names.df)
+
+names(clean.names.df)
+```
+
+
+We can also use the **pipe** to combine reading our data in and cleaning up the names into a single step!
+
+```{r}
+clean.names2.df <- read_csv("content_data/w5/messy-names.csv") |>
+  janitor::clean_names()
+clean.names2.df 
+```
 
 ------------------------------------------------------------------------
 
@@ -299,16 +349,46 @@ From Hadley's book:
 
 </br>
 
-## ⚙️ Transforming data
+## ⚙️ Transforming data: the `dplyr` package
+Once we have our data imported, column names cleaned, and data in a tidy format, there's still much we may need to do in order to conduct our analyses. The `dplyr` package within the Tidyverse contains all sorts of useful functions to allow us to transform our data. We won't have time to go into every function that `dplyr` contains, but we're going to talk about the big 5 and the many "helper" functions that enable to you to do various operations.
 
 ### `filter()`
+Filtering allows us to extract certain cases (i.e., rows) as a new table using some set of logical *conditions*. As the name implies, we're "filtering" out specific cases that we want! 
+
+```{r}
+pollinators |> 
+  filter(species == "Bombus_impatiens")
+```
+
+Most of the time, we're using logical or boolean operators to do our filtering, this includes:
+
+| **Operator** |                 **Meaning**                |             **Example Code**             |         **Notes / Common Usage**        |
+|:------------:|:------------------------------------------:|:----------------------------------------:|:---------------------------------------:|
+| `==`           | Equal to                                   | `filter(df, species == "bee")`             | Must use double equals ==, not single = |
+| `!=`           | Not equal to                               | `filter(df, species != "wasp")`            | Excludes matching values                |
+| `<` / `>`        | Less than / Greater than                   | `filter(df, count > 10)`                   | Strictly less/greater than              |
+| `<=` / `>=`      | Less than or equal / Greater than or equal | `filter(df, count >= 10)`                  | Inclusive bounds                        |
+| `%in%`         | Value matching (in list)                   | `filter(df, species %in% c("bee", "ant"))` | Replaces multiple \|\| conditions       |
+| `&` or `,`       | Logical AND                                | `filter(df, count > 5, site == "A")`       | Comma , inside filter() acts as &       |
+| \``|`           | Logical OR                                 | `filter(df, site == "A" \| site == "B")`   | At least one condition must be TRUE     |
+| `!`            | Logical NOT                                | `filter(df, !is.na(bee_count))`            | Inverts a logical expression            |
+| `is.na()`      | Is missing / NA                            | `filter(df, is.na(notes))`                 | Checks for missing values               |
+| `between()`    | Inclusive value range                      | `filter(df, between(count, 5, 15))`        | Shortcut for count >= 5 & count <= 15   |
+
+</br>
 
 ### `select()`
+Often we want to grab only certain variables (i.e., columns) from our dataset to either create a subset of the variables, or to pass to a certain function. For this, we use the `select()` function. 
 
-There are several **helper functions** that assist with selecting variables of various types or that contain certain strings. These functions can be helpful across many dplyr or tidyverse actions.
+```{r}
+pollinators |> 
+  select(site, species, bee_count)
+```
+
+There are several **helper functions** that assist with selecting variables of various types or that contain certain strings or values. These functions can be helpful across many dplyr or tidyverse actions.
 
 | **Category** | **Function** | **Description** |   |
-|----------------|----------------|-------------------------|----------------|
+|-----------------|-----------------|-----------------------|-----------------|
 | **Selecting Columns** | `everything()` | Selects all remaining columns |  |
 |  | `starts_with("prefix")` | Matches names starting with a string |  |
 |  | `ends_with("suffix")` | Matches names ending with a string |  |
@@ -326,14 +406,92 @@ There are several **helper functions** that assist with selecting variables of v
 |  | `if_else(condition, true, false)` | Type-safe single conditional statement |  |
 |  | `coalesce(...)` | Replaces NA values with the first non-missing value |  |
 |  | `na_if(x, y)` | Replaces specified values y with NA |  |
-| **Summary & Windowing** | `n_distinct(x)` | Counts the number of unique values |  |
+| **Position & Windowing** | `n_distinct(x)` | Counts the number of unique values |  |
 |  | `lead(x) / lag(x)` | Shifts a vector forward or backward |  |
 |  | `first(x) / last(x) / nth(x, n)` | Extracts specific elements from a vector or group |  |
 |  | `cume_dist(x) / percent_rank(x)` | Calculates cumulative distribution or percentile rank |  |
 |  | `min_rank(x) / dense_rank(x)` | Ranks values (handling ties differently) |  |
-| **Multi-Column Operations** | `across(.cols, .fns)` | Applies functions across multiple columns simultaneously |  |
-|  | `pick(...)` | Selects columns to pass inside dynamic inline functions |  |
+
+</br>
 
 ### `mutate()`
+Once we get our data imported, we'll often need to create new variables, either by using some combination of information from our existing variables, or appending new data after generating it from models or other operations. To do this, we use `mutate()`, which is a type of **vectorized** function. This should sound familar from week 2. It means that `mutate()` takes a vector (in this case, a column) and returns a vector of the *same* length. For example:
+
+```{r}
+pollinators |>
+  select(-c(temperature_C, flowers_per_m2)) |>
+  mutate(rate_of_observation = bee_count / survey_minutes)
+```
+
+:::{.callout-tip}
+# Quick review from a few minutes ago...
+What is the `select()` function doing in the above example? 
+:::
+
+Because `mutate()` is vectorized, we'll always end up with a tibble of the same *length* at the end of using it. A common error you will see when trying to use mutate is that the vector you want to append isn't the correct length, for example:
+
+```{r error=TRUE}
+pollinators |>
+  select(-c(temperature_C, flowers_per_m2)) |>
+  mutate(new_variable = c(3, 3))
+```
+
+Here R is saying, "Yo! This new variable you want me to create needs to be length 200 (the number of rows) or 1 (in which case I'll just repeat the value across all 200 rows)." Check out your `dplyr` cheatsheet: there are lots of other vectorized functions you can can use with `mutate()`!
+
+</br>
 
 ### `summarize()`
+We can also apply summary functions to our columns to create new tables of summary statistics. These functions take vectors as input but return a single value. For example:
+
+```{r}
+pollinators |> 
+  summarize(total_bees = sum(bee_count, na.rm = TRUE))
+```
+
+Neat! There are tons of summary functions that we can apply using `summarize()` -- check our your cheatsheet for some examples. Ones you'll use ALOT are `mean()`, `sd()`, `sum()`, and `n()`. 
+
+</br>
+
+### `group_by()`
+Most of the time we are calculating new variables or data summarizations, we need to do so across groups within our dataset. `dplyr` uses the `group_by()` function, or the `.by` argument within our primary `dplyr` verbs to conduct operations by group. 
+
+For example, imagine that we want to calculate the average abundance of each bee species within our tidy dataset that looks like this:
+
+```{r}
+as_tibble(pollinators)
+```
+
+Just doing a summarization of `bee_count` won't quite get us there, as it will calculate the total of all species combined (i.e., the whole dataset):
+
+```{r}
+pollinators |> 
+  summarize(total_bees = sum(bee_count))
+```
+
+Instead, we'll `group_by()` our variable `species` and calculate the sum of `bee_count`: 
+
+```{r}
+pollinators |> 
+  group_by(species) |> 
+  summarize(total_bees = sum(bee_count))
+
+# this is equivalent
+pollinators |> 
+  summarize(
+    total_bees = sum(bee_count),
+    .by = species
+  )
+```
+
+:::{.callout-caution}
+# `group_by()` operations follow the tibble!
+If you use `group_by()` on a tibble and create a new tibble from it, the new tibble will *retain* the grouping. This can be an issue if you need to create a new variable or summarization, but *don't* want to use the same grouping structure. Keep this in mind! We can undo grouping by using `ungroup()`.
+
+A good way to see if a tibble has a grouping structure is just to ask R to return it and to look for any grouping structure, e.g.:
+
+```{r}
+pollinators.grouped.df <- pollinators %>%
+  group_by(species)
+pollinators.grouped.df
+```
+:::

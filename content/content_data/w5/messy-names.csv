@@ -1,0 +1,6 @@
+Specimen ID#, Genus & Species ,Leaf Area (cm^2),Leaf Area (cm^2),Chlorophyll_a+b (ug/mg),Soil pH,Percent_NDVI (%),DATE collected!, Notes / Comments 
+PLANT_001,Arabidopsis thaliana,12.4,12.1,2.1,6.5,0.72,2026-05-10,healthy
+PLANT_002,Solanum lycopersicum,45.2,44.8,1.8,5.8,0.65,2026-05-10,mild chlorosis
+PLANT_003,Arabidopsis thaliana,10.8,11.2,2.4,6.7,0.78,2026-05-11,healthy
+PLANT_004,Zea mays,112,110.5,3.1,6.2,0.85,2026-05-11,damaged leaf
+PLANT_005,Solanum lycopersicum,38.6,39.1,1.6,5.9,0.61,2026-05-12,pest presence
