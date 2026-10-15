@@ -2,18 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-08-14">
+<meta name="dcterms.date" content="2026-10-15">
 
 <title>Overview of workshops + basic info – Entomology 3927/5927</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -38,10 +44,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c96709ee289d8f9afca9c27adde60711.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -83,7 +89,8 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -313,7 +320,13 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#downloading-installing-and-setting-up-r-and-rstudio" id="toc-downloading-installing-and-setting-up-r-and-rstudio" class="nav-link active" data-scroll-target="#downloading-installing-and-setting-up-r-and-rstudio">Downloading, installing, and setting up R and RStudio</a></li>
-  <li><a href="#completing-and-submitting-workshop-reports" id="toc-completing-and-submitting-workshop-reports" class="nav-link" data-scroll-target="#completing-and-submitting-workshop-reports">Completing and submitting workshop reports</a></li>
+  <li><a href="#completing-and-submitting-workshop-reports" id="toc-completing-and-submitting-workshop-reports" class="nav-link" data-scroll-target="#completing-and-submitting-workshop-reports">Completing and submitting workshop reports</a>
+  <ul class="collapse">
+  <li><a href="#report-submission-protocol" id="toc-report-submission-protocol" class="nav-link" data-scroll-target="#report-submission-protocol">Report submission protocol</a></li>
+  <li><a href="#peer-review-rubric" id="toc-peer-review-rubric" class="nav-link" data-scroll-target="#peer-review-rubric">Peer review rubric</a></li>
+  <li><a href="#peer-review-schedule" id="toc-peer-review-schedule" class="nav-link" data-scroll-target="#peer-review-schedule">Peer review schedule</a></li>
+  <li><a href="#due-dates-for-each-week" id="toc-due-dates-for-each-week" class="nav-link" data-scroll-target="#due-dates-for-each-week">Due dates for each week</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -333,7 +346,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 14, 2026</p>
+      <p class="date">October 15, 2026</p>
     </div>
   </div>
   
@@ -361,8 +374,374 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://bookdown.org/yihui/rmarkdown/notebook.html">Writing code in R notebooks</a></li>
 <li><a href="https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf">R Notebook (Markdown) cheatsheet</a></li>
 </ul>
+<section id="report-submission-protocol" class="level3">
+<h3 class="anchored" data-anchor-id="report-submission-protocol">Report submission protocol</h3>
+<ol type="1">
+<li><strong>Complete your report:</strong> Follow the instructions for the workshop and complete your work as a <code>.qmd</code> document. Format it appropriately (should be structured, easy-to-follow and your various sections should make clear links to the workshop prompts).</li>
+<li><strong>Stage and commit your changes:</strong> Once you’re done with your report, stage and commit your changes locally using an informative commit message.</li>
+<li><strong>Push your changes to GitHub:</strong> Push your changes into your personal course repository.</li>
+<li><strong>Create an issue and assign your reviewer:</strong> In your repository, select the <kbd>Issues</kbd> tab. From there, select <kbd>New issue</kbd>.
+<ul>
+<li>Enter a consistent title for each week’s submission using this format: <code>wX_workshop_report</code> where you replace X with the current week.</li>
+<li>See my <a href="https://github.com/entomology-3927-5927/hemberger-jeremy-3927/issues/1">example issue here</a>, and format your issue text similarly. Feel free to add notes to your reviewer (e.g., highlighting areas where you’d like specific feedback or struggled), and include a funny image, meme, or gif because we all need laughs these days. Be sure to tag your reviewer using the <code>@</code> sign and selecting their username. Reviewer assignments for each week are posted on the X</li>
+</ul></li>
+<li><strong>Complete your peer review</strong> See below for the rubric and suggestions. Remember to be both kind and constructive. No one likes a <a href="https://patthomson.net/2026/06/01/how-to-be-reviewer-2/">Reviewer #2</a>.</li>
+<li><strong>Close the issue:</strong> Once you have completed your peer review, post it, and then mark the issue as “closed”.</li>
+</ol>
+</section>
+<section id="peer-review-rubric" class="level3">
+<h3 class="anchored" data-anchor-id="peer-review-rubric">Peer review rubric</h3>
+<p>Your job when peer reviewing your colleagues code can be distilled down to one basic task: <strong>your job is to review the code as if you were going to use it in 3-6 months without the author sitting next to you.</strong> Ask yourself:</p>
+<ul>
+<li>Can you understand what it does?</li>
+<li>Can you understand why it does it?</li>
+<li>Can you reproduce the results of your colleague?</li>
+</ul>
+<p>This big picture framing is far more helpful in directing someone to make changes to increase reproducibility rather than just being nitpicky on syntax and code style. That said, obviously make suggestions about smaller changes you think would be important to implement, but don’t get lost in the sauce: try and focus on the big-picture.</p>
+<p>Criteria to keep in mind and a rubric to help shape your feedback. You don’t need to use these scores, but feel free to borrow the classifications in your feedback.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 32%">
+<col style="width: 21%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Criterion</strong></th>
+<th><strong>Excellent</strong></th>
+<th><strong>Adequate</strong></th>
+<th><strong>Needs improvement</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1. Organization &amp; readability</strong></td>
+<td>Code is logically organized, easy to follow, and uses clear spacing/structure.</td>
+<td>Mostly understandable but some sections are difficult to follow.</td>
+<td>Code is difficult to follow or poorly organized.</td>
+</tr>
+<tr class="even">
+<td><strong>2. Naming &amp; style</strong></td>
+<td>Objects/variables have descriptive names and code follows consistent R style.</td>
+<td>Names/style are generally understandable but inconsistent in places.</td>
+<td>Names are unclear or style makes the code difficult to understand.</td>
+</tr>
+<tr class="odd">
+<td><strong>3. Comments &amp; documentation</strong></td>
+<td>Comments explain the purpose/reasoning behind important steps without unnecessarily narrating the code.</td>
+<td>Some useful comments, but important steps may be unexplained.</td>
+<td>Little or no documentation.</td>
+</tr>
+<tr class="even">
+<td><strong>4. Use of R/tidyverse</strong></td>
+<td>Uses appropriate functions efficiently; avoids unnecessary repetition.</td>
+<td>Code works but could be simplified or made more efficient.</td>
+<td>Code contains substantial unnecessary repetition or inappropriate approaches.</td>
+</tr>
+<tr class="odd">
+<td><strong>5. Reproducibility</strong></td>
+<td>Code runs from beginning to end with minimal intervention and clearly identifies required packages/data.</td>
+<td>Mostly reproducible but requires some clarification or manual steps.</td>
+<td>Difficult or impossible for another person to reproduce.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be sure to try and highlight positives and not just negatives. What is one thing the author did particularly well? It’s equally important to emphasize the positive aspects of our work in addition to critiquing what needs improvement.</p>
+</div>
+</div>
+</section>
+<section id="peer-review-schedule" class="level3">
+<h3 class="anchored" data-anchor-id="peer-review-schedule">Peer review schedule</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Student</th>
+<th>GitHub</th>
+<th>Week 5</th>
+<th>Week 6</th>
+<th>Week 7</th>
+<th>Week 8</th>
+<th>Week 9</th>
+<th>Week 10</th>
+<th>Week 11</th>
+<th>Week 12</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ava Anderson</td>
+<td><code>avaanderson-cloud</code></td>
+<td>Ana Karina Andrade</td>
+<td>Isabela Arias</td>
+<td>William Bayfield-Farrell</td>
+<td>Julia Brandfonbrener</td>
+<td>Tatum Dwyer</td>
+<td>Garrett Erickson-Harris</td>
+<td>Isabella Manning</td>
+<td>Robin Marquez</td>
+</tr>
+<tr class="even">
+<td>Ana Karina Andrade</td>
+<td><code>AAndrade-89</code></td>
+<td>Isabela Arias</td>
+<td>William Bayfield-Farrell</td>
+<td>Julia Brandfonbrener</td>
+<td>Tatum Dwyer</td>
+<td>Garrett Erickson-Harris</td>
+<td>Isabella Manning</td>
+<td>Robin Marquez</td>
+<td>Kellen OConnor</td>
+</tr>
+<tr class="odd">
+<td>Isabela Arias</td>
+<td><code>arias101-bug</code></td>
+<td>William Bayfield-Farrell</td>
+<td>Julia Brandfonbrener</td>
+<td>Tatum Dwyer</td>
+<td>Garrett Erickson-Harris</td>
+<td>Isabella Manning</td>
+<td>Robin Marquez</td>
+<td>Kellen OConnor</td>
+<td>Patrick Perish</td>
+</tr>
+<tr class="even">
+<td>William Bayfield-Farrell</td>
+<td><code>willbayfarrell</code></td>
+<td>Julia Brandfonbrener</td>
+<td>Tatum Dwyer</td>
+<td>Garrett Erickson-Harris</td>
+<td>Isabella Manning</td>
+<td>Robin Marquez</td>
+<td>Kellen OConnor</td>
+<td>Patrick Perish</td>
+<td>Evelyn Reilly</td>
+</tr>
+<tr class="odd">
+<td>Julia Brandfonbrener</td>
+<td><code>jbrand1682</code></td>
+<td>Tatum Dwyer</td>
+<td>Garrett Erickson-Harris</td>
+<td>Isabella Manning</td>
+<td>Robin Marquez</td>
+<td>Kellen OConnor</td>
+<td>Patrick Perish</td>
+<td>Evelyn Reilly</td>
+<td>Jacob Simon</td>
+</tr>
+<tr class="even">
+<td>Tatum Dwyer</td>
+<td><code>dwyer332</code></td>
+<td>Garrett Erickson-Harris</td>
+<td>Isabella Manning</td>
+<td>Robin Marquez</td>
+<td>Kellen OConnor</td>
+<td>Patrick Perish</td>
+<td>Evelyn Reilly</td>
+<td>Jacob Simon</td>
+<td>Eric Sorensen</td>
+</tr>
+<tr class="odd">
+<td>Garrett Erickson-Harris</td>
+<td><code>gericksonharris</code></td>
+<td>Isabella Manning</td>
+<td>Robin Marquez</td>
+<td>Kellen OConnor</td>
+<td>Patrick Perish</td>
+<td>Evelyn Reilly</td>
+<td>Jacob Simon</td>
+<td>Eric Sorensen</td>
+<td>Wes Walsh</td>
+</tr>
+<tr class="even">
+<td>Isabella Manning</td>
+<td><code>izzibellamanning</code></td>
+<td>Robin Marquez</td>
+<td>Kellen OConnor</td>
+<td>Patrick Perish</td>
+<td>Evelyn Reilly</td>
+<td>Jacob Simon</td>
+<td>Eric Sorensen</td>
+<td>Wes Walsh</td>
+<td>Haidyn Larson</td>
+</tr>
+<tr class="odd">
+<td>Robin Marquez</td>
+<td><code>RobinPMarquez</code></td>
+<td>Kellen OConnor</td>
+<td>Patrick Perish</td>
+<td>Evelyn Reilly</td>
+<td>Jacob Simon</td>
+<td>Eric Sorensen</td>
+<td>Wes Walsh</td>
+<td>Haidyn Larson</td>
+<td>Ava Anderson</td>
+</tr>
+<tr class="even">
+<td>Kellen OConnor</td>
+<td><code>koconnor32</code></td>
+<td>Patrick Perish</td>
+<td>Evelyn Reilly</td>
+<td>Jacob Simon</td>
+<td>Eric Sorensen</td>
+<td>Wes Walsh</td>
+<td>Haidyn Larson</td>
+<td>Ava Anderson</td>
+<td>Ana Karina Andrade</td>
+</tr>
+<tr class="odd">
+<td>Patrick Perish</td>
+<td><code>Bugs-PK</code></td>
+<td>Evelyn Reilly</td>
+<td>Jacob Simon</td>
+<td>Eric Sorensen</td>
+<td>Wes Walsh</td>
+<td>Haidyn Larson</td>
+<td>Ava Anderson</td>
+<td>Ana Karina Andrade</td>
+<td>Isabela Arias</td>
+</tr>
+<tr class="even">
+<td>Evelyn Reilly</td>
+<td><code>Reill163</code></td>
+<td>Jacob Simon</td>
+<td>Eric Sorensen</td>
+<td>Wes Walsh</td>
+<td>Haidyn Larson</td>
+<td>Ava Anderson</td>
+<td>Ana Karina Andrade</td>
+<td>Isabela Arias</td>
+<td>William Bayfield-Farrell</td>
+</tr>
+<tr class="odd">
+<td>Jacob Simon</td>
+<td><code>jsim-gh</code></td>
+<td>Eric Sorensen</td>
+<td>Wes Walsh</td>
+<td>Haidyn Larson</td>
+<td>Ava Anderson</td>
+<td>Ana Karina Andrade</td>
+<td>Isabela Arias</td>
+<td>William Bayfield-Farrell</td>
+<td>Julia Brandfonbrener</td>
+</tr>
+<tr class="even">
+<td>Eric Sorensen</td>
+<td><code>sore0654-cmd</code></td>
+<td>Wes Walsh</td>
+<td>Haidyn Larson</td>
+<td>Ava Anderson</td>
+<td>Ana Karina Andrade</td>
+<td>Isabela Arias</td>
+<td>William Bayfield-Farrell</td>
+<td>Julia Brandfonbrener</td>
+<td>Tatum Dwyer</td>
+</tr>
+<tr class="odd">
+<td>Wes Walsh</td>
+<td><code>weswalsh</code></td>
+<td>Haidyn Larson</td>
+<td>Ava Anderson</td>
+<td>Ana Karina Andrade</td>
+<td>Isabela Arias</td>
+<td>William Bayfield-Farrell</td>
+<td>Julia Brandfonbrener</td>
+<td>Tatum Dwyer</td>
+<td>Garrett Erickson-Harris</td>
+</tr>
+<tr class="even">
+<td>Haidyn Larson</td>
+<td><code>bumble-beau</code></td>
+<td>Ava Anderson</td>
+<td>Ana Karina Andrade</td>
+<td>Isabela Arias</td>
+<td>William Bayfield-Farrell</td>
+<td>Julia Brandfonbrener</td>
+<td>Tatum Dwyer</td>
+<td>Garrett Erickson-Harris</td>
+<td>Isabella Manning</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="due-dates-for-each-week" class="level3">
+<h3 class="anchored" data-anchor-id="due-dates-for-each-week">Due dates for each week</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>Code report due</th>
+<th>Peer review due</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>5</strong></td>
+<td>Tue <strong>10/20/2026, 23:59</strong></td>
+<td>Fri <strong>10/23/2026, 12:00</strong></td>
+</tr>
+<tr class="even">
+<td><strong>6</strong></td>
+<td>Tue <strong>10/27/2026, 23:59</strong></td>
+<td>Fri <strong>10/30/2026, 12:00</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>7</strong></td>
+<td>Tue <strong>11/3/2026, 23:59</strong></td>
+<td>Fri <strong>11/6/2026, 12:00</strong></td>
+</tr>
+<tr class="even">
+<td><strong>8</strong></td>
+<td>Tue <strong>11/10/2026, 23:59</strong></td>
+<td>Fri <strong>11/13/2026, 12:00</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>9</strong></td>
+<td>Tue <strong>11/17/2026, 23:59</strong></td>
+<td>Fri <strong>11/20/2026, 12:00</strong></td>
+</tr>
+<tr class="even">
+<td><strong>10</strong></td>
+<td>Tue <strong>11/24/2026, 23:59</strong></td>
+<td>Fri <strong>11/27/2026, 12:00</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>11</strong></td>
+<td>Tue <strong>12/1/2026, 23:59</strong></td>
+<td>Fri <strong>12/4/2026, 12:00</strong></td>
+</tr>
+<tr class="even">
+<td><strong>12</strong></td>
+<td>Tue <strong>12/8/2026, 23:59</strong></td>
+<td>Fri <strong>12/11/2026, 12:00</strong></td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -417,13 +796,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -12,14 +12,13 @@ format:
 :::: content-callout1
 ## Readings
 
--   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
--   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
--   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 7: Data import](https://r4ds.hadley.nz/data-import.html)
+- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
+- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
+- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 7: Data import](https://r4ds.hadley.nz/data-import.html)
 
 ### Online/optional extras
 
--   {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
--   {{< fa file-code >}} [R for the Rest of Us: How to use git and github with R](https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r)
+- {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
 
 ## Questions we'll address this week
 
@@ -195,7 +194,8 @@ In order to access files in your Google Drive, you'll need to authenticate your 
 :::
 
 ### Doing quick data cleaning on imported files: the `janitor` package
-Once we import our data, we can do a few quick things to clean it up and standardize it. The `janitor` package has some really helpful functions to go through messy column names and clean them up. Notice how in our dataset below, we have column names that don't adhere to the data naming conventions we discussed in week 2. The names have special characters, spaces, and all sorts of shenannigans: 
+
+Once we import our data, we can do a few quick things to clean it up and standardize it. The `janitor` package has some really helpful functions to go through messy column names and clean them up. Notice how in our dataset below, we have column names that don't adhere to the data naming conventions we discussed in week 2. The names have special characters, spaces, and all sorts of shenanigans:
 
 ![](https://i.makeagif.com/media/9-29-2021/ZCNMjF.mp4)
 
@@ -231,7 +231,6 @@ clean.names.df <- clean_names(messy.names.df)
 
 names(clean.names.df)
 ```
-
 
 We can also use the **pipe** to combine reading our data in and cleaning up the names into a single step!
 
@@ -350,10 +349,12 @@ From Hadley's book:
 </br>
 
 ## ⚙️ Transforming data: the `dplyr` package
+
 Once we have our data imported, column names cleaned, and data in a tidy format, there's still much we may need to do in order to conduct our analyses. The `dplyr` package within the Tidyverse contains all sorts of useful functions to allow us to transform our data. We won't have time to go into every function that `dplyr` contains, but we're going to talk about the big 5 and the many "helper" functions that enable to you to do various operations.
 
 ### `filter()`
-Filtering allows us to extract certain cases (i.e., rows) as a new table using some set of logical *conditions*. As the name implies, we're "filtering" out specific cases that we want! 
+
+Filtering allows us to extract certain cases (i.e., rows) as a new table using some set of logical *conditions*. As the name implies, we're "filtering" out specific cases that we want!
 
 ```{r}
 pollinators |> 
@@ -362,23 +363,24 @@ pollinators |>
 
 Most of the time, we're using logical or boolean operators to do our filtering, this includes:
 
-| **Operator** |                 **Meaning**                |             **Example Code**             |         **Notes / Common Usage**        |
-|:------------:|:------------------------------------------:|:----------------------------------------:|:---------------------------------------:|
-| `==`           | Equal to                                   | `filter(df, species == "bee")`             | Must use double equals ==, not single = |
-| `!=`           | Not equal to                               | `filter(df, species != "wasp")`            | Excludes matching values                |
-| `<` / `>`        | Less than / Greater than                   | `filter(df, count > 10)`                   | Strictly less/greater than              |
-| `<=` / `>=`      | Less than or equal / Greater than or equal | `filter(df, count >= 10)`                  | Inclusive bounds                        |
-| `%in%`         | Value matching (in list)                   | `filter(df, species %in% c("bee", "ant"))` | Replaces multiple \|\| conditions       |
-| `&` or `,`       | Logical AND                                | `filter(df, count > 5, site == "A")`       | Comma , inside filter() acts as &       |
-| \``|`           | Logical OR                                 | `filter(df, site == "A" \| site == "B")`   | At least one condition must be TRUE     |
-| `!`            | Logical NOT                                | `filter(df, !is.na(bee_count))`            | Inverts a logical expression            |
-| `is.na()`      | Is missing / NA                            | `filter(df, is.na(notes))`                 | Checks for missing values               |
-| `between()`    | Inclusive value range                      | `filter(df, between(count, 5, 15))`        | Shortcut for count >= 5 & count <= 15   |
+| **Operator** | **Meaning** | **Example Code** | **Notes / Common Usage** |
+|:--------------:|:------------------:|:-----------------:|:----------------:|
+| `==` | Equal to | `filter(df, species == "bee")` | Must use double equals ==, not single = |
+| `!=` | Not equal to | `filter(df, species != "wasp")` | Excludes matching values |
+| `<` / `>` | Less than / Greater than | `filter(df, count > 10)` | Strictly less/greater than |
+| `<=` / `>=` | Less than or equal / Greater than or equal | `filter(df, count >= 10)` | Inclusive bounds |
+| `%in%` | Value matching (in list) | `filter(df, species %in% c("bee", "ant"))` | Replaces multiple \|\| conditions |
+| `&` or `,` | Logical AND | `filter(df, count > 5, site == "A")` | Comma , inside filter() acts as & |
+| \``|` | Logical OR | `filter(df, site == "A" \| site == "B")` | At least one condition must be TRUE |
+| `!` | Logical NOT | `filter(df, !is.na(bee_count))` | Inverts a logical expression |
+| `is.na()` | Is missing / NA | `filter(df, is.na(notes))` | Checks for missing values |
+| `between()` | Inclusive value range | `filter(df, between(count, 5, 15))` | Shortcut for count \>= 5 & count \<= 15 |
 
 </br>
 
 ### `select()`
-Often we want to grab only certain variables (i.e., columns) from our dataset to either create a subset of the variables, or to pass to a certain function. For this, we use the `select()` function. 
+
+Often we want to grab only certain variables (i.e., columns) from our dataset to either create a subset of the variables, or to pass to a certain function. For this, we use the `select()` function.
 
 ```{r}
 pollinators |> 
@@ -388,7 +390,7 @@ pollinators |>
 There are several **helper functions** that assist with selecting variables of various types or that contain certain strings or values. These functions can be helpful across many dplyr or tidyverse actions.
 
 | **Category** | **Function** | **Description** |   |
-|-----------------|-----------------|-----------------------|-----------------|
+|-----------------|-----------------|---------------------|-----------------|
 | **Selecting Columns** | `everything()` | Selects all remaining columns |  |
 |  | `starts_with("prefix")` | Matches names starting with a string |  |
 |  | `ends_with("suffix")` | Matches names ending with a string |  |
@@ -415,6 +417,7 @@ There are several **helper functions** that assist with selecting variables of v
 </br>
 
 ### `mutate()`
+
 Once we get our data imported, we'll often need to create new variables, either by using some combination of information from our existing variables, or appending new data after generating it from models or other operations. To do this, we use `mutate()`, which is a type of **vectorized** function. This should sound familar from week 2. It means that `mutate()` takes a vector (in this case, a column) and returns a vector of the *same* length. For example:
 
 ```{r}
@@ -423,9 +426,10 @@ pollinators |>
   mutate(rate_of_observation = bee_count / survey_minutes)
 ```
 
-:::{.callout-tip}
+::: callout-tip
 # Quick review from a few minutes ago...
-What is the `select()` function doing in the above example? 
+
+What is the `select()` function doing in the above example?
 :::
 
 Because `mutate()` is vectorized, we'll always end up with a tibble of the same *length* at the end of using it. A common error you will see when trying to use mutate is that the vector you want to append isn't the correct length, for example:
@@ -441,6 +445,7 @@ Here R is saying, "Yo! This new variable you want me to create needs to be lengt
 </br>
 
 ### `summarize()`
+
 We can also apply summary functions to our columns to create new tables of summary statistics. These functions take vectors as input but return a single value. For example:
 
 ```{r}
@@ -448,12 +453,13 @@ pollinators |>
   summarize(total_bees = sum(bee_count, na.rm = TRUE))
 ```
 
-Neat! There are tons of summary functions that we can apply using `summarize()` -- check our your cheatsheet for some examples. Ones you'll use ALOT are `mean()`, `sd()`, `sum()`, and `n()`. 
+Neat! There are tons of summary functions that we can apply using `summarize()` -- check our your cheatsheet for some examples. Ones you'll use ALOT are `mean()`, `sd()`, `sum()`, and `n()`.
 
 </br>
 
 ### `group_by()`
-Most of the time we are calculating new variables or data summarizations, we need to do so across groups within our dataset. `dplyr` uses the `group_by()` function, or the `.by` argument within our primary `dplyr` verbs to conduct operations by group. 
+
+Most of the time we are calculating new variables or data summarizations, we need to do so across groups within our dataset. `dplyr` uses the `group_by()` function, or the `.by` argument within our primary `dplyr` verbs to conduct operations by group.
 
 For example, imagine that we want to calculate the average abundance of each bee species within our tidy dataset that looks like this:
 
@@ -468,7 +474,7 @@ pollinators |>
   summarize(total_bees = sum(bee_count))
 ```
 
-Instead, we'll `group_by()` our variable `species` and calculate the sum of `bee_count`: 
+Instead, we'll `group_by()` our variable `species` and calculate the sum of `bee_count`:
 
 ```{r}
 pollinators |> 
@@ -483,8 +489,9 @@ pollinators |>
   )
 ```
 
-:::{.callout-caution}
+::: callout-caution
 # `group_by()` operations follow the tibble!
+
 If you use `group_by()` on a tibble and create a new tibble from it, the new tibble will *retain* the grouping. This can be an issue if you need to create a new variable or summarization, but *don't* want to use the same grouping structure. Keep this in mind! We can undo grouping by using `ungroup()`.
 
 A good way to see if a tibble has a grouping structure is just to ask R to return it and to look for any grouping structure, e.g.:

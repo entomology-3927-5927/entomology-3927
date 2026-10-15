@@ -2,23 +2,66 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jeremy Hemberger">
+<meta name="dcterms.date" content="2026-10-15">
 
-<title>w5-workshop – Entomology 3927/5927</title>
+<title>Workshop 5: Data Wranglin’ Pt. I – Entomology 3927/5927</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -37,10 +80,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0edad7f0897b4c7815ad90a4132624c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -70,6 +115,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 </head>
@@ -82,7 +129,8 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -150,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -306,19 +354,200 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#frontmatter" id="toc-frontmatter" class="nav-link active" data-scroll-target="#frontmatter">Frontmatter</a></li>
+  <li><a href="#packages-well-need-for-today" id="toc-packages-well-need-for-today" class="nav-link" data-scroll-target="#packages-well-need-for-today">📦 Packages we’ll need for today</a></li>
+  <li><a href="#load-our-data" id="toc-load-our-data" class="nav-link" data-scroll-target="#load-our-data">💾 Load our data</a></li>
+  <li><a href="#workshop-report" id="toc-workshop-report" class="nav-link" data-scroll-target="#workshop-report">📋 Workshop report</a></li>
+  <li><a href="#workshop-assignment" id="toc-workshop-assignment" class="nav-link" data-scroll-target="#workshop-assignment">Workshop assignment</a>
+  <ul class="collapse">
+  <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data">Importing data</a></li>
+  <li><a href="#cleaning-up-data" id="toc-cleaning-up-data" class="nav-link" data-scroll-target="#cleaning-up-data">Cleaning up data</a></li>
+  <li><a href="#transforming-data" id="toc-transforming-data" class="nav-link" data-scroll-target="#transforming-data">Transforming data</a></li>
+  <li><a href="#generate-data-summaries" id="toc-generate-data-summaries" class="nav-link" data-scroll-target="#generate-data-summaries">Generate data summaries</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/w5-workshop.html">Module 3: Basic data wrangling and visualization in R</a></li><li class="breadcrumb-item"><a href="../workshop/w5-workshop.html">Week 5: Data wrangling 1</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/w5-workshop.html">Module 3: Basic data wrangling and visualization in R</a></li><li class="breadcrumb-item"><a href="../workshop/w5-workshop.html">Week 5: Data wrangling 1</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Workshop 5: Data Wranglin’ Pt. I</h1>
+<p class="subtitle lead">Entomology 3927 - Fall 2026</p>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeremy Hemberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 15, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="frontmatter" class="level2 content-callout1">
+<h2 class="anchored" data-anchor-id="frontmatter">Frontmatter</h2>
+<p><strong>Due date for workshop materials</strong></p>
+<p>You will need to commit and push your workshop files and create your peer review issue and tag your reviewer by <strong>23:59 next Tuesday, October 20th</strong> so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by <strong>Friday, October 23rd at 12:00</strong>.</p>
+</section>
+<p><br></p>
+<section id="packages-well-need-for-today" class="level2">
+<h2 class="anchored" data-anchor-id="packages-well-need-for-today">📦 Packages we’ll need for today</h2>
+<p>Be sure to install these packages (<code>install.packages()</code>) if you don’t already have them.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+</section>
+<section id="load-our-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-our-data">💾 Load our data</h2>
+<p>You’ll need to download the <code>.csv</code> files we’ll use today and open the Google Sheets that we’ll import data directly from.</p>
+<p><a href="workshop_data/w5-workshop-data-messy.csv" class="btn btn-primary" download="qw5-workshop-data-messy.csv"><i class="fa-solid fa-file-csv" aria-label="file-csv"></i> <code>.csv</code> dataset</a> <a href="https://docs.google.com/spreadsheets/d/1tjBRNKJA2ZkSNtjFgZMjrUGLpQjmswQsB5fmX4266qw/edit?usp=sharing" class="btn btn-primary" download="w2-workshop.qmd"><i class="fa-solid fa-table" aria-label="table"></i> Google Sheet dataset</a></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be sure you save the <code>.csv</code> in the correct place so that you can access it in your R Studio project!</p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="workshop-report" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-report">📋 Workshop report</h2>
+<p>Today, you’ll be compiling your first workshop report and using Git/GitHub to post it for peer review using an Issue. Ultimately, it’s up to each of you how you format your report; the only requirement is that you utilize a <code>.qmd</code> (Quarto Markdown) document to create it. Recall, these are markdown documents that have code chunks that can be run and we can render them as nicely formatted <code>.html</code> documents. I highly suggest you use your markdown cheat sheet for help with formatting.</p>
+<p>For our purposes, you’ll be posting both your <code>.qmd</code> and <code>.html</code> files for your peer reviewer (tagging the files in your GitHub repository) and then tagging your peer reviewer to assign them to review your code. The process will look like this:</p>
+<ol type="1">
+<li><strong>Complete your report:</strong> Follow the instructions for the workshop and complete your work as a <code>.qmd</code> document. Format it appropriately (should be structured, easy-to-follow and your various sections should make clear links to the workshop prompts).</li>
+<li><strong>Stage and commit your changes:</strong> Once you’re done with your report, stage and commit your changes locally using an informative commit message.</li>
+<li><strong>Push your changes to GitHub:</strong> Push your changes into your personal course repository.</li>
+<li><strong>Create an issue and assign your reviewer:</strong> In your repository, select the <kbd>Issues</kbd> tab. From there, select <kbd>New issue</kbd>.
+<ul>
+<li>Enter a consistent title for each week’s submission using this format: <code>wX_workshop_report</code> where you replace X with the current week.</li>
+<li>See my <a href="https://github.com/entomology-3927-5927/hemberger-jeremy-3927/issues/1">example issue here</a>, and format your issue text similarly. Feel free to add notes to your reviewer (e.g., highlighting areas where you’d like specific feedback or struggled), and include a funny image, meme, or gif because we all need laughs these days. Be sure to tag your reviewer using the <code>@</code> sign and selecting their username. Reviewer assignments for each week are posted on the <a href="../workshop/workshop-index.html">primary workshop page</a>.</li>
+</ul></li>
+<li><strong>Complete your peer review</strong> See the <a href="../workshop/workshop-index.html">primary workshop page</a> for a peer reviewing rubric and suggestions of what to look for. Remember to be both kind and constructive. No one likes a <a href="https://patthomson.net/2026/06/01/how-to-be-reviewer-2/">Reviewer #2</a>.</li>
+<li><strong>Close the issue:</strong> Once you have completed your peer review, post it, and then mark the issue as “closed”.</li>
+</ol>
+<p><br></p>
+</section>
+<section id="workshop-assignment" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-assignment">Workshop assignment</h2>
+<section id="importing-data" class="level3">
+<h3 class="anchored" data-anchor-id="importing-data">Importing data</h3>
+<ol type="1">
+<li><p>Download the <code>.csv</code> file for todays lab, and import it into R Studio.</p></li>
+<li><p>Practice importing the Google Sheets data as well. These data are similarly structured to the <code>.csv</code>, but are already cleaned and have additional variables collected.</p></li>
+</ol>
+</section>
+<section id="cleaning-up-data" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-up-data">Cleaning up data</h3>
+<ol type="1">
+<li><p>Inspect the data. You’ll find that there are many issues that make these data “untidy”.</p>
+<p>Do the column types make sense? Do the column names make sense and are they in the best format to be machine readable?</p></li>
+<li><p>Clean up the data. This may include:</p>
+<ul>
+<li>clean up the column names</li>
+<li>adjust how the data for each column are parsed (i.e., their atomic data type) to ensure they’ll behave as they’re supposed to</li>
+<li>account for varying types of missing value codings in the data</li>
+<li>ensure your categorical data are consistently coded</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some functions that may be of use here are: <code>janitor::clean_names()</code>, <code>mutate()</code>, <code>case_when()</code>, <code>str_to_lower()</code>, <code>readr::parse_number()</code>, <code>parse_double()</code>, <code>na</code>, <code>na_if()</code>, <code>replace_with_na()</code>. Most all of these are in the tidyverse and your cheatsheets but we may not have covered exactly how to use them. Try and figure it out!</p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Tidy the data. Look at how the tibble is structured. Are these data tidy? If not, use the <code>pivot_*()</code> functions to reshape the data appropriately, remembering the rules for tidy data.</li>
+</ol>
+</section>
+<section id="transforming-data" class="level3">
+<h3 class="anchored" data-anchor-id="transforming-data">Transforming data</h3>
+<ol type="1">
+<li></li>
+<li><p>Create a tibble that is a subset of the full data, only including the plot ID, habitat type, species, year, and plant height.</p></li>
+<li><p>Create a dataset containing only observations from 2026 in restored prairies.</p></li>
+<li><p>Create a new variable called <code>height_m</code> and convert your height appropriately.</p></li>
+<li><p>Create a new variable called <code>height_class</code> that classifies plants as <em>short</em> (less than 50 cm), <em>medium</em> (50–100 cm), or <em>tall</em> (greater than 100 cm). How many observations fall into each class?</p></li>
+<li><p>Identify the 10 tallest plant observations. Which species, sites, and habitat types do they come from?</p></li>
+</ol>
+</section>
+<section id="generate-data-summaries" class="level3">
+<h3 class="anchored" data-anchor-id="generate-data-summaries">Generate data summaries</h3>
+<ol type="1">
+<li><p>Calculate the mean plant height and number of observations for each year. Did average plant height increase or decrease from 2025 to 2026?</p></li>
+<li><p>Calculate the mean and standard deviation of plant height for each habitat type. Which habitat has the tallest plants on average?</p></li>
+<li><p>Calculate mean plant height for each species, separately for each year. Which species has the greatest mean height in each year? Are the rankings consistent?</p></li>
+</ol>
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section>
+</section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../workshop";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -370,13 +599,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

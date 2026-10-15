@@ -17,4 +17,3 @@ format:
 [{{< fa brands r-project title="R Project">}} [Download R](https://cran.r-project.org/){style="color: white !important;"}]{.btn .btn-primary role="button"} [{{< fa registered >}} [Download RStudio](https://posit.co/download/rstudio-desktop/){style="color: white !important;"}]{.btn .btn-primary role="button"}
 
 </p>
-
