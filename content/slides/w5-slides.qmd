@@ -43,3 +43,216 @@ format:
 :::
 
 # Tidy data principles {.bkrd-color-1}
+
+## Why do we wrangle data?
+
+::: box-1-list
+Real ecological/biological data rarely arrive ready for analysis. There are three (ish) steps to getting our data ready to do any particular analysis:
+:::
+
+1. **Import:** Get data into R.
+2. **Tidy:** Organize observations and variables consistently.
+3. **Transform:** Clean, filter, calculate, and summarize.
+
+Our goal is to turn raw observations into data that are ready to visualize, model, and interpret.
+
+::: {.callout-important}
+Your analyses are only as reliable as the data and decisions that go into them. It may seem like these steps are trivial, but they are very much *not*.
+:::
+
+# Data wrangling first steps: import and tidy {.bkrd-color-2}
+
+## Importing data into R
+
+The `readr` package makes it easy to import tabular data.
+
+```r
+library(tidyverse)
+
+bees <- read_csv("data/raw/bees.csv")
+```
+
+Other useful tools:
+
+- `read_csv()` — import CSV files.
+- `read_delim()` — import delimited text files.
+- `read_sheet()` — import data from Google Sheets using `googlesheets4`.
+
+::: {.callout-important}
+R guesses column types during import. Errors in the raw data can lead to incorrect data types or missing values.
+:::
+
+## Inspect before you analyze
+
+Never assume your data imported correctly.
+
+```r
+glimpse(bees)
+
+problems(bees)
+```
+
+Check for:
+
+- Incorrect column names.
+- Numeric measurements imported as text.
+- Unexpected missing values (`NA`).
+- Parsing errors or inconsistent entries.
+
+Standardize messy column names with `janitor`:
+
+```r
+bees <- read_csv("data/raw/bees.csv") |>
+  janitor::clean_names()
+```
+
+
+## What is tidy data?
+
+Tidy data follows three principles:
+
+1. **Each variable is a column.**
+2. **Each observation is a row.**
+3. **Each value is a cell.**
+
+![](https://r4ds.hadley.nz/images/tidy-1.png)
+
+## Why tidy data?
+
+Tidy data makes it easier to:
+
+- Compare observations.
+- Visualize multiple variables or species.
+- Summarize data consistently.
+- Use functions across columns and rows (recall *vectorization*)
+
+
+## Reshaping data into tidy form: wide → long
+
+:::box-2-list
+The most common way we have to re-arrange our data is to *lengthen* it. Suppose tree counts are stored in separate columns for each species:
+:::
+
+| plot | oak_count | maple_count | pine_count |
+|---|---:|---:|---:|
+| A | 12 | 5 | 8 |
+| B | 7 | 9 | 3 |
+
+
+## Reshaping data into tidy form: wide → long
+
+We can combine the species columns into a single variable.
+
+```r
+trees_long <- trees |>
+  pivot_longer(
+    cols = ends_with("_count"),
+    names_to = "species",
+    values_to = "abundance"
+  )
+```
+| plot | species | abundance |
+|---|---|---:|
+| A | oak | 12 |
+| A | maple | 5 |
+| A | pine | 8 |
+| B | oak | 7 |
+| B | maple | 9 |
+| B | pine | 3 |
+
+Now we have one row per plot–species observation.
+
+
+## Reshaping data into tidy form: long → wide
+
+:::box-2-list
+Sometimes each measurement is recorded on a separate row, that is, many variables are stored within a single column. This is common with data from big gubmint.
+:::
+
+| plot | metric | value |
+|---|---|---:|
+| A | canopy_cover | 85 |
+| A | soil_ph | 6.2 |
+| B | canopy_cover | 42 |
+| B | soil_ph | 7.1 |
+
+## Reshaping data into tidy form: long → wide
+
+Use `pivot_wider()` to make each measurement its own column.
+
+```r
+plots_wide <- plots_long |>
+  pivot_wider(
+    names_from = metric,
+    values_from = value
+  )
+plots_wide
+```
+
+| plot | canopy_cover | soil_ph | litter_depth |
+|---|---:|---:|---:|
+| A | 85 | 6.2 | 4.5 |
+| B | 42 | 7.1 | 1.2 |
+
+:::{.callout-important}
+Long and wide are organizational choices. Choose the structure that best supports your next task.
+:::
+
+# Transforming data: the big 3 Tidyverse verbs{.bkrd-color-3}
+
+## The essential `dplyr` verbs
+
+:::box-3-list
+We'll almost always need to further manipulate or transform our cleaned data. The most common functions you'll use are the following:
+:::
+
+| Function | What it does | Example |
+|---|---|---|
+| `filter()` | Select rows | Keep surveys from prairie sites |
+| `select()` | Select columns | Keep site, species, and bee count |
+| `mutate()` | Create variables | Calculate bees observed per minute |
+| `summarize()` | Calculate summaries | Calculate mean bee abundance |
+| `group_by()` | Define groups | Summarize separately by habitat |
+
+These functions can be combined into readable, reproducible workflows using the pipe (`|>`).
+
+## Combine verbs to answer questions
+
+**Question:** How does bee observation rate vary among habitats?
+
+```r
+habitat_summary <- pollinators |>
+  filter(!is.na(bee_count)) |>
+  mutate(
+    observation_rate = bee_count / survey_minutes
+  ) |>
+  summarize(
+    mean_rate = mean(observation_rate),
+    n_surveys = n(),
+    .by = habitat
+  )
+```
+
+This workflow:
+
+1. Removes observations with missing bee counts.
+2. Calculates a new variable.
+3. Groups observations by habitat.
+4. Calculates the mean observation rate and number of surveys.
+
+## From raw data to reproducible science
+
+A reliable data-wrangling workflow:
+
+1. Import raw data.
+2. Inspect types, names, and missing values.
+3. Clean column names and resolve data-quality issues.
+4. Reshape data when necessary.
+5. Filter observations and select variables.
+6. Create new variables and calculate summaries as needed.
+7. Document your decisions in code.
+
+:::{.callout-important}
+# Take-home message:
+Data wrangling is not busywork. It is a critical part of the scientific process, and your code should make every decision transparent and reproducible.
+:::

@@ -7,10 +7,10 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.18">
+  <meta name="generator" content="quarto-1.7.32">
 
   <title>Entomology 3927/5927 – Week 5</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,16 +19,10 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
+    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -36,8 +30,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-71561e5efac870f696d699f02f65b29e.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-0ccd7e690a423122c7f06c7cec3a7b30.css">
   <link rel="stylesheet" href="default">
   <link rel="stylesheet" href="slide_styles/slide-styles.scss">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -164,11 +224,367 @@
 </div>
 </div>
 </section>
+<section>
 <section id="tidy-data-principles" class="title-slide slide level1 bkrd-color-1 center">
 <h1>Tidy data principles</h1>
 
+</section>
+<section id="why-do-we-wrangle-data" class="slide level2">
+<h2>Why do we wrangle data?</h2>
+<div class="box-1-list">
+<p>Real ecological/biological data rarely arrive ready for analysis. There are three (ish) steps to getting our data ready to do any particular analysis:</p>
+</div>
+<ol type="1">
+<li><strong>Import:</strong> Get data into R.</li>
+<li><strong>Tidy:</strong> Organize observations and variables consistently.</li>
+<li><strong>Transform:</strong> Clean, filter, calculate, and summarize.</li>
+</ol>
+<p>Our goal is to turn raw observations into data that are ready to visualize, model, and interpret.</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Your analyses are only as reliable as the data and decisions that go into them. It may seem like these steps are trivial, but they are very much <em>not</em>.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="data-wrangling-first-steps-import-and-tidy" class="title-slide slide level1 bkrd-color-2 center">
+<h1>Data wrangling first steps: import and tidy</h1>
 
 </section>
+<section id="importing-data-into-r" class="slide level2">
+<h2>Importing data into R</h2>
+<p>The <code>readr</code> package makes it easy to import tabular data.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a>bees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/bees.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Other useful tools:</p>
+<ul>
+<li><code>read_csv()</code> — import CSV files.</li>
+<li><code>read_delim()</code> — import delimited text files.</li>
+<li><code>read_sheet()</code> — import data from Google Sheets using <code>googlesheets4</code>.</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>R guesses column types during import. Errors in the raw data can lead to incorrect data types or missing values.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="inspect-before-you-analyze" class="slide level2">
+<h2>Inspect before you analyze</h2>
+<p>Never assume your data imported correctly.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">glimpse</span>(bees)</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a><span class="fu">problems</span>(bees)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Check for:</p>
+<ul>
+<li>Incorrect column names.</li>
+<li>Numeric measurements imported as text.</li>
+<li>Unexpected missing values (<code>NA</code>).</li>
+<li>Parsing errors or inconsistent entries.</li>
+</ul>
+<p>Standardize messy column names with <code>janitor</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>bees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/bees.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="what-is-tidy-data" class="slide level2">
+<h2>What is tidy data?</h2>
+<p>Tidy data follows three principles:</p>
+<ol type="1">
+<li><strong>Each variable is a column.</strong></li>
+<li><strong>Each observation is a row.</strong></li>
+<li><strong>Each value is a cell.</strong></li>
+</ol>
+<p><img data-src="https://r4ds.hadley.nz/images/tidy-1.png"></p>
+</section>
+<section id="why-tidy-data" class="slide level2">
+<h2>Why tidy data?</h2>
+<p>Tidy data makes it easier to:</p>
+<ul>
+<li>Compare observations.</li>
+<li>Visualize multiple variables or species.</li>
+<li>Summarize data consistently.</li>
+<li>Use functions across columns and rows (recall <em>vectorization</em>)</li>
+</ul>
+</section>
+<section id="reshaping-data-into-tidy-form-wide-long" class="slide level2">
+<h2>Reshaping data into tidy form: wide → long</h2>
+<div class="box-2-list">
+<p>The most common way we have to re-arrange our data is to <em>lengthen</em> it. Suppose tree counts are stored in separate columns for each species:</p>
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>plot</th>
+<th style="text-align: right;">oak_count</th>
+<th style="text-align: right;">maple_count</th>
+<th style="text-align: right;">pine_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reshaping-data-into-tidy-form-wide-long-1" class="slide level2">
+<h2>Reshaping data into tidy form: wide → long</h2>
+<p>We can combine the species columns into a single variable.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>trees_long <span class="ot">&lt;-</span> trees <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb4-3"><a></a>    <span class="at">cols =</span> <span class="fu">ends_with</span>(<span class="st">"_count"</span>),</span>
+<span id="cb4-4"><a></a>    <span class="at">names_to =</span> <span class="st">"species"</span>,</span>
+<span id="cb4-5"><a></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span></span>
+<span id="cb4-6"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>plot</th>
+<th>species</th>
+<th style="text-align: right;">abundance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>oak</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>maple</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>pine</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>oak</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>maple</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>pine</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+<p>Now we have one row per plot–species observation.</p>
+</section>
+<section id="reshaping-data-into-tidy-form-long-wide" class="slide level2">
+<h2>Reshaping data into tidy form: long → wide</h2>
+<div class="box-2-list">
+<p>Sometimes each measurement is recorded on a separate row, that is, many variables are stored within a single column. This is common with data from big gubmint.</p>
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>plot</th>
+<th>metric</th>
+<th style="text-align: right;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>canopy_cover</td>
+<td style="text-align: right;">85</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>soil_ph</td>
+<td style="text-align: right;">6.2</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>canopy_cover</td>
+<td style="text-align: right;">42</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>soil_ph</td>
+<td style="text-align: right;">7.1</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reshaping-data-into-tidy-form-long-wide-1" class="slide level2">
+<h2>Reshaping data into tidy form: long → wide</h2>
+<p>Use <code>pivot_wider()</code> to make each measurement its own column.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>plots_wide <span class="ot">&lt;-</span> plots_long <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb5-3"><a></a>    <span class="at">names_from =</span> metric,</span>
+<span id="cb5-4"><a></a>    <span class="at">values_from =</span> value</span>
+<span id="cb5-5"><a></a>  )</span>
+<span id="cb5-6"><a></a>plots_wide</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>plot</th>
+<th style="text-align: right;">canopy_cover</th>
+<th style="text-align: right;">soil_ph</th>
+<th style="text-align: right;">litter_depth</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">6.2</td>
+<td style="text-align: right;">4.5</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">7.1</td>
+<td style="text-align: right;">1.2</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Long and wide are organizational choices. Choose the structure that best supports your next task.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="transforming-data-the-big-3-tidyverse-verbs" class="title-slide slide level1 bkrd-color-3 center">
+<h1>Transforming data: the big 3 Tidyverse verbs</h1>
+
+</section>
+<section id="the-essential-dplyr-verbs" class="slide level2">
+<h2>The essential <code>dplyr</code> verbs</h2>
+<div class="box-3-list">
+<p>We’ll almost always need to further manipulate or transform our cleaned data. The most common functions you’ll use are the following:</p>
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>What it does</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>filter()</code></td>
+<td>Select rows</td>
+<td>Keep surveys from prairie sites</td>
+</tr>
+<tr class="even">
+<td><code>select()</code></td>
+<td>Select columns</td>
+<td>Keep site, species, and bee count</td>
+</tr>
+<tr class="odd">
+<td><code>mutate()</code></td>
+<td>Create variables</td>
+<td>Calculate bees observed per minute</td>
+</tr>
+<tr class="even">
+<td><code>summarize()</code></td>
+<td>Calculate summaries</td>
+<td>Calculate mean bee abundance</td>
+</tr>
+<tr class="odd">
+<td><code>group_by()</code></td>
+<td>Define groups</td>
+<td>Summarize separately by habitat</td>
+</tr>
+</tbody>
+</table>
+<p>These functions can be combined into readable, reproducible workflows using the pipe (<code>|&gt;</code>).</p>
+</section>
+<section id="combine-verbs-to-answer-questions" class="slide level2">
+<h2>Combine verbs to answer questions</h2>
+<p><strong>Question:</strong> How does bee observation rate vary among habitats?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>habitat_summary <span class="ot">&lt;-</span> pollinators <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(bee_count)) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-4"><a></a>    <span class="at">observation_rate =</span> bee_count <span class="sc">/</span> survey_minutes</span>
+<span id="cb6-5"><a></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb6-7"><a></a>    <span class="at">mean_rate =</span> <span class="fu">mean</span>(observation_rate),</span>
+<span id="cb6-8"><a></a>    <span class="at">n_surveys =</span> <span class="fu">n</span>(),</span>
+<span id="cb6-9"><a></a>    <span class="at">.by =</span> habitat</span>
+<span id="cb6-10"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This workflow:</p>
+<ol type="1">
+<li>Removes observations with missing bee counts.</li>
+<li>Calculates a new variable.</li>
+<li>Groups observations by habitat.</li>
+<li>Calculates the mean observation rate and number of surveys.</li>
+</ol>
+</section>
+<section id="from-raw-data-to-reproducible-science" class="slide level2">
+<h2>From raw data to reproducible science</h2>
+<p>A reliable data-wrangling workflow:</p>
+<ol type="1">
+<li>Import raw data.</li>
+<li>Inspect types, names, and missing values.</li>
+<li>Clean column names and resolve data-quality issues.</li>
+<li>Reshape data when necessary.</li>
+<li>Filter observations and select variables.</li>
+<li>Create new variables and calculate summaries as needed.</li>
+<li>Document your decisions in code.</li>
+</ol>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Take-home message:</strong></p>
+</div>
+<div class="callout-content">
+<p>Data wrangling is not busywork. It is a critical part of the scientific process, and your code should make every decision transparent and reproducible.</p>
+</div>
+</div>
+</div>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../../media/ent-3927-header.png" class="slide-logo"></p>
@@ -361,7 +777,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -435,14 +851,13 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
             }
-          }
-          return codeEl.innerText;
+            return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

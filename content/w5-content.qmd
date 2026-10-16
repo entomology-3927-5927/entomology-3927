@@ -12,13 +12,13 @@ format:
 :::: content-callout1
 ## Readings
 
-- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
-- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
-- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 7: Data import](https://r4ds.hadley.nz/data-import.html)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 7: Data import](https://r4ds.hadley.nz/data-import.html)
 
 ### Online/optional extras
 
-- {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
+-   {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
 
 ## Questions we'll address this week
 
@@ -364,7 +364,7 @@ pollinators |>
 Most of the time, we're using logical or boolean operators to do our filtering, this includes:
 
 | **Operator** | **Meaning** | **Example Code** | **Notes / Common Usage** |
-|:--------------:|:------------------:|:-----------------:|:----------------:|
+|:----------------:|:-----------------:|:----------------:|:----------------:|
 | `==` | Equal to | `filter(df, species == "bee")` | Must use double equals ==, not single = |
 | `!=` | Not equal to | `filter(df, species != "wasp")` | Excludes matching values |
 | `<` / `>` | Less than / Greater than | `filter(df, count > 10)` | Strictly less/greater than |
@@ -390,7 +390,7 @@ pollinators |>
 There are several **helper functions** that assist with selecting variables of various types or that contain certain strings or values. These functions can be helpful across many dplyr or tidyverse actions.
 
 | **Category** | **Function** | **Description** |   |
-|-----------------|-----------------|---------------------|-----------------|
+|-----------------|-----------------|--------------------|-----------------|
 | **Selecting Columns** | `everything()` | Selects all remaining columns |  |
 |  | `starts_with("prefix")` | Matches names starting with a string |  |
 |  | `ends_with("suffix")` | Matches names ending with a string |  |

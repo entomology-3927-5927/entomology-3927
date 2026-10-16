@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,16 +11,10 @@
 
 <title>Week 5 – Entomology 3927/5927</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -80,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c96709ee289d8f9afca9c27adde60711.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -125,8 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -355,7 +348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin" id="toc-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin" class="nav-link active" data-scroll-target="#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin"><i class="fa-solid fa-hat-cowboy" aria-label="hat-cowboy"></i> Data wranglin’</a></li>
+  <li><a href="#data-wranglin" id="toc-data-wranglin" class="nav-link active" data-scroll-target="#data-wranglin"><i class="fa-solid fa-hat-cowboy" aria-label="hat-cowboy"></i> Data wranglin’</a></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><img src="content_media/w5/week5-wranglin.png" class="img-fluid"></a></li>
   <li><a href="#importing-data-the-readr-package" id="toc-importing-data-the-readr-package" class="nav-link" data-scroll-target="#importing-data-the-readr-package">💾 Importing data: the <code>readr</code> package</a>
   <ul class="collapse">
@@ -426,7 +419,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="onlineoptional-extras">Online/optional extras</h3>
 <ul>
 <li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://datacarpentry.github.io/semester-biology/materials/tidy-data/">Tidy Data: Data Carpentry</a></li>
-<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r">R for the Rest of Us: How to use git and github with R</a></li>
 </ul>
 </section>
 </section>
@@ -459,8 +451,8 @@ Tip
 </section>
 </div>
 <p><br></p>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin" class="level2">
-<h2 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-data-wranglin"><i class="fa-solid fa-hat-cowboy" aria-label="hat-cowboy"></i> Data wranglin’</h2>
+<section id="data-wranglin" class="level2">
+<h2 class="anchored" data-anchor-id="data-wranglin"><i class="fa-solid fa-hat-cowboy" aria-label="hat-cowboy"></i> Data wranglin’</h2>
 <p>In many of your statistics courses so far, you’ve probably worked a lot with very clean, ready-to-analyze data to emphasize learning statistical concepts over data handling. <em>However, We’re all biologists or ecologists working with biological and ecological data, which are rarely as neatly packaged</em>. We’ll often need to clean things up, get rid of problematic or missing observations, or create new variables/impute missing data.</p>
 <p>When it comes to analyzing data, 75% or more of your time will be taken up collating, recording, arranging, and tidying your data in preparation for the actual statistical analysis. This process I call <strong>data wrangling</strong> or <strong>data cleaning</strong>. These steps are as crucial as your analsyes: misteps when wrangling your data into shape can result in ommitting or including data incorrectly, calculating incorrect summaries or new variables. The wrangling steps are also the least documented in the literature or when people publish the code for their analyses; they’ll often just include the statistical treatise but not how the data went from raw –&gt; ready to analyze. This is a mistake, and a lot can be hidden by not including the details of how your data are prepared.</p>
 <p>We’ll discuss the three basic steps of data wrangling today and next week: <strong>importing</strong>, <strong>tidying</strong>, and <strong>transforming</strong> data.</p>
@@ -482,36 +474,36 @@ Tip
 </ol>
 <p>We’ll mostly be using <code>read_csv()</code>. For example:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my.data.df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my.data.df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"./data/raw/raw-data.csv"</span>,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> <span class="cn">TRUE</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When you import data using any of the <code>read_*()</code> functions, the function will automatically try to guess whether you have column names as part of your data, what the proper text delimiter is, and what the type of atomic data each column represents (logical, numeric, character). Usually, it does a very good job of this, but if you have any mistakes in your recorded data (comma instead of decimal point, text in a column that otherwise contains numbers), it may import the data with the columns incorrectly classified, and that will create issues down the line when you want to plot, model, or work with these data. Given this, it’s important that we immediately check our imported data for issues. We can do this by calling <code>str()</code> (short for <em>structure</em>) or using the tidyverse <code>glimpse()</code> function to give us a summary of our imported data and inspect it for issues.</p>
 <p>Alternatively, if you know your data structure we can explcitly tell the <code>read_*()</code> function what your columns should be by passing it a vector of the data types:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my.data.df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my.data.df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"./data/raw/raw-data.csv"</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> <span class="cn">TRUE</span>, </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">c</span>(<span class="st">"c"</span>, <span class="st">"c"</span>, <span class="st">"n"</span>, <span class="st">"n"</span>, <span class="st">"f"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this code, we’re telling R that our imported data has 5 columns that are, in order, character, character, numeric, numeric, and factor atomic data. This will force these columns to parse the data in this format, but it will throw a warning to you indicating that there was a parsing error:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"./content_data/w5/bees.csv"</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">site =</span> <span class="fu">col_character</span>(),</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">bumble_bees =</span> <span class="fu">col_double</span>()</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details,
 e.g.:
   dat &lt;- vroom(...)
   problems(dat)</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bees</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bees</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   site  bumble_bees
@@ -520,12 +512,12 @@ e.g.:
 2 B              NA
 3 C               8</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">problems</span>(bees)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">problems</span>(bees)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 5
     row   col expected actual  file                                             
   &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;                                            
-1     3     2 a double missing /Users/jhemberg/Documents/websites/entomology-39…</code></pre>
+1     3     2 a double missing /Users/jhemberger/Documents/GitHub/entomology-39…</code></pre>
 </div>
 </div>
 </section>
@@ -534,7 +526,7 @@ e.g.:
 <p>We’ll spend more time on importing data from the internet a bit later in the course, but for now, it’s important that we discuss Google Sheets because many people likely use it to record data from experiments. I highly recommend this, because we have tools that allow us to import directly from your online sheet without having to download <code>.csv</code> files anytime something changes. This eliminates busy work and makes our workflows more easily reproducible.</p>
 <p>The syntax for importing from Google Sheets is similar, we just need to give it details about the sheet ID and sheet name we wish to import from:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googledrive)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Using full URL</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_sheet</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1pmjuATrm7_PCOvlr9HwYsNfBG9d7SApBM87Y0wcQOyk/edit?gid=780380257#gid=780380257"</span>)</span>
@@ -547,7 +539,7 @@ e.g.:
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># a googledrive "dribble" (this is a way to search and get the "access code" for the file in your drive)</span></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>googledrive<span class="sc">::</span><span class="fu">drive_get</span>(<span class="st">"gs4-import"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_sheet</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_sheet</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -555,7 +547,7 @@ e.g.:
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Need to authenticate!
+Need to authenticate!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -565,10 +557,10 @@ e.g.:
 </section>
 <section id="doing-quick-data-cleaning-on-imported-files-the-janitor-package" class="level3">
 <h3 class="anchored" data-anchor-id="doing-quick-data-cleaning-on-imported-files-the-janitor-package">Doing quick data cleaning on imported files: the <code>janitor</code> package</h3>
-<p>Once we import our data, we can do a few quick things to clean it up and standardize it. The <code>janitor</code> package has some really helpful functions to go through messy column names and clean them up. Notice how in our dataset below, we have column names that don’t adhere to the data naming conventions we discussed in week 2. The names have special characters, spaces, and all sorts of shenannigans:</p>
+<p>Once we import our data, we can do a few quick things to clean it up and standardize it. The <code>janitor</code> package has some really helpful functions to go through messy column names and clean them up. Notice how in our dataset below, we have column names that don’t adhere to the data naming conventions we discussed in week 2. The names have special characters, spaces, and all sorts of shenanigans:</p>
 <p><video src="https://i.makeagif.com/media/9-29-2021/ZCNMjF.mp4" class="img-fluid" controls=""><a href="https://i.makeagif.com/media/9-29-2021/ZCNMjF.mp4">Video</a></video></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>messy.names.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>messy.names.df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 9
   `Specimen ID#` ` Genus &amp; Species `  `Leaf Area (cm^2)` `Leaf Area (cm^2)`
@@ -582,7 +574,7 @@ e.g.:
 #   `Percent_NDVI (%)` &lt;dbl&gt;, `DATE collected!` &lt;chr&gt;,
 #   ` Notes / Comments ` &lt;chr&gt;</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(messy.names.df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(messy.names.df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Specimen ID#"            " Genus &amp; Species "      
 [3] "Leaf Area (cm^2)"        "Leaf Area (cm^2)"       
@@ -592,11 +584,11 @@ e.g.:
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>clean.names.df <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(messy.names.df)</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(clean.names.df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(clean.names.df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "specimen_id_number"    "genus_species"         "leaf_area_cm_2"       
 [4] "leaf_area_cm_2_2"      "chlorophyll_a_b_ug_mg" "soil_p_h"             
@@ -605,8 +597,8 @@ e.g.:
 </div>
 <p>We can also use the <strong>pipe</strong> to combine reading our data in and cleaning up the names into a single step!</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>clean.names2.df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"content_data/w5/messy-names.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>clean.names2.df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"content_data/w5/messy-names.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 5 Columns: 9
@@ -620,7 +612,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 • `Leaf Area (cm^2)` -&gt; `Leaf Area (cm^2)...3`
 • `Leaf Area (cm^2)` -&gt; `Leaf Area (cm^2)...4`</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>clean.names2.df </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>clean.names2.df </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 9
   specimen_id_number genus_species        leaf_area_cm_2_3 leaf_area_cm_2_4
@@ -652,7 +644,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <h3 class="anchored" data-anchor-id="lengthening-data">Lengthening data</h3>
 <p>The most common way we have to manipulate a raw data source to make it tidy is to <em>lengthen</em> it. We lengthen data when folks have recorded variable names as column headers. For example:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>tree.count.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>tree.count.df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 10
    site_id  year habitat_type soil_ph canopy_cover_pct oak_count maple_count
@@ -672,7 +664,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 <p>Here, we have a tibble that records data on tree counts in different plots and habitats. Rather than recording each observation as a single row, we have multiple species counts contained in a single row. That is to say, we have “wide” data. If we wanted to plot all of our species in a single figure, the current format wouldn’t allow us to easily do that as there are 5 columns containing species abundances. What we can do, is <strong>pivot</strong> this into a “long” dataset that is tidy using the <code>pivot_longer()</code> function in the <code>tidyr</code> package:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>tree.count.tidy.df <span class="ot">&lt;-</span> tree.count.df <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>tree.count.tidy.df <span class="ot">&lt;-</span> tree.count.df <span class="sc">%&gt;%</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">ends_with</span>(<span class="st">"_count"</span>),     <span class="co"># Select only the species count columns</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"species"</span>,           <span class="co"># Name of the new column for species names</span></span>
@@ -680,7 +672,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_remove</span>(species, <span class="st">"_count"</span>)) <span class="co"># Clean up the "_count" suffix</span></span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>tree.count.tidy.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>tree.count.tidy.df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 50 × 7
    site_id  year habitat_type soil_ph canopy_cover_pct species abundance
@@ -711,7 +703,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <h3 class="anchored" data-anchor-id="widening-data">Widening data</h3>
 <p>The second most common way we have to manipulate a raw data source to make it tidy or compatible with certain data packages is to <em>widen</em> it. We widen data when folks have scattered observations across multiple rows. We commonly need to widen data in order to conduct ecological analyses. For example:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>untidy.plot.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>untidy.plot.df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   plot_id  date       metric           value
@@ -726,13 +718,13 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 <p>Here, our unit of interest, plot, is replicated across multiple and metric contains many variables. We can widen it by:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>tidy.plot.df <span class="ot">&lt;-</span> untidy.plot.df  <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>tidy.plot.df <span class="ot">&lt;-</span> untidy.plot.df  <span class="sc">%&gt;%</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from  =</span> metric,</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> value</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>tidy.plot.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>tidy.plot.df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   plot_id  date       canopy_cover_pct soil_ph litter_depth_cm
@@ -747,7 +739,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Long <em>or</em> Wide data can be “tidy”
+Long <em>or</em> Wide data can be “tidy”
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -768,8 +760,8 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <h3 class="anchored" data-anchor-id="filter"><code>filter()</code></h3>
 <p>Filtering allows us to extract certain cases (i.e., rows) as a new table using some set of logical <em>conditions</em>. As the name implies, we’re “filtering” out specific cases that we want!</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span> </span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Bombus_impatiens"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Bombus_impatiens"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 44 × 7
    site    habitat species temperature_C flowers_per_m2 bee_count survey_minutes
@@ -790,9 +782,9 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <p>Most of the time, we’re using logical or boolean operators to do our filtering, this includes:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 21%">
-<col style="width: 27%">
+<col style="width: 24%">
 <col style="width: 26%">
+<col style="width: 24%">
 <col style="width: 24%">
 </colgroup>
 <thead>
@@ -872,8 +864,8 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <h3 class="anchored" data-anchor-id="select"><code>select()</code></h3>
 <p>Often we want to grab only certain variables (i.e., columns) from our dataset to either create a subset of the variables, or to pass to a certain function. For this, we use the <code>select()</code> function.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span> </span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(site, species, bee_count)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(site, species, bee_count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 200 × 3
    site    species             bee_count
@@ -896,7 +888,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <colgroup>
 <col style="width: 23%">
 <col style="width: 23%">
-<col style="width: 29%">
+<col style="width: 28%">
 <col style="width: 23%">
 </colgroup>
 <thead>
@@ -1048,9 +1040,9 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <h3 class="anchored" data-anchor-id="mutate"><code>mutate()</code></h3>
 <p>Once we get our data imported, we’ll often need to create new variables, either by using some combination of information from our existing variables, or appending new data after generating it from models or other operations. To do this, we use <code>mutate()</code>, which is a type of <strong>vectorized</strong> function. This should sound familar from week 2. It means that <code>mutate()</code> takes a vector (in this case, a column) and returns a vector of the <em>same</em> length. For example:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(temperature_C, flowers_per_m2)) <span class="sc">|&gt;</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rate_of_observation =</span> bee_count <span class="sc">/</span> survey_minutes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rate_of_observation =</span> bee_count <span class="sc">/</span> survey_minutes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 200 × 6
    site    habitat          species bee_count survey_minutes rate_of_observation
@@ -1074,7 +1066,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Quick review from a few minutes ago…
+Quick review from a few minutes ago…
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1083,9 +1075,9 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 <p>Because <code>mutate()</code> is vectorized, we’ll always end up with a tibble of the same <em>length</em> at the end of using it. A common error you will see when trying to use mutate is that the vector you want to append isn’t the correct length, for example:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(temperature_C, flowers_per_m2)) <span class="sc">|&gt;</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_variable =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_variable =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in `mutate()`:
 ℹ In argument: `new_variable = c(3, 3)`.
@@ -1100,8 +1092,8 @@ Caused by error:
 <h3 class="anchored" data-anchor-id="summarize"><code>summarize()</code></h3>
 <p>We can also apply summary functions to our columns to create new tables of summary statistics. These functions take vectors as input but return a single value. For example:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span> </span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_bees =</span> <span class="fu">sum</span>(bee_count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_bees =</span> <span class="fu">sum</span>(bee_count, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   total_bees
@@ -1117,7 +1109,7 @@ Caused by error:
 <p>Most of the time we are calculating new variables or data summarizations, we need to do so across groups within our dataset. <code>dplyr</code> uses the <code>group_by()</code> function, or the <code>.by</code> argument within our primary <code>dplyr</code> verbs to conduct operations by group.</p>
 <p>For example, imagine that we want to calculate the average abundance of each bee species within our tidy dataset that looks like this:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(pollinators)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(pollinators)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 200 × 7
    site    habitat species temperature_C flowers_per_m2 bee_count survey_minutes
@@ -1137,8 +1129,8 @@ Caused by error:
 </div>
 <p>Just doing a summarization of <code>bee_count</code> won’t quite get us there, as it will calculate the total of all species combined (i.e., the whole dataset):</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span> </span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_bees =</span> <span class="fu">sum</span>(bee_count))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_bees =</span> <span class="fu">sum</span>(bee_count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   total_bees
@@ -1148,9 +1140,9 @@ Caused by error:
 </div>
 <p>Instead, we’ll <code>group_by()</code> our variable <code>species</code> and calculate the sum of <code>bee_count</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span> </span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span> </span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_bees =</span> <span class="fu">sum</span>(bee_count))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_bees =</span> <span class="fu">sum</span>(bee_count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   species             total_bees
@@ -1161,12 +1153,12 @@ Caused by error:
 4 Bombus_impatiens           510
 5 Halictus_rubicundus        445</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is equivalent</span></span>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is equivalent</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">|&gt;</span> </span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_bees =</span> <span class="fu">sum</span>(bee_count),</span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> species</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   species             total_bees
@@ -1184,16 +1176,16 @@ Caused by error:
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span><code>group_by()</code> operations follow the tibble!
+<code>group_by()</code> operations follow the tibble!
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>If you use <code>group_by()</code> on a tibble and create a new tibble from it, the new tibble will <em>retain</em> the grouping. This can be an issue if you need to create a new variable or summarization, but <em>don’t</em> want to use the same grouping structure. Keep this in mind! We can undo grouping by using <code>ungroup()</code>.</p>
 <p>A good way to see if a tibble has a grouping structure is just to ask R to return it and to look for any grouping structure, e.g.:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>pollinators.grouped.df <span class="ot">&lt;-</span> pollinators <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>pollinators.grouped.df <span class="ot">&lt;-</span> pollinators <span class="sc">%&gt;%</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species)</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>pollinators.grouped.df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>pollinators.grouped.df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 200 × 7
 # Groups:   species [5]
@@ -1271,14 +1263,13 @@ Caused by error:
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
