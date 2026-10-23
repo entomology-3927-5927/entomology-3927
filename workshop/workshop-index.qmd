@@ -51,7 +51,7 @@ This big picture framing is far more helpful in directing someone to make change
 
 Criteria to keep in mind and a rubric to help shape your feedback. You don't need to use these scores, but feel free to borrow the classifications in your feedback.
 
-| **Criterion** | **Excellent** | **Adequate** | **Needs improvement** |
+| **Criterion**   | 😄 | 😐 | 🫣 |
 |-----------------|----------------------|-----------------|-----------------|
 | **1. Organization & readability** | Code is logically organized, easy to follow, and uses clear spacing/structure. | Mostly understandable but some sections are difficult to follow. | Code is difficult to follow or poorly organized. |
 | **2. Naming & style** | Objects/variables have descriptive names and code follows consistent R style. | Names/style are generally understandable but inconsistent in places. | Names are unclear or style makes the code difficult to understand. |
@@ -86,13 +86,13 @@ Be sure to try and highlight positives and not just negatives. What is one thing
 
 ### Due dates for each week
 
-| Week   | Code report due           | Peer review due           |
-|--------|---------------------------|---------------------------|
-| **5**  | Tue **10/27/2026, 23:59** | Fri **10/30/2026, 12:00** |
-| **6**  | Tue **11/3/2026, 23:59**  | Fri **11/6/2026, 12:00**  |
-| **7**  | Tue **11/10/2026, 23:59** | Fri **11/13/2026, 12:00** |
-| **8**  | Tue **11/17/2026, 23:59** | Fri **11/20/2026, 12:00** |
-| **9** | Tue **11/24/2026, 23:59** | Fri **11/27/2026, 12:00** |
-| **10** | Tue **12/1/2026, 23:59**  | Fri **12/4/2026, 12:00**  |
-| **11** | Tue **12/8/2026, 23:59**  | Fri **12/11/2026, 12:00** |
+| Week   | Code report due            | Peer review due           |
+|--------|----------------------------|---------------------------|
+| **5**  | Tue **10/27/2026, 23:59**  | Fri **10/30/2026, 12:00** |
+| **6**  | Tue **11/3/2026, 23:59**   | Fri **11/6/2026, 12:00**  |
+| **7**  | Tue **11/10/2026, 23:59**  | Fri **11/13/2026, 12:00** |
+| **8**  | Tue **11/17/2026, 23:59**  | Fri **11/20/2026, 12:00** |
+| **9**  | Tue **11/24/2026, 23:59**  | Fri **11/27/2026, 12:00** |
+| **10** | Tue **12/1/2026, 23:59**   | Fri **12/4/2026, 12:00**  |
+| **11** | Tue **12/8/2026, 23:59**   | Fri **12/11/2026, 12:00** |
 | **12** | Tue **12/15/2026, 23:59**  | Fri **12/18/2026, 12:00** |
