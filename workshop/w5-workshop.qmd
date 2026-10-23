@@ -92,19 +92,17 @@ Some functions that may be of use here are: `janitor::clean_names()`, `mutate()`
 
 3.  Tidy the data. Look at how the tibble is structured. Are these data tidy? If not, use the `pivot_*()` functions to reshape the data appropriately, remembering the rules for tidy data.
 
-### Transforming data
+### Transforming data 
 
-1.  
+1.  Create a tibble that is a subset of the full data, only including the plot ID, habitat type, species, year, and plant height.
 
-2.  Create a tibble that is a subset of the full data, only including the plot ID, habitat type, species, year, and plant height.
+2.  Create a dataset containing only observations from 2026 in restored prairies.
 
-3.  Create a dataset containing only observations from 2026 in restored prairies.
+3.  Create a new variable called `height_m` and convert your height appropriately.
 
-4.  Create a new variable called `height_m` and convert your height appropriately.
+4.  Create a new variable called `height_class` that classifies plants as *short* (less than 50 cm), *medium* (50–100 cm), or *tall* (greater than 100 cm). How many observations fall into each class?
 
-5.  Create a new variable called `height_class` that classifies plants as *short* (less than 50 cm), *medium* (50–100 cm), or *tall* (greater than 100 cm). How many observations fall into each class?
-
-6.  Identify the 10 tallest plant observations. Which species, sites, and habitat types do they come from?
+5.  Identify the 10 tallest plant observations. Which species, sites, and habitat types do they come from?
 
 ### Generate data summaries
 
