@@ -4,7 +4,7 @@ project:
   resources: 
   - "workshop/workshop_code/*.qmd"
 render:
-  - "!workshop/workshop_code/"
+  - "!workshop/workshop_code/*.qmd"
 website:
   # google-analytics: "G-9QW2N0QB7G"
   title: "Entomology 3927/5927"
