@@ -20,7 +20,7 @@ format:
 
 **Due date for workshop materials**
 
-You will need to commit and push your workshop files and create your peer review issue and tag your reviewer by **23:59 next Tuesday, October 20th** so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by **Friday, October 23rd at 12:00**.
+You will need to commit and push your workshop files and create your peer review issue and tag your reviewer by **23:59 next Tuesday, October 27th** so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by **Friday, October 30th at 12:00**.
 :::
 
 </br>
