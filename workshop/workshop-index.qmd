@@ -25,8 +25,8 @@ For this course, we'll be using R and R Studio to do all of our work. You also h
 
 In labs, we'll be writing code in a couple of different ways, but primarily what I will be recommending is using an R Notebook to write, annotate, and interpret your code. R Notebooks are a type of Markdown file where we can mix formatted text, code chunks, and a whole bunch of other goodies. R Notebooks help to organize your code into sections and subsections, and will let you write about the output directly in the document rather than creating a Word document (shudder...). We'll go through this a bit more in the first lab, but take a look at the following links to learn a bit more about R Notebooks and R Markdown.
 
-- [Writing code in R notebooks](https://bookdown.org/yihui/rmarkdown/notebook.html)
-- [R Notebook (Markdown) cheatsheet](https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf)
+-   [Writing code in R notebooks](https://bookdown.org/yihui/rmarkdown/notebook.html)
+-   [R Notebook (Markdown) cheatsheet](https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf)
 
 ### Report submission protocol
 
@@ -34,25 +34,25 @@ In labs, we'll be writing code in a couple of different ways, but primarily what
 2.  **Stage and commit your changes:** Once you're done with your report, stage and commit your changes locally using an informative commit message.
 3.  **Push your changes to GitHub:** Push your changes into your personal course repository.
 4.  **Create an issue and assign your reviewer:** In your repository, select the <kbd>Issues</kbd> tab. From there, select <kbd>New issue</kbd>.
-    - Enter a consistent title for each week's submission using this format: `wX_workshop_report` where you replace X with the current week.
-    - See my [example issue here](https://github.com/entomology-3927-5927/hemberger-jeremy-3927/issues/1), and format your issue text similarly. Feel free to add notes to your reviewer (e.g., highlighting areas where you'd like specific feedback or struggled), and include a funny image, meme, or gif because we all need laughs these days. Be sure to tag your reviewer using the `@` sign and selecting their username. Reviewer assignments for each week are posted on the X
+    -   Enter a consistent title for each week's submission using this format: `wX_workshop_report` where you replace X with the current week.
+    -   See my [example issue here](https://github.com/entomology-3927-5927/hemberger-jeremy-3927/issues/1), and format your issue text similarly. Feel free to add notes to your reviewer (e.g., highlighting areas where you'd like specific feedback or struggled), and include a funny image, meme, or gif because we all need laughs these days. Be sure to tag your reviewer using the `@` sign and selecting their username. Reviewer assignments for each week are posted on the X
 5.  **Complete your peer review** See below for the rubric and suggestions. Remember to be both kind and constructive. No one likes a [Reviewer #2](https://patthomson.net/2026/06/01/how-to-be-reviewer-2/).
-6. **Close the issue:** Once you have completed your peer review, post it, and then mark the issue as "closed". 
+6.  **Close the issue:** Once you have completed your peer review, post it, and then mark the issue as "closed".
 
 ### Peer review rubric
 
 Your job when peer reviewing your colleagues code can be distilled down to one basic task: **your job is to review the code as if you were going to use it in 3-6 months without the author sitting next to you.** Ask yourself:
 
-- Can you understand what it does?
-- Can you understand why it does it?
-- Can you reproduce the results of your colleague?
+-   Can you understand what it does?
+-   Can you understand why it does it?
+-   Can you reproduce the results of your colleague?
 
 This big picture framing is far more helpful in directing someone to make changes to increase reproducibility rather than just being nitpicky on syntax and code style. That said, obviously make suggestions about smaller changes you think would be important to implement, but don't get lost in the sauce: try and focus on the big-picture.
 
 Criteria to keep in mind and a rubric to help shape your feedback. You don't need to use these scores, but feel free to borrow the classifications in your feedback.
 
 | **Criterion** | **Excellent** | **Adequate** | **Needs improvement** |
-|----------------|------------------------|----------------|-----------------|
+|-----------------|----------------------|-----------------|-----------------|
 | **1. Organization & readability** | Code is logically organized, easy to follow, and uses clear spacing/structure. | Mostly understandable but some sections are difficult to follow. | Code is difficult to follow or poorly organized. |
 | **2. Naming & style** | Objects/variables have descriptive names and code follows consistent R style. | Names/style are generally understandable but inconsistent in places. | Names are unclear or style makes the code difficult to understand. |
 | **3. Comments & documentation** | Comments explain the purpose/reasoning behind important steps without unnecessarily narrating the code. | Some useful comments, but important steps may be unexplained. | Little or no documentation. |
@@ -64,8 +64,9 @@ Be sure to try and highlight positives and not just negatives. What is one thing
 :::
 
 ### Peer review schedule
+
 | Student | GitHub | Week 5 | Week 6 | Week 7 | Week 8 | Week 9 | Week 10 | Week 11 | Week 12 |
-|---|---|---|---|---|---|---|---|---|---|
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
 | Ava Anderson | `avaanderson-cloud` | Ana Karina Andrade | Isabela Arias | William Bayfield-Farrell | Julia Brandfonbrener | Tatum Dwyer | Garrett Erickson-Harris | Isabella Manning | Robin Marquez |
 | Ana Karina Andrade | `AAndrade-89` | Isabela Arias | William Bayfield-Farrell | Julia Brandfonbrener | Tatum Dwyer | Garrett Erickson-Harris | Isabella Manning | Robin Marquez | Kellen OConnor |
 | Isabela Arias | `arias101-bug` | William Bayfield-Farrell | Julia Brandfonbrener | Tatum Dwyer | Garrett Erickson-Harris | Isabella Manning | Robin Marquez | Kellen OConnor | Patrick Perish |
@@ -84,13 +85,14 @@ Be sure to try and highlight positives and not just negatives. What is one thing
 | Haidyn Larson | `bumble-beau` | Ava Anderson | Ana Karina Andrade | Isabela Arias | William Bayfield-Farrell | Julia Brandfonbrener | Tatum Dwyer | Garrett Erickson-Harris | Isabella Manning |
 
 ### Due dates for each week
-| Week | Code report due | Peer review due |
-|---|---|---|
-| **5** | Tue **10/20/2026, 23:59** | Fri **10/23/2026, 12:00** |
-| **6** | Tue **10/27/2026, 23:59** | Fri **10/30/2026, 12:00** |
-| **7** | Tue **11/3/2026, 23:59** | Fri **11/6/2026, 12:00** |
-| **8** | Tue **11/10/2026, 23:59** | Fri **11/13/2026, 12:00** |
-| **9** | Tue **11/17/2026, 23:59** | Fri **11/20/2026, 12:00** |
-| **10** | Tue **11/24/2026, 23:59** | Fri **11/27/2026, 12:00** |
-| **11** | Tue **12/1/2026, 23:59** | Fri **12/4/2026, 12:00** |
-| **12** | Tue **12/8/2026, 23:59** | Fri **12/11/2026, 12:00** |
+
+| Week   | Code report due           | Peer review due           |
+|--------|---------------------------|---------------------------|
+| **5**  | Tue **10/27/2026, 23:59** | Fri **10/30/2026, 12:00** |
+| **6**  | Tue **11/3/2026, 23:59**  | Fri **11/6/2026, 12:00**  |
+| **7**  | Tue **11/10/2026, 23:59** | Fri **11/13/2026, 12:00** |
+| **8**  | Tue **11/17/2026, 23:59** | Fri **11/20/2026, 12:00** |
+| **9** | Tue **11/24/2026, 23:59** | Fri **11/27/2026, 12:00** |
+| **10** | Tue **12/1/2026, 23:59**  | Fri **12/4/2026, 12:00**  |
+| **11** | Tue **12/8/2026, 23:59**  | Fri **12/11/2026, 12:00** |
+| **12** | Tue **12/15/2026, 23:59**  | Fri **12/18/2026, 12:00** |
