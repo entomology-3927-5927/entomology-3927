@@ -18,6 +18,7 @@ format:
 ## Frontmatter ‼️
 
 [{{< fa file-code >}} `.qmd` template](workshop_code/qmd-template.qmd){.btn .btn-primary download="qmd-template.qmd"} [{{< fa file-code >}} Exercise code](workshop_code/w2-workshop.qmd){.btn .btn-primary download="w2-workshop.qmd"}
+[{{< fa file-code >}} Exercise answer key](workshop_keys/w2-workshop-key.qmd){.btn .btn-primary download="w2-workshop-key.qmd"}
 
 </br> </br>
 

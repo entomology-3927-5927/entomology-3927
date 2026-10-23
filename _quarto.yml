@@ -6,6 +6,7 @@ project:
   render:
     - "*.qmd"
     - "!workshop/workshop_code/*.qmd"
+    - "!workshop/workshop_keys/*.qmd"
 
 website:
   # google-analytics: "G-9QW2N0QB7G"
