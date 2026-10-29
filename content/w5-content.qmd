@@ -390,7 +390,7 @@ pollinators |>
 There are several **helper functions** that assist with selecting variables of various types or that contain certain strings or values. These functions can be helpful across many dplyr or tidyverse actions.
 
 | **Category** | **Function** | **Description** |   |
-|-----------------|-----------------|--------------------|-----------------|
+|------------------|------------------|--------------------|------------------|
 | **Selecting Columns** | `everything()` | Selects all remaining columns |  |
 |  | `starts_with("prefix")` | Matches names starting with a string |  |
 |  | `ends_with("suffix")` | Matches names ending with a string |  |

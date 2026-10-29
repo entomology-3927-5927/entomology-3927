@@ -1,0 +1,8 @@
+site_id,habitat,management,canopy_cover,distance_to_road_m
+S01,Prairie,Burned,12.0,120.0
+S02,Woodland,Unmanaged,78.0,450.0
+S03,Wetland,Restored,45.0,80.0
+S04,Prairie,Grazed,8.0,65.0
+S05,Savanna,Unmanaged,--,310.0
+S06,Woodland,Restored,82.0,--
+S07,Wetland,Unmanaged,51.0,95.0

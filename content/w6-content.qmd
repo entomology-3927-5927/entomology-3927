@@ -1,0 +1,488 @@
+---
+title: "Week 6"
+subtitle: "Data Wranglin' Pt. II"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+format:
+  html:
+    theme: ../styles.scss
+---
+
+:::: content-callout1
+## Readings
+
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Part II: Transform (8 total chapters)](https://r4ds.hadley.nz/transform.html)
+
+### Online/optional extras
+
+-   {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
+-   {{< fa file-code >}} [Cleaning Biodiversity Data in R](https://cleaning-data-r.ala.org.au/)
+
+## Questions we'll address this week
+
+1.  How can we combine data?
+2.  How do we deal with missing data?
+3.  How do we work with character/string (i.e., text) data? 
+4.  How do we handle dates and times?
+5.  How do we work with categorical data?
+
+## Slides
+
+[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w6-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w6-slides.html?print-pdf){.btn .btn-primary role="button"}
+
+<iframe src="slides/w6-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
+
+</iframe>
+
+::: callout-tip
+**Tip**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
+:::
+::::
+
+</br>
+
+```{r include=FALSE}
+library(tidyverse)
+```
+
+## Combining data: `*_join` functions
+Most experiments or observational studies involve the collection of more than one dataset. More often than not, we need to find ways to combine multiple sources of data (i.e., tibbles or data frames) into a single unit, either by appending observations or columns. Sometimes, we can just stick the pieces together directly (i.e., *binding* rows or columns: `bind_rows()` or `bind_cols()`), but typically we need to make connections by matching values between our data frames. We can do that in two ways: 
+
+1. **Mutating** joins where we add new variables to a data frame from matching observations in another
+2. **Filtering** joins where we filter observations from one data frame based on whether or not they match an observation in another. 
+
+We make joins like these happen by using *keys*: variables that allow you to link two data sets together (i.e., like a lock and key link to open a door). There are types of keys:
+
+1. **Primary key:** a variable or set of variables that uniquely identifies each observation. When more than one variable is needed, the key is called a *compound key*. For example, in the below dataset, the `sample_id` column represents a primary key; a unique value for each observation that we could use to match other data. If we needed to to match against `sample_id` and `patient_id`, that would be a *compound key*. 
+
+```{r echo=FALSE}
+metadata <- tibble(
+  sample_id   = c("SAMP_001", "SAMP_002", "SAMP_003", "SAMP_004"),
+  patient_id  = c("PT_A", "PT_A", "PT_B", "PT_B"),
+  tissue_type = factor(c("Control", "Tumor", "Control", "Tumor"), levels = c("Control", "Tumor")),
+  batch       = factor(c("Batch_1", "Batch_1", "Batch_2", "Batch_2"))
+)
+metadata |>
+    print(n = 5)
+```
+
+2. **Foreign key:** a variable or set of variables that corresponds to the primary key in another table. It's the "lock" to the "key" in your primary dataset. Typically, primary and foreign keys have the same or almost the same name. Implicit in this, is that the varible names for primary and foreign keys should have the same *meaning* in each dataset. 
+
+:::{.callout-tip}
+It's important to check that your primary keys uniquely identify each observation. The easy way to do this is to use `count()` to ensure that there are no primary keys where n > 1. 
+:::
+
+### The joining functions
+`dplyr` has 6 joining functions; 4 mutating, and 2 filtering joins: 
+
+| **Join Function** | **Type**  | **Behavior / Use Case**                                                                                                                                       | **Simple Example Code**                                |
+|-------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| `left_join(x, y)`   | Mutating  | Keeps all rows from x and matches rows from y. Fills missing values with NA. Most common join type in bioinformatics metadata handling.                       | `left_join(counts, metadata, by = join_by(sample_id_))`          |
+| `right_join(x, y)`  | Mutating  | Keeps all rows from y and matches rows from x. Fills missing values with NA. Useful when appending existing metrics to a newly filtered target table.         | `right_join(counts, target_samples, by = join_by(sample_id))`   |
+| `inner_join(x, y)`  | Mutating  | Keeps only rows present in both x AND y. Drops unmatched rows from both sides. Use when you strictly require complete observations across both datasets.      | `inner_join(genes, annotations, by = join_by(ensbml_id))`      |
+| `full_join(x, y)`   | Mutating  | Keeps all rows from both x and y. Unmatched pairs on either side receive NA. Use to combine multi-batch assays without losing any samples or features.        | `full_join(batch1_df, batch2_df, by = join_by(patient_id))`     |
+
+
+A good way to think about how these join functions work is using venn diagrams:
+
+![](https://r4ds.hadley.nz/diagrams/join/venn.png){width="80%" fig-align="center"}
+
+#### Join keys
+By default, `left_join()`, the most common that we use, will use all variables that appear in both data frames as a compound join key -- this is a relatively safe way to ensure that we're matching only unique values. For example:
+
+```{r}
+# Dataset 1: Species survey counts at monitoring sites
+species_surveys <- tibble(
+  survey_id   = paste0("SURV_", 1:5),
+  site_code   = c("SITE_A", "SITE_A", "SITE_B", "SITE_C", "SITE_D"),
+  year = c(2021, 2022, 2021, 2022, 2023),
+  species     = c("Salmo trutta", "Salmo trutta", "Cottus gobio", "Salmo trutta", "Rana temporaria"),
+  abundance   = c(14, 8, 32, 19, 5)
+)
+
+# Dataset 2: Environmental logger metadata
+site_env <- tibble(
+  site_code = c("SITE_A", "SITE_B", "SITE_C", "SITE_E"),
+  year        = c(2021, 2021, 2022, 2023),
+  mean_temp_c = c(12.4, 14.1, 11.8, 15.2),
+  habitat     = c("Riffle", "Pool", "Riffle", "Run")
+)
+
+# Join datasets using implict keys (here, site_code and year)
+all_data <- species_surveys %>%
+  left_join(site_env)
+
+all_data
+```
+
+However, it's best if we are explicit about the keys we want to use and that we know uniquely identify each observation:
+
+```{r}
+all_data <- species_surveys %>%
+  left_join(
+    site_env, 
+    by = join_by(site_code, year)
+    )
+
+all_data
+```
+
+If we have keys that don't exactly match between datasets, we can explcit specify the key relationships for our join by using *equi-joins*:
+
+```{r}
+# Dataset 1: Species survey counts at monitoring sites
+species_surveys <- tibble(
+  survey_id   = paste0("SURV_", 1:5),
+  site_code   = c("SITE_A", "SITE_A", "SITE_B", "SITE_C", "SITE_D"),
+  survey_year = c(2021, 2022, 2021, 2022, 2023),
+  species     = c("Salmo trutta", "Salmo trutta", "Cottus gobio", "Salmo trutta", "Rana temporaria"),
+  abundance   = c(14, 8, 32, 19, 5)
+)
+
+# Dataset 2: Environmental logger metadata
+site_env <- tibble(
+  location_id = c("SITE_A", "SITE_B", "SITE_C", "SITE_E"),
+  year        = c(2021, 2021, 2022, 2023),
+  mean_temp_c = c(12.4, 14.1, 11.8, 15.2),
+  habitat     = c("Riffle", "Pool", "Riffle", "Run")
+)
+
+# Join datasets matching site_code to location_id and survey_year to year
+all_data <- species_surveys %>%
+  left_join(
+    site_env,
+    by = join_by(site_code == location_id, survey_year == year)
+  )
+
+all_data
+```
+
+
+:::{.callout-note}
+`inner_join()`, `right_join()`, and `full_join()` all share the same interface as `left_join()`, and only differ in which rows are kept (refer back to the Venn diagram above).
+:::
+
+### Filtering joins
+Filtering joins....well...they filter! It's a slightly different approach than using the `filter()` function that we practiced with last week, and here we're using observations in another, separate dataset as our filtering conditions rater than a set of logical rules that we specify in our `filter()` call. There are two types: `semi_join()` and `anti_join()`
+
+| **Join Function** | **Type**  | **Behavior / Use Case**                                                                                                                                       | **Simple Example Code**                                |
+|-------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| `semi_join(x, y)`   | Filtering | Keeps rows in x that have a match in y. Does not add columns from y or duplicate rows in x. Use to filter a large dataset using a list of target identifiers. | `semi_join(all_genes, sig_gene_list, by = join_by(ensbml_id))` |
+| `anti_join(x, y)`   | Filtering | Keeps rows in x that DO NOT have a match in y. Does not add columns from y. Use for quality control to identify missing samples or failed assays.             | `anti_join(raw_samples, QC_passed, by = join_by(sample_id))`    |
+
+:::{.callout-tip}
+# Tip: finding implicit missing data with `anti_join()`
+`anti_join()` is really useful for finding missing values that are *implicit*. For example, we could find rows that are missing from our `species_surveys` data by looking for sites that don't have a matching site_id according to the `site_env` data.
+:::
+
+### Non-equi joins
+Last but not least, we have non-equi joins. These utilize the same functions as our mutating and filtering joins, but we will utilize non-equivalent conditions to make our matches. For example:
+
+- **Equi join**: `left_join(x, y, by = join_by(key == key))`
+- **Non-equi join**: `left_join(x, y, by = join_by(key >= key))`
+
+There are four typres of non-equi join that are most helpful: 
+1. **Cross joins** match every pair of rows. This can be useful for creating all possible combinations of your variables. 
+2. **Inequality joins** use <, <=, >, and >= instead of ==. Can be used to restrict cross joins to create all possible combinations rather than all permutations.
+3. **Rolling joins** are similar to inequality joins but only find the closest match. The most useful of these for us: we can join data to the nearest matching value.
+4. **Overlap joins** are a special type of inequality join designed to work with ranges.
+
+</br>
+
+## Handling missing data
+Missing data is extremely common in ecological and biological data, and can arise for a ton of reasons. Learning how to find and handle missing data is an important part of data wrangling. First, let's define the two different types of missing data, and then discuss how we might handle each type.
+
+1. **Explicit missing values:** These are easy - they're missing values that we can see in our data (i.e., cell value for a variable is recorded as `NA`). 
+2. **Implicit missing values:** These are a bit more pernicious, as the name suggests, we can't see them, we simply have an entire row absent from the data.
+
+
+### Handling explicit missing values
+There are many ways to handle these missing values, and it entirely depends on your dataset, question, and approach. Do NOT take these approaches as universally applicable! They're simply common ways that missing data are dealth with in a variety of contexts.
+
+#### Last observation carried forward: `tidyr::fill()`
+When we are hand-recording data, we often won't fill in every single value of a cell when those cells are simply duplicates of one another. For example, if we have multiple observations for each site and habitat type of a stream survey, we may only record the first row of each unique site/habitat type combination. 
+
+```{r echo=FALSE}
+# Raw field log with missing metadata entries
+stream_survey <- tibble(
+  survey_date  = as.Date(c("2024-06-01", "2024-06-01", "2024-06-01", 
+                           "2024-06-02", "2024-06-02", "2024-06-02")),
+  site_id      = c("SITE_101", NA, NA, "SITE_102", NA, NA),
+  habitat_type = c("Riparian", NA, NA, "Upland Forest", NA, NA),
+  organism_id  = paste0("ORG_", 1:6),
+  species      = c("Salmo trutta", "Cottus gobio", "Rana temporaria", 
+                   "Tamiasciurus hudsonicus", "Cervus elaphus", "Strix varia"),
+  count        = c(12, 4, NA, 2, 1, NA)  # Actual observations (with genuine missing counts)
+)
+
+stream_survey2 <- tibble(
+  survey_date  = as.Date(c("2024-06-01", "2024-06-01", "2024-06-01", 
+                           "2024-06-02", "2024-06-02", "2024-06-02")),
+  site_id      = c("SITE_101", NA, NA, "SITE_102", NA, NA),
+  habitat_type = c("Riparian", NA, NA, "Upland Forest", NA, NA),
+  organism_id  = paste0("ORG_", 1:6),
+  species      = c("Salmo trutta", "Cottus gobio", "Rana temporaria", 
+                   "Tamiasciurus hudsonicus", "Cervus elaphus", "Strix varia"),
+  count        = c(12, 4, -999, 2, 1, -999)  # Actual observations (with genuine missing counts)
+)
+
+stream_survey
+```
+
+In this event, we want to *carry forward* the last observation's metadata values to fill in the NA values.
+
+```{r}
+# Carry forward only site-level metadata
+cleaned_stream_survey <- stream_survey |>
+  # Fill missing metadata entries down the site_id and habitat_type column
+  fill(
+    site_id, 
+    habitat_type, 
+    .direction = "down"
+    )
+
+cleaned_stream_survey
+```
+
+
+#### Replace `NA` with fixed value
+Sometimes we don't record data when we know it represents a fixed value, like 0. Or, we record some specific vlaue to represent an NA instead of NA or a blank cell (e.g., `-999`, `.`, etc.). In these instances we can use `dplyr::coalesce()` or `dplyr::na_if()` to replace the values.
+
+```{r}
+# Replace NAs in count variable with 0
+cleaned_stream_survey <- stream_survey |>
+    fill(site_id, habitat_type, .direction = "down") |>
+    mutate(count = coalesce(count, 0))
+
+cleaned_stream_survey
+
+# Replace specific values in variables with NA
+cleaned_stream_survey2 <- stream_survey2 |>
+    fill(site_id, habitat_type, .direction = "down") |>
+    mutate(count = na_if(count, -999))
+
+cleaned_stream_survey2
+```
+
+### Handling implicit missing values
+These are harder to catch because entire rows are missing, so we have to more carefully inspect. Look at the data below, can you catch where the NAs are?
+
+```{r echo=FALSE}
+bird_survey <- tibble(
+  site = c(
+    "A", "A", "A", "A",
+    "B", "B", "B",
+    "C", "C", "C", "C",
+    "D", "D", "D", "D",
+    "E", "E", "E"
+  ),
+  week = c(
+    1, 2, 3, 4,
+    1, 2, 4,
+    1, 2, 3, 4,
+    1, 2, 3, 4,
+    1, 3, 4
+  ),
+  species_richness = c(
+    8, 10, 7, 9,
+    5, 6, 8,
+    12, 11, 13, 10,
+    4, 6, 5, 7,
+    9, 11, 10
+  )
+)
+bird_survey
+```
+
+Sometimes leaving these NAs out of our dataset is totally fine. Other times, we want to make them explicit so that we have something to work with, even if we end up filtering it out in a later analysis. There are a few ways to do this, but we'll focus on using `complete()`. To use this, we specify the set of variables that define the combinations of rows that should exist.
+
+```{r}
+# Use this if all possible values of site and week are in the data
+bird_survey_complete <- bird_survey |>
+    complete(site, week)
+
+bird_survey_complete
+
+# Use this if you want to be explicit about all possible combinations
+bird_survey_complete <- bird_survey |>
+    complete(site = c("A", "B", "C", "D", "E"), week = 1:4)
+
+bird_survey_complete
+```
+
+### Missing or empty groups
+With categorical (i.e., factor) data, sometimes we don't have observations for particular groups, but we still want to display that missingness when we produce plots or other data summaries. To handle this, we can make use of the `.drop` argument in functions like `group_by()` and `count()`. In this example below, we have observations of pollinators taken in prairies, bee lawns, gardens, roadsides, and woodlands. When we count our data, note that woodland is missing because we have no observations for that group:
+
+```{r echo=FALSE}
+pollinators <- tibble(
+  habitat = c(
+    "Prairie", "Prairie", "Prairie",
+    "Bee lawn", "Bee lawn", "Bee lawn",
+    "Garden", "Garden",
+    "Roadside", "Roadside", "Roadside", "Roadside"
+  ),
+  species = c(
+    "Bombus impatiens", "Apis mellifera", "Bombus griseocollis",
+    "Bombus impatiens", "Bombus bimaculatus", "Apis mellifera",
+    "Bombus impatiens", "Apis mellifera",
+    "Bombus impatiens", "Bombus griseocollis",
+    "Bombus impatiens", "Apis mellifera"
+  )
+) |>
+      mutate(
+    habitat = factor(
+      habitat,
+      levels = c("Prairie", "Bee lawn", "Garden", "Woodland", "Roadside")
+    )
+  )
+pollinators
+
+pollinators %>%
+  count(habitat)
+```
+
+We can fix this by NOT dropping empty groups:
+
+```{r}
+pollinators %>%
+  count(habitat, .drop = FALSE)
+```
+
+</br>
+
+## Working with string data: `stringr` package
+There is a whole world of tools dedicated to working with string, or character data, mostly because of how infinitely complex it can become. As such, we can't possibly do it justice in this course. For the most part, we'll need just a handful of tools to work with strings that we might encounter in our data wrangling journey, so I've included some of the most useful functions below. The most challenging part of working with strings is getting a handle on `regular expressions`, which is the language we'll need to use to recognize patterns in strings. We'll only touch on this, and mostly use the `stringr` package out of the box in this course. 
+
+Refer to the [`stringr` cheatsheet](https://rstudio.github.io/cheatsheets/strings.pdf) for more details on this package!
+
+### Most useful functions
+| **Function** | **What it does** | **Example use** | **Example syntax** |
+|---|---|---|---|
+| `str_detect()` | Finds whether a string contains a pattern | Find all observations of *Bombus* species | `str_detect(species, "Bombus")` |
+| `str_replace()` | Replaces the first occurrence of a pattern | Standardize `"B. impatiens"` to `"Bombus impatiens"` | `str_replace(species, "B\\. impatiens", "Bombus impatiens")` |
+| `str_replace_all()` | Replaces all occurrences of a pattern | Standardize different spellings/capitalizations of `"prairie"` | `str_replace_all(habitat, "prairie|PRAIRIE", "Prairie")` |
+| `str_extract()` | Extracts text matching a pattern | Extract the year from a sample ID | `str_extract(sample_id, "20\\d{2}")` |
+| `str_split()` | Splits a string into multiple pieces | Separate `"MN,StPaul,UMN"` into individual components | `str_split(location, ",")` |
+
+</br>
+
+## Working with date & time data: `lubridate` package
+Working with dates and times is also a whole other kettle of fish given the complexities of physical phenomena and geopolitical nonsense (time zones, daylight savings, etc.). Just like with strings, my primary goal here is to introduce you to formatting dates and times correctly in R so that you can use the many `lubridate` functions to extract derivative values for your analysis (like day of the year, month, day, hour, etc.). The key is being able to convert your raw date or time data into a special class of atomic character data that are recognized and treated as dates and times. 
+
+For most folks, date will be the most common data you work with in this context, so we'll start with that. The best place to handle converting your date data to date objects in R is during data import:
+
+```{r}
+smammal_data <- read_csv("content_data/w6/date-data.csv")
+
+# Our capture_date column here is read as character data!
+smammal_data
+
+smammal_data <- read_csv(
+    "content_data/w6/date-data.csv",
+    col_types = cols(capture_date = col_date("%d-%b-%Y"))
+)
+
+# capture_date now reads in as date data!
+smammal_data
+```
+
+:::{.callout-note}
+Be sure that your date string uses the correct delimiters that are in your date column! For example, `-` or `/`.
+:::
+
+There are various formats for different date/time values that `lubridate` will use. The primary ones are included below, but you may need to lookup the documentation for the package for additional formats! 
+
+|  **Type** | **Code** |           **Meaning**          | **Example** |
+|:---------:|:--------:|:------------------------------:|:-----------:|
+| **Year**  | `%Y`       | 4 digit year                   | 2021        |
+|           | `%y`       | 2 digit year                   | 21          |
+| **Month** | `%m`       | Number                         | 2           |
+|           | `%b`       | Abbreviated name               | Feb         |
+|           | `%B`       | Full name                      | February    |
+| **Day**   | `%d`       | One or two digits              | 2           |
+|           | `%e`       | Two digits                     | 02          |
+| **Time**  | `%H`       | 24-hour hour                   | 13          |
+|           | `%I`       | 12-hour hour                   | 1           |
+|           | `%p`       | AM/PM                          | pm          |
+|           | `%M`       | Minutes                        | 35          |
+|           | `%S`       | Seconds                        | 45          |
+|           | `%OS`      | Seconds with decimal component | 45.35       |
+
+Once we have our date variables correctly specified and stored as date objects, we can easily do a whole bunch of math to get date differences, or extract various useful components like the ordinal date of the year. See the couple of examples below:
+
+```{r}
+smammal_data |>
+    mutate(
+        doy = yday(capture_date), # Create a column with the ordinal day of year
+        year = year(capture_date), # Create a column with just the year
+        month = month(capture_date, label = TRUE) # Create a column with the month as a string
+        )
+```
+
+</br>
+
+## Modifying categorical data (i.e., factors): `forcats` package
+Categorical variables are very common in biological data (think treatments, plots, or even years in some contexts), and we'll need to know how to work with *factors*, which are the R lingo for categorical data. There's two primary things we'll need to know how to do with factors: (1) create factors, and (2) reorder them! 
+
+### Converting data to factors
+When we read data into R (as we discussed last week), R won't automatically convert columns to factors unless we manually specify the atomic data type in our import function call. Instead, we will have to create factors by converting whatever data type we want to a factor. Any atomic data type can be converted into a factor. R accomplishes this by turning the data into a string (i.e., character data) and then to a factor. There are several functions to convert data to factors, including the base R `factor()` and `forcats::fct()`. Imagine we have some RNAseq data that we've imported:
+
+```{r echo=FALSE}
+RNAseq_metadata <- tibble(
+  sample_id      = paste0("S_", 1:8),
+  patient_id     = c("P1", "P1", "P2", "P2", "P3", "P3", "P4", "P4"),
+  tissue_type    = c("Tumor", "Normal", "Tumor", "Normal", "Tumor", "Normal", "Tumor", "Normal"),
+  disease_stage  = c("Stage III", "Stage III", "Stage I", "Stage I", "Stage IV", "Stage IV", "Stage II", "Stage II"),
+  treatment_code = c(1L, 1L, 0L, 0L, 2L, 2L, 1L, 1L), # 0 = Vehicle, 1 = Drug_A, 2 = Drug_B
+  sequenced_on   = as.Date(c("2024-01-15", "2024-01-15", "2024-01-16", "2024-01-16", 
+                             "2024-01-15", "2024-01-15", "2024-01-16", "2024-01-16")),
+  tp53_expr      = c(12.4, 3.1, 14.8, 2.9, 8.2, 3.4, 11.1, 3.0)
+)
+print(RNAseq_metadata)
+```
+
+We may want to code several of these variables as factors. `disease_stage` seems like an obvious one, and perhaps `tissue_type` and `treatment_code` as well. Let's make `disease_stage` a factor:
+
+```{r}
+processed_metadata <- RNAseq_metadata |>
+    mutate(
+      # Define strict biological ordinal progression
+      disease_stage = factor(
+        disease_stage, 
+        levels = c("Stage I", "Stage II", "Stage III", "Stage IV"), 
+        ordered = TRUE
+    )
+  )
+
+# Verify summary structure
+glimpse(processed_metadata)
+```
+
+Here, data type, `<ord>` stands for *ordered factor*. 
+
+### Reordering factor levels
+When we convert character or numeric data to factors, R will automatically create the levels according to alphanumeric sorting (that is, 0-9, A-Z, earliest date to latest date if working with datetime data). We can adjust this if there is an alternate order to our data. This is primarily important for when we plot our data (so that we can control which categories appear where in our plots), but can also matter for calculating summary statistics for tables and some analysis pipelines. Re-ordering our factors is called *re-leveling*. For example, imagine we have some data from an experiment where we measured gene expression of several genotypes:
+
+```{r}
+gene_expression_df <- tibble(
+  sample_id = paste0("S", 1:9),
+  genotype = factor(c("gene_B", "gene_ctrl", "gene_A", 
+                      "gene_B", "gene_ctrl", "gene_A", 
+                      "gene_B", "gene_ctrl", "gene_A")),
+  expression_level = c(12.4, 5.2, 8.1, 14.1, 4.9, 8.7, 11.8, 5.5, 9.0)
+)
+
+gene_expression_df
+
+levels(gene_expression_df$genotype)
+```
+
+When R creates this factor variable, it levels the factors by alphanumeric order, making our control gene (`gene_ctrl`) the last level. That may be fine, but when we plot the data, we may prefer to have the control group display first to compare our other genotypes against it. To do that, we need to re-level the factors using `fct_relevel()`. Because we're changing a vector of factors in our tibble, we use the `fct_relevel()` function *inside* our mutate function:
+
+```{r}
+gene_expression_df <- gene_expression_df |>
+    mutate(genotype = fct_relevel(genotype, c("gene_ctrl", "gene_A", "gene_B"))) # Here, we overwrite the order of the existing genotype factor
+
+levels(gene_expression_df$genotype)
+```

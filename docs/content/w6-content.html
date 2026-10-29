@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jeremy Hemberger">
+<meta name="dcterms.date" content="2026-10-28">
 
-<title>w6-content – Entomology 3927/5927</title>
+<title>Week 6 – Entomology 3927/5927</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -306,17 +343,947 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#combining-data-_join-functions" id="toc-combining-data-_join-functions" class="nav-link active" data-scroll-target="#combining-data-_join-functions">Combining data: <code>*_join</code> functions</a>
+  <ul class="collapse">
+  <li><a href="#the-joining-functions" id="toc-the-joining-functions" class="nav-link" data-scroll-target="#the-joining-functions">The joining functions</a></li>
+  <li><a href="#filtering-joins" id="toc-filtering-joins" class="nav-link" data-scroll-target="#filtering-joins">Filtering joins</a></li>
+  <li><a href="#non-equi-joins" id="toc-non-equi-joins" class="nav-link" data-scroll-target="#non-equi-joins">Non-equi joins</a></li>
+  </ul></li>
+  <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data">Handling missing data</a>
+  <ul class="collapse">
+  <li><a href="#handling-explicit-missing-values" id="toc-handling-explicit-missing-values" class="nav-link" data-scroll-target="#handling-explicit-missing-values">Handling explicit missing values</a></li>
+  <li><a href="#handling-implicit-missing-values" id="toc-handling-implicit-missing-values" class="nav-link" data-scroll-target="#handling-implicit-missing-values">Handling implicit missing values</a></li>
+  <li><a href="#missing-or-empty-groups" id="toc-missing-or-empty-groups" class="nav-link" data-scroll-target="#missing-or-empty-groups">Missing or empty groups</a></li>
+  </ul></li>
+  <li><a href="#working-with-string-data-stringr-package" id="toc-working-with-string-data-stringr-package" class="nav-link" data-scroll-target="#working-with-string-data-stringr-package">Working with string data: <code>stringr</code> package</a>
+  <ul class="collapse">
+  <li><a href="#most-useful-functions" id="toc-most-useful-functions" class="nav-link" data-scroll-target="#most-useful-functions">Most useful functions</a></li>
+  </ul></li>
+  <li><a href="#working-with-date-time-data-lubridate-package" id="toc-working-with-date-time-data-lubridate-package" class="nav-link" data-scroll-target="#working-with-date-time-data-lubridate-package">Working with date &amp; time data: <code>lubridate</code> package</a></li>
+  <li><a href="#modifying-categorical-data-i.e.-factors-forcats-package" id="toc-modifying-categorical-data-i.e.-factors-forcats-package" class="nav-link" data-scroll-target="#modifying-categorical-data-i.e.-factors-forcats-package">Modifying categorical data (i.e., factors): <code>forcats</code> package</a>
+  <ul class="collapse">
+  <li><a href="#converting-data-to-factors" id="toc-converting-data-to-factors" class="nav-link" data-scroll-target="#converting-data-to-factors">Converting data to factors</a></li>
+  <li><a href="#reordering-factor-levels" id="toc-reordering-factor-levels" class="nav-link" data-scroll-target="#reordering-factor-levels">Reordering factor levels</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w5-content.html">Module 3: Basic data wrangling and visualization in R</a></li><li class="breadcrumb-item"><a href="../content/w6-content.html">Week 6: Data wrangling 2</a></li></ol></nav></header>
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w5-content.html">Module 3: Basic data wrangling and visualization in R</a></li><li class="breadcrumb-item"><a href="../content/w6-content.html">Week 6: Data wrangling 2</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Week 6</h1>
+<p class="subtitle lead">Data Wranglin’ Pt. II</p>
+</div>
 
 
 
+<div class="quarto-title-meta column-body">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeremy Hemberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 28, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<div class="content-callout1">
+<section id="readings" class="level2">
+<h2 class="anchored" data-anchor-id="readings">Readings</h2>
+<ul>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://r4ds.hadley.nz/transform.html">R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Part II: Transform (8 total chapters)</a></li>
+</ul>
+<section id="onlineoptional-extras" class="level3">
+<h3 class="anchored" data-anchor-id="onlineoptional-extras">Online/optional extras</h3>
+<ul>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://datacarpentry.github.io/semester-biology/materials/tidy-data/">Tidy Data: Data Carpentry</a></li>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://cleaning-data-r.ala.org.au/">Cleaning Biodiversity Data in R</a></li>
+</ul>
+</section>
+</section>
+<section id="questions-well-address-this-week" class="level2">
+<h2 class="anchored" data-anchor-id="questions-well-address-this-week">Questions we’ll address this week</h2>
+<ol type="1">
+<li>How can we combine data?</li>
+<li>How do we deal with missing data?</li>
+<li>How do we work with character/string (i.e., text) data?</li>
+<li>How do we handle dates and times?</li>
+<li>How do we work with categorical data?</li>
+</ol>
+</section>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<p><a href="slides/w6-slides.html" class="btn btn-primary" role="button"><i class="fa-solid fa-up-right-from-square" aria-label="up-right-from-square"></i> Open slides in full screen mode</a> <a href="slides/w6-slides.html?print-pdf" class="btn btn-primary" role="button"><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> Download slides as a PDF</a></p>
+<iframe src="slides/w6-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
+</iframe>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Tip</strong>: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.</p>
+</div>
+</div>
+</section>
+</div>
+<p><br></p>
+<section id="combining-data-_join-functions" class="level2">
+<h2 class="anchored" data-anchor-id="combining-data-_join-functions">Combining data: <code>*_join</code> functions</h2>
+<p>Most experiments or observational studies involve the collection of more than one dataset. More often than not, we need to find ways to combine multiple sources of data (i.e., tibbles or data frames) into a single unit, either by appending observations or columns. Sometimes, we can just stick the pieces together directly (i.e., <em>binding</em> rows or columns: <code>bind_rows()</code> or <code>bind_cols()</code>), but typically we need to make connections by matching values between our data frames. We can do that in two ways:</p>
+<ol type="1">
+<li><strong>Mutating</strong> joins where we add new variables to a data frame from matching observations in another</li>
+<li><strong>Filtering</strong> joins where we filter observations from one data frame based on whether or not they match an observation in another.</li>
+</ol>
+<p>We make joins like these happen by using <em>keys</em>: variables that allow you to link two data sets together (i.e., like a lock and key link to open a door). There are types of keys:</p>
+<ol type="1">
+<li><strong>Primary key:</strong> a variable or set of variables that uniquely identifies each observation. When more than one variable is needed, the key is called a <em>compound key</em>. For example, in the below dataset, the <code>sample_id</code> column represents a primary key; a unique value for each observation that we could use to match other data. If we needed to to match against <code>sample_id</code> and <code>patient_id</code>, that would be a <em>compound key</em>.</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  sample_id patient_id tissue_type batch  
+  &lt;chr&gt;     &lt;chr&gt;      &lt;fct&gt;       &lt;fct&gt;  
+1 SAMP_001  PT_A       Control     Batch_1
+2 SAMP_002  PT_A       Tumor       Batch_1
+3 SAMP_003  PT_B       Control     Batch_2
+4 SAMP_004  PT_B       Tumor       Batch_2</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li><strong>Foreign key:</strong> a variable or set of variables that corresponds to the primary key in another table. It’s the “lock” to the “key” in your primary dataset. Typically, primary and foreign keys have the same or almost the same name. Implicit in this, is that the varible names for primary and foreign keys should have the same <em>meaning</em> in each dataset.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It’s important to check that your primary keys uniquely identify each observation. The easy way to do this is to use <code>count()</code> to ensure that there are no primary keys where n &gt; 1.</p>
+</div>
+</div>
+<section id="the-joining-functions" class="level3">
+<h3 class="anchored" data-anchor-id="the-joining-functions">The joining functions</h3>
+<p><code>dplyr</code> has 6 joining functions; 4 mutating, and 2 filtering joins:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 64%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Join Function</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Behavior / Use Case</strong></th>
+<th><strong>Simple Example Code</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>left_join(x, y)</code></td>
+<td>Mutating</td>
+<td>Keeps all rows from x and matches rows from y. Fills missing values with NA. Most common join type in bioinformatics metadata handling.</td>
+<td><code>left_join(counts, metadata, by = join_by(sample_id_))</code></td>
+</tr>
+<tr class="even">
+<td><code>right_join(x, y)</code></td>
+<td>Mutating</td>
+<td>Keeps all rows from y and matches rows from x. Fills missing values with NA. Useful when appending existing metrics to a newly filtered target table.</td>
+<td><code>right_join(counts, target_samples, by = join_by(sample_id))</code></td>
+</tr>
+<tr class="odd">
+<td><code>inner_join(x, y)</code></td>
+<td>Mutating</td>
+<td>Keeps only rows present in both x AND y. Drops unmatched rows from both sides. Use when you strictly require complete observations across both datasets.</td>
+<td><code>inner_join(genes, annotations, by = join_by(ensbml_id))</code></td>
+</tr>
+<tr class="even">
+<td><code>full_join(x, y)</code></td>
+<td>Mutating</td>
+<td>Keeps all rows from both x and y. Unmatched pairs on either side receive NA. Use to combine multi-batch assays without losing any samples or features.</td>
+<td><code>full_join(batch1_df, batch2_df, by = join_by(patient_id))</code></td>
+</tr>
+</tbody>
+</table>
+<p>A good way to think about how these join functions work is using venn diagrams:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://r4ds.hadley.nz/diagrams/join/venn.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<section id="join-keys" class="level4">
+<h4 class="anchored" data-anchor-id="join-keys">Join keys</h4>
+<p>By default, <code>left_join()</code>, the most common that we use, will use all variables that appear in both data frames as a compound join key – this is a relatively safe way to ensure that we’re matching only unique values. For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataset 1: Species survey counts at monitoring sites</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>species_surveys <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">survey_id   =</span> <span class="fu">paste0</span>(<span class="st">"SURV_"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">site_code   =</span> <span class="fu">c</span>(<span class="st">"SITE_A"</span>, <span class="st">"SITE_A"</span>, <span class="st">"SITE_B"</span>, <span class="st">"SITE_C"</span>, <span class="st">"SITE_D"</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="fu">c</span>(<span class="dv">2021</span>, <span class="dv">2022</span>, <span class="dv">2021</span>, <span class="dv">2022</span>, <span class="dv">2023</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">species     =</span> <span class="fu">c</span>(<span class="st">"Salmo trutta"</span>, <span class="st">"Salmo trutta"</span>, <span class="st">"Cottus gobio"</span>, <span class="st">"Salmo trutta"</span>, <span class="st">"Rana temporaria"</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">abundance   =</span> <span class="fu">c</span>(<span class="dv">14</span>, <span class="dv">8</span>, <span class="dv">32</span>, <span class="dv">19</span>, <span class="dv">5</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataset 2: Environmental logger metadata</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>site_env <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">site_code =</span> <span class="fu">c</span>(<span class="st">"SITE_A"</span>, <span class="st">"SITE_B"</span>, <span class="st">"SITE_C"</span>, <span class="st">"SITE_E"</span>),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">year        =</span> <span class="fu">c</span>(<span class="dv">2021</span>, <span class="dv">2021</span>, <span class="dv">2022</span>, <span class="dv">2023</span>),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean_temp_c =</span> <span class="fu">c</span>(<span class="fl">12.4</span>, <span class="fl">14.1</span>, <span class="fl">11.8</span>, <span class="fl">15.2</span>),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">habitat     =</span> <span class="fu">c</span>(<span class="st">"Riffle"</span>, <span class="st">"Pool"</span>, <span class="st">"Riffle"</span>, <span class="st">"Run"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Join datasets using implict keys (here, site_code and year)</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> species_surveys <span class="sc">%&gt;%</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(site_env)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(site_code, year)`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>all_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+  survey_id site_code  year species         abundance mean_temp_c habitat
+  &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  
+1 SURV_1    SITE_A     2021 Salmo trutta           14        12.4 Riffle 
+2 SURV_2    SITE_A     2022 Salmo trutta            8        NA   &lt;NA&gt;   
+3 SURV_3    SITE_B     2021 Cottus gobio           32        14.1 Pool   
+4 SURV_4    SITE_C     2022 Salmo trutta           19        11.8 Riffle 
+5 SURV_5    SITE_D     2023 Rana temporaria         5        NA   &lt;NA&gt;   </code></pre>
+</div>
+</div>
+<p>However, it’s best if we are explicit about the keys we want to use and that we know uniquely identify each observation:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> species_surveys <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    site_env, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">join_by</span>(site_code, year)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>all_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+  survey_id site_code  year species         abundance mean_temp_c habitat
+  &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  
+1 SURV_1    SITE_A     2021 Salmo trutta           14        12.4 Riffle 
+2 SURV_2    SITE_A     2022 Salmo trutta            8        NA   &lt;NA&gt;   
+3 SURV_3    SITE_B     2021 Cottus gobio           32        14.1 Pool   
+4 SURV_4    SITE_C     2022 Salmo trutta           19        11.8 Riffle 
+5 SURV_5    SITE_D     2023 Rana temporaria         5        NA   &lt;NA&gt;   </code></pre>
+</div>
+</div>
+<p>If we have keys that don’t exactly match between datasets, we can explcit specify the key relationships for our join by using <em>equi-joins</em>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataset 1: Species survey counts at monitoring sites</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>species_surveys <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">survey_id   =</span> <span class="fu">paste0</span>(<span class="st">"SURV_"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">site_code   =</span> <span class="fu">c</span>(<span class="st">"SITE_A"</span>, <span class="st">"SITE_A"</span>, <span class="st">"SITE_B"</span>, <span class="st">"SITE_C"</span>, <span class="st">"SITE_D"</span>),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">survey_year =</span> <span class="fu">c</span>(<span class="dv">2021</span>, <span class="dv">2022</span>, <span class="dv">2021</span>, <span class="dv">2022</span>, <span class="dv">2023</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">species     =</span> <span class="fu">c</span>(<span class="st">"Salmo trutta"</span>, <span class="st">"Salmo trutta"</span>, <span class="st">"Cottus gobio"</span>, <span class="st">"Salmo trutta"</span>, <span class="st">"Rana temporaria"</span>),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">abundance   =</span> <span class="fu">c</span>(<span class="dv">14</span>, <span class="dv">8</span>, <span class="dv">32</span>, <span class="dv">19</span>, <span class="dv">5</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataset 2: Environmental logger metadata</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>site_env <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">location_id =</span> <span class="fu">c</span>(<span class="st">"SITE_A"</span>, <span class="st">"SITE_B"</span>, <span class="st">"SITE_C"</span>, <span class="st">"SITE_E"</span>),</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">year        =</span> <span class="fu">c</span>(<span class="dv">2021</span>, <span class="dv">2021</span>, <span class="dv">2022</span>, <span class="dv">2023</span>),</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean_temp_c =</span> <span class="fu">c</span>(<span class="fl">12.4</span>, <span class="fl">14.1</span>, <span class="fl">11.8</span>, <span class="fl">15.2</span>),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">habitat     =</span> <span class="fu">c</span>(<span class="st">"Riffle"</span>, <span class="st">"Pool"</span>, <span class="st">"Riffle"</span>, <span class="st">"Run"</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Join datasets matching site_code to location_id and survey_year to year</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> species_surveys <span class="sc">%&gt;%</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    site_env,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">join_by</span>(site_code <span class="sc">==</span> location_id, survey_year <span class="sc">==</span> year)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>all_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+  survey_id site_code survey_year species         abundance mean_temp_c habitat
+  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  
+1 SURV_1    SITE_A           2021 Salmo trutta           14        12.4 Riffle 
+2 SURV_2    SITE_A           2022 Salmo trutta            8        NA   &lt;NA&gt;   
+3 SURV_3    SITE_B           2021 Cottus gobio           32        14.1 Pool   
+4 SURV_4    SITE_C           2022 Salmo trutta           19        11.8 Riffle 
+5 SURV_5    SITE_D           2023 Rana temporaria         5        NA   &lt;NA&gt;   </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>inner_join()</code>, <code>right_join()</code>, and <code>full_join()</code> all share the same interface as <code>left_join()</code>, and only differ in which rows are kept (refer back to the Venn diagram above).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="filtering-joins" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-joins">Filtering joins</h3>
+<p>Filtering joins….well…they filter! It’s a slightly different approach than using the <code>filter()</code> function that we practiced with last week, and here we’re using observations in another, separate dataset as our filtering conditions rater than a set of logical rules that we specify in our <code>filter()</code> call. There are two types: <code>semi_join()</code> and <code>anti_join()</code></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 64%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Join Function</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Behavior / Use Case</strong></th>
+<th><strong>Simple Example Code</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>semi_join(x, y)</code></td>
+<td>Filtering</td>
+<td>Keeps rows in x that have a match in y. Does not add columns from y or duplicate rows in x. Use to filter a large dataset using a list of target identifiers.</td>
+<td><code>semi_join(all_genes, sig_gene_list, by = join_by(ensbml_id))</code></td>
+</tr>
+<tr class="even">
+<td><code>anti_join(x, y)</code></td>
+<td>Filtering</td>
+<td>Keeps rows in x that DO NOT have a match in y. Does not add columns from y. Use for quality control to identify missing samples or failed assays.</td>
+<td><code>anti_join(raw_samples, QC_passed, by = join_by(sample_id))</code></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip: finding implicit missing data with <code>anti_join()</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>anti_join()</code> is really useful for finding missing values that are <em>implicit</em>. For example, we could find rows that are missing from our <code>species_surveys</code> data by looking for sites that don’t have a matching site_id according to the <code>site_env</code> data.</p>
+</div>
+</div>
+</section>
+<section id="non-equi-joins" class="level3">
+<h3 class="anchored" data-anchor-id="non-equi-joins">Non-equi joins</h3>
+<p>Last but not least, we have non-equi joins. These utilize the same functions as our mutating and filtering joins, but we will utilize non-equivalent conditions to make our matches. For example:</p>
+<ul>
+<li><strong>Equi join</strong>: <code>left_join(x, y, by = join_by(key == key))</code></li>
+<li><strong>Non-equi join</strong>: <code>left_join(x, y, by = join_by(key &gt;= key))</code></li>
+</ul>
+<p>There are four typres of non-equi join that are most helpful: 1. <strong>Cross joins</strong> match every pair of rows. This can be useful for creating all possible combinations of your variables. 2. <strong>Inequality joins</strong> use &lt;, &lt;=, &gt;, and &gt;= instead of ==. Can be used to restrict cross joins to create all possible combinations rather than all permutations. 3. <strong>Rolling joins</strong> are similar to inequality joins but only find the closest match. The most useful of these for us: we can join data to the nearest matching value. 4. <strong>Overlap joins</strong> are a special type of inequality join designed to work with ranges.</p>
+<p><br></p>
+</section>
+</section>
+<section id="handling-missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="handling-missing-data">Handling missing data</h2>
+<p>Missing data is extremely common in ecological and biological data, and can arise for a ton of reasons. Learning how to find and handle missing data is an important part of data wrangling. First, let’s define the two different types of missing data, and then discuss how we might handle each type.</p>
+<ol type="1">
+<li><strong>Explicit missing values:</strong> These are easy - they’re missing values that we can see in our data (i.e., cell value for a variable is recorded as <code>NA</code>).</li>
+<li><strong>Implicit missing values:</strong> These are a bit more pernicious, as the name suggests, we can’t see them, we simply have an entire row absent from the data.</li>
+</ol>
+<section id="handling-explicit-missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="handling-explicit-missing-values">Handling explicit missing values</h3>
+<p>There are many ways to handle these missing values, and it entirely depends on your dataset, question, and approach. Do NOT take these approaches as universally applicable! They’re simply common ways that missing data are dealth with in a variety of contexts.</p>
+<section id="last-observation-carried-forward-tidyrfill" class="level4">
+<h4 class="anchored" data-anchor-id="last-observation-carried-forward-tidyrfill">Last observation carried forward: <code>tidyr::fill()</code></h4>
+<p>When we are hand-recording data, we often won’t fill in every single value of a cell when those cells are simply duplicates of one another. For example, if we have multiple observations for each site and habitat type of a stream survey, we may only record the first row of each unique site/habitat type combination.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  survey_date site_id  habitat_type  organism_id species                 count
+  &lt;date&gt;      &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;                   &lt;dbl&gt;
+1 2024-06-01  SITE_101 Riparian      ORG_1       Salmo trutta               12
+2 2024-06-01  &lt;NA&gt;     &lt;NA&gt;          ORG_2       Cottus gobio                4
+3 2024-06-01  &lt;NA&gt;     &lt;NA&gt;          ORG_3       Rana temporaria            NA
+4 2024-06-02  SITE_102 Upland Forest ORG_4       Tamiasciurus hudsonicus     2
+5 2024-06-02  &lt;NA&gt;     &lt;NA&gt;          ORG_5       Cervus elaphus              1
+6 2024-06-02  &lt;NA&gt;     &lt;NA&gt;          ORG_6       Strix varia                NA</code></pre>
+</div>
+</div>
+<p>In this event, we want to <em>carry forward</em> the last observation’s metadata values to fill in the NA values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carry forward only site-level metadata</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>cleaned_stream_survey <span class="ot">&lt;-</span> stream_survey <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fill missing metadata entries down the site_id and habitat_type column</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    site_id, </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    habitat_type, </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.direction =</span> <span class="st">"down"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>cleaned_stream_survey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  survey_date site_id  habitat_type  organism_id species                 count
+  &lt;date&gt;      &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;                   &lt;dbl&gt;
+1 2024-06-01  SITE_101 Riparian      ORG_1       Salmo trutta               12
+2 2024-06-01  SITE_101 Riparian      ORG_2       Cottus gobio                4
+3 2024-06-01  SITE_101 Riparian      ORG_3       Rana temporaria            NA
+4 2024-06-02  SITE_102 Upland Forest ORG_4       Tamiasciurus hudsonicus     2
+5 2024-06-02  SITE_102 Upland Forest ORG_5       Cervus elaphus              1
+6 2024-06-02  SITE_102 Upland Forest ORG_6       Strix varia                NA</code></pre>
+</div>
+</div>
+</section>
+<section id="replace-na-with-fixed-value" class="level4">
+<h4 class="anchored" data-anchor-id="replace-na-with-fixed-value">Replace <code>NA</code> with fixed value</h4>
+<p>Sometimes we don’t record data when we know it represents a fixed value, like 0. Or, we record some specific vlaue to represent an NA instead of NA or a blank cell (e.g., <code>-999</code>, <code>.</code>, etc.). In these instances we can use <code>dplyr::coalesce()</code> or <code>dplyr::na_if()</code> to replace the values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NAs in count variable with 0</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>cleaned_stream_survey <span class="ot">&lt;-</span> stream_survey <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fill</span>(site_id, habitat_type, <span class="at">.direction =</span> <span class="st">"down"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">count =</span> <span class="fu">coalesce</span>(count, <span class="dv">0</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>cleaned_stream_survey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  survey_date site_id  habitat_type  organism_id species                 count
+  &lt;date&gt;      &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;                   &lt;dbl&gt;
+1 2024-06-01  SITE_101 Riparian      ORG_1       Salmo trutta               12
+2 2024-06-01  SITE_101 Riparian      ORG_2       Cottus gobio                4
+3 2024-06-01  SITE_101 Riparian      ORG_3       Rana temporaria             0
+4 2024-06-02  SITE_102 Upland Forest ORG_4       Tamiasciurus hudsonicus     2
+5 2024-06-02  SITE_102 Upland Forest ORG_5       Cervus elaphus              1
+6 2024-06-02  SITE_102 Upland Forest ORG_6       Strix varia                 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace specific values in variables with NA</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>cleaned_stream_survey2 <span class="ot">&lt;-</span> stream_survey2 <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fill</span>(site_id, habitat_type, <span class="at">.direction =</span> <span class="st">"down"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">count =</span> <span class="fu">na_if</span>(count, <span class="sc">-</span><span class="dv">999</span>))</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>cleaned_stream_survey2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  survey_date site_id  habitat_type  organism_id species                 count
+  &lt;date&gt;      &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;                   &lt;dbl&gt;
+1 2024-06-01  SITE_101 Riparian      ORG_1       Salmo trutta               12
+2 2024-06-01  SITE_101 Riparian      ORG_2       Cottus gobio                4
+3 2024-06-01  SITE_101 Riparian      ORG_3       Rana temporaria            NA
+4 2024-06-02  SITE_102 Upland Forest ORG_4       Tamiasciurus hudsonicus     2
+5 2024-06-02  SITE_102 Upland Forest ORG_5       Cervus elaphus              1
+6 2024-06-02  SITE_102 Upland Forest ORG_6       Strix varia                NA</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="handling-implicit-missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="handling-implicit-missing-values">Handling implicit missing values</h3>
+<p>These are harder to catch because entire rows are missing, so we have to more carefully inspect. Look at the data below, can you catch where the NAs are?</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 18 × 3
+   site   week species_richness
+   &lt;chr&gt; &lt;dbl&gt;            &lt;dbl&gt;
+ 1 A         1                8
+ 2 A         2               10
+ 3 A         3                7
+ 4 A         4                9
+ 5 B         1                5
+ 6 B         2                6
+ 7 B         4                8
+ 8 C         1               12
+ 9 C         2               11
+10 C         3               13
+11 C         4               10
+12 D         1                4
+13 D         2                6
+14 D         3                5
+15 D         4                7
+16 E         1                9
+17 E         3               11
+18 E         4               10</code></pre>
+</div>
+</div>
+<p>Sometimes leaving these NAs out of our dataset is totally fine. Other times, we want to make them explicit so that we have something to work with, even if we end up filtering it out in a later analysis. There are a few ways to do this, but we’ll focus on using <code>complete()</code>. To use this, we specify the set of variables that define the combinations of rows that should exist.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use this if all possible values of site and week are in the data</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>bird_survey_complete <span class="ot">&lt;-</span> bird_survey <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">complete</span>(site, week)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>bird_survey_complete</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 3
+   site   week species_richness
+   &lt;chr&gt; &lt;dbl&gt;            &lt;dbl&gt;
+ 1 A         1                8
+ 2 A         2               10
+ 3 A         3                7
+ 4 A         4                9
+ 5 B         1                5
+ 6 B         2                6
+ 7 B         3               NA
+ 8 B         4                8
+ 9 C         1               12
+10 C         2               11
+11 C         3               13
+12 C         4               10
+13 D         1                4
+14 D         2                6
+15 D         3                5
+16 D         4                7
+17 E         1                9
+18 E         2               NA
+19 E         3               11
+20 E         4               10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use this if you want to be explicit about all possible combinations</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>bird_survey_complete <span class="ot">&lt;-</span> bird_survey <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">complete</span>(<span class="at">site =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>), <span class="at">week =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>bird_survey_complete</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 3
+   site   week species_richness
+   &lt;chr&gt; &lt;dbl&gt;            &lt;dbl&gt;
+ 1 A         1                8
+ 2 A         2               10
+ 3 A         3                7
+ 4 A         4                9
+ 5 B         1                5
+ 6 B         2                6
+ 7 B         3               NA
+ 8 B         4                8
+ 9 C         1               12
+10 C         2               11
+11 C         3               13
+12 C         4               10
+13 D         1                4
+14 D         2                6
+15 D         3                5
+16 D         4                7
+17 E         1                9
+18 E         2               NA
+19 E         3               11
+20 E         4               10</code></pre>
+</div>
+</div>
+</section>
+<section id="missing-or-empty-groups" class="level3">
+<h3 class="anchored" data-anchor-id="missing-or-empty-groups">Missing or empty groups</h3>
+<p>With categorical (i.e., factor) data, sometimes we don’t have observations for particular groups, but we still want to display that missingness when we produce plots or other data summaries. To handle this, we can make use of the <code>.drop</code> argument in functions like <code>group_by()</code> and <code>count()</code>. In this example below, we have observations of pollinators taken in prairies, bee lawns, gardens, roadsides, and woodlands. When we count our data, note that woodland is missing because we have no observations for that group:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 2
+   habitat  species            
+   &lt;fct&gt;    &lt;chr&gt;              
+ 1 Prairie  Bombus impatiens   
+ 2 Prairie  Apis mellifera     
+ 3 Prairie  Bombus griseocollis
+ 4 Bee lawn Bombus impatiens   
+ 5 Bee lawn Bombus bimaculatus 
+ 6 Bee lawn Apis mellifera     
+ 7 Garden   Bombus impatiens   
+ 8 Garden   Apis mellifera     
+ 9 Roadside Bombus impatiens   
+10 Roadside Bombus griseocollis
+11 Roadside Bombus impatiens   
+12 Roadside Apis mellifera     </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  habitat      n
+  &lt;fct&gt;    &lt;int&gt;
+1 Prairie      3
+2 Bee lawn     3
+3 Garden       2
+4 Roadside     4</code></pre>
+</div>
+</div>
+<p>We can fix this by NOT dropping empty groups:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>pollinators <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(habitat, <span class="at">.drop =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  habitat      n
+  &lt;fct&gt;    &lt;int&gt;
+1 Prairie      3
+2 Bee lawn     3
+3 Garden       2
+4 Woodland     0
+5 Roadside     4</code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="working-with-string-data-stringr-package" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-string-data-stringr-package">Working with string data: <code>stringr</code> package</h2>
+<p>There is a whole world of tools dedicated to working with string, or character data, mostly because of how infinitely complex it can become. As such, we can’t possibly do it justice in this course. For the most part, we’ll need just a handful of tools to work with strings that we might encounter in our data wrangling journey, so I’ve included some of the most useful functions below. The most challenging part of working with strings is getting a handle on <code>regular expressions</code>, which is the language we’ll need to use to recognize patterns in strings. We’ll only touch on this, and mostly use the <code>stringr</code> package out of the box in this course.</p>
+<p>Refer to the <a href="https://rstudio.github.io/cheatsheets/strings.pdf"><code>stringr</code> cheatsheet</a> for more details on this package!</p>
+<section id="most-useful-functions" class="level3">
+<h3 class="anchored" data-anchor-id="most-useful-functions">Most useful functions</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Function</strong></th>
+<th><strong>What it does</strong></th>
+<th><strong>Example use</strong></th>
+<th><strong>Example syntax</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>str_detect()</code></td>
+<td>Finds whether a string contains a pattern</td>
+<td>Find all observations of <em>Bombus</em> species</td>
+<td><code>str_detect(species, "Bombus")</code></td>
+</tr>
+<tr class="even">
+<td><code>str_replace()</code></td>
+<td>Replaces the first occurrence of a pattern</td>
+<td>Standardize <code>"B. impatiens"</code> to <code>"Bombus impatiens"</code></td>
+<td><code>str_replace(species, "B\\. impatiens", "Bombus impatiens")</code></td>
+</tr>
+<tr class="odd">
+<td><code>str_replace_all()</code></td>
+<td>Replaces all occurrences of a pattern</td>
+<td>Standardize different spellings/capitalizations of <code>"prairie"</code></td>
+<td><code>str_replace_all(habitat, "prairie|PRAIRIE", "Prairie")</code></td>
+</tr>
+<tr class="even">
+<td><code>str_extract()</code></td>
+<td>Extracts text matching a pattern</td>
+<td>Extract the year from a sample ID</td>
+<td><code>str_extract(sample_id, "20\\d{2}")</code></td>
+</tr>
+<tr class="odd">
+<td><code>str_split()</code></td>
+<td>Splits a string into multiple pieces</td>
+<td>Separate <code>"MN,StPaul,UMN"</code> into individual components</td>
+<td><code>str_split(location, ",")</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</section>
+</section>
+<section id="working-with-date-time-data-lubridate-package" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-date-time-data-lubridate-package">Working with date &amp; time data: <code>lubridate</code> package</h2>
+<p>Working with dates and times is also a whole other kettle of fish given the complexities of physical phenomena and geopolitical nonsense (time zones, daylight savings, etc.). Just like with strings, my primary goal here is to introduce you to formatting dates and times correctly in R so that you can use the many <code>lubridate</code> functions to extract derivative values for your analysis (like day of the year, month, day, hour, etc.). The key is being able to convert your raw date or time data into a special class of atomic character data that are recognized and treated as dates and times.</p>
+<p>For most folks, date will be the most common data you work with in this context, so we’ll start with that. The best place to handle converting your date data to date objects in R is during data import:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>smammal_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"content_data/w6/date-data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 8 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (4): site_id, habitat, species, capture_date
+dbl (1): trap_nights
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our capture_date column here is read as character data!</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>smammal_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 5
+  site_id habitat   species                 capture_date trap_nights
+  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;                   &lt;chr&gt;              &lt;dbl&gt;
+1 S01     Prairie   Peromyscus maniculatus  14-Oct-2026           25
+2 S01     Prairie   Microtus pennsylvanicus 15-Oct-2026           25
+3 S02     Woodland  Peromyscus leucopus     16-Oct-2026           20
+4 S02     Woodland  Peromyscus leucopus     18-Oct-2026           20
+5 S03     Grassland Microtus pennsylvanicus 21-Oct-2026           30
+6 S03     Grassland Peromyscus maniculatus  22-Oct-2026           30
+7 S04     Woodland  Peromyscus leucopus     25-Oct-2026           20
+8 S01     Prairie   Peromyscus maniculatus  27-Oct-2026           25</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>smammal_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"content_data/w6/date-data.csv"</span>,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">capture_date =</span> <span class="fu">col_date</span>(<span class="st">"%d-%b-%Y"</span>))</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># capture_date now reads in as date data!</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>smammal_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 5
+  site_id habitat   species                 capture_date trap_nights
+  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;                   &lt;date&gt;             &lt;dbl&gt;
+1 S01     Prairie   Peromyscus maniculatus  2026-10-14            25
+2 S01     Prairie   Microtus pennsylvanicus 2026-10-15            25
+3 S02     Woodland  Peromyscus leucopus     2026-10-16            20
+4 S02     Woodland  Peromyscus leucopus     2026-10-18            20
+5 S03     Grassland Microtus pennsylvanicus 2026-10-21            30
+6 S03     Grassland Peromyscus maniculatus  2026-10-22            30
+7 S04     Woodland  Peromyscus leucopus     2026-10-25            20
+8 S01     Prairie   Peromyscus maniculatus  2026-10-27            25</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be sure that your date string uses the correct delimiters that are in your date column! For example, <code>-</code> or <code>/</code>.</p>
+</div>
+</div>
+<p>There are various formats for different date/time values that <code>lubridate</code> will use. The primary ones are included below, but you may need to lookup the documentation for the package for additional formats!</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 15%">
+<col style="width: 48%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Type</strong></th>
+<th style="text-align: center;"><strong>Code</strong></th>
+<th style="text-align: center;"><strong>Meaning</strong></th>
+<th style="text-align: center;"><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Year</strong></td>
+<td style="text-align: center;"><code>%Y</code></td>
+<td style="text-align: center;">4 digit year</td>
+<td style="text-align: center;">2021</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>%y</code></td>
+<td style="text-align: center;">2 digit year</td>
+<td style="text-align: center;">21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Month</strong></td>
+<td style="text-align: center;"><code>%m</code></td>
+<td style="text-align: center;">Number</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>%b</code></td>
+<td style="text-align: center;">Abbreviated name</td>
+<td style="text-align: center;">Feb</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>%B</code></td>
+<td style="text-align: center;">Full name</td>
+<td style="text-align: center;">February</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Day</strong></td>
+<td style="text-align: center;"><code>%d</code></td>
+<td style="text-align: center;">One or two digits</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>%e</code></td>
+<td style="text-align: center;">Two digits</td>
+<td style="text-align: center;">02</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Time</strong></td>
+<td style="text-align: center;"><code>%H</code></td>
+<td style="text-align: center;">24-hour hour</td>
+<td style="text-align: center;">13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>%I</code></td>
+<td style="text-align: center;">12-hour hour</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>%p</code></td>
+<td style="text-align: center;">AM/PM</td>
+<td style="text-align: center;">pm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>%M</code></td>
+<td style="text-align: center;">Minutes</td>
+<td style="text-align: center;">35</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>%S</code></td>
+<td style="text-align: center;">Seconds</td>
+<td style="text-align: center;">45</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>%OS</code></td>
+<td style="text-align: center;">Seconds with decimal component</td>
+<td style="text-align: center;">45.35</td>
+</tr>
+</tbody>
+</table>
+<p>Once we have our date variables correctly specified and stored as date objects, we can easily do a whole bunch of math to get date differences, or extract various useful components like the ordinal date of the year. See the couple of examples below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>smammal_data <span class="sc">|&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">doy =</span> <span class="fu">yday</span>(capture_date), <span class="co"># Create a column with the ordinal day of year</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">year =</span> <span class="fu">year</span>(capture_date), <span class="co"># Create a column with just the year</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">month =</span> <span class="fu">month</span>(capture_date, <span class="at">label =</span> <span class="cn">TRUE</span>) <span class="co"># Create a column with the month as a string</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 8
+  site_id habitat   species           capture_date trap_nights   doy  year month
+  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;             &lt;date&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;ord&gt;
+1 S01     Prairie   Peromyscus manic… 2026-10-14            25   287  2026 Oct  
+2 S01     Prairie   Microtus pennsyl… 2026-10-15            25   288  2026 Oct  
+3 S02     Woodland  Peromyscus leuco… 2026-10-16            20   289  2026 Oct  
+4 S02     Woodland  Peromyscus leuco… 2026-10-18            20   291  2026 Oct  
+5 S03     Grassland Microtus pennsyl… 2026-10-21            30   294  2026 Oct  
+6 S03     Grassland Peromyscus manic… 2026-10-22            30   295  2026 Oct  
+7 S04     Woodland  Peromyscus leuco… 2026-10-25            20   298  2026 Oct  
+8 S01     Prairie   Peromyscus manic… 2026-10-27            25   300  2026 Oct  </code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="modifying-categorical-data-i.e.-factors-forcats-package" class="level2">
+<h2 class="anchored" data-anchor-id="modifying-categorical-data-i.e.-factors-forcats-package">Modifying categorical data (i.e., factors): <code>forcats</code> package</h2>
+<p>Categorical variables are very common in biological data (think treatments, plots, or even years in some contexts), and we’ll need to know how to work with <em>factors</em>, which are the R lingo for categorical data. There’s two primary things we’ll need to know how to do with factors: (1) create factors, and (2) reorder them!</p>
+<section id="converting-data-to-factors" class="level3">
+<h3 class="anchored" data-anchor-id="converting-data-to-factors">Converting data to factors</h3>
+<p>When we read data into R (as we discussed last week), R won’t automatically convert columns to factors unless we manually specify the atomic data type in our import function call. Instead, we will have to create factors by converting whatever data type we want to a factor. Any atomic data type can be converted into a factor. R accomplishes this by turning the data into a string (i.e., character data) and then to a factor. There are several functions to convert data to factors, including the base R <code>factor()</code> and <code>forcats::fct()</code>. Imagine we have some RNAseq data that we’ve imported:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 7
+  sample_id patient_id tissue_type disease_stage treatment_code sequenced_on
+  &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;                  &lt;int&gt; &lt;date&gt;      
+1 S_1       P1         Tumor       Stage III                  1 2024-01-15  
+2 S_2       P1         Normal      Stage III                  1 2024-01-15  
+3 S_3       P2         Tumor       Stage I                    0 2024-01-16  
+4 S_4       P2         Normal      Stage I                    0 2024-01-16  
+5 S_5       P3         Tumor       Stage IV                   2 2024-01-15  
+6 S_6       P3         Normal      Stage IV                   2 2024-01-15  
+7 S_7       P4         Tumor       Stage II                   1 2024-01-16  
+8 S_8       P4         Normal      Stage II                   1 2024-01-16  
+# ℹ 1 more variable: tp53_expr &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>We may want to code several of these variables as factors. <code>disease_stage</code> seems like an obvious one, and perhaps <code>tissue_type</code> and <code>treatment_code</code> as well. Let’s make <code>disease_stage</code> a factor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>processed_metadata <span class="ot">&lt;-</span> RNAseq_metadata <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Define strict biological ordinal progression</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">disease_stage =</span> <span class="fu">factor</span>(</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>        disease_stage, </span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Stage I"</span>, <span class="st">"Stage II"</span>, <span class="st">"Stage III"</span>, <span class="st">"Stage IV"</span>), </span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify summary structure</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(processed_metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 8
+Columns: 7
+$ sample_id      &lt;chr&gt; "S_1", "S_2", "S_3", "S_4", "S_5", "S_6", "S_7", "S_8"
+$ patient_id     &lt;chr&gt; "P1", "P1", "P2", "P2", "P3", "P3", "P4", "P4"
+$ tissue_type    &lt;chr&gt; "Tumor", "Normal", "Tumor", "Normal", "Tumor", "Normal"…
+$ disease_stage  &lt;ord&gt; Stage III, Stage III, Stage I, Stage I, Stage IV, Stage…
+$ treatment_code &lt;int&gt; 1, 1, 0, 0, 2, 2, 1, 1
+$ sequenced_on   &lt;date&gt; 2024-01-15, 2024-01-15, 2024-01-16, 2024-01-16, 2024-01…
+$ tp53_expr      &lt;dbl&gt; 12.4, 3.1, 14.8, 2.9, 8.2, 3.4, 11.1, 3.0</code></pre>
+</div>
+</div>
+<p>Here, data type, <code>&lt;ord&gt;</code> stands for <em>ordered factor</em>.</p>
+</section>
+<section id="reordering-factor-levels" class="level3">
+<h3 class="anchored" data-anchor-id="reordering-factor-levels">Reordering factor levels</h3>
+<p>When we convert character or numeric data to factors, R will automatically create the levels according to alphanumeric sorting (that is, 0-9, A-Z, earliest date to latest date if working with datetime data). We can adjust this if there is an alternate order to our data. This is primarily important for when we plot our data (so that we can control which categories appear where in our plots), but can also matter for calculating summary statistics for tables and some analysis pipelines. Re-ordering our factors is called <em>re-leveling</em>. For example, imagine we have some data from an experiment where we measured gene expression of several genotypes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>gene_expression_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">sample_id =</span> <span class="fu">paste0</span>(<span class="st">"S"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>),</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">genotype =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"gene_B"</span>, <span class="st">"gene_ctrl"</span>, <span class="st">"gene_A"</span>, </span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"gene_B"</span>, <span class="st">"gene_ctrl"</span>, <span class="st">"gene_A"</span>, </span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"gene_B"</span>, <span class="st">"gene_ctrl"</span>, <span class="st">"gene_A"</span>)),</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">expression_level =</span> <span class="fu">c</span>(<span class="fl">12.4</span>, <span class="fl">5.2</span>, <span class="fl">8.1</span>, <span class="fl">14.1</span>, <span class="fl">4.9</span>, <span class="fl">8.7</span>, <span class="fl">11.8</span>, <span class="fl">5.5</span>, <span class="fl">9.0</span>)</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>gene_expression_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 3
+  sample_id genotype  expression_level
+  &lt;chr&gt;     &lt;fct&gt;                &lt;dbl&gt;
+1 S1        gene_B                12.4
+2 S2        gene_ctrl              5.2
+3 S3        gene_A                 8.1
+4 S4        gene_B                14.1
+5 S5        gene_ctrl              4.9
+6 S6        gene_A                 8.7
+7 S7        gene_B                11.8
+8 S8        gene_ctrl              5.5
+9 S9        gene_A                 9  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(gene_expression_df<span class="sc">$</span>genotype)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "gene_A"    "gene_B"    "gene_ctrl"</code></pre>
+</div>
+</div>
+<p>When R creates this factor variable, it levels the factors by alphanumeric order, making our control gene (<code>gene_ctrl</code>) the last level. That may be fine, but when we plot the data, we may prefer to have the control group display first to compare our other genotypes against it. To do that, we need to re-level the factors using <code>fct_relevel()</code>. Because we’re changing a vector of factors in our tibble, we use the <code>fct_relevel()</code> function <em>inside</em> our mutate function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>gene_expression_df <span class="ot">&lt;-</span> gene_expression_df <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">genotype =</span> <span class="fu">fct_relevel</span>(genotype, <span class="fu">c</span>(<span class="st">"gene_ctrl"</span>, <span class="st">"gene_A"</span>, <span class="st">"gene_B"</span>))) <span class="co"># Here, we overwrite the order of the existing genotype factor</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(gene_expression_df<span class="sc">$</span>genotype)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "gene_ctrl" "gene_A"    "gene_B"   </code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

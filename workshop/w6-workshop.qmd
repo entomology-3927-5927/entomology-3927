@@ -1,0 +1,114 @@
+---
+title: "Workshop 6: Data Wranglin' Pt. II"
+subtitle: "Entomology 3927 - Fall 2026"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+engine: knitr
+toc: true
+format:
+  live-html:
+    theme: 
+    - ../styles.scss
+    highlight-style: ayu
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+::: content-callout1
+## Frontmatter
+
+**Due date for workshop materials**
+
+You will need to commit and push your workshop files and create your peer review issue and tag your reviewer by **23:59 next Tuesday, November 3rd** so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by **Friday, November 6th at 12:00**.
+:::
+
+</br>
+
+## 📦 Packages we'll need for today
+
+Be sure to install these packages (`install.packages()`) if you don't already have them.
+
+```{r eval=FALSE, message=FALSE}
+library(tidyverse)
+library(janitor)
+```
+
+</br>
+
+## 💾 Load our data
+
+You can either download the requisite `.csv` files below, or import them directly from Google Sheets (`w6-workshop-data`). Be sure you are using the correct files/sheet tabs for each section below. I've tried to make it explicit. 
+
+[{{< fa file-csv >}} `.csv` dataset](workshop_data/w6-workshop-data.csv){.btn .btn-primary download="w6-workshop-data.csv"} [{{< fa table >}} Google Sheet dataset](https://docs.google.com/spreadsheets/d/1tjBRNKJA2ZkSNtjFgZMjrUGLpQjmswQsB5fmX4266qw/edit?usp=sharing){.btn .btn-primary download="w2-workshop.qmd"}
+
+::: callout-tip
+Be sure you save the `.csv` in the correct place so that you can access it in your R Studio project!
+:::
+
+</br>
+
+## 📑 Workshop assignment
+### Practicing wrangling skills from this week: OPTIONAL
+For this section, you'll import `practice-skills.csv` (`practice-skills` in Google Sheets) and `practice-joins.csv` (`practice-joins` in Google Sheets) and conduct the various practice exercises. This section is optional to do, and you don't need to include it in your workshop report!
+
+#### Joining data
+1. Join `practice-joins.csv` to `practice-skills.csv` in using `left_join()`. This will append site-level metadata to our observational data
+
+#### Handling missing data
+2. After joining the site metadata, replace NA values in `canopy_cover` and `distance_to_road_m` with NA
+
+#### Working with strings
+3. Separate the `observer_info` column into 3 columns named `observer`, `time_of_day`, and `survey_duration`.
+
+#### Working with dates
+4. Convert `observation_date` to the a date and create new columns for month and year into the data.
+
+#### Coding factors
+5. Convert `habitat` to a factor that is ordered alphabetically.  
+
+</br>
+
+### Putting all the wrangling skills together: REQUIRED
+For this section, you'll import `pitfall-traps.csv` (`pitfall-traps` in Google Sheets) and `pitfall-traps-sites.csv` (`pitfall-traps-sites` in Google Sheets) and proceed to clean, tidy, and wrangle the dataset so that it is ready to plot/analyze. It will leverage all of the topics we've discussed over the last two weeks, and it will be up to you to critically assess the data and decide what treatments it needs in order to be ready to use. Be sure to document your process along the way using comments or other means in your `.qmd` report. This is a great opportunity to work with your fellow classmates to bouce ideas off one another. This section is required!
+
+There are two columns with a complex of data included, `trap-details` and `trap-id`. 
+
+```{text}
+# Trap details
+pitfall|PR|propylene_glycol|10cm
+```
+
+| Position | Information | Example values |
+|---|---|---|
+| 1 | **Trap type** | `pitfall` |
+| 2 | **Habitat code** | `PR`, `WD`, `SV`, `RP`, `MD`, `WT`, `ED` |
+| 3 | **Preservative** | `propylene_glycol`, `salt_solution` |
+| 4 | **Trap depth** | `8cm`, `10cm`, `12cm` |
+
+```{text}
+# Trap ID
+S01-P1-01
+```
+
+| Position | Information | Example values |
+|---|---|---|
+| 1 | **Site ID** | `S01`, `S02`, `S03`, etc. |
+| 2 | **Sampling period** | `P1`, `P2`, `P3`, `P4` |
+| 3 | **Trap number** | `01`, `02`, `03`, `04`, `05` |
+
+
+Once you've cleaned up the data, you should be able to answer the following questions by either creating new variables, or conducting some data summarizations:
+
+1. What was the average deployment length in number of days? 
+2. Is there evidence that deployment length varied by habitat type across all sampling periods?
+3. What habitat type had the greatest total abundance of arthropods?
+4. Did athropod abundance vary across sampling periods (i.e., can we get a sense of the phenology of abundance over the season)?
+
+:::{.callout-tip}
+For this, you'll have to get the sampling period out of the `trap_id` column -- it's in there as `PX` where x is the sampling round. See information above!
+:::
+
+5. Do sites with greater tree cover tend to have more spiders than sites with less tree cover?
+6. At which site was average soil temperature highest, and how did arthropod abundance at that site compare with other sites?
+7. Which individual trap had the greatest total number of arthropods captured, and what was thre management type, habitat, and sampling date of that trap?

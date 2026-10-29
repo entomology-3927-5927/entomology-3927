@@ -1,0 +1,11 @@
+site_id,site_name,habitat,management,latitude,longitude,elevation_m,percent_tree_cover
+S01,Cedar Prairie,prairie,burned,44.98,-93.21,286,12
+S02,Maple Woods,woodland,unmanaged,45.02,-93.17,301,78
+S03,Oak Savanna,savanna,grazed,44.94,-93.28,292,43
+S04,Prairie Creek,prairie,burned,45.05,-93.11,279,8
+S05,River Bend,riparian,unmanaged,44.91,-93.24,271,35
+S06,Aspen Meadow,meadow,mowed,45.0,-93.31,305,21
+S07,Willow Wetland,wetland,unmanaged,44.96,-93.15,267,66
+S08,Pine Ridge,woodland,unmanaged,45.08,-93.27,318,82
+S09,Goldenrod Field,prairie,burned,44.89,-93.08,274,14
+S10,Sumac Edge,edge,mowed,45.03,-93.2,289,49

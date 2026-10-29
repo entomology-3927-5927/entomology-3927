@@ -92,7 +92,7 @@ Some functions that may be of use here are: `janitor::clean_names()`, `mutate()`
 
 3.  Tidy the data. Look at how the tibble is structured. Are these data tidy? If not, use the `pivot_*()` functions to reshape the data appropriately, remembering the rules for tidy data.
 
-### Transforming data 
+### Transforming data
 
 1.  Create a tibble that is a subset of the full data, only including the plot ID, habitat type, species, year, and plant height.
 
