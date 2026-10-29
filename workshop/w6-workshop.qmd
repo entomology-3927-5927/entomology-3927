@@ -40,7 +40,7 @@ library(janitor)
 
 You can either download the requisite `.csv` files below, or import them directly from Google Sheets (`w6-workshop-data`). Be sure you are using the correct files/sheet tabs for each section below. I've tried to make it explicit. 
 
-[{{< fa file-csv >}} `.csv` dataset](workshop_data/w6-workshop-data.csv){.btn .btn-primary download="w6-workshop-data.csv"} [{{< fa table >}} Google Sheet dataset](https://docs.google.com/spreadsheets/d/1tjBRNKJA2ZkSNtjFgZMjrUGLpQjmswQsB5fmX4266qw/edit?usp=sharing){.btn .btn-primary download="w2-workshop.qmd"}
+[{{< fa file-csv >}} `.csv` dataset](workshop_data/w6.zip){.btn .btn-primary download="w6-workshop-data.zip"} [{{< fa table >}} Google Sheet dataset](https://docs.google.com/spreadsheets/d/1rVLGxRAIfH84O5ANTlUcVBaw-o8u1JsefcViett2AyI/edit?usp=sharing){.btn .btn-primary}
 
 ::: callout-tip
 Be sure you save the `.csv` in the correct place so that you can access it in your R Studio project!
