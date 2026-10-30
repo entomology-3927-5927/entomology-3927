@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeremy Hemberger">
-<meta name="dcterms.date" content="2026-10-28">
+<meta name="dcterms.date" content="2026-10-30">
 
 <title>Week 6 – Entomology 3927/5927</title>
 <style>
@@ -396,7 +396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 28, 2026</p>
+      <p class="date">October 30, 2026</p>
     </div>
   </div>
   
@@ -496,10 +496,10 @@ Tip
 <p><code>dplyr</code> has 6 joining functions; 4 mutating, and 2 filtering joins:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
-<col style="width: 4%">
-<col style="width: 64%">
-<col style="width: 22%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 51%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -659,10 +659,10 @@ Note
 <p>Filtering joins….well…they filter! It’s a slightly different approach than using the <code>filter()</code> function that we practiced with last week, and here we’re using observations in another, separate dataset as our filtering conditions rater than a set of logical rules that we specify in our <code>filter()</code> call. There are two types: <code>semi_join()</code> and <code>anti_join()</code></p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
-<col style="width: 4%">
-<col style="width: 64%">
-<col style="width: 22%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 51%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -708,7 +708,13 @@ Tip: finding implicit missing data with <code>anti_join()</code>
 <li><strong>Equi join</strong>: <code>left_join(x, y, by = join_by(key == key))</code></li>
 <li><strong>Non-equi join</strong>: <code>left_join(x, y, by = join_by(key &gt;= key))</code></li>
 </ul>
-<p>There are four typres of non-equi join that are most helpful: 1. <strong>Cross joins</strong> match every pair of rows. This can be useful for creating all possible combinations of your variables. 2. <strong>Inequality joins</strong> use &lt;, &lt;=, &gt;, and &gt;= instead of ==. Can be used to restrict cross joins to create all possible combinations rather than all permutations. 3. <strong>Rolling joins</strong> are similar to inequality joins but only find the closest match. The most useful of these for us: we can join data to the nearest matching value. 4. <strong>Overlap joins</strong> are a special type of inequality join designed to work with ranges.</p>
+<p>There are four typres of non-equi join that are most helpful:</p>
+<ol type="1">
+<li><strong>Cross joins</strong> match every pair of rows. This can be useful for creating all possible combinations of your variables.</li>
+<li><strong>Inequality joins</strong> use &lt;, &lt;=, &gt;, and &gt;= instead of ==. Can be used to restrict cross joins to create all possible combinations rather than all permutations.</li>
+<li><strong>Rolling joins</strong> are similar to inequality joins but only find the closest match. The most useful of these for us: we can join data to the nearest matching value.</li>
+<li><strong>Overlap joins</strong> are a special type of inequality join designed to work with ranges.</li>
+</ol>
 <p><br></p>
 </section>
 </section>
@@ -1069,12 +1075,6 @@ Note
 </div>
 <p>There are various formats for different date/time values that <code>lubridate</code> will use. The primary ones are included below, but you may need to lookup the documentation for the package for additional formats!</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 15%">
-<col style="width: 48%">
-<col style="width: 19%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;"><strong>Type</strong></th>
