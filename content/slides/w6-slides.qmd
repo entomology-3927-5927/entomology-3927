@@ -1,0 +1,247 @@
+---
+title: "Week 6"
+subtitle: "Data Wranglin' Pt. II"
+editor:
+  mode: source
+format:
+  revealjs: 
+    # center-title-slide: false
+    output-file: w6-slides.html
+    theme: ["simple", "slide_styles/slide-styles.scss"]
+    # navigation-mode: vertical
+    smaller: true
+    slide-number: c/t
+    chalkboard: 
+      buttons: true
+    preview-links: auto
+    auto-stretch: false
+    transition: fade
+    transition-speed: slow
+    scrollable: true
+    logo: /media/ent-3927-header.png
+    css: ["default", "slide_styles/slide-styles.scss"]
+    # footer: '[https://jhemberger.github.io/entomology-5126/](https://jhemberger.github.io/entomology-5126/)'
+---
+
+## This week: beyond the basic verbs
+
+So far, we've learned how to manipulate a **single data frame**.
+
+This week we'll tackle some of the messier realities of biological data:
+
+- 🔗 **Combining data** from multiple sources
+- 🕳️ **Finding and handling missing data**
+- 🔤 **Working with text and strings**
+- 📅 **Working with dates and times**
+- 🏷️ **Working with categorical data**
+
+# 🔗 Combining data {.bkrd-color-1}
+## 🔗 Combining data: joins
+
+:::{.box-1-list}
+Most ecological studies involve **multiple datasets**. We often need to connect observations to:
+:::
+
+- site metadata
+- environmental measurements
+- species information
+- experimental treatments
+- sampling information/methods
+
+## 🔑 Keys: the connection between datasets
+
+:::{.box-1-list}
+To do this, we can use one or more variables to connect observations across datasets. These variables are called **keys**.
+:::
+
+**Primary key:** A variable—or combination of variables—that **uniquely identifies an observation**. For example, `sample_id`
+
+If one variable isn't enough, we can use a **compound key**: `site_code` + `year`
+
+**Foreign key:** A variable in another dataset that corresponds to the primary key.
+
+:::{.callout-important}
+**Before joining, ask:** Does my key actually uniquely identify the observations I think it does?
+
+```r
+count(data, site_code, year)
+```
+:::
+
+## 🔗 Which join do I need?
+
+| Join | What happens? |
+|---|---|
+| `left_join()` | Keep **all x**, add matching information from y |
+| `right_join()` | Keep **all y**, add matching information from x |
+| `inner_join()` | Keep only observations found in **both** |
+| `full_join()` | Keep **everything from both** |
+| `semi_join()` | Keep x if a match exists in y |
+| `anti_join()` | Keep x if **no match** exists in y |
+
+
+**The workhorse join: `left_join()`**
+
+```r
+surveys |>
+  left_join(site_metadata,
+            by = join_by(site_code, year))
+```
+
+:::{.callout-tip}
+Be explicit about your join keys whenever possible!
+:::
+
+# 🕳️ Missing data {.bkrd-color-2}
+## 🕳️ Missing data: not all NAs are equal
+
+:::{.box-2-list}
+Missingness can be **explicit** or **implicit**.
+:::
+
+**Explicit missingness:** The row exists, but a value is missing:
+
+```text
+site     species      count
+A        Bombus       12
+A        Andrena      NA
+```
+
+**Implicit missingness:** The observation itself is absent:
+
+```text
+site     week
+A        1
+A        2
+A        3
+# Week 4 is missing entirely
+```
+
+:::{.callout-important}
+You can't handle missing data until you know what kind of missingness you have.
+:::
+
+
+## 🧹 Handling missing data
+:::{.box-2-list}
+There is **no universally correct way** to handle missing values. Your approach depends on:
+:::
+
+- how the data were collected/why the value is missing
+- what question you're asking/what your analysis requires
+
+Some useful tools:
+
+```r
+# Carry metadata downward
+fill(site, habitat, .direction = "down")
+
+# Replace NA with a known value
+coalesce(count, 0)
+
+# Convert a placeholder to NA
+na_if(count, -999)
+
+# Make implicit missingness explicit
+complete(site, week)
+```
+
+:::{.callout-caution}
+Never automatically replace `NA` with zero.
+:::
+
+
+# 🔤 Working with strings {.bkrd-color-3}
+## 🔤 Working with strings
+
+:::{.box-3-list}
+Biological datasets often contain **a lot of text**. We'll need some special tools to work with data like:
+:::
+
+- species names
+- site IDs
+- sample IDs
+- habitat descriptions
+- notes and field observations
+
+The `stringr` package gives us tools for finding and modifying patterns.
+
+```r
+str_detect(species, "Bombus")
+
+str_replace_all(
+    species,            # Vector of strings to replace
+    "B\\. impatiens",   # Search pattern
+    "Bombus impatiens"  # Replace with
+    )
+
+str_extract(sample_id, "20\\d{2}")
+
+str_split(location, ",")
+```
+
+:::{.callout-tip}
+# The central skill to learn here:
+
+**Regular expressions** let us describe patterns rather than exact strings. You don't need to memorize them—learn to recognize when you need them and look them up using cheatsheet.
+:::
+
+
+# 📅 Dates & times {.bkrd-color-4}
+## 📅 Dates & times
+
+:::{.box-4-list}
+Dates should be stored as **date/time objects**, not ordinary character strings.
+:::
+
+We can convert these data during during import:
+
+```r
+read_csv(
+  "data.csv",
+  col_types = cols(
+    capture_date = col_date("%d-%b-%Y")
+  )
+)
+```
+
+Then `lubridate` lets us extract useful information:
+
+```r
+mutate(
+  year  = year(capture_date),
+  month = month(capture_date, label = TRUE),
+  doy   = yday(capture_date)
+)
+```
+
+# Categorical data: factors {.bkrd-color-5}
+
+## 🏷️ Categorical data: factors
+
+:::{.box-5-list}
+Factors are R's way of representing **categorical variables**. Common biological/ecological examples:
+:::
+
+- treatment
+- habitat
+- site
+- species
+- sampling period
+
+```r
+disease_stage <- factor(
+  disease_stage,
+  levels = c(
+    "Stage I",
+    "Stage II",
+    "Stage III",
+    "Stage IV"
+  ),
+  ordered = TRUE
+)
+```
+
+:::{.callout-important}
+R otherwise uses its default level ordering—which may not match the **biological or experimental order** you want.
+:::

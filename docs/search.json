@@ -1442,5 +1442,96 @@
       "Module 3: Basic data wrangling and visualization in R",
       "Week 5: Data wrangling 1"
     ]
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#this-week-beyond-the-basic-verbs",
+    "href": "content/slides/w6-slides.html#this-week-beyond-the-basic-verbs",
+    "title": "Week 6",
+    "section": "This week: beyond the basic verbs",
+    "text": "This week: beyond the basic verbs\nSo far, we’ve learned how to manipulate a single data frame.\nThis week we’ll tackle some of the messier realities of biological data:\n\n🔗 Combining data from multiple sources\n🕳️ Finding and handling missing data\n🔤 Working with text and strings\n📅 Working with dates and times\n🏷️ Working with categorical data"
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#combining-data-joins",
+    "href": "content/slides/w6-slides.html#combining-data-joins",
+    "title": "Week 6",
+    "section": "🔗 Combining data: joins",
+    "text": "🔗 Combining data: joins\n\nMost ecological studies involve multiple datasets. We often need to connect observations to:\n\n\nsite metadata\nenvironmental measurements\nspecies information\nexperimental treatments\nsampling information/methods"
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#keys-the-connection-between-datasets",
+    "href": "content/slides/w6-slides.html#keys-the-connection-between-datasets",
+    "title": "Week 6",
+    "section": "🔑 Keys: the connection between datasets",
+    "text": "🔑 Keys: the connection between datasets\n\nTo do this, we can use one or more variables to connect observations across datasets. These variables are called keys.\n\nPrimary key: A variable—or combination of variables—that uniquely identifies an observation. For example, sample_id\nIf one variable isn’t enough, we can use a compound key: site_code + year\nForeign key: A variable in another dataset that corresponds to the primary key.\n\n\n\n\n\n\nImportant\n\n\nBefore joining, ask: Does my key actually uniquely identify the observations I think it does?\ncount(data, site_code, year)"
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#which-join-do-i-need",
+    "href": "content/slides/w6-slides.html#which-join-do-i-need",
+    "title": "Week 6",
+    "section": "🔗 Which join do I need?",
+    "text": "🔗 Which join do I need?\n\n\n\nJoin\nWhat happens?\n\n\n\n\nleft_join()\nKeep all x, add matching information from y\n\n\nright_join()\nKeep all y, add matching information from x\n\n\ninner_join()\nKeep only observations found in both\n\n\nfull_join()\nKeep everything from both\n\n\nsemi_join()\nKeep x if a match exists in y\n\n\nanti_join()\nKeep x if no match exists in y\n\n\n\nThe workhorse join: left_join()\nsurveys |&gt;\n  left_join(site_metadata,\n            by = join_by(site_code, year))\n\n\n\n\n\n\nTip\n\n\nBe explicit about your join keys whenever possible!"
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#missing-data-not-all-nas-are-equal",
+    "href": "content/slides/w6-slides.html#missing-data-not-all-nas-are-equal",
+    "title": "Week 6",
+    "section": "🕳️ Missing data: not all NAs are equal",
+    "text": "🕳️ Missing data: not all NAs are equal\n\nMissingness can be explicit or implicit.\n\nExplicit missingness: The row exists, but a value is missing:\nsite     species      count\nA        Bombus       12\nA        Andrena      NA\nImplicit missingness: The observation itself is absent:\nsite     week\nA        1\nA        2\nA        3\n# Week 4 is missing entirely\n\n\n\n\n\n\nImportant\n\n\nYou can’t handle missing data until you know what kind of missingness you have."
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#handling-missing-data",
+    "href": "content/slides/w6-slides.html#handling-missing-data",
+    "title": "Week 6",
+    "section": "🧹 Handling missing data",
+    "text": "🧹 Handling missing data\n\nThere is no universally correct way to handle missing values. Your approach depends on:\n\n\nhow the data were collected/why the value is missing\nwhat question you’re asking/what your analysis requires\n\nSome useful tools:\n# Carry metadata downward\nfill(site, habitat, .direction = \"down\")\n\n# Replace NA with a known value\ncoalesce(count, 0)\n\n# Convert a placeholder to NA\nna_if(count, -999)\n\n# Make implicit missingness explicit\ncomplete(site, week)\n\n\n\n\n\n\nCaution\n\n\nNever automatically replace NA with zero."
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#working-with-strings",
+    "href": "content/slides/w6-slides.html#working-with-strings",
+    "title": "Week 6",
+    "section": "🔤 Working with strings",
+    "text": "🔤 Working with strings\nBiological datasets contain a lot of text:\n\nspecies names\nsite IDs\nsample IDs\nhabitat descriptions\nnotes and field observations\n\nThe stringr package gives us tools for finding and modifying patterns.\nstr_detect(species, \"Bombus\")\n\nstr_replace(species,\n            \"B\\\\. impatiens\",\n            \"Bombus impatiens\")\n\nstr_extract(sample_id, \"20\\\\d{2}\")\n\nstr_split(location, \",\")\nThe key skill\nRegular expressions let us describe patterns rather than exact strings.\nYou don’t need to memorize them—learn to recognize when you need them and look them up."
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#dates-times",
+    "href": "content/slides/w6-slides.html#dates-times",
+    "title": "Week 6",
+    "section": "📅 Dates & times",
+    "text": "📅 Dates & times\nDates should be stored as date/time objects, not ordinary character strings.\nInstead of:\n\"02-Jun-2024\"\nconvert during import:\nread_csv(\n  \"data.csv\",\n  col_types = cols(\n    capture_date = col_date(\"%d-%b-%Y\")\n  )\n)\nThen lubridate lets us extract useful information:\nmutate(\n  year  = year(capture_date),\n  month = month(capture_date, label = TRUE),\n  doy   = yday(capture_date)\n)\n\nGet your dates into the correct format early."
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#categorical-data-factors",
+    "href": "content/slides/w6-slides.html#categorical-data-factors",
+    "title": "Week 6",
+    "section": "🏷️ Categorical data: factors",
+    "text": "🏷️ Categorical data: factors\n\nFactors are R’s way of representing categorical variables. Common biological/ecological examples:\n\n\ntreatment\nhabitat\nsite\nspecies\nsampling period\n\ndisease_stage &lt;- factor(\n  disease_stage,\n  levels = c(\n    \"Stage I\",\n    \"Stage II\",\n    \"Stage III\",\n    \"Stage IV\"\n  ),\n  ordered = TRUE\n)\n\n\n\n\n\n\nImportant\n\n\nR otherwise uses its default level ordering—which may not match the biological or experimental order you want."
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#the-bigger-picture",
+    "href": "content/slides/w6-slides.html#the-bigger-picture",
+    "title": "Week 6",
+    "section": "🧭 The bigger picture",
+    "text": "🧭 The bigger picture\nData wrangling is ultimately about turning messy observations into data we can reason about.\nA useful workflow\nImport\n↓\nInspect\n↓\nClean\n↓\nCombine\n↓\nTransform\n↓\nAnalyze\nAnd always ask:\n\nWhat does this value actually mean?\n\nBefore deciding how to clean it, join it, replace it, or analyze it."
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#categorical-data-factors-1",
+    "href": "content/slides/w6-slides.html#categorical-data-factors-1",
+    "title": "Week 6",
+    "section": "🏷️ Categorical data: factors",
+    "text": "🏷️ Categorical data: factors\n\nFactors are R’s way of representing categorical variables. Common biological/ecological examples:\n\n\ntreatment\nhabitat\nsite\nspecies\nsampling period\n\ndisease_stage &lt;- factor(\n  disease_stage,\n  levels = c(\n    \"Stage I\",\n    \"Stage II\",\n    \"Stage III\",\n    \"Stage IV\"\n  ),\n  ordered = TRUE\n)\n\n\n\n\n\n\nImportant\n\n\nR otherwise uses its default level ordering—which may not match the biological or experimental order you want."
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#dates-times-1",
+    "href": "content/slides/w6-slides.html#dates-times-1",
+    "title": "Week 6",
+    "section": "📅 Dates & times",
+    "text": "📅 Dates & times\n\nDates should be stored as date/time objects, not ordinary character strings.\n\nWe can convert these data during during import:\nread_csv(\n  \"data.csv\",\n  col_types = cols(\n    capture_date = col_date(\"%d-%b-%Y\")\n  )\n)\nThen lubridate lets us extract useful information:\nmutate(\n  year  = year(capture_date),\n  month = month(capture_date, label = TRUE),\n  doy   = yday(capture_date)\n)"
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#working-with-strings-1",
+    "href": "content/slides/w6-slides.html#working-with-strings-1",
+    "title": "Week 6",
+    "section": "🔤 Working with strings",
+    "text": "🔤 Working with strings\n\nBiological datasets often contain a lot of text. We’ll need some special tools to work with data like:\n\n\nspecies names\nsite IDs\nsample IDs\nhabitat descriptions\nnotes and field observations\n\nThe stringr package gives us tools for finding and modifying patterns.\nstr_detect(species, \"Bombus\")\n\nstr_replace_all(\n    species,            # Vector of strings to replace\n    \"B\\\\. impatiens\",   # Search pattern\n    \"Bombus impatiens\"  # Replace with\n    )\n\nstr_extract(sample_id, \"20\\\\d{2}\")\n\nstr_split(location, \",\")\n\n\n\n\n\n\nThe central skill to learn here:\n\n\nRegular expressions let us describe patterns rather than exact strings. You don’t need to memorize them—learn to recognize when you need them and look them up using cheatsheet."
   }
 ]
