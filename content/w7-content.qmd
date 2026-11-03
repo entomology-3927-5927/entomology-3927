@@ -1,0 +1,119 @@
+---
+title: "Week 7"
+subtitle: "Data Visualization Pt. I"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+format:
+  html:
+    theme: ../styles.scss
+---
+
+:::: content-callout1
+## Readings
+
+- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 1: Visualization](https://r4ds.hadley.nz/data-visualize.html)
+- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Part II (3 chapters)](https://r4ds.hadley.nz/visualize.html)
+
+### Online/optional extras
+- {{< fa file-code >}} [ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.](https://ggplot2-book.org/)
+
+## Questions we'll address this week
+
+1.  How do we create data visualizations in R?
+2.  What are the various geometries that we can use?
+3.  What visualization theory do we need to know?
+
+## Slides
+
+[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w7-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w7-slides.html?print-pdf){.btn .btn-primary role="button"}
+
+<iframe src="slides/w7-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
+
+</iframe>
+
+::: callout-tip
+**Tip**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
+:::
+::::
+
+</br>
+
+```{r include=FALSE}
+library(tidyverse)
+```
+
+## Creating visualizations in R: the tools available
+There are a myriad of ways to create data visualizations in R. Indeed, a bunch of built-in tools already exist within base R to create plots, and many folks use these tools exclusively to create plots for their presentations, manuscripts, and websites. And the plots from base R...do the job...[but aren't particularly aesthetic](https://intro2r.com/simple-base-r-plots.html)! 
+
+One of the most important qualities of [good]() data visualizations is that, in addition to being truthful and functional, they are beautiful. This means being cognizant about basic design and color theory and chosing the plots carefully and considerately to best serve the purpose of communicating the data. Here, the Great British Baking Show addage of "Style and Substance" comes into play. It's possible to create incredibly data-rich plots that are truthful and functional, but you also should *want* to look at it -- and looking at it shoudl convey an emotional response in addition to an analytical response. On the flip side, it's possible to create a plot that is stunningly beautiful, but lacks sufficient data and analytical substance. Walking that balance is what data visualization is all about. 
+
+To accomplish this, we'll almost exclusively be using the `ggplot2` package in the Tidyverse. It's the most flexible and well-equipped library for creating just about any sort of data visualization, and is designed to work with tidy data and the various packages that produce tidy data. In addition, many, many packages create plots that are ggplot2 objects, meaning that we can take and modify them to match a particular aesthetic, add additional information, or combine them with other plots. There's also an abundance of code and tutorials out there to create ggplot plots. 
+
+## Anatomy of a plot
+ggplot plots (or objects, as we'll be referring to them) are composed of various layers that, together, work to build a plot. 
+
+:::: {.columns}
+::: {.column width="50%"}
+![](https://ggplot2.tidyverse.org/articles/ggplot2_files/figure-html/overview_graphic-1.png){width="100%" fig-align="center"}
+:::
+
+::: {.column width="50%"}
+```{r eval=FALSE}
+library(ggplot2)
+
+# Data + Mapping
+ggplot(data = mpg,
+       mapping = aes(x = cty, y = hwy)) +
+
+  # Layers
+  geom_point(aes(color = displ)) +
+  geom_smooth(method = "lm") +
+
+  # Scales
+  scale_color_viridis_c() +
+
+  # Facets
+  facet_grid(year ~ drv) +
+
+  # Coordinates
+  coord_fixed() +
+
+  # Theme
+  theme_minimal()
+```
+:::
+::::
+
+| **Component** | **Purpose** | **Common functions** |
+|---|---|---|
+| **Data** | The dataset used to create the visualization. | `ggplot(data = ...)` |
+| **Mapping** | Maps variables in the dataset to visual properties (aesthetics). | `aes()` |
+| **Layers** | Determines how data are visually represented, including geometry, statistical transformations, and position adjustments. | `geom_point()`, `geom_line()`, `geom_bar()`, `geom_smooth()`, `geom_histogram()` |
+| **Scales** | Controls how aesthetic mappings are translated into visual properties, including axis limits, breaks, labels, and colors. | `scale_x_*()`, `scale_y_*()`, `scale_color_*()`, `scale_fill_*()` |
+| **Facets** | Splits data into multiple panels based on one or more categorical variables. | `facet_wrap()`, `facet_grid()` |
+| **Coordinates** | Controls the coordinate system and how spatial positions are displayed. | `coord_cartesian()`, `coord_fixed()`, `coord_flip()`, `coord_polar()` |
+| **Theme** | Controls non-data visual elements, including backgrounds, gridlines, text, axes, and legends. | `theme()`, `theme_minimal()`, `theme_classic()`, `theme_bw()` |
+
+- **Mapping** (`aes()`) tells ggplot2 *what variables* to visualize.
+- **Layers** (`geom_*()`) tell ggplot2 *how to visualize* those variables.
+- **Scales** (`scale_*()`) tell ggplot2 *how to translate* those variables into visual properties.
+- **Themes** (`theme_*()`) control how the *overall plot looks*/the aesthetic (text, lineweight, etc.)
+
+### Mapping
+
+When we map variables to our plot aesthetics, we have two options: using (1) global aesthetics or (2) layer-specific aesthetics. 
+
+**Global aesthetics** are defined inside ggplot(aes()) and are inherited by every layer in the plot.
+
+**Layer-specific aesthetics** are defined inside an individual geom_*() and apply only to that particular layer.
+
+### Layers
+
+### Scales
+
+### Facets
+
+### Coordinates
+
+### Themes

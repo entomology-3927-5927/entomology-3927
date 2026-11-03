@@ -12,12 +12,12 @@ format:
 :::: content-callout1
 ## Readings
 
--   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Part II: Transform (8 total chapters)](https://r4ds.hadley.nz/transform.html)
+- {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Part II: Transform (8 total chapters)](https://r4ds.hadley.nz/transform.html)
 
 ### Online/optional extras
 
--   {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
--   {{< fa file-code >}} [Cleaning Biodiversity Data in R](https://cleaning-data-r.ala.org.au/)
+- {{< fa file-code >}} [Tidy Data: Data Carpentry](https://datacarpentry.github.io/semester-biology/materials/tidy-data/)
+- {{< fa file-code >}} [Cleaning Biodiversity Data in R](https://cleaning-data-r.ala.org.au/)
 
 ## Questions we'll address this week
 
@@ -79,7 +79,7 @@ It's important to check that your primary keys uniquely identify each observatio
 `dplyr` has 6 joining functions; 4 mutating, and 2 filtering joins:
 
 | **Join Function** | **Type** | **Behavior / Use Case** | **Simple Example Code** |
-|------------|------------|--------------------------------------|------------|
+|--------------|--------------|-------------------------------|--------------|
 | `left_join(x, y)` | Mutating | Keeps all rows from x and matches rows from y. Fills missing values with NA. Most common join type in bioinformatics metadata handling. | `left_join(counts, metadata, by = join_by(sample_id_))` |
 | `right_join(x, y)` | Mutating | Keeps all rows from y and matches rows from x. Fills missing values with NA. Useful when appending existing metrics to a newly filtered target table. | `right_join(counts, target_samples, by = join_by(sample_id))` |
 | `inner_join(x, y)` | Mutating | Keeps only rows present in both x AND y. Drops unmatched rows from both sides. Use when you strictly require complete observations across both datasets. | `inner_join(genes, annotations, by = join_by(ensbml_id))` |
@@ -169,7 +169,7 @@ all_data
 Filtering joins....well...they filter! It's a slightly different approach than using the `filter()` function that we practiced with last week, and here we're using observations in another, separate dataset as our filtering conditions rater than a set of logical rules that we specify in our `filter()` call. There are two types: `semi_join()` and `anti_join()`
 
 | **Join Function** | **Type** | **Behavior / Use Case** | **Simple Example Code** |
-|------------|------------|--------------------------------------|------------|
+|--------------|--------------|-------------------------------|--------------|
 | `semi_join(x, y)` | Filtering | Keeps rows in x that have a match in y. Does not add columns from y or duplicate rows in x. Use to filter a large dataset using a list of target identifiers. | `semi_join(all_genes, sig_gene_list, by = join_by(ensbml_id))` |
 | `anti_join(x, y)` | Filtering | Keeps rows in x that DO NOT have a match in y. Does not add columns from y. Use for quality control to identify missing samples or failed assays. | `anti_join(raw_samples, QC_passed, by = join_by(sample_id))` |
 
@@ -183,15 +183,15 @@ Filtering joins....well...they filter! It's a slightly different approach than u
 
 Last but not least, we have non-equi joins. These utilize the same functions as our mutating and filtering joins, but we will utilize non-equivalent conditions to make our matches. For example:
 
--   **Equi join**: `left_join(x, y, by = join_by(key == key))`
--   **Non-equi join**: `left_join(x, y, by = join_by(key >= key))`
+- **Equi join**: `left_join(x, y, by = join_by(key == key))`
+- **Non-equi join**: `left_join(x, y, by = join_by(key >= key))`
 
-There are four typres of non-equi join that are most helpful: 
+There are four typres of non-equi join that are most helpful:
 
-1. **Cross joins** match every pair of rows. This can be useful for creating all possible combinations of your variables. 
-2. **Inequality joins** use \<, \<=, \>, and \>= instead of ==. Can be used to restrict cross joins to create all possible combinations rather than all permutations. 
-3. **Rolling joins** are similar to inequality joins but only find the closest match. The most useful of these for us: we can join data to the nearest matching value. 
-4. **Overlap joins** are a special type of inequality join designed to work with ranges.
+1.  **Cross joins** match every pair of rows. This can be useful for creating all possible combinations of your variables.
+2.  **Inequality joins** use \<, \<=, \>, and \>= instead of ==. Can be used to restrict cross joins to create all possible combinations rather than all permutations.
+3.  **Rolling joins** are similar to inequality joins but only find the closest match. The most useful of these for us: we can join data to the nearest matching value.
+4.  **Overlap joins** are a special type of inequality join designed to work with ranges.
 
 </br>
 

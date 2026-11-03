@@ -2,23 +2,66 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jeremy Hemberger">
+<meta name="dcterms.date" content="2026-11-03">
 
-<title>w7-content – Entomology 3927/5927</title>
+<title>Week 7 – Entomology 3927/5927</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -37,10 +80,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c96709ee289d8f9afca9c27adde60711.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -82,7 +125,8 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -306,17 +350,225 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#creating-visualizations-in-r-the-tools-available" id="toc-creating-visualizations-in-r-the-tools-available" class="nav-link active" data-scroll-target="#creating-visualizations-in-r-the-tools-available">Creating visualizations in R: the tools available</a></li>
+  <li><a href="#anatomy-of-a-plot" id="toc-anatomy-of-a-plot" class="nav-link" data-scroll-target="#anatomy-of-a-plot">Anatomy of a plot</a>
+  <ul class="collapse">
+  <li><a href="#mapping" id="toc-mapping" class="nav-link" data-scroll-target="#mapping">Mapping</a></li>
+  <li><a href="#layers" id="toc-layers" class="nav-link" data-scroll-target="#layers">Layers</a></li>
+  <li><a href="#scales" id="toc-scales" class="nav-link" data-scroll-target="#scales">Scales</a></li>
+  <li><a href="#facets" id="toc-facets" class="nav-link" data-scroll-target="#facets">Facets</a></li>
+  <li><a href="#coordinates" id="toc-coordinates" class="nav-link" data-scroll-target="#coordinates">Coordinates</a></li>
+  <li><a href="#themes" id="toc-themes" class="nav-link" data-scroll-target="#themes">Themes</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w5-content.html">Module 3: Basic data wrangling and visualization in R</a></li><li class="breadcrumb-item"><a href="../content/w7-content.html">Week 7: Data visualization: theory and practice</a></li></ol></nav></header>
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w5-content.html">Module 3: Basic data wrangling and visualization in R</a></li><li class="breadcrumb-item"><a href="../content/w7-content.html">Week 7: Data visualization: theory and practice</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Week 7</h1>
+<p class="subtitle lead">Data Visualization Pt. I</p>
+</div>
 
 
 
+<div class="quarto-title-meta column-body">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeremy Hemberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 3, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<div class="content-callout1">
+<section id="readings" class="level2">
+<h2 class="anchored" data-anchor-id="readings">Readings</h2>
+<ul>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://r4ds.hadley.nz/data-visualize.html">R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 1: Visualization</a></li>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://r4ds.hadley.nz/visualize.html">R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Part II (3 chapters)</a></li>
+</ul>
+<section id="onlineoptional-extras" class="level3">
+<h3 class="anchored" data-anchor-id="onlineoptional-extras">Online/optional extras</h3>
+<ul>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://ggplot2-book.org/">ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.</a></li>
+</ul>
+</section>
+</section>
+<section id="questions-well-address-this-week" class="level2">
+<h2 class="anchored" data-anchor-id="questions-well-address-this-week">Questions we’ll address this week</h2>
+<ol type="1">
+<li>How do we create data visualizations in R?</li>
+<li>What are the various geometries that we can use?</li>
+<li>What visualization theory do we need to know?</li>
+</ol>
+</section>
+<section id="slides" class="level2">
+<h2 class="anchored" data-anchor-id="slides">Slides</h2>
+<p><a href="slides/w7-slides.html" class="btn btn-primary" role="button"><i class="fa-solid fa-up-right-from-square" aria-label="up-right-from-square"></i> Open slides in full screen mode</a> <a href="slides/w7-slides.html?print-pdf" class="btn btn-primary" role="button"><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> Download slides as a PDF</a></p>
+<iframe src="slides/w7-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
+</iframe>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Tip</strong>: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.</p>
+</div>
+</div>
+</section>
+</div>
+<p><br></p>
+<section id="creating-visualizations-in-r-the-tools-available" class="level2">
+<h2 class="anchored" data-anchor-id="creating-visualizations-in-r-the-tools-available">Creating visualizations in R: the tools available</h2>
+<p>There are a myriad of ways to create data visualizations in R. Indeed, a bunch of built-in tools already exist within base R to create plots, and many folks use these tools exclusively to create plots for their presentations, manuscripts, and websites. And the plots from base R…do the job…<a href="https://intro2r.com/simple-base-r-plots.html">but aren’t particularly aesthetic</a>!</p>
+<p>One of the most important qualities of <a href="">good</a> data visualizations is that, in addition to being truthful and functional, they are beautiful. This means being cognizant about basic design and color theory and chosing the plots carefully and considerately to best serve the purpose of communicating the data. Here, the Great British Baking Show addage of “Style and Substance” comes into play. It’s possible to create incredibly data-rich plots that are truthful and functional, but you also should <em>want</em> to look at it – and looking at it shoudl convey an emotional response in addition to an analytical response. On the flip side, it’s possible to create a plot that is stunningly beautiful, but lacks sufficient data and analytical substance. Walking that balance is what data visualization is all about.</p>
+<p>To accomplish this, we’ll almost exclusively be using the <code>ggplot2</code> package in the Tidyverse. It’s the most flexible and well-equipped library for creating just about any sort of data visualization, and is designed to work with tidy data and the various packages that produce tidy data. In addition, many, many packages create plots that are ggplot2 objects, meaning that we can take and modify them to match a particular aesthetic, add additional information, or combine them with other plots. There’s also an abundance of code and tutorials out there to create ggplot plots.</p>
+</section>
+<section id="anatomy-of-a-plot" class="level2">
+<h2 class="anchored" data-anchor-id="anatomy-of-a-plot">Anatomy of a plot</h2>
+<p>ggplot plots (or objects, as we’ll be referring to them) are composed of various layers that, together, work to build a plot.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ggplot2.tidyverse.org/articles/ggplot2_files/figure-html/overview_graphic-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Data + Mapping</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Layers</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> displ)) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Scales</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Facets</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(year <span class="sc">~</span> drv) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Coordinates</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="sc">+</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Theme</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Component</strong></th>
+<th><strong>Purpose</strong></th>
+<th><strong>Common functions</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Data</strong></td>
+<td>The dataset used to create the visualization.</td>
+<td><code>ggplot(data = ...)</code></td>
+</tr>
+<tr class="even">
+<td><strong>Mapping</strong></td>
+<td>Maps variables in the dataset to visual properties (aesthetics).</td>
+<td><code>aes()</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Layers</strong></td>
+<td>Determines how data are visually represented, including geometry, statistical transformations, and position adjustments.</td>
+<td><code>geom_point()</code>, <code>geom_line()</code>, <code>geom_bar()</code>, <code>geom_smooth()</code>, <code>geom_histogram()</code></td>
+</tr>
+<tr class="even">
+<td><strong>Scales</strong></td>
+<td>Controls how aesthetic mappings are translated into visual properties, including axis limits, breaks, labels, and colors.</td>
+<td><code>scale_x_*()</code>, <code>scale_y_*()</code>, <code>scale_color_*()</code>, <code>scale_fill_*()</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Facets</strong></td>
+<td>Splits data into multiple panels based on one or more categorical variables.</td>
+<td><code>facet_wrap()</code>, <code>facet_grid()</code></td>
+</tr>
+<tr class="even">
+<td><strong>Coordinates</strong></td>
+<td>Controls the coordinate system and how spatial positions are displayed.</td>
+<td><code>coord_cartesian()</code>, <code>coord_fixed()</code>, <code>coord_flip()</code>, <code>coord_polar()</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Theme</strong></td>
+<td>Controls non-data visual elements, including backgrounds, gridlines, text, axes, and legends.</td>
+<td><code>theme()</code>, <code>theme_minimal()</code>, <code>theme_classic()</code>, <code>theme_bw()</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Mapping</strong> (<code>aes()</code>) tells ggplot2 <em>what variables</em> to visualize.</li>
+<li><strong>Layers</strong> (<code>geom_*()</code>) tell ggplot2 <em>how to visualize</em> those variables.</li>
+<li><strong>Scales</strong> (<code>scale_*()</code>) tell ggplot2 <em>how to translate</em> those variables into visual properties.</li>
+<li><strong>Themes</strong> (<code>theme_*()</code>) control how the <em>overall plot looks</em>/the aesthetic (text, lineweight, etc.)</li>
+</ul>
+<section id="mapping" class="level3">
+<h3 class="anchored" data-anchor-id="mapping">Mapping</h3>
+<p>When we map variables to our plot aesthetics, we have two options: using (1) global aesthetics or (2) layer-specific aesthetics.</p>
+<p><strong>Global aesthetics</strong> are defined inside ggplot(aes()) and are inherited by every layer in the plot.</p>
+<p><strong>Layer-specific aesthetics</strong> are defined inside an individual geom_*() and apply only to that particular layer.</p>
+</section>
+<section id="layers" class="level3">
+<h3 class="anchored" data-anchor-id="layers">Layers</h3>
+</section>
+<section id="scales" class="level3">
+<h3 class="anchored" data-anchor-id="scales">Scales</h3>
+</section>
+<section id="facets" class="level3">
+<h3 class="anchored" data-anchor-id="facets">Facets</h3>
+</section>
+<section id="coordinates" class="level3">
+<h3 class="anchored" data-anchor-id="coordinates">Coordinates</h3>
+</section>
+<section id="themes" class="level3">
+<h3 class="anchored" data-anchor-id="themes">Themes</h3>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -370,13 +622,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
