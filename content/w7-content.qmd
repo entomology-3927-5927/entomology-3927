@@ -63,8 +63,7 @@ ggplot plots (or objects, as we'll be referring to them) are composed of various
 library(ggplot2)
 
 # Data + Mapping
-ggplot(data = mpg,
-       mapping = aes(x = cty, y = hwy)) +
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) +
 
   # Layers
   geom_point(aes(color = displ)) +
@@ -101,14 +100,81 @@ ggplot(data = mpg,
 - **Themes** (`theme_*()`) control how the *overall plot looks*/the aesthetic (text, lineweight, etc.)
 
 ### Mapping
+Mapping connects variables on our dataset to the visual properties of a plot. They're defined using the `mapping = ` argument in ggplot and the various layers of our plot. They quite literally *map* the connection between data and plot. When we map variables to our plot aesthetics, we have two options: using (1) global aesthetics or (2) layer-specific aesthetics. 
 
-When we map variables to our plot aesthetics, we have two options: using (1) global aesthetics or (2) layer-specific aesthetics. 
+- **Global aesthetics** are defined inside `ggplot(mapping = aes())` and are inherited by every layer in the plot.
 
-**Global aesthetics** are defined inside ggplot(aes()) and are inherited by every layer in the plot.
+- **Layer-specific aesthetics** are defined inside an individual `geom_*()` and apply only to that particular layer. There are many different aesthetic mappings in ggplot, and I describe the primary ones in the table below (there are several more specific to different layers):
 
-**Layer-specific aesthetics** are defined inside an individual geom_*() and apply only to that particular layer.
+| **Aesthetic** | **What it controls** | **Example** |
+|---|---|---|
+| `x` | Horizontal position | `aes(x = temperature)` |
+| `y` | Vertical position | `aes(y = abundance)` |
+| `color` | Color of points, lines, and outlines | `aes(color = species)` |
+| `fill` | Interior color of shapes and polygons | `aes(fill = habitat)` |
+| `size` | Size of points and text | `aes(size = abundance)` |
+| `shape` | Shape of points | `aes(shape = species)` |
+| `alpha` | Transparency / opacity | `aes(alpha = abundance)` |
+| `linetype` | Line style (solid, dashed, dotted) | `aes(linetype = treatment)` |
+| `linewidth` | Width of lines | `aes(linewidth = abundance)` |
+| `group` | Groups observations for statistical or geometric operations | `aes(group = site)` |
+| `label` | Text labels displayed on the plot | `aes(label = species)` |
+
+:::{.callout-tip}
+Anytime we're mapping a variable to a plot element, we use the `mapping = aes()` argument. If we are setting a fixed element of a plot (e.g., making all points a certain color, or a certain shape/size, those settings are controlled using the same aesthetics, but set OUTSIDE the `mapping = aes()` argument. For example:
+
+```{r eval=FALSE}
+# Mapping species to point color
+ggplot(
+  data = my_data,
+  mapping = aes(x = x, y = y, color = species)
+) +
+  geom_point()
+
+# Setting point color "black" to color
+ggplot(
+  data = my_data,
+  mapping = aes(x = x, y = y),
+  color = "black"
+) +
+  geom_point()
+```
+:::
 
 ### Layers
+Layers are the actual bits and bobs that together compose our plot -- things like geometries (e.g., lines, points, polygons, rectangles) and the other sets of instructions about how to actually construct it (i.e., mappings, positions, statistical transformations). Typically, we define all of these various components in our *within* geometries, or `geoms`:
+
+```{text eval=FALSE}
+ggplot(data = <DATA>) + 
+  <GEOM_FUNCTION>(
+     mapping = aes(<MAPPINGS>),
+     stat = <STAT>, 
+     position = <POSITION>
+  ) +
+  <COORDINATE_FUNCTION> +
+  <FACET_FUNCTION>
+```
+
+There are many, many geometries that we can utilize in ggplot to create our plots, and I recommend you take a look at your ggplot2 cheatsheets to see most of them. There are also many add-on packages that add additional, specialty geoms that you can use to build your plots. I encourage you to search for those on your own time, as their use is beyond the scope of this course. 
+
+| **Geom** | **What it displays** | **Typical use** |
+|---|---|---|
+| `geom_point()` | Individual points | Scatterplots |
+| `geom_line()` | Lines connecting observations | Time series, trends |
+| `geom_path()` | Lines connecting observations in data order | Trajectories, movement paths |
+| `geom_smooth()` | Fitted trend line with confidence interval | Relationships, regression |
+| `geom_bar()` | Bar heights based on counts | Categorical frequencies |
+| `geom_col()` | Bars with heights based on supplied values | Summarized data |
+| `geom_histogram()` | Frequency distribution of continuous data | Distributions |
+| `geom_density()` | Smoothed density distribution | Distributions |
+| `geom_boxplot()` | Median, quartiles, and outliers | Comparing distributions |
+| `geom_violin()` | Distribution density by group | Comparing distributions |
+| `geom_jitter()` | Points with added positional variation | Reducing overplotting |
+| `geom_errorbar()` | Error bars around estimates | Uncertainty, confidence intervals |
+| `geom_ribbon()` | Shaded area between two boundaries | Confidence bands, uncertainty |
+| `geom_text()` | Text labels | Annotating observations |
+| `geom_label()` | Text labels with backgrounds | Annotating observations |
+| `geom_tile()` | Rectangular tiles | Heatmaps |
 
 ### Scales
 
