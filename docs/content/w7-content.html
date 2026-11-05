@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeremy Hemberger">
-<meta name="dcterms.date" content="2026-11-04">
+<meta name="dcterms.date" content="2026-11-05">
 
 <title>Week 7 – Entomology 3927/5927</title>
 <style>
@@ -391,7 +391,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 4, 2026</p>
+      <p class="date">November 5, 2026</p>
     </div>
   </div>
   
@@ -762,9 +762,178 @@ Tip
 </tr>
 </tbody>
 </table>
+<p>We can add multiple geom layers to our plots to create more complex visualizations. For example, perhaps we want to create a scatterplot of insect abundance over time…</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 108 × 8
+   date        trap  year day_of_year month seasonal_mean annual_effect
+   &lt;date&gt;     &lt;int&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+ 1 2024-05-01     1  2024         122     5          15.7             1
+ 2 2024-05-01     2  2024         122     5          15.7             1
+ 3 2024-05-01     3  2024         122     5          15.7             1
+ 4 2024-05-01     4  2024         122     5          15.7             1
+ 5 2024-05-08     1  2024         129     5          18.6             1
+ 6 2024-05-08     2  2024         129     5          18.6             1
+ 7 2024-05-08     3  2024         129     5          18.6             1
+ 8 2024-05-08     4  2024         129     5          18.6             1
+ 9 2024-05-15     1  2024         136     5          22.1             1
+10 2024-05-15     2  2024         136     5          22.1             1
+# ℹ 98 more rows
+# ℹ 1 more variable: abundance &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(insect_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> abundance)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Individual sampling observations</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"#356859"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.65</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">2.5</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Labels</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Seasonal Patterns in Insect Abundance"</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Biweekly pitfall trap sampling in 2025"</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sampling date"</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Insect abundance"</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Synthetic ecological dataset | 4 replicate traps per sampling date"</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_insect</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w7-content_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>…but then add a smooth trend line through those points:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(insect_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> abundance)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Individual sampling observations</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"#356859"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.65</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">2.5</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Smoothed seasonal trend</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"gam"</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"#D49A45"</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"#E8CFA5"</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">1.3</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.35</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Labels</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Seasonal Patterns in Insect Abundance"</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Biweekly pitfall trap sampling in 2025"</span>,</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Sampling date"</span>,</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Insect abundance"</span>,</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Synthetic ecological dataset | 4 replicate traps per sampling date"</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_insect</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w7-content_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The order of your geom layers matters! They will be drawn onto the plot from top, to bottom. In our example above, this means that the <code>geom_smooth()</code> layer will be drawn <em>on top of</em> our <code>geom_point()</code> layer.</p>
+</div>
+</div>
 </section>
 <section id="scales" class="level3">
 <h3 class="anchored" data-anchor-id="scales">Scales</h3>
+<p>Scales are the settings that translate your data into actual visible aesthetic layers (i.e., geoms) in ggplot. They control the axes, the color gradients of continuous variables, the color palette of categorical variables, etc. Most of the time, we modify these plot settings by appending a <code>scale_*</code> function to our ggplot object. There are a couple of primary scales that we need to be concerned with:</p>
+<ul>
+<li><strong>Position scales and axes:</strong> used to control the locations of visual entities in a plot, and how those locations are mapped to data values.</li>
+<li><strong>Color scales and legends:</strong> used to control the color/appearance of visual entities in a plot.</li>
+</ul>
+<section id="position-scales-and-axes" class="level4">
+<h4 class="anchored" data-anchor-id="position-scales-and-axes">Position scales and axes</h4>
+<p>Most of the time, we use numeric position scales to position our plot objects, typically using <code>scale_x_continuous()</code> or <code>scale_y_continuous()</code> which map data linearly. A few other options exist, including for reversing scales (<code>scale_x_reverse()</code>) or transforming from linear to logarithmic (<code>scale_x_log10()</code>).</p>
+<p>Within the <code>scale_*_continuous()</code> functions, we can adjust a variety of arguments to change the appearance of our x and y axes:</p>
+<ol type="1">
+<li><code>limits</code>: change the range of values covered on the axes</li>
+<li><code>transform</code>: add a mathematical transformation to the scale of values (e.g., log, ln, sqrt)</li>
+<li><code>breaks</code>/<code>minor_breaks</code>/<code>n.breaks</code>: adjusts the position of the axes’ tick marks</li>
+<li><code>labels</code>: adjust the label of the axes’ tick marks (every break is associated with a label)</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All of these functions are defined and their use documented in the help documentation of <code>scale_*_continuous()</code> functions (e.g., <code>?scale_y_continuous()</code>).</p>
+</div>
+</div>
+</section>
+<section id="color-scales-and-legends" class="level4">
+<h4 class="anchored" data-anchor-id="color-scales-and-legends">Color scales and legends</h4>
+<p>We use color in a variety of different ways to distinguish different categorical groupings (e.g., treatment, species), or continuous gradients of variables (e.g., temperature, elevation). Color is an extremely important aspect of data visualizations as not only can it serve to focus attention on differences or particular features of a plot, it can serve to distract, overwhelm, or even disgust if it’s not used in a careful and considered manner. R and it’s package ecosystem have thousands of pre-built color palettes that can be used and that adhere to basic color theory and are accessible for those with color blindness.</p>
+<p>Overall, we have two different ways to define color scales for our data:</p>
+<ul>
+<li><strong>Continuous color scales:</strong> Color gradients are often used to show the height of a 2d surface or for variables that are <em>continuous</em> in nature (i.e., numerical information that can take on any value within a given range or interval).</li>
+<li><strong>Discrete (i.e., categorical) color scales:</strong> Discrete color scales encode information about <em>categorical</em> data (i.e., a type of quantitative numerical data that can only take on specific, distinct, and countable values).</li>
+</ul>
+<p>Regardless of the color scale type, we use the same basic add-on functions in ggplot to define the scale we want to use, including <code>scale_fill_*()</code> and <code>scale_color_*()</code>.</p>
+<ul>
+<li><strong><code>scale_fill_*()</code></strong>: Modifies the interior fill color of 2D/area geoms (such as bars, polygons, tiles, violins, and density fills).</li>
+<li><strong><code>scale_color_*()</code></strong>: Modifies the stroke/border color or the color of points, lines, and text.</li>
+</ul>
+</section>
+<section id="labeling-scales" class="level4">
+<h4 class="anchored" data-anchor-id="labeling-scales">Labeling scales</h4>
+<p>We can use the <code>labs()</code> function to add labels to our various plot elements including the title, subtitle, caption, plot tag, x and y axes, and the names of any legend elements that are derived from aesthetics such as <code>fill</code>, <code>color</code>, <code>alpha</code>, <code>size</code>, <code>shape</code>, or <code>linetype</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class, <span class="at">size =</span> cyl)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Core Plot Text</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Engine Displacement vs. Highway MPG"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Data from 1999 to 2008 for popular car models"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: EPA (fueleconomy.gov)"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">tag =</span> <span class="st">"Fig. 1"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">alt =</span> <span class="st">"Scatter plot showing that larger engines have lower highway fuel efficiency."</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Axis Text</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Engine Displacement (Liters)"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Highway Miles per Gallon"</span>,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Legend Text (matches aes mappings)</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Vehicle Category"</span>,</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="st">"Number of Cylinders"</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
 </section>
 <section id="facets" class="level3">
 <h3 class="anchored" data-anchor-id="facets">Facets</h3>
