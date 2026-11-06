@@ -7,8 +7,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>Entomology 3927/5927 – Week 6</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,10 +17,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -95,7 +101,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-0ccd7e690a423122c7f06c7cec3a7b30.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-71561e5efac870f696d699f02f65b29e.css">
   <link rel="stylesheet" href="default">
   <link rel="stylesheet" href="slide_styles/slide-styles.scss">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -253,7 +259,7 @@
 </div>
 <div class="callout-content">
 <p><strong>Before joining, ask:</strong> Does my key actually uniquely identify the observations I think it does?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">count</span>(data, site_code, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">count</span>(data, site_code, year)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -295,9 +301,9 @@
 </tbody>
 </table>
 <p><strong>The workhorse join: <code>left_join()</code></strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>surveys <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a></a>  <span class="fu">left_join</span>(site_metadata,</span>
-<span id="cb2-3"><a></a>            <span class="at">by =</span> <span class="fu">join_by</span>(site_code, year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>surveys <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a aria-label="2"></a>  <span class="fu">left_join</span>(site_metadata,</span>
+<span id="cb2-3"><a aria-label="3"></a>            <span class="at">by =</span> <span class="fu">join_by</span>(site_code, year))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -323,15 +329,15 @@
 <p>Missingness can be <strong>explicit</strong> or <strong>implicit</strong>.</p>
 </div>
 <p><strong>Explicit missingness:</strong> The row exists, but a value is missing:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>site     species      count</span>
-<span id="cb3-2"><a></a>A        Bombus       12</span>
-<span id="cb3-3"><a></a>A        Andrena      NA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a aria-label="1"></a>site     species      count</span>
+<span id="cb3-2"><a aria-label="2"></a>A        Bombus       12</span>
+<span id="cb3-3"><a aria-label="3"></a>A        Andrena      NA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Implicit missingness:</strong> The observation itself is absent:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>site     week</span>
-<span id="cb4-2"><a></a>A        1</span>
-<span id="cb4-3"><a></a>A        2</span>
-<span id="cb4-4"><a></a>A        3</span>
-<span id="cb4-5"><a></a># Week 4 is missing entirely</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a aria-label="1"></a>site     week</span>
+<span id="cb4-2"><a aria-label="2"></a>A        1</span>
+<span id="cb4-3"><a aria-label="3"></a>A        2</span>
+<span id="cb4-4"><a aria-label="4"></a>A        3</span>
+<span id="cb4-5"><a aria-label="5"></a># Week 4 is missing entirely</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -356,17 +362,17 @@
 <li>what question you’re asking/what your analysis requires</li>
 </ul>
 <p>Some useful tools:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Carry metadata downward</span></span>
-<span id="cb5-2"><a></a><span class="fu">fill</span>(site, habitat, <span class="at">.direction =</span> <span class="st">"down"</span>)</span>
-<span id="cb5-3"><a></a></span>
-<span id="cb5-4"><a></a><span class="co"># Replace NA with a known value</span></span>
-<span id="cb5-5"><a></a><span class="fu">coalesce</span>(count, <span class="dv">0</span>)</span>
-<span id="cb5-6"><a></a></span>
-<span id="cb5-7"><a></a><span class="co"># Convert a placeholder to NA</span></span>
-<span id="cb5-8"><a></a><span class="fu">na_if</span>(count, <span class="sc">-</span><span class="dv">999</span>)</span>
-<span id="cb5-9"><a></a></span>
-<span id="cb5-10"><a></a><span class="co"># Make implicit missingness explicit</span></span>
-<span id="cb5-11"><a></a><span class="fu">complete</span>(site, week)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="co"># Carry metadata downward</span></span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">fill</span>(site, habitat, <span class="at">.direction =</span> <span class="st">"down"</span>)</span>
+<span id="cb5-3"><a aria-label="3"></a></span>
+<span id="cb5-4"><a aria-label="4"></a><span class="co"># Replace NA with a known value</span></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="fu">coalesce</span>(count, <span class="dv">0</span>)</span>
+<span id="cb5-6"><a aria-label="6"></a></span>
+<span id="cb5-7"><a aria-label="7"></a><span class="co"># Convert a placeholder to NA</span></span>
+<span id="cb5-8"><a aria-label="8"></a><span class="fu">na_if</span>(count, <span class="sc">-</span><span class="dv">999</span>)</span>
+<span id="cb5-9"><a aria-label="9"></a></span>
+<span id="cb5-10"><a aria-label="10"></a><span class="co"># Make implicit missingness explicit</span></span>
+<span id="cb5-11"><a aria-label="11"></a><span class="fu">complete</span>(site, week)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -399,17 +405,17 @@
 <li>notes and field observations</li>
 </ul>
 <p>The <code>stringr</code> package gives us tools for finding and modifying patterns.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">str_detect</span>(species, <span class="st">"Bombus"</span>)</span>
-<span id="cb6-2"><a></a></span>
-<span id="cb6-3"><a></a><span class="fu">str_replace_all</span>(</span>
-<span id="cb6-4"><a></a>    species,            <span class="co"># Vector of strings to replace</span></span>
-<span id="cb6-5"><a></a>    <span class="st">"B</span><span class="sc">\\</span><span class="st">. impatiens"</span>,   <span class="co"># Search pattern</span></span>
-<span id="cb6-6"><a></a>    <span class="st">"Bombus impatiens"</span>  <span class="co"># Replace with</span></span>
-<span id="cb6-7"><a></a>    )</span>
-<span id="cb6-8"><a></a></span>
-<span id="cb6-9"><a></a><span class="fu">str_extract</span>(sample_id, <span class="st">"20</span><span class="sc">\\</span><span class="st">d{2}"</span>)</span>
-<span id="cb6-10"><a></a></span>
-<span id="cb6-11"><a></a><span class="fu">str_split</span>(location, <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">str_detect</span>(species, <span class="st">"Bombus"</span>)</span>
+<span id="cb6-2"><a aria-label="2"></a></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="fu">str_replace_all</span>(</span>
+<span id="cb6-4"><a aria-label="4"></a>    species,            <span class="co"># Vector of strings to replace</span></span>
+<span id="cb6-5"><a aria-label="5"></a>    <span class="st">"B</span><span class="sc">\\</span><span class="st">. impatiens"</span>,   <span class="co"># Search pattern</span></span>
+<span id="cb6-6"><a aria-label="6"></a>    <span class="st">"Bombus impatiens"</span>  <span class="co"># Replace with</span></span>
+<span id="cb6-7"><a aria-label="7"></a>    )</span>
+<span id="cb6-8"><a aria-label="8"></a></span>
+<span id="cb6-9"><a aria-label="9"></a><span class="fu">str_extract</span>(sample_id, <span class="st">"20</span><span class="sc">\\</span><span class="st">d{2}"</span>)</span>
+<span id="cb6-10"><a aria-label="10"></a></span>
+<span id="cb6-11"><a aria-label="11"></a><span class="fu">str_split</span>(location, <span class="st">","</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -435,18 +441,18 @@
 <p>Dates should be stored as <strong>date/time objects</strong>, not ordinary character strings.</p>
 </div>
 <p>We can convert these data during during import:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">read_csv</span>(</span>
-<span id="cb7-2"><a></a>  <span class="st">"data.csv"</span>,</span>
-<span id="cb7-3"><a></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
-<span id="cb7-4"><a></a>    <span class="at">capture_date =</span> <span class="fu">col_date</span>(<span class="st">"%d-%b-%Y"</span>)</span>
-<span id="cb7-5"><a></a>  )</span>
-<span id="cb7-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">read_csv</span>(</span>
+<span id="cb7-2"><a aria-label="2"></a>  <span class="st">"data.csv"</span>,</span>
+<span id="cb7-3"><a aria-label="3"></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
+<span id="cb7-4"><a aria-label="4"></a>    <span class="at">capture_date =</span> <span class="fu">col_date</span>(<span class="st">"%d-%b-%Y"</span>)</span>
+<span id="cb7-5"><a aria-label="5"></a>  )</span>
+<span id="cb7-6"><a aria-label="6"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then <code>lubridate</code> lets us extract useful information:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">mutate</span>(</span>
-<span id="cb8-2"><a></a>  <span class="at">year  =</span> <span class="fu">year</span>(capture_date),</span>
-<span id="cb8-3"><a></a>  <span class="at">month =</span> <span class="fu">month</span>(capture_date, <span class="at">label =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb8-4"><a></a>  <span class="at">doy   =</span> <span class="fu">yday</span>(capture_date)</span>
-<span id="cb8-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">mutate</span>(</span>
+<span id="cb8-2"><a aria-label="2"></a>  <span class="at">year  =</span> <span class="fu">year</span>(capture_date),</span>
+<span id="cb8-3"><a aria-label="3"></a>  <span class="at">month =</span> <span class="fu">month</span>(capture_date, <span class="at">label =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-4"><a aria-label="4"></a>  <span class="at">doy   =</span> <span class="fu">yday</span>(capture_date)</span>
+<span id="cb8-5"><a aria-label="5"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="categorical-data-factors" class="title-slide slide level1 bkrd-color-5 center">
@@ -465,16 +471,16 @@
 <li>species</li>
 <li>sampling period</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>disease_stage <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
-<span id="cb9-2"><a></a>  disease_stage,</span>
-<span id="cb9-3"><a></a>  <span class="at">levels =</span> <span class="fu">c</span>(</span>
-<span id="cb9-4"><a></a>    <span class="st">"Stage I"</span>,</span>
-<span id="cb9-5"><a></a>    <span class="st">"Stage II"</span>,</span>
-<span id="cb9-6"><a></a>    <span class="st">"Stage III"</span>,</span>
-<span id="cb9-7"><a></a>    <span class="st">"Stage IV"</span></span>
-<span id="cb9-8"><a></a>  ),</span>
-<span id="cb9-9"><a></a>  <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
-<span id="cb9-10"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>disease_stage <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb9-2"><a aria-label="2"></a>  disease_stage,</span>
+<span id="cb9-3"><a aria-label="3"></a>  <span class="at">levels =</span> <span class="fu">c</span>(</span>
+<span id="cb9-4"><a aria-label="4"></a>    <span class="st">"Stage I"</span>,</span>
+<span id="cb9-5"><a aria-label="5"></a>    <span class="st">"Stage II"</span>,</span>
+<span id="cb9-6"><a aria-label="6"></a>    <span class="st">"Stage III"</span>,</span>
+<span id="cb9-7"><a aria-label="7"></a>    <span class="st">"Stage IV"</span></span>
+<span id="cb9-8"><a aria-label="8"></a>  ),</span>
+<span id="cb9-9"><a aria-label="9"></a>  <span class="at">ordered =</span> <span class="cn">TRUE</span></span>
+<span id="cb9-10"><a aria-label="10"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -683,7 +689,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -757,13 +763,14 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

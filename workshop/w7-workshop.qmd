@@ -36,9 +36,9 @@ library(janitor)
 
 ## 💾 Load our data
 
-You can either download the requisite `.csv` files below, or import them directly from Google Sheets (`w6-workshop-data`). Be sure you are using the correct files/sheet tabs for each section below. I've tried to make it explicit. 
+You can either download the requisite `.csv` files below, or import them directly from Google Sheets (`w6-workshop-data`). Be sure you are using the correct files/sheet tabs for each section below. I've tried to make it explicit.
 
-[{{< fa file-csv >}} `.csv` dataset](workshop_data/w6.zip){.btn .btn-primary download="w6-workshop-data.zip"} [{{< fa table >}} Google Sheet dataset](https://docs.google.com/spreadsheets/d/1rVLGxRAIfH84O5ANTlUcVBaw-o8u1JsefcViett2AyI/edit?usp=sharing){.btn .btn-primary}
+[{{< fa file-csv >}} `.csv` dataset](workshop_data/w7.zip){.btn .btn-primary download="w7-workshop-data.zip"} [{{< fa table >}} Google Sheet dataset](https://docs.google.com/spreadsheets/d/1S7GKNUAnEmViTYguSaLWUc-z5JHAjb_5HcJsVMgqD8s/edit?usp=sharing){.btn .btn-primary}
 
 ::: callout-tip
 Be sure you save the `.csv` in the correct place so that you can access it in your R Studio project!
@@ -46,22 +46,62 @@ Be sure you save the `.csv` in the correct place so that you can access it in yo
 
 </br>
 
-## Exercise 1: Practicing ggplot
-1. Create a scatterplot showing insect abundance over time.
-    - Map date to x and abundance to y.
-    - Add points and a smoothed trendline.
-    - Experiment with point color, size, and transparency.
-2. Compare abundance across habitat types.
-    - Create a boxplot or violin plot.
-    - Map habitat to the x-axis and abundance to the y-axis.
-    - Use fill to distinguish habitat types.
-    - Try at least two different discrete color scales.
-3. Explore the relationship between temperature and insect abundance.
-    - Create a scatterplot.
-    - Map temperature to x and abundance to y.
-    - Map habitat to color or shape.
-    - Add a smooth trendline.
-4. Customize one of your plots.
-    - Add a title, subtitle, axis labels, and caption.
-    - Adjust axis breaks and labels.
-    - Apply a built-in theme or create a custom theme.
+## Exercise 1: Practicing ggplot basics
+**Data scenario:** You are an ecologist studying how insect abundance and diversity vary across habitat types and through the growing season.
+
+**Data to use:** Use the `w7-excercise1.csv` file or the `exercise-1` tab in Google Sheets.
+
+1.  **Create a scatterplot showing insect abundance over time.**</br>
+    **1.1** Map date to x and abundance to y.</br>
+    **1.2** Add points and a smoothed trendline.</br>
+    **1.3** Experiment with point color, size, and transparency.</br>
+
+2.  **Compare abundance across habitat types.**</br>
+    **2.1** Create a boxplot or violin plot with habitat on the x-axis and abundance on the y-axis.</br>
+    **2.2** Use fill to distinguish habitat types by color.</br>
+    **2.3** Try at least two different discrete color scales.</br>
+
+3.  **Explore the relationship between temperature and insect abundance.**</br>
+    **3.1** Create a scatterplot mapping temperature to x and abundance to y..</br>
+    **3.2** Map habitat to color or shape.</br>
+    **3.3** Add a smooth trendline.</br>
+    **3.4** Change the smoothing method using the `method = "<name_here>"` argument. Select a method that best matches the data visually.</br>
+
+4.  **Customize one of your plots.**</br>
+    **4.1** Add a title, subtitle, axis labels, and caption.</br>
+    **4.2** Adjust axis breaks and labels.</br>
+    **4.3** Apply a built-in theme or create a custom theme.</br>
+
+</br>
+
+## Exercise 2: Adding complexity -- facets, themes, and customization
+**Data scenario:** You are investigating how microclimates differ across five habitat types throughout the day. You have temperature measurements from multiple sensors in each habitat.
+
+**Data to use:** Use the `w7-excercise2.csv` file or the `exercise-2` tab in Google Sheets.
+
+### Tasks
+1. **Visualize daily temperature patterns.** </br>
+    **1.1** Plot temperature over time using `geom_point()` and `geom_smooth()`.</br>
+    **1.2** Map habitat type to color.</br>
+    **1.3** Customize the color scale using `scale_color_brewer()` or `scale_color_viridis_d()`.</br>
+
+2. **Compare habitat types.**</br>
+    **2.1** Create a plot showing temperature distributions across habitats (think density plot, boxplot, or violin plot).</br>
+    **2.2** Experiment with fill rather than color.</br>
+    **2.3** Try `scale_fill_manual()` and `scale_fill_viridis_d()`.</br>
+
+3. **Splitting the plot by faceting.**</br>
+    **3.1** Create a faceted plot using `facet_wrap(~ habitat_type)`.</br>
+    **3.2** Compare the faceted plot to the original plot with all habitats overlaid.</br>
+    **3.3** Experiment with `scales = "fixed"` and `scales = "free_y"`.</br>
+
+4. **Investigate temperature patterns (this may involve creating data summaries).**</br>
+    **4.1** Identify which habitat has the greatest daily temperature variation.</br>
+    **4.2** Identify which habitat has the highest average temperature.</br>
+    **4.3** Create a plot that shows both the temperature variation and highest average temperature.</br>
+    **4.4** Is there any evidence that any of the 3 replicate sensors is faulty in any of the habitat types?</br>
+
+5. **Customize your final visualization to make it "publication quality".**</br>
+    **5.1** Adjust the number of facet columns.</br>
+    **5.2** Modify axis breaks and labels.</br>
+    **5.3** Apply a theme (could be from ggplot or any other package).</br>

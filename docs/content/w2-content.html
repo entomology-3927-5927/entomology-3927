@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,16 @@
 
 <title>Week 2 – Entomology 3927/5927</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -74,10 +80,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c96709ee289d8f9afca9c27adde60711.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -109,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -122,7 +128,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -148,7 +154,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -509,7 +516,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Type Checking
+<span class="screen-reader-only">Tip</span>Type Checking
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -517,22 +524,22 @@ Type Checking
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create atomic variables</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create atomic variables</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>my_numeric   <span class="ot">&lt;-</span> <span class="fl">42.5</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>my_integer   <span class="ot">&lt;-</span> <span class="dv">42</span>L</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>my_character <span class="ot">&lt;-</span> <span class="st">"iBUG Lab"</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>my_logical   <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check types</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_numeric)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_numeric)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "double"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_integer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(my_integer)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "integer"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(my_character)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(my_character)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -543,7 +550,7 @@ Type Checking
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Type Converting
+<span class="screen-reader-only">Tip</span>Type Converting
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -559,26 +566,26 @@ Type Converting
 <li>In R, many functions or operations are <em>vectorized</em>, meaning they will apply math/functions/operations to every element of the vector automatically.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a numeric vector</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a numeric vector</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>my_counts <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">30</span>, <span class="dv">0</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectorized maths</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>my_counts_doubled <span class="ot">&lt;-</span> my_counts <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>my_counts_doubled</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>my_counts_doubled</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 24  8 60  0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coercion of data: what do you think this will be converted to?</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coercion of data: what do you think this will be converted to?</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>messy_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="st">"shikaka"</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(messy_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(messy_vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
 <p>Vectors can also have named elements which can be used to reference specific values:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">vial_1 =</span> <span class="dv">20</span>, <span class="at">vial_2 =</span> <span class="dv">43</span>, <span class="at">vial_3 =</span> <span class="dv">12</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>my_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">vial_1 =</span> <span class="dv">20</span>, <span class="at">vial_2 =</span> <span class="dv">43</span>, <span class="at">vial_3 =</span> <span class="dv">12</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>my_vector</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>vial_1 vial_2 vial_3 
     20     43     12 </code></pre>
@@ -593,7 +600,7 @@ Type Converting
 <li>We access elements using single brackets <code>[]</code> (which returns a sub-list) or double brackets <code>[[]]</code> or <code>$</code> (which extracts the actual object, e.g., another list, character, or vector).</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a list</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a list</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>camera_traps <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">site_id =</span> <span class="st">"SITE-01"</span>,</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">active =</span> <span class="cn">TRUE</span>,</span>
@@ -602,11 +609,11 @@ Type Converting
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Exctracting/accessing elements</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>camera_traps<span class="sc">$</span>site_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>camera_traps<span class="sc">$</span>site_id</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "SITE-01"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>camera_traps[[<span class="dv">4</span>]][<span class="dv">1</span>] <span class="co"># list element 4, object 1 (i.e., first target species)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>camera_traps[[<span class="dv">4</span>]][<span class="dv">1</span>] <span class="co"># list element 4, object 1 (i.e., first target species)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "affinis"</code></pre>
 </div>
@@ -656,7 +663,7 @@ Type Converting
 <ol type="1">
 <li><p><strong>No unintended vector dropping (<code>drop = FALSE</code> by default):</strong> When subsetting a single column in a standard <code>data.frame</code>, base R silently simplifies the output into a 1D vector. A <code>tibble</code> always returns a 2D tibble unless explicitly told otherwise, preventing downstream code breakage in functions expecting tabular data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Base Data Frame</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>))</span>
@@ -666,11 +673,11 @@ Type Converting
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Tibble</span></span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>))</span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tbl[, <span class="st">"a"</span>]) </span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] "tbl_df" "tbl" "data.frame"  &lt;-- Remains a 1-column tibble!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] "tbl_df" "tbl" "data.frame"  &lt;-- Remains a 1-column tibble!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p><strong>No partial name matching:</strong> Base data frames try to guess column names if you make a typo or use shorthand. Tibbles require exact column matching and trigger a warning if a column doesn’t exist, preventing silent logical errors.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base Data Frame (Silently matches "species_name" via "$spec")</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Base Data Frame (Silently matches "species_name" via "$spec")</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">species_name =</span> <span class="fu">c</span>(<span class="st">"affinis"</span>, <span class="st">"impatiens"</span>))</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>spec</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] "affinis" "impatiens"  &lt;-- Dangerous!</span></span>
@@ -679,146 +686,146 @@ Type Converting
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">species_name =</span> <span class="fu">c</span>(<span class="st">"affinis"</span>, <span class="st">"impatiens"</span>))</span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>tbl<span class="sc">$</span>spec</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># NULL</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Warning message: Unknown or uninitialised column: `spec`.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Warning message: Unknown or uninitialised column: `spec`.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p><strong>Better printing for large datasets:</strong> Printing a large <code>data.frame</code>can easily overwhelm your screen by dumping thousands of rows and wrapping dozens of columns. Tibbles automatically truncate output to 10 rows, fit columns to your console width, displays data types for every column, and adds colored text to help elements stand out.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a large-ish dataset</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df_large  <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">x =</span> <span class="fu">runif</span>(<span class="dv">100</span>), <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>tbl_large <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(df_large)</span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing base df floods the console with oodles of lines</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_large) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_large) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     id           x           y
-1     1 0.207670710 -1.30274425
-2     2 0.386598155  0.85166895
-3     3 0.948091610  1.39316085
-4     4 0.758356158 -0.12249661
-5     5 0.399706325 -1.24322393
-6     6 0.700687591 -0.60129734
-7     7 0.975363983 -0.72936477
-8     8 0.436093409 -1.94736560
-9     9 0.329927252 -0.12547433
-10   10 0.237082937  0.96533677
-11   11 0.558765417  2.38068366
-12   12 0.621815021  0.22470015
-13   13 0.025426030 -0.04710445
-14   14 0.990155786 -0.21003843
-15   15 0.278259338 -0.61753793
-16   16 0.788237878  1.05606368
-17   17 0.449558003  1.23711447
-18   18 0.467572218  0.87678247
-19   19 0.724502642 -1.73874866
-20   20 0.118377389 -0.34914271
-21   21 0.911985510  0.92676093
-22   22 0.943079111  0.45788482
-23   23 0.554649197  0.69198479
-24   24 0.245736690  0.14013616
-25   25 0.740172722  0.37348231
-26   26 0.668522836 -0.67130141
-27   27 0.301511739  0.07515541
-28   28 0.875301017  0.89249588
-29   29 0.375773441  1.20468545
-30   30 0.029036421 -1.09038111
-31   31 0.066310738 -0.36314718
-32   32 0.945895652 -0.67489328
-33   33 0.024282966 -0.50772225
-34   34 0.553462950  1.18596745
-35   35 0.352676912 -0.91260788
-36   36 0.109807520 -0.44179128
-37   37 0.033600728 -0.30295144
-38   38 0.096567617 -0.19178178
-39   39 0.253990537  0.58056099
-40   40 0.079126081 -1.12063151
-41   41 0.648089955  1.66596470
-42   42 0.358880084  0.37479449
-43   43 0.268083146 -0.48285043
-44   44 0.490242117  0.97461923
-45   45 0.633409286 -0.41679077
-46   46 0.237232558  0.13833439
-47   47 0.591610942 -0.09966146
-48   48 0.728662253  0.20562335
-49   49 0.043444938 -0.15007930
-50   50 0.360995481 -0.19017872
-51   51 0.008393574  1.25067276
-52   52 0.876302331  2.32272639
-53   53 0.980684335 -1.47286551
-54   54 0.716788734  0.25342376
-55   55 0.581977163 -1.00888532
-56   56 0.436266395 -0.70437533
-57   57 0.930395836  1.68780257
-58   58 0.635961527 -0.68491539
-59   59 0.858754971 -0.85015356
-60   60 0.338580756  0.10748177
-61   61 0.867980016 -2.97386743
-62   62 0.327130820 -0.40830145
-63   63 0.070624370  1.26667054
-64   64 0.693546010  0.07161709
-65   65 0.672528939  0.77023001
-66   66 0.094443567  1.24630335
-67   67 0.098517263 -0.01559087
-68   68 0.454468928 -0.40215316
-69   69 0.929432071  0.66384750
-70   70 0.972341920 -2.47242084
-71   71 0.167337595  1.02450327
-72   72 0.240848162  1.78923658
-73   73 0.341210444  0.49130655
-74   74 0.337544186 -0.02166987
-75   75 0.660583166 -0.05180579
-76   76 0.461921201  0.49167301
-77   77 0.477423989  1.02395259
-78   78 0.380379611  0.36549974
-79   79 0.466487214  1.63592199
-80   80 0.392661804  1.72767338
-81   81 0.896621708 -0.24235176
-82   82 0.196084895 -1.56842206
-83   83 0.405107063  0.42965260
-84   84 0.070092064  1.15074727
-85   85 0.235613563  0.48280419
-86   86 0.536260446 -0.21156740
-87   87 0.211466841  0.23349393
-88   88 0.296437822  0.92096900
-89   89 0.817913632  1.90538416
-90   90 0.567406165 -1.08625598
-91   91 0.767395952  0.32935419
-92   92 0.731103177  0.46872908
-93   93 0.369403374  0.46860928
-94   94 0.125638126 -0.17668020
-95   95 0.333159115  0.28936898
-96   96 0.232189272 -0.58046902
-97   97 0.085563774  2.52357324
-98   98 0.551758949 -1.60252167
-99   99 0.744082310 -1.59670220
-100 100 0.448730706 -2.42628479</code></pre>
+1     1 0.448362708 -0.45740638
+2     2 0.895811057 -0.76106796
+3     3 0.869748915 -1.21977407
+4     4 0.971207169 -1.48763158
+5     5 0.184681404  1.72197489
+6     6 0.011911938  0.90243175
+7     7 0.530022012 -0.11267094
+8     8 0.168789341 -0.50952007
+9     9 0.401100204  2.14215318
+10   10 0.670998511 -0.57588861
+11   11 0.112609588 -0.39229050
+12   12 0.067386929 -0.36248003
+13   13 0.763258331  1.02020266
+14   14 0.317810305 -1.84134286
+15   15 0.678892566 -0.55966931
+16   16 0.654119857 -1.51764255
+17   17 0.970551477  0.97279806
+18   18 0.485944983  0.03644048
+19   19 0.638821268  0.23085620
+20   20 0.596364664  0.34149775
+21   21 0.509158182  0.32396658
+22   22 0.977467270  0.49380903
+23   23 0.747290624 -0.59748039
+24   24 0.161531213  0.18711247
+25   25 0.266166172  0.32507768
+26   26 0.872810280  1.10919306
+27   27 0.442519291  0.82374987
+28   28 0.507312686 -1.59170475
+29   29 0.029015069  1.34078359
+30   30 0.571941598 -0.84381167
+31   31 0.447002242  1.56313042
+32   32 0.581852192 -1.55539430
+33   33 0.749007585 -0.68361927
+34   34 0.719318462  1.04520122
+35   35 0.586088564  0.74643983
+36   36 0.235962083  1.07833446
+37   37 0.773584365  1.23684603
+38   38 0.386148372  0.73465296
+39   39 0.898225336  0.07741174
+40   40 0.920790900 -0.98224023
+41   41 0.876818736 -0.42064628
+42   42 0.870137180 -1.16788737
+43   43 0.298072472  0.29475990
+44   44 0.555379151 -0.21398760
+45   45 0.391987998 -0.48646942
+46   46 0.802205119  0.02990616
+47   47 0.975186720  1.50600379
+48   48 0.467442820 -0.50174096
+49   49 0.866496284 -1.15049885
+50   50 0.940330884 -0.81116858
+51   51 0.411733490  0.22444981
+52   52 0.250416976  1.35490399
+53   53 0.982869559 -0.06801049
+54   54 0.183839373 -0.13182445
+55   55 0.737398838 -0.96860214
+56   56 0.832943776 -0.51950012
+57   57 0.755847357 -0.53305789
+58   58 0.496646281 -0.20657966
+59   59 0.067098707 -0.64989005
+60   60 0.097490461 -0.58671501
+61   61 0.211586092  0.56035072
+62   62 0.706513390  0.50340430
+63   63 0.268696373 -0.32817545
+64   64 0.782502383  0.15230993
+65   65 0.204325078 -0.55641737
+66   66 0.214889603  0.56367695
+67   67 0.498169814 -0.22216483
+68   68 0.498385018 -0.39066086
+69   69 0.922351469 -1.50406260
+70   70 0.981908089 -0.55069808
+71   71 0.571613366 -0.42354450
+72   72 0.373268402  1.35981327
+73   73 0.356362414 -1.25176438
+74   74 0.928190627 -0.52147837
+75   75 0.250205222 -1.42665622
+76   76 0.009222826 -1.37983660
+77   77 0.035285083 -0.84822513
+78   78 0.041246296 -2.09702622
+79   79 0.043583692 -0.36431461
+80   80 0.670241885  0.10950236
+81   81 0.315663093 -1.39702008
+82   82 0.099298960 -1.70396398
+83   83 0.820098977  0.77328100
+84   84 0.845243861 -0.14567960
+85   85 0.455745526  0.56601023
+86   86 0.437503531 -0.04614715
+87   87 0.542493552 -1.72483735
+88   88 0.439816061 -0.68921385
+89   89 0.485071040  1.47123936
+90   90 0.020403352 -0.18202946
+91   91 0.951180510 -0.02433620
+92   92 0.652710127  0.36521491
+93   93 0.544066691  0.18088670
+94   94 0.742238161 -0.48574675
+95   95 0.879668462  1.53733889
+96   96 0.042484973 -1.75394100
+97   97 0.545895908 -0.33680794
+98   98 0.830130987 -0.09433191
+99   99 0.217506860 -2.66885103
+100 100 0.929616276 -0.06309270</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tbl_large</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tbl_large</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 100 × 3
-      id     x      y
-   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
- 1     1 0.208 -1.30 
- 2     2 0.387  0.852
- 3     3 0.948  1.39 
- 4     4 0.758 -0.122
- 5     5 0.400 -1.24 
- 6     6 0.701 -0.601
- 7     7 0.975 -0.729
- 8     8 0.436 -1.95 
- 9     9 0.330 -0.125
-10    10 0.237  0.965
+      id      x      y
+   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+ 1     1 0.448  -0.457
+ 2     2 0.896  -0.761
+ 3     3 0.870  -1.22 
+ 4     4 0.971  -1.49 
+ 5     5 0.185   1.72 
+ 6     6 0.0119  0.902
+ 7     7 0.530  -0.113
+ 8     8 0.169  -0.510
+ 9     9 0.401   2.14 
+10    10 0.671  -0.576
 # ℹ 90 more rows</code></pre>
 </div>
 </div></li>
 <li><p><strong>Better column construction:</strong> When creating a <code>tibble</code>, you can reference variables created earlier in the exact same call. Base <code>data.frame</code> throws an error if you attempt this.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Works in tibble</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Works in tibble</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> x <span class="sc">*</span> <span class="dv">2</span>  <span class="co"># References 'x' immediately</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 </ol>
 </section>
@@ -828,14 +835,14 @@ Type Converting
 <p>Functions are code objects that perform <em>operations</em> on some input (called <em>arguments</em>) and return some output. As we discussed last week, anything with some word followed by <code>()</code> is a function. R has thousands of built in functions, and packages that we install come with their own sets of functions. We can also create our own! In fact, we’ll spend a whole chunk of a class on this topic as knowing how to do this can save you a ton of time and make fewer mistakes than simply copying and pasting code over and over again.</p>
 <p>As a quick example, we can create a function to calculate the rate at which we capture images of insects in a camera trap:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining our functions name and what it does</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining our functions name and what it does</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>calculate_trap_rate <span class="ot">&lt;-</span> <span class="cf">function</span>(image_count, days_active) {</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  rate <span class="ot">&lt;-</span> image_count <span class="sc">/</span> days_active</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(rate)</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the function</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">calculate_trap_rate</span>(<span class="at">image_count =</span> <span class="dv">142</span>, <span class="at">days_active =</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">calculate_trap_rate</span>(<span class="at">image_count =</span> <span class="dv">142</span>, <span class="at">days_active =</span> <span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 20.28571</code></pre>
 </div>
@@ -846,16 +853,16 @@ Type Converting
 <h2 class="anchored" data-anchor-id="handling-na-values">Handling NA values</h2>
 <p><code>NA</code> (“Not available”) is a special type of value in R that can occur for many reasons. It pops up in vectors and other data structures when there is no value for a particular position (or cell if using tabluar data). We can check for NA values using the <code>is.na()</code> function, which will return <code>TRUE</code> for any values that contain an <code>NA</code>. We can use that function along with vectors to replace NA values:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>my.vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="dv">3</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>my.vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="dv">3</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(my.vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(my.vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NA values using the mean of our vector (called "imputing")</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NA values using the mean of our vector (called "imputing")</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>my.vector[<span class="fu">is.na</span>(my.vector)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(my.vector, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>my.vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>my.vector</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  1.0  4.0  4.5  4.0  5.0  4.5 10.0  3.0</code></pre>
 </div>
@@ -1008,7 +1015,7 @@ Type Converting
 <h3 class="anchored" data-anchor-id="spaces">Spaces</h3>
 <p>Spaces are good! Spaces are your friend! White space, as it’s called (harkening back to the days of physially published things like newspapers and books), helps our eyes to more quickly assess what is happening in code. We should put spaces on either side of mathematical operators (except exponentiation <code>^</code>) and around the assignment operator <code>&lt;-</code>. Also put spaces after commas, just like we would writing. You can also add spaces to improve code alignment: this makes it easier to digest/skim quickly.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good spacing style</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good spacing style</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (a <span class="sc">+</span> b)<span class="sc">^</span><span class="dv">4</span> <span class="sc">/</span> d</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad spacing style</span></span>
@@ -1023,7 +1030,7 @@ Type Converting
 <span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">speed     =</span> distance <span class="sc">/</span> air_time,</span>
 <span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_hour  =</span> dep_time <span class="sc">%/%</span> <span class="dv">100</span>,</span>
 <span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">dep_min   =</span> dep_time <span class="sc">%%</span> <span class="dv">100</span></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="pipes" class="level3">
@@ -1032,17 +1039,17 @@ Type Converting
 <p>The OG form of the pipe was <code>%&gt;%</code> and it was introduced by the tidyverse <code>magrittr</code> package. Since then, it has been implemented into base R as <code>|&gt;</code>, but because I’ve used <code>%&gt;%</code> for so damn long, you’ll still see me using that. I’m trying to quit, I promise…</p>
 <p>Pipes should always have a space before them, and be the last thing on a line. This makes it easier to re-shuffle how things are ordered and quickly see the logic of a set of piped functions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strive for </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strive for </span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span>  </span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(arr_delay), <span class="sc">!</span><span class="fu">is.na</span>(tailnum)) <span class="sc">|&gt;</span> </span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(dest)</span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Avoid</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>flights<span class="sc">|&gt;</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(arr_delay), <span class="sc">!</span><span class="fu">is.na</span>(tailnum))<span class="sc">|&gt;</span><span class="fu">count</span>(dest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>flights<span class="sc">|&gt;</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(arr_delay), <span class="sc">!</span><span class="fu">is.na</span>(tailnum))<span class="sc">|&gt;</span><span class="fu">count</span>(dest)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>If the function you’re piping into has named arguments (e.g., <code>mutate()</code> or <code>summarize()</code>) put each argument on a new line. If it doesn’t (e.g., <code>filter()</code>), keep it on one line unless you can’t fit it all.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strive for </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Strive for </span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span>  </span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tailnum) <span class="sc">|&gt;</span> </span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
@@ -1064,14 +1071,14 @@ Type Converting
 <span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
 <span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">delay =</span> <span class="fu">mean</span>(arr_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
 <span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">n</span>()</span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="comments-and-code-outline-via-.qmd" class="level3">
 <h3 class="anchored" data-anchor-id="comments-and-code-outline-via-.qmd">Comments and code outline (via <code>.qmd</code>)</h3>
 <p>One key area to keep style and organization in mind is how you structure your scripts/markdown files from a meta-level. Rather than a bunch of jumbled code that flows endlessly for 500 lines, use hierarchical markdown structure or sectioning comments to delineate or break up your file into cohesive/logical pieces. Look at the <a href="#frontmatter-‼️">frontmatter</a> to download the template <code>.qmd</code> file that I use for all new notebooks.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 📦 LOAD PACKAGES</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 📦 LOAD PACKAGES</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 💾 LOAD DATA</span></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Tabular data</span></span>
@@ -1091,7 +1098,7 @@ Type Converting
 <span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 📈 VISUALIZE RESULTS</span></span>
 <span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Abundance models</span></span>
 <span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Spatial models</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Spatial models</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="style-hacks" class="level3">
@@ -1154,13 +1161,14 @@ Type Converting
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

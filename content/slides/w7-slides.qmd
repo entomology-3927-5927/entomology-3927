@@ -93,9 +93,9 @@ temperature_summary <- temperature_data |>
 
 Data visualization is more than making a plot. A useful visualization should be:
 
--   **Truthful** — represent the data accurately.
--   **Functional** — make the important patterns interpretable.
--   **Beautiful** — use thoughtful design to invite attention and communicate clearly.
+- **Truthful** — represent the data accurately.
+- **Functional** — make the important patterns interpretable.
+- **Beautiful** — use thoughtful design to invite attention and communicate clearly.
 
 ::: callout-note
 **Style and substance:** A visually appealing plot still needs analytical substance. A data-rich plot should also be something people can understand and want to look at.
@@ -113,10 +113,10 @@ Data visualization is more than making a plot. A useful visualization should be:
 
 We'll work primarily with **`ggplot2`**, part of the Tidyverse.
 
--   Flexible tools for building a wide range of visualizations.
--   Designed to work with tidy data.
--   Plots are built by adding components together.
--   Many other R packages return ggplot objects that we can further modify.
+- Flexible tools for building a wide range of visualizations.
+- Designed to work with tidy data.
+- Plots are built by adding components together.
+- Many other R packages return ggplot objects that we can further modify.
 
 ::: callout-tip
 Base R can make useful plots, too. For this course, `ggplot2` gives us a consistent and flexible framework for building and customizing graphics.
@@ -127,7 +127,7 @@ Base R can make useful plots, too. For this course, `ggplot2` gives us a consist
 ![](https://ggplot2.tidyverse.org/articles/ggplot2_files/figure-html/overview_graphic-1.png){fig-align="center" width="78%"}
 
 | Component   | Purpose                                 | Common functions     |
-|-------------|-----------------------------------------|----------------------|
+|-----------------|------------------------------------|-------------------|
 | Data        | Dataset being visualized                | `ggplot(data = ...)` |
 | Mapping     | Connect variables to visual properties  | `aes()`              |
 | Layers      | Represent observations and summaries    | `geom_*()`           |
@@ -276,9 +276,9 @@ Scales control how data values are translated into positions, colors, and other 
 
 For numeric axes, common options include:
 
--   `scale_x_continuous()` and `scale_y_continuous()` — standard numeric scales.
--   `scale_x_reverse()` — reverse an axis.
--   `scale_x_log10()` — transform an axis to a log scale.
+- `scale_x_continuous()` and `scale_y_continuous()` — standard numeric scales.
+- `scale_x_reverse()` — reverse an axis.
+- `scale_x_log10()` — transform an axis to a log scale.
 
 Useful scale arguments:
 
@@ -299,9 +299,9 @@ Use `?scale_y_continuous()` (or the corresponding scale function) to see the ful
 
 Choose a scale based on the type of variable being mapped.
 
--   **Discrete:** categorical variables such as habitat, species, or treatment.
--   **Continuous:** numeric variables such as temperature, elevation, or abundance.
--   **Binned:** continuous values grouped into discrete intervals.
+- **Discrete:** categorical variables such as habitat, species, or treatment.
+- **Continuous:** numeric variables such as temperature, elevation, or abundance.
+- **Binned:** continuous values grouped into discrete intervals.
 
 | Data / objective | Example scale functions |
 |----|----|
@@ -357,10 +357,10 @@ labs(
 
 Common labels include:
 
--   `title`, `subtitle`, and `caption`
--   `x` and `y` axis titles
--   Names for mapped aesthetics such as `color`, `fill`, `shape`, and `size`
--   `tag` for a figure label
+- `title`, `subtitle`, and `caption`
+- `x` and `y` axis titles
+- Names for mapped aesthetics such as `color`, `fill`, `shape`, and `size`
+- `tag` for a figure label
 
 A good title and clear axis and legend labels help a reader understand the plot without needing to decode your R code.
 
@@ -436,10 +436,10 @@ facet_wrap(~ habitat_type, scales = "free_y")
 facet_wrap(~ habitat_type, scales = "free")
 ```
 
--   `fixed`: x and y scales are the same in every panel.
--   `free_x`: x varies; y is fixed.
--   `free_y`: y varies; x is fixed.
--   `free`: both x and y vary.
+- `fixed`: x and y scales are the same in every panel.
+- `free_x`: x varies; y is fixed.
+- `free_y`: y varies; x is fixed.
+- `free`: both x and y vary.
 
 ::: callout-important
 Faceting variables must be **discrete** (categorical). To facet by a continuous variable, first create categories—for example, with `cut_interval()`, `cut_width()`, or `cut_number()`.
@@ -464,11 +464,11 @@ We'll return to coordinate systems in more detail when we work with maps.
 
 Themes control non-data elements of a plot, including:
 
--   Backgrounds and gridlines
--   Text size, font, and color
--   Axis lines, ticks, and labels
--   Legend placement and appearance
--   Plot margins
+- Backgrounds and gridlines
+- Text size, font, and color
+- Axis lines, ticks, and labels
+- Legend placement and appearance
+- Plot margins
 
 Some built-in themes:
 
@@ -484,12 +484,12 @@ You can customize an existing theme with `theme()` or write a theme function and
 
 ## A useful mental model
 
--   **Mapping** (`aes()`) tells ggplot2 *what variables* to visualize.
--   **Layers** (`geom_*()`) tell ggplot2 *how to visualize* those variables.
--   **Scales** (`scale_*()`) tell ggplot2 *how to translate* values into visual properties.
--   **Facets** (`facet_*()`) split data into separate panels.
--   **Coordinates** (`coord_*()`) control how positions are displayed.
--   **Themes** (`theme_*()`) control the overall appearance.
+- **Mapping** (`aes()`) tells ggplot2 *what variables* to visualize.
+- **Layers** (`geom_*()`) tell ggplot2 *how to visualize* those variables.
+- **Scales** (`scale_*()`) tell ggplot2 *how to translate* values into visual properties.
+- **Facets** (`facet_*()`) split data into separate panels.
+- **Coordinates** (`coord_*()`) control how positions are displayed.
+- **Themes** (`theme_*()`) control the overall appearance.
 
 ## Before you make your next plot…
 

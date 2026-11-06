@@ -164,5 +164,5 @@ glimpse(temperature_data)
 glimpse(temperature_summary)
 
 # Export datasets
-write_csv(temperature_data, "exercise_2_temperature_data.csv")
-write_csv(temperature_summary, "exercise_2_temperature_summary.csv")
+write_csv(temperature_data, "./workshop/workshop_data/w7-exercise2.csv")
+# write_csv(temperature_summary, "./workshop/workshop_data/w7-exercise1.csv")

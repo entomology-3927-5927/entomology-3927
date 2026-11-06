@@ -7,10 +7,10 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>Entomology 3927/5927 – Week 5</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -97,7 +103,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-0ccd7e690a423122c7f06c7cec3a7b30.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-71561e5efac870f696d699f02f65b29e.css">
   <link rel="stylesheet" href="default">
   <link rel="stylesheet" href="slide_styles/slide-styles.scss">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -262,9 +268,9 @@
 <section id="importing-data-into-r" class="slide level2">
 <h2>Importing data into R</h2>
 <p>The <code>readr</code> package makes it easy to import tabular data.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a>bees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/bees.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a aria-label="2"></a></span>
+<span id="cb1-3"><a aria-label="3"></a>bees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/bees.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Other useful tools:</p>
 <ul>
 <li><code>read_csv()</code> — import CSV files.</li>
@@ -288,9 +294,9 @@
 <section id="inspect-before-you-analyze" class="slide level2">
 <h2>Inspect before you analyze</h2>
 <p>Never assume your data imported correctly.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">glimpse</span>(bees)</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a><span class="fu">problems</span>(bees)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">glimpse</span>(bees)</span>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="fu">problems</span>(bees)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Check for:</p>
 <ul>
 <li>Incorrect column names.</li>
@@ -299,8 +305,8 @@
 <li>Parsing errors or inconsistent entries.</li>
 </ul>
 <p>Standardize messy column names with <code>janitor</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>bees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/bees.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>bees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/bees.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a aria-label="2"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="what-is-tidy-data" class="slide level2">
 <h2>What is tidy data?</h2>
@@ -355,12 +361,12 @@
 <section id="reshaping-data-into-tidy-form-wide-long-1" class="slide level2">
 <h2>Reshaping data into tidy form: wide → long</h2>
 <p>We can combine the species columns into a single variable.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>trees_long <span class="ot">&lt;-</span> trees <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb4-3"><a></a>    <span class="at">cols =</span> <span class="fu">ends_with</span>(<span class="st">"_count"</span>),</span>
-<span id="cb4-4"><a></a>    <span class="at">names_to =</span> <span class="st">"species"</span>,</span>
-<span id="cb4-5"><a></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span></span>
-<span id="cb4-6"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>trees_long <span class="ot">&lt;-</span> trees <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a aria-label="2"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb4-3"><a aria-label="3"></a>    <span class="at">cols =</span> <span class="fu">ends_with</span>(<span class="st">"_count"</span>),</span>
+<span id="cb4-4"><a aria-label="4"></a>    <span class="at">names_to =</span> <span class="st">"species"</span>,</span>
+<span id="cb4-5"><a aria-label="5"></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span></span>
+<span id="cb4-6"><a aria-label="6"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -444,12 +450,12 @@
 <section id="reshaping-data-into-tidy-form-long-wide-1" class="slide level2">
 <h2>Reshaping data into tidy form: long → wide</h2>
 <p>Use <code>pivot_wider()</code> to make each measurement its own column.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>plots_wide <span class="ot">&lt;-</span> plots_long <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb5-3"><a></a>    <span class="at">names_from =</span> metric,</span>
-<span id="cb5-4"><a></a>    <span class="at">values_from =</span> value</span>
-<span id="cb5-5"><a></a>  )</span>
-<span id="cb5-6"><a></a>plots_wide</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>plots_wide <span class="ot">&lt;-</span> plots_long <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a aria-label="2"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb5-3"><a aria-label="3"></a>    <span class="at">names_from =</span> metric,</span>
+<span id="cb5-4"><a aria-label="4"></a>    <span class="at">values_from =</span> value</span>
+<span id="cb5-5"><a aria-label="5"></a>  )</span>
+<span id="cb5-6"><a aria-label="6"></a>plots_wide</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -539,16 +545,16 @@
 <section id="combine-verbs-to-answer-questions" class="slide level2">
 <h2>Combine verbs to answer questions</h2>
 <p><strong>Question:</strong> How does bee observation rate vary among habitats?</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>habitat_summary <span class="ot">&lt;-</span> pollinators <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(bee_count)) <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-4"><a></a>    <span class="at">observation_rate =</span> bee_count <span class="sc">/</span> survey_minutes</span>
-<span id="cb6-5"><a></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb6-6"><a></a>  <span class="fu">summarize</span>(</span>
-<span id="cb6-7"><a></a>    <span class="at">mean_rate =</span> <span class="fu">mean</span>(observation_rate),</span>
-<span id="cb6-8"><a></a>    <span class="at">n_surveys =</span> <span class="fu">n</span>(),</span>
-<span id="cb6-9"><a></a>    <span class="at">.by =</span> habitat</span>
-<span id="cb6-10"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>habitat_summary <span class="ot">&lt;-</span> pollinators <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a aria-label="2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(bee_count)) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a aria-label="3"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-4"><a aria-label="4"></a>    <span class="at">observation_rate =</span> bee_count <span class="sc">/</span> survey_minutes</span>
+<span id="cb6-5"><a aria-label="5"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a aria-label="6"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb6-7"><a aria-label="7"></a>    <span class="at">mean_rate =</span> <span class="fu">mean</span>(observation_rate),</span>
+<span id="cb6-8"><a aria-label="8"></a>    <span class="at">n_surveys =</span> <span class="fu">n</span>(),</span>
+<span id="cb6-9"><a aria-label="9"></a>    <span class="at">.by =</span> habitat</span>
+<span id="cb6-10"><a aria-label="10"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This workflow:</p>
 <ol type="1">
 <li>Removes observations with missing bee counts.</li>
@@ -777,7 +783,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -851,13 +857,14 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
