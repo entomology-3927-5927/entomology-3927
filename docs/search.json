@@ -44,7 +44,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 6: Data wrangling 2"
+      "Week 6: Data wrangling Pt.II"
     ]
   },
   {
@@ -56,7 +56,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 6: Data wrangling 2"
+      "Week 6: Data wrangling Pt.II"
     ]
   },
   {
@@ -68,7 +68,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 6: Data wrangling 2"
+      "Week 6: Data wrangling Pt.II"
     ]
   },
   {
@@ -80,7 +80,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 6: Data wrangling 2"
+      "Week 6: Data wrangling Pt.II"
     ]
   },
   {
@@ -92,7 +92,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 6: Data wrangling 2"
+      "Week 6: Data wrangling Pt.II"
     ]
   },
   {
@@ -220,7 +220,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Below, you’ll find the schedule to all of the topics and material that we’ll cover this semester. A few notes on the important links (Content, Lab, and Example) are included below. Each week only contains a single link for each category: this is intentional! The material is all organized/compiled by week, rather than by day, even if we cover multiple topics over the course of a week.\n\n\n\nContent (): Here you’ll find the readings, lecture slides, and all other material that supports the lecture components of the course.\nLab (): This page contains the instructions, data, and other material for the 13 labs where we’ll explore examples of topics using real data.\nExample (): This page will contain worked-examples of the various topics that we’ll cover over the course of the semester.\n\n\n\nModule 1: Thinking Like a Data Scientist\n\n\n\n\nWeek\n\n\nDate\n\n\nTopic\n\n\nContent\n\n\nWorkshop\n\n\n\n\n\n\nWeek 1\n\n\n9/18/26\n\n\nOrientation & What is Data Science in Biology?\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n9/25/26\n\n\nProject Organization & Reproducibility\n\n\n\n\n\n\n\n\n\n\n\n\nModule 2: Version Control & Open Science\n\n\n\n\nWeek\n\n\nDate\n\n\nTopic\n\n\nContent\n\n\nWorkshop\n\n\n\n\n\n\nWeek 3\n\n\n10/2/26\n\n\nGit Fundamentals\n\n\n\n\n\n\n\n\n\n\nWeek 4\n\n\n10/9/26\n\n\nGitHub Collaboration\n\n\n\n\n\n\n\n\n\n\n\n\nModule 3: R for Data Handling & Exploration\n\n\n\n\nWeek\n\n\nDate\n\n\nTopic\n\n\nContent\n\n\nWorkshop\n\n\n\n\n\n\nWeek 5\n\n\n10/23/26\n\n\nData Wrangling I\n\n\n\n\n\n\n\n\n\n\nWeek 6\n\n\n10/30/26\n\n\nData Wrangling II\n\n\n\n\n\n\n\n\n\n\nWeek 7\n\n\n11/6/26\n\n\nData Visualization\n\n\n\n\n\n\n\n\n\n\nWeek 8\n\n\n11/13/26\n\n\nEDA & Data Visualization II\n\n\n\n\n\n\n\n\n\n\n\n\nModule 4: Automation, Functions, & Scaling Up\n\n\n\n\nWeek\n\n\nDate\n\n\nTopic\n\n\nContent\n\n\nWorkshop\n\n\n\n\n\n\nWeek 9\n\n\n11/20/26\n\n\nFunctions and Automation\n\n\n\n\n\n\n\n\n\n\nWeek 10\n\n\n11/20/26\n\n\nMulti-file Workflows\n\n\n\n\n\n\n\n\n\n\n\n\nModule 5: Data Management & Databases\n\n\n\n\nWeek\n\n\nDate\n\n\nTopic\n\n\nContent\n\n\nWorkshop\n\n\n\n\n\n\nWeek 11\n\n\n12/11/26\n\n\nData Management & Metadata\n\n\n\n\n\n\n\n\n\n\nWeek 12\n\n\n12/18/26\n\n\nDatabases & Online Data Repositories"
+    "text": "Below, you’ll find the schedule to all of the topics and material that we’ll cover this semester. A few notes on the important links (Content, Lab, and Example) are included below. Each week only contains a single link for each category: this is intentional! The material is all organized/compiled by week, rather than by day, even if we cover multiple topics over the course of a week.\n\n\n\nContent (): Here you’ll find the readings, lecture slides, and all other material that supports the lecture components of the course.\nLab (): This page contains the instructions, data, and other material for the 13 labs where we’ll explore examples of topics using real data.\nExample (): This page will contain worked-examples of the various topics that we’ll cover over the course of the semester.\n\n\n\nModule 1: Thinking Like a Data Scientist\n\n\n\n\nWeek\n\n\nDate\n\n\nTopic\n\n\nContent\n\n\nWorkshop\n\n\n\n\n\n\nWeek 1\n\n\n9/18/26\n\n\nOrientation & What is Data Science in Biology?\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\n9/25/26\n\n\nProject Organization & Reproducibility\n\n\n\n\n\n\n\n\n\n\n\n\nModule 2: Version Control & Open Science\n\n\n\n\nWeek\n\n\nDate\n\n\nTopic\n\n\nContent\n\n\nWorkshop\n\n\n\n\n\n\nWeek 3\n\n\n10/2/26\n\n\nGit Fundamentals\n\n\n\n\n\n\n\n\n\n\nWeek 4\n\n\n10/9/26\n\n\nGitHub Collaboration\n\n\n\n\n\n\n\n\n\n\n\n\nModule 3: R for Data Handling & Exploration\n\n\n\n\nWeek\n\n\nDate\n\n\nTopic\n\n\nContent\n\n\nWorkshop\n\n\n\n\n\n\nWeek 5\n\n\n10/23/26\n\n\nData Wrangling I\n\n\n\n\n\n\n\n\n\n\nWeek 6\n\n\n10/30/26\n\n\nData Wrangling II\n\n\n\n\n\n\n\n\n\n\nWeek 7\n\n\n11/6/26\n\n\nData Visualization\n\n\n\n\n\n\n\n\n\n\nWeek 8\n\n\n11/13/26\n\n\nEDA & Data Visualization II\n\n\n\n\n\n\n\n\n\n\n\n\nModule 4: Automation, Functions, & Scaling Up\n\n\n\n\nWeek\n\n\nDate\n\n\nTopic\n\n\nContent\n\n\nWorkshop\n\n\n\n\n\n\nWeek 9\n\n\n11/20/26\n\n\nFunctions and Automation\n\n\n\n\n\n\n\n\n\n\nWeek 10\n\n\n11/20/26\n\n\nMulti-file Workflows\n\n\n\n\n\n\n\n\n\n\n\n\nModule 5: Data Management & Databases\n\n\n\n\nWeek\n\n\nDate\n\n\nTopic\n\n\nContent\n\n\nWorkshop\n\n\n\n\n\n\nWeek 11\n\n\n12/4/26\n\n\nDatabases & Online Data Repositories\n\n\n\n\n\n\n\n\n\n\nWeek 12\n\n\n12/11/26\n\n\nData Management & Metadata"
   },
   {
     "objectID": "index.html",
@@ -514,7 +514,7 @@
     "href": "content/w2-content.html#tour-de-objects",
     "title": "Week 2",
     "section": "Tour de Objects 🚴 🚴 🚴💨",
-    "text": "Tour de Objects 🚴 🚴 🚴💨\nAs we discussed last week, programming in R is all about creating, maniupulating, and operating on objects.\n\nThe atomic data types\nR has 6 basic (“atomic”) vector types, but 4 are most commonly used:\n\n\n\n\n\n\n\n\nType\nDescription\nExamples\n\n\n\n\nLogical\nBoolean values (TRUE / FALSE)\nTRUE, FALSE, T, F\n\n\nNumeric (Double)\nReal numbers (default numeric type)\n3.14, 42.0\n\n\nNumeric (Integer)\nWhole numbers (designated with L)\n42L\n\n\nCharacter\nText strings\n\"hello\", \"camera trap\"\n\n\nComplex / Raw\nImaginary numbers or raw bytes (rare)\n1 + 4i, charToRaw(\"A\")\n\n\n\n\n\n\n\n\n\nTipType Checking\n\n\n\nUse typeof() to check an object’s underlying storage type, and is.* functions (e.g., is.numeric(), is.character()) to test for specific types.\n\n\n\n# Create atomic variables\nmy_numeric   &lt;- 42.5\nmy_integer   &lt;- 42L\nmy_character &lt;- \"iBUG Lab\"\nmy_logical   &lt;- TRUE\n\n# Check types\ntypeof(my_numeric)\n\n[1] \"double\"\n\ntypeof(my_integer)\n\n[1] \"integer\"\n\nis.numeric(my_character)\n\n[1] FALSE\n\n\n\n\n\n\n\n\nTipType Converting\n\n\n\nWe can use as.* functions to convert between atomic data types (e.g., as.numeric(\"1\") if for some reason our numeric values were imported as character strings)\n\n\n\n\nVectors\nA vector is a 1-dimensional collection of elements of the same type (that is, all numeric, character, etc.). We create vectors using the c() function which combines or concatenates elements.\n\nMixing data types in R will perform implicit coercion, which basically means it will convert everything into the most flexible type. The flexibility of objects in R from most to least is: character &gt; double &gt; integer &gt; logical.\nIn R, many functions or operations are vectorized, meaning they will apply math/functions/operations to every element of the vector automatically.\n\n\n# Creating a numeric vector\nmy_counts &lt;- c(12, 4, 30, 0)\n\n# Vectorized maths\nmy_counts_doubled &lt;- my_counts * 2\nmy_counts_doubled\n\n[1] 24  8 60  0\n\n# Coercion of data: what do you think this will be converted to?\nmessy_vector &lt;- c(1, \"shikaka\", TRUE)\ntypeof(messy_vector)\n\n[1] \"character\"\n\n\nVectors can also have named elements which can be used to reference specific values:\n\nmy_vector &lt;- c(vial_1 = 20, vial_2 = 43, vial_3 = 12)\nmy_vector\n\nvial_1 vial_2 vial_3 \n    20     43     12 \n\n\n\n\nLists\nLists are very much like vectors, but they can hold different data types (including things like other lists). You can essentially put anything into them and retain its native data type.\n\nCreated using list()\nWe access elements using single brackets [] (which returns a sub-list) or double brackets [[]] or $ (which extracts the actual object, e.g., another list, character, or vector).\n\n\n# Creating a list\ncamera_traps &lt;- list(\n  site_id = \"SITE-01\",\n  active = TRUE,\n  battery = 88.5,\n  target_species = c(\"affinis\", \"auricomus\", \"impatiens\")\n)\n\n# Exctracting/accessing elements\ncamera_traps$site_id\n\n[1] \"SITE-01\"\n\ncamera_traps[[4]][1] # list element 4, object 1 (i.e., first target species)\n\n[1] \"affinis\"\n\n\nWe can visualize lists using a series of nested boxes, as well as how different subsetting commands grab data from lists:\n\n\n\n\n\n\n\nData frames and tibbles\nMost of us will work with tabular data 90% of the time. Tabular data, that is, a standard excel or Google Sheets file, arranged in a two-dimensional grid of rows and columns, is what most of us are familiar using to aggregate data from experiments and observational studies. When we bring these data into R, we’ll bring them in as data frames. At their core, data frames are essentially lists (each list is a “column”) of equal-length vectors (each vector element is a “row”).\n\n\n\n\n\n\nAccessing data in data frames\nBecause data frames are essentially lists, the manner in which we access data is very similar. We’ll discuss more advanced/modern ways to access data in the coming weeks, but the base R ways to get at data are:\n\nExtract column:\n\nBy name:my_df$col_1 or my_df[, \"col_1\"] or my_df[[\"col_1\"]]\nBy index: my_df[, 1] or my_df[[1]]\n\nExtract row:\n\nmy_df[1, ] (extracts row 1 across all columns)\n\nExtract cell:\n\nmy_df[1, \"col_1\"] or my_df[1, 1]\n\nExtract range:\n\nmy_df[1:5, c(\"col_1\", \"col_2\")]\n\n\n\n\nOk, got data frames ✅, what the hell is a tibble?\nGreat question! A tibble is a type of data frame. But a data frame is not necessarily a tibble! Tibbles are a special type of data frame that belong to the Tidyverse: a series of R packages and a philosophy of data organization and presentation. The developers describe them as: &gt; “Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.”\nThe visualization capacity alone makes them worth using, and they play nicely with all of the other tidyverse packages that we’ll be using throughout this semester. Here are the big advantages of tibbles:\n\nNo unintended vector dropping (drop = FALSE by default): When subsetting a single column in a standard data.frame, base R silently simplifies the output into a 1D vector. A tibble always returns a 2D tibble unless explicitly told otherwise, preventing downstream code breakage in functions expecting tabular data.\n\nlibrary(tibble)\n\n# Base Data Frame\ndf &lt;- data.frame(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(df[, \"a\"]) \n# [1] \"integer\"  &lt;-- Automatically dropped to a vector!\n\n# Tibble\ntbl &lt;- tibble(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(tbl[, \"a\"]) \n# [1] \"tbl_df\" \"tbl\" \"data.frame\"  &lt;-- Remains a 1-column tibble!\n\nNo partial name matching: Base data frames try to guess column names if you make a typo or use shorthand. Tibbles require exact column matching and trigger a warning if a column doesn’t exist, preventing silent logical errors.\n\n# Base Data Frame (Silently matches \"species_name\" via \"$spec\")\ndf &lt;- data.frame(species_name = c(\"affinis\", \"impatiens\"))\ndf$spec\n# [1] \"affinis\" \"impatiens\"  &lt;-- Dangerous!\n\n# Tibble\ntbl &lt;- tibble(species_name = c(\"affinis\", \"impatiens\"))\ntbl$spec\n# NULL\n# Warning message: Unknown or uninitialised column: `spec`.\n\nBetter printing for large datasets: Printing a large data.framecan easily overwhelm your screen by dumping thousands of rows and wrapping dozens of columns. Tibbles automatically truncate output to 10 rows, fit columns to your console width, displays data types for every column, and adds colored text to help elements stand out.\n\nlibrary(tibble)\n# Creating a large-ish dataset\ndf_large  &lt;- data.frame(id = 1:100, x = runif(100), y = rnorm(100))\ntbl_large &lt;- as_tibble(df_large)\n\n# Printing base df floods the console with oodles of lines\nprint(df_large) \n\n     id           x           y\n1     1 0.448362708 -0.45740638\n2     2 0.895811057 -0.76106796\n3     3 0.869748915 -1.21977407\n4     4 0.971207169 -1.48763158\n5     5 0.184681404  1.72197489\n6     6 0.011911938  0.90243175\n7     7 0.530022012 -0.11267094\n8     8 0.168789341 -0.50952007\n9     9 0.401100204  2.14215318\n10   10 0.670998511 -0.57588861\n11   11 0.112609588 -0.39229050\n12   12 0.067386929 -0.36248003\n13   13 0.763258331  1.02020266\n14   14 0.317810305 -1.84134286\n15   15 0.678892566 -0.55966931\n16   16 0.654119857 -1.51764255\n17   17 0.970551477  0.97279806\n18   18 0.485944983  0.03644048\n19   19 0.638821268  0.23085620\n20   20 0.596364664  0.34149775\n21   21 0.509158182  0.32396658\n22   22 0.977467270  0.49380903\n23   23 0.747290624 -0.59748039\n24   24 0.161531213  0.18711247\n25   25 0.266166172  0.32507768\n26   26 0.872810280  1.10919306\n27   27 0.442519291  0.82374987\n28   28 0.507312686 -1.59170475\n29   29 0.029015069  1.34078359\n30   30 0.571941598 -0.84381167\n31   31 0.447002242  1.56313042\n32   32 0.581852192 -1.55539430\n33   33 0.749007585 -0.68361927\n34   34 0.719318462  1.04520122\n35   35 0.586088564  0.74643983\n36   36 0.235962083  1.07833446\n37   37 0.773584365  1.23684603\n38   38 0.386148372  0.73465296\n39   39 0.898225336  0.07741174\n40   40 0.920790900 -0.98224023\n41   41 0.876818736 -0.42064628\n42   42 0.870137180 -1.16788737\n43   43 0.298072472  0.29475990\n44   44 0.555379151 -0.21398760\n45   45 0.391987998 -0.48646942\n46   46 0.802205119  0.02990616\n47   47 0.975186720  1.50600379\n48   48 0.467442820 -0.50174096\n49   49 0.866496284 -1.15049885\n50   50 0.940330884 -0.81116858\n51   51 0.411733490  0.22444981\n52   52 0.250416976  1.35490399\n53   53 0.982869559 -0.06801049\n54   54 0.183839373 -0.13182445\n55   55 0.737398838 -0.96860214\n56   56 0.832943776 -0.51950012\n57   57 0.755847357 -0.53305789\n58   58 0.496646281 -0.20657966\n59   59 0.067098707 -0.64989005\n60   60 0.097490461 -0.58671501\n61   61 0.211586092  0.56035072\n62   62 0.706513390  0.50340430\n63   63 0.268696373 -0.32817545\n64   64 0.782502383  0.15230993\n65   65 0.204325078 -0.55641737\n66   66 0.214889603  0.56367695\n67   67 0.498169814 -0.22216483\n68   68 0.498385018 -0.39066086\n69   69 0.922351469 -1.50406260\n70   70 0.981908089 -0.55069808\n71   71 0.571613366 -0.42354450\n72   72 0.373268402  1.35981327\n73   73 0.356362414 -1.25176438\n74   74 0.928190627 -0.52147837\n75   75 0.250205222 -1.42665622\n76   76 0.009222826 -1.37983660\n77   77 0.035285083 -0.84822513\n78   78 0.041246296 -2.09702622\n79   79 0.043583692 -0.36431461\n80   80 0.670241885  0.10950236\n81   81 0.315663093 -1.39702008\n82   82 0.099298960 -1.70396398\n83   83 0.820098977  0.77328100\n84   84 0.845243861 -0.14567960\n85   85 0.455745526  0.56601023\n86   86 0.437503531 -0.04614715\n87   87 0.542493552 -1.72483735\n88   88 0.439816061 -0.68921385\n89   89 0.485071040  1.47123936\n90   90 0.020403352 -0.18202946\n91   91 0.951180510 -0.02433620\n92   92 0.652710127  0.36521491\n93   93 0.544066691  0.18088670\n94   94 0.742238161 -0.48574675\n95   95 0.879668462  1.53733889\n96   96 0.042484973 -1.75394100\n97   97 0.545895908 -0.33680794\n98   98 0.830130987 -0.09433191\n99   99 0.217506860 -2.66885103\n100 100 0.929616276 -0.06309270\n\n# Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)\ntbl_large\n\n# A tibble: 100 × 3\n      id      x      y\n   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n 1     1 0.448  -0.457\n 2     2 0.896  -0.761\n 3     3 0.870  -1.22 \n 4     4 0.971  -1.49 \n 5     5 0.185   1.72 \n 6     6 0.0119  0.902\n 7     7 0.530  -0.113\n 8     8 0.169  -0.510\n 9     9 0.401   2.14 \n10    10 0.671  -0.576\n# ℹ 90 more rows\n\n\nBetter column construction: When creating a tibble, you can reference variables created earlier in the exact same call. Base data.frame throws an error if you attempt this.\n\n# Works in tibble\ntbl &lt;- tibble(\n  x = 1:5,\n  y = x * 2  # References 'x' immediately\n)\n\n\n\n\n\nFunctions\nFunctions are code objects that perform operations on some input (called arguments) and return some output. As we discussed last week, anything with some word followed by () is a function. R has thousands of built in functions, and packages that we install come with their own sets of functions. We can also create our own! In fact, we’ll spend a whole chunk of a class on this topic as knowing how to do this can save you a ton of time and make fewer mistakes than simply copying and pasting code over and over again.\nAs a quick example, we can create a function to calculate the rate at which we capture images of insects in a camera trap:\n\n# Defining our functions name and what it does\ncalculate_trap_rate &lt;- function(image_count, days_active) {\n  rate &lt;- image_count / days_active\n  return(rate)\n}\n\n# Using the function\ncalculate_trap_rate(image_count = 142, days_active = 7)\n\n[1] 20.28571",
+    "text": "Tour de Objects 🚴 🚴 🚴💨\nAs we discussed last week, programming in R is all about creating, maniupulating, and operating on objects.\n\nThe atomic data types\nR has 6 basic (“atomic”) vector types, but 4 are most commonly used:\n\n\n\n\n\n\n\n\nType\nDescription\nExamples\n\n\n\n\nLogical\nBoolean values (TRUE / FALSE)\nTRUE, FALSE, T, F\n\n\nNumeric (Double)\nReal numbers (default numeric type)\n3.14, 42.0\n\n\nNumeric (Integer)\nWhole numbers (designated with L)\n42L\n\n\nCharacter\nText strings\n\"hello\", \"camera trap\"\n\n\nComplex / Raw\nImaginary numbers or raw bytes (rare)\n1 + 4i, charToRaw(\"A\")\n\n\n\n\n\n\n\n\n\nTipType Checking\n\n\n\nUse typeof() to check an object’s underlying storage type, and is.* functions (e.g., is.numeric(), is.character()) to test for specific types.\n\n\n\n# Create atomic variables\nmy_numeric   &lt;- 42.5\nmy_integer   &lt;- 42L\nmy_character &lt;- \"iBUG Lab\"\nmy_logical   &lt;- TRUE\n\n# Check types\ntypeof(my_numeric)\n\n[1] \"double\"\n\ntypeof(my_integer)\n\n[1] \"integer\"\n\nis.numeric(my_character)\n\n[1] FALSE\n\n\n\n\n\n\n\n\nTipType Converting\n\n\n\nWe can use as.* functions to convert between atomic data types (e.g., as.numeric(\"1\") if for some reason our numeric values were imported as character strings)\n\n\n\n\nVectors\nA vector is a 1-dimensional collection of elements of the same type (that is, all numeric, character, etc.). We create vectors using the c() function which combines or concatenates elements.\n\nMixing data types in R will perform implicit coercion, which basically means it will convert everything into the most flexible type. The flexibility of objects in R from most to least is: character &gt; double &gt; integer &gt; logical.\nIn R, many functions or operations are vectorized, meaning they will apply math/functions/operations to every element of the vector automatically.\n\n\n# Creating a numeric vector\nmy_counts &lt;- c(12, 4, 30, 0)\n\n# Vectorized maths\nmy_counts_doubled &lt;- my_counts * 2\nmy_counts_doubled\n\n[1] 24  8 60  0\n\n# Coercion of data: what do you think this will be converted to?\nmessy_vector &lt;- c(1, \"shikaka\", TRUE)\ntypeof(messy_vector)\n\n[1] \"character\"\n\n\nVectors can also have named elements which can be used to reference specific values:\n\nmy_vector &lt;- c(vial_1 = 20, vial_2 = 43, vial_3 = 12)\nmy_vector\n\nvial_1 vial_2 vial_3 \n    20     43     12 \n\n\n\n\nLists\nLists are very much like vectors, but they can hold different data types (including things like other lists). You can essentially put anything into them and retain its native data type.\n\nCreated using list()\nWe access elements using single brackets [] (which returns a sub-list) or double brackets [[]] or $ (which extracts the actual object, e.g., another list, character, or vector).\n\n\n# Creating a list\ncamera_traps &lt;- list(\n  site_id = \"SITE-01\",\n  active = TRUE,\n  battery = 88.5,\n  target_species = c(\"affinis\", \"auricomus\", \"impatiens\")\n)\n\n# Exctracting/accessing elements\ncamera_traps$site_id\n\n[1] \"SITE-01\"\n\ncamera_traps[[4]][1] # list element 4, object 1 (i.e., first target species)\n\n[1] \"affinis\"\n\n\nWe can visualize lists using a series of nested boxes, as well as how different subsetting commands grab data from lists:\n\n\n\n\n\n\n\nData frames and tibbles\nMost of us will work with tabular data 90% of the time. Tabular data, that is, a standard excel or Google Sheets file, arranged in a two-dimensional grid of rows and columns, is what most of us are familiar using to aggregate data from experiments and observational studies. When we bring these data into R, we’ll bring them in as data frames. At their core, data frames are essentially lists (each list is a “column”) of equal-length vectors (each vector element is a “row”).\n\n\n\n\n\n\nAccessing data in data frames\nBecause data frames are essentially lists, the manner in which we access data is very similar. We’ll discuss more advanced/modern ways to access data in the coming weeks, but the base R ways to get at data are:\n\nExtract column:\n\nBy name:my_df$col_1 or my_df[, \"col_1\"] or my_df[[\"col_1\"]]\nBy index: my_df[, 1] or my_df[[1]]\n\nExtract row:\n\nmy_df[1, ] (extracts row 1 across all columns)\n\nExtract cell:\n\nmy_df[1, \"col_1\"] or my_df[1, 1]\n\nExtract range:\n\nmy_df[1:5, c(\"col_1\", \"col_2\")]\n\n\n\n\nOk, got data frames ✅, what the hell is a tibble?\nGreat question! A tibble is a type of data frame. But a data frame is not necessarily a tibble! Tibbles are a special type of data frame that belong to the Tidyverse: a series of R packages and a philosophy of data organization and presentation. The developers describe them as: &gt; “Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.”\nThe visualization capacity alone makes them worth using, and they play nicely with all of the other tidyverse packages that we’ll be using throughout this semester. Here are the big advantages of tibbles:\n\nNo unintended vector dropping (drop = FALSE by default): When subsetting a single column in a standard data.frame, base R silently simplifies the output into a 1D vector. A tibble always returns a 2D tibble unless explicitly told otherwise, preventing downstream code breakage in functions expecting tabular data.\n\nlibrary(tibble)\n\n# Base Data Frame\ndf &lt;- data.frame(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(df[, \"a\"]) \n# [1] \"integer\"  &lt;-- Automatically dropped to a vector!\n\n# Tibble\ntbl &lt;- tibble(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(tbl[, \"a\"]) \n# [1] \"tbl_df\" \"tbl\" \"data.frame\"  &lt;-- Remains a 1-column tibble!\n\nNo partial name matching: Base data frames try to guess column names if you make a typo or use shorthand. Tibbles require exact column matching and trigger a warning if a column doesn’t exist, preventing silent logical errors.\n\n# Base Data Frame (Silently matches \"species_name\" via \"$spec\")\ndf &lt;- data.frame(species_name = c(\"affinis\", \"impatiens\"))\ndf$spec\n# [1] \"affinis\" \"impatiens\"  &lt;-- Dangerous!\n\n# Tibble\ntbl &lt;- tibble(species_name = c(\"affinis\", \"impatiens\"))\ntbl$spec\n# NULL\n# Warning message: Unknown or uninitialised column: `spec`.\n\nBetter printing for large datasets: Printing a large data.framecan easily overwhelm your screen by dumping thousands of rows and wrapping dozens of columns. Tibbles automatically truncate output to 10 rows, fit columns to your console width, displays data types for every column, and adds colored text to help elements stand out.\n\nlibrary(tibble)\n# Creating a large-ish dataset\ndf_large  &lt;- data.frame(id = 1:100, x = runif(100), y = rnorm(100))\ntbl_large &lt;- as_tibble(df_large)\n\n# Printing base df floods the console with oodles of lines\nprint(df_large) \n\n     id          x           y\n1     1 0.76595187  0.62870996\n2     2 0.33439005  1.37453417\n3     3 0.45378521  0.38475436\n4     4 0.69831872 -0.57205769\n5     5 0.30349518  0.54508932\n6     6 0.41047436  0.56334280\n7     7 0.04557302  1.40744620\n8     8 0.03912702  0.25476785\n9     9 0.36563474  0.59730337\n10   10 0.58873494 -1.24042412\n11   11 0.12411243  0.99365541\n12   12 0.67142847  1.45253681\n13   13 0.94083490  0.33736612\n14   14 0.43929071 -0.24265333\n15   15 0.51844611 -1.58211948\n16   16 0.49081291  0.64512623\n17   17 0.22301603  0.85523121\n18   18 0.50023389  0.89506459\n19   19 0.99978083  1.30214492\n20   20 0.11744271 -0.88327558\n21   21 0.24527098  0.25796672\n22   22 0.12125733 -1.09597921\n23   23 0.74261577 -1.02058371\n24   24 0.16593038  0.81061889\n25   25 0.36442076 -1.35275343\n26   26 0.25123592  1.99442696\n27   27 0.35276786 -0.19944653\n28   28 0.80435200  0.30878720\n29   29 0.36431360  0.64206621\n30   30 0.09193372  0.68637186\n31   31 0.11690179 -1.35777623\n32   32 0.01980124 -0.04297078\n33   33 0.12837148  1.12070324\n34   34 0.33570600 -1.90061353\n35   35 0.60311321  1.64529131\n36   36 0.22224065 -0.78242083\n37   37 0.90961491 -0.66732799\n38   38 0.12295650 -2.01914858\n39   39 0.66939727  0.31179456\n40   40 0.49006835  0.13622422\n41   41 0.55747405 -1.06315244\n42   42 0.69477593  0.35028189\n43   43 0.91013538 -0.03953678\n44   44 0.23784015 -1.19813765\n45   45 0.93052754  0.47681661\n46   46 0.98327899  1.21598415\n47   47 0.78225164 -1.75043877\n48   48 0.46867693  0.04061464\n49   49 0.51441730  1.37504834\n50   50 0.07976993  0.78292439\n51   51 0.62778114 -2.18885930\n52   52 0.56762681  1.95809654\n53   53 0.89828484 -0.37019181\n54   54 0.88802346 -1.25013080\n55   55 0.61996459  0.18358349\n56   56 0.18214795  1.14539860\n57   57 0.57041401 -0.66638662\n58   58 0.45121717 -0.93224452\n59   59 0.45547115  0.65085603\n60   60 0.26060096  1.86653249\n61   61 0.70595541  0.37334699\n62   62 0.88065131  0.04208804\n63   63 0.30440815  1.91230977\n64   64 0.62561398  0.90612492\n65   65 0.34218695 -0.63804976\n66   66 0.59587649  1.28883666\n67   67 0.32978577 -0.42472199\n68   68 0.27263853  0.04662634\n69   69 0.28910390  0.77154996\n70   70 0.90941888  1.22024717\n71   71 0.10246983 -0.29560531\n72   72 0.81574625 -0.75675719\n73   73 0.20799585 -1.75567860\n74   74 0.48430454 -0.94535344\n75   75 0.12258628 -0.34361615\n76   76 0.41771808 -1.26530603\n77   77 0.08821535  0.79065119\n78   78 0.79684788  0.06075021\n79   79 0.95121999 -1.26997980\n80   80 0.79601413 -1.73047524\n81   81 0.59061942 -2.09028374\n82   82 0.66820433 -0.27308532\n83   83 0.09927125  0.88012832\n84   84 0.60118280  0.59017514\n85   85 0.33051691 -0.24862118\n86   86 0.15603162 -1.38428054\n87   87 0.58746218  0.16580535\n88   88 0.55231679  0.71630971\n89   89 0.14892158 -1.90256445\n90   90 0.85267360  0.45016346\n91   91 0.14423042 -1.04307927\n92   92 0.43044228 -2.05394363\n93   93 0.88121238  0.27633930\n94   94 0.33972109  0.01865858\n95   95 0.81500651 -0.93235077\n96   96 0.43250335  0.02615052\n97   97 0.20093436 -1.61257252\n98   98 0.37493510 -2.10934909\n99   99 0.53786241  0.77874933\n100 100 0.98392768 -0.89559646\n\n# Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)\ntbl_large\n\n# A tibble: 100 × 3\n      id      x      y\n   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n 1     1 0.766   0.629\n 2     2 0.334   1.37 \n 3     3 0.454   0.385\n 4     4 0.698  -0.572\n 5     5 0.303   0.545\n 6     6 0.410   0.563\n 7     7 0.0456  1.41 \n 8     8 0.0391  0.255\n 9     9 0.366   0.597\n10    10 0.589  -1.24 \n# ℹ 90 more rows\n\n\nBetter column construction: When creating a tibble, you can reference variables created earlier in the exact same call. Base data.frame throws an error if you attempt this.\n\n# Works in tibble\ntbl &lt;- tibble(\n  x = 1:5,\n  y = x * 2  # References 'x' immediately\n)\n\n\n\n\n\nFunctions\nFunctions are code objects that perform operations on some input (called arguments) and return some output. As we discussed last week, anything with some word followed by () is a function. R has thousands of built in functions, and packages that we install come with their own sets of functions. We can also create our own! In fact, we’ll spend a whole chunk of a class on this topic as knowing how to do this can save you a ton of time and make fewer mistakes than simply copying and pasting code over and over again.\nAs a quick example, we can create a function to calculate the rate at which we capture images of insects in a camera trap:\n\n# Defining our functions name and what it does\ncalculate_trap_rate &lt;- function(image_count, days_active) {\n  rate &lt;- image_count / days_active\n  return(rate)\n}\n\n# Using the function\ncalculate_trap_rate(image_count = 142, days_active = 7)\n\n[1] 20.28571",
     "crumbs": [
       "Content",
       "Module 1: Introduction to Data Science and R",
@@ -1033,13 +1033,6 @@
     "text": "This week: turning data into graphics\nData visualization is more than making a plot. A useful visualization should be:\n\nTruthful — represent the data accurately.\nFunctional — make the important patterns interpretable.\nBeautiful — use thoughtful design to invite attention and communicate clearly.\n\n\n\n\n\n\n\nNote\n\n\nStyle and substance: A visually appealing plot still needs analytical substance. A data-rich plot should also be something people can understand and want to look at: needs an emotional response, too!"
   },
   {
-    "objectID": "content/slides/w7-slides.html#questions-well-address",
-    "href": "content/slides/w7-slides.html#questions-well-address",
-    "title": "Week 7",
-    "section": "Questions we’ll address",
-    "text": "Questions we’ll address\n\nHow do we create data visualizations in R?\nWhat are the different geometries we can use?\nHow do scales, facets, coordinates, and themes shape a plot?"
-  },
-  {
     "objectID": "content/slides/w7-slides.html#why-ggplot2",
     "href": "content/slides/w7-slides.html#why-ggplot2",
     "title": "Week 7",
@@ -1047,11 +1040,11 @@
     "text": "Why ggplot2?\nWe’ll work primarily with ggplot2, part of the Tidyverse.\n\nFlexible tools for building a wide range of visualizations.\nDesigned to work with tidy data.\nPlots are built by adding components together.\nMany other R packages return ggplot objects that we can further modify.\n\n\n\n\n\n\n\nTip\n\n\nBase R can make useful plots, too. For this course, ggplot2 gives us a consistent and flexible framework for building and customizing graphics."
   },
   {
-    "objectID": "content/slides/w7-slides.html#a-plot-is-built-from-components",
-    "href": "content/slides/w7-slides.html#a-plot-is-built-from-components",
+    "objectID": "content/slides/w7-slides.html#a-ggplot-plot-is-built-from-components",
+    "href": "content/slides/w7-slides.html#a-ggplot-plot-is-built-from-components",
     "title": "Week 7",
-    "section": "A plot is built from components",
-    "text": "A plot is built from components\n\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nPurpose\nCommon functions\n\n\n\n\nData\nDataset being visualized\nggplot(data = ...)\n\n\nMapping\nConnect variables to visual properties\naes()\n\n\nLayers\nRepresent observations and summaries\ngeom_*()\n\n\nScales\nTranslate values into visual properties\nscale_*()\n\n\nFacets\nSplit data into panels\nfacet_wrap()\n\n\nCoordinates\nControl the coordinate system\ncoord_*()\n\n\nTheme\nStyle non-data elements\ntheme_*()"
+    "section": "A ggplot plot is built from components",
+    "text": "A ggplot plot is built from components\n\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nPurpose\nCommon functions\n\n\n\n\nData\nDataset being visualized\nggplot(data = ...)\n\n\nMapping\nConnect variables to visual properties\naes()\n\n\nLayers\nRepresent observations and summaries\ngeom_*()\n\n\nScales\nTranslate values into visual properties\nscale_*()\n\n\nFacets\nSplit data into panels\nfacet_wrap()\n\n\nCoordinates\nControl the coordinate system\ncoord_*()\n\n\nTheme\nStyle non-data elements\ntheme_*()"
   },
   {
     "objectID": "content/slides/w7-slides.html#what-does-aes-do",
@@ -1150,13 +1143,6 @@
     "title": "Week 7",
     "section": "Themes: the overall look and feel",
     "text": "Themes: the overall look and feel\nThemes control non-data elements of a plot, including:\n\nBackgrounds and gridlines\nText size, font, and color\nAxis lines, ticks, and labels\nLegend placement and appearance\nPlot margins\n\nSome built-in themes:\n\n\n\n\n\nAdditional theme collections include ggthemes and hrbrthemes.\n\n\n\n\n\n\nTip\n\n\nYou can customize an existing theme with theme() or write a theme function and reuse it across multiple plots. Consistency helps your figures feel like they belong together."
-  },
-  {
-    "objectID": "content/slides/w7-slides.html#a-useful-mental-model",
-    "href": "content/slides/w7-slides.html#a-useful-mental-model",
-    "title": "Week 7",
-    "section": "A useful mental model",
-    "text": "A useful mental model\n\nMapping (aes()) tells ggplot2 what variables to visualize.\nLayers (geom_*()) tell ggplot2 how to visualize those variables.\nScales (scale_*()) tell ggplot2 how to translate values into visual properties.\nFacets (facet_*()) split data into separate panels.\nCoordinates (coord_*()) control how positions are displayed.\nThemes (theme_*()) control the overall appearance."
   },
   {
     "objectID": "content/slides/w7-slides.html#before-you-make-your-next-plot",
@@ -1390,7 +1376,7 @@
     "crumbs": [
       "Content",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 7: Data visualization: theory and practice"
+      "Week 7: Data visualization Pt.I: ggplot basics"
     ]
   },
   {
@@ -1402,7 +1388,7 @@
     "crumbs": [
       "Content",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 7: Data visualization: theory and practice"
+      "Week 7: Data visualization Pt.I: ggplot basics"
     ]
   },
   {
@@ -1414,7 +1400,7 @@
     "crumbs": [
       "Content",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 7: Data visualization: theory and practice"
+      "Week 7: Data visualization Pt.I: ggplot basics"
     ]
   },
   {
@@ -1426,7 +1412,7 @@
     "crumbs": [
       "Content",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 7: Data visualization: theory and practice"
+      "Week 7: Data visualization Pt.I: ggplot basics"
     ]
   },
   {
@@ -1438,7 +1424,7 @@
     "crumbs": [
       "Content",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 7: Data visualization: theory and practice"
+      "Week 7: Data visualization Pt.I: ggplot basics"
     ]
   },
   {
@@ -1450,7 +1436,7 @@
     "crumbs": [
       "Content",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 7: Data visualization: theory and practice"
+      "Week 7: Data visualization Pt.I: ggplot basics"
     ]
   },
   {
@@ -1655,7 +1641,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 5: Data wrangling 1"
+      "Week 5: Data wrangling Pt.I"
     ]
   },
   {
@@ -1667,7 +1653,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 5: Data wrangling 1"
+      "Week 5: Data wrangling Pt.I"
     ]
   },
   {
@@ -1679,7 +1665,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 5: Data wrangling 1"
+      "Week 5: Data wrangling Pt.I"
     ]
   },
   {
@@ -1691,7 +1677,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 5: Data wrangling 1"
+      "Week 5: Data wrangling Pt.I"
     ]
   },
   {
@@ -1703,7 +1689,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 5: Data wrangling 1"
+      "Week 5: Data wrangling Pt.I"
     ]
   },
   {
@@ -1715,7 +1701,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 5: Data wrangling 1"
+      "Week 5: Data wrangling Pt.I"
     ]
   },
   {
@@ -1789,19 +1775,5 @@
       "Module 3: Basic data wrangling and visualization in R",
       "Week 7: Data visualization Pt.I: ggplot basics"
     ]
-  },
-  {
-    "objectID": "content/slides/w7-slides.html",
-    "href": "content/slides/w7-slides.html",
-    "title": "Week 7",
-    "section": "",
-    "text": "Data visualization is more than making a plot. A useful visualization should be:\n\nTruthful — represent the data accurately.\nFunctional — make the important patterns interpretable.\nBeautiful — use thoughtful design to invite attention and communicate clearly.\n\n\n\n\n\n\n\nNote\n\n\n\nStyle and substance: A visually appealing plot still needs analytical substance. A data-rich plot should also be something people can understand and want to look at.\n\n\n\n\n\n\nHow do we create data visualizations in R?\nWhat are the different geometries we can use?\nHow do scales, facets, coordinates, and themes shape a plot?"
-  },
-  {
-    "objectID": "content/slides/w7-slides.html#a-ggplot-plot-is-built-from-components",
-    "href": "content/slides/w7-slides.html#a-ggplot-plot-is-built-from-components",
-    "title": "Week 7",
-    "section": "A ggplot plot is built from components",
-    "text": "A ggplot plot is built from components\n\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nPurpose\nCommon functions\n\n\n\n\nData\nDataset being visualized\nggplot(data = ...)\n\n\nMapping\nConnect variables to visual properties\naes()\n\n\nLayers\nRepresent observations and summaries\ngeom_*()\n\n\nScales\nTranslate values into visual properties\nscale_*()\n\n\nFacets\nSplit data into panels\nfacet_wrap()\n\n\nCoordinates\nControl the coordinate system\ncoord_*()\n\n\nTheme\nStyle non-data elements\ntheme_*()"
   }
 ]
