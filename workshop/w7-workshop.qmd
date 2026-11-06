@@ -1,0 +1,67 @@
+---
+title: "Workshop 7: Data Visualization Pt. I"
+subtitle: "Entomology 3927 - Fall 2026"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+engine: knitr
+toc: true
+format:
+  live-html:
+    theme: 
+    - ../styles.scss
+    highlight-style: ayu
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+::: content-callout1
+## Frontmatter
+
+**Due date for workshop materials**
+
+You will need to commit and push your workshop files and create your peer review issue and tag your reviewer by **23:59 next Tuesday, November 10th** so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by **Friday, November 13th at 12:00**.
+:::
+
+</br>
+
+## 📦 Packages we'll need for today
+
+Be sure to install these packages (`install.packages()`) if you don't already have them.
+
+```{r eval=FALSE, message=FALSE}
+library(tidyverse)
+library(janitor)
+```
+
+## 💾 Load our data
+
+You can either download the requisite `.csv` files below, or import them directly from Google Sheets (`w6-workshop-data`). Be sure you are using the correct files/sheet tabs for each section below. I've tried to make it explicit. 
+
+[{{< fa file-csv >}} `.csv` dataset](workshop_data/w6.zip){.btn .btn-primary download="w6-workshop-data.zip"} [{{< fa table >}} Google Sheet dataset](https://docs.google.com/spreadsheets/d/1rVLGxRAIfH84O5ANTlUcVBaw-o8u1JsefcViett2AyI/edit?usp=sharing){.btn .btn-primary}
+
+::: callout-tip
+Be sure you save the `.csv` in the correct place so that you can access it in your R Studio project!
+:::
+
+</br>
+
+## Exercise 1: Practicing ggplot
+1. Create a scatterplot showing insect abundance over time.
+    - Map date to x and abundance to y.
+    - Add points and a smoothed trendline.
+    - Experiment with point color, size, and transparency.
+2. Compare abundance across habitat types.
+    - Create a boxplot or violin plot.
+    - Map habitat to the x-axis and abundance to the y-axis.
+    - Use fill to distinguish habitat types.
+    - Try at least two different discrete color scales.
+3. Explore the relationship between temperature and insect abundance.
+    - Create a scatterplot.
+    - Map temperature to x and abundance to y.
+    - Map habitat to color or shape.
+    - Add a smooth trendline.
+4. Customize one of your plots.
+    - Add a title, subtitle, axis labels, and caption.
+    - Adjust axis breaks and labels.
+    - Apply a built-in theme or create a custom theme.

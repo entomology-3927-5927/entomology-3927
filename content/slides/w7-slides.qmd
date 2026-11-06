@@ -1,0 +1,504 @@
+---
+title: "Week 7"
+subtitle: "Data Visualization Pt. I"
+# author: "Jeremy Hemberger"
+# date: last-modified
+date-format: long
+format:
+  revealjs: 
+    # center-title-slide: false
+    output-file: w7-slides.html
+    theme: ["simple", "slide_styles/slide-styles.scss"]
+    # navigation-mode: vertical
+    smaller: true
+    slide-number: c/t
+    chalkboard: 
+      buttons: true
+    preview-links: auto
+    auto-stretch: false
+    transition: fade
+    transition-speed: slow
+    scrollable: true
+    logo: /media/ent-3927-header.png
+    css: ["default", "slide_styles/slide-styles.scss"]
+    # footer: '[https://jhemberger.github.io/entomology-5126/](https://jhemberger.github.io/entomology-5126/)'
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(lubridate)
+
+set.seed(5126)
+
+# Synthetic insect abundance data
+insect_data <- expand_grid(
+  date = seq.Date(as.Date("2024-05-01"), as.Date("2024-10-31"), by = "2 weeks"),
+  trap = 1:4
+) |>
+  mutate(
+    day_of_year = yday(date),
+    seasonal_mean = 5 + 45 * exp(-((day_of_year - 200) / 65)^2),
+    abundance = rnbinom(
+      n(),
+      mu = seasonal_mean,
+      size = 8
+    )
+  )
+
+# A reusable plot theme
+theme_insect <- function() {
+  theme_minimal(base_size = 13) +
+    theme(
+      plot.background = element_rect(fill = "#fefdfb", color = NA),
+      panel.background = element_rect(fill = "#fefdfb", color = NA),
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_line(color = "#E5E1D7", linewidth = 0.4),
+      plot.title = element_text(face = "bold", size = 18, color = "#254D3C"),
+      plot.subtitle = element_text(color = "#6B7168", size = 11),
+      axis.title = element_text(color = "#354A3F", face = "bold"),
+      axis.text = element_text(color = "#626B62"),
+      plot.caption = element_text(color = "#85877F", size = 9, hjust = 1),
+      plot.margin = margin(15, 20, 15, 15)
+    )
+}
+
+# Synthetic daily temperature data across habitat types
+habitats <- tibble(
+  habitat_type = c("Forest", "Grassland", "Wetland", "Agriculture", "Urban"),
+  mean_temp = c(17, 20, 18, 19, 22),
+  temp_amplitude = c(3, 8, 4, 7, 6)
+)
+
+temperature_data <- expand_grid(
+  hour = 0:23,
+  habitat_type = habitats$habitat_type,
+  sensor = 1:3
+) |>
+  left_join(habitats, by = "habitat_type") |>
+  mutate(
+    temperature = mean_temp +
+      temp_amplitude * cos((hour - 15) * 2 * pi / 24) +
+      rnorm(n(), mean = 0, sd = 1.2)
+  )
+
+temperature_summary <- temperature_data |>
+  group_by(hour, habitat_type) |>
+  summarize(mean_temperature = mean(temperature), .groups = "drop")
+```
+
+# 📊 Data visualization in R
+
+## This week: turning data into graphics
+
+Data visualization is more than making a plot. A useful visualization should be:
+
+-   **Truthful** — represent the data accurately.
+-   **Functional** — make the important patterns interpretable.
+-   **Beautiful** — use thoughtful design to invite attention and communicate clearly.
+
+::: callout-note
+**Style and substance:** A visually appealing plot still needs analytical substance. A data-rich plot should also be something people can understand and want to look at.
+:::
+
+## Questions we'll address
+
+1.  How do we create data visualizations in R?
+2.  What are the different geometries we can use?
+3.  How do scales, facets, coordinates, and themes shape a plot?
+
+# 🧰 The ggplot2 toolkit
+
+## Why ggplot2?
+
+We'll work primarily with **`ggplot2`**, part of the Tidyverse.
+
+-   Flexible tools for building a wide range of visualizations.
+-   Designed to work with tidy data.
+-   Plots are built by adding components together.
+-   Many other R packages return ggplot objects that we can further modify.
+
+::: callout-tip
+Base R can make useful plots, too. For this course, `ggplot2` gives us a consistent and flexible framework for building and customizing graphics.
+:::
+
+## A plot is built from components
+
+![](https://ggplot2.tidyverse.org/articles/ggplot2_files/figure-html/overview_graphic-1.png){fig-align="center" width="78%"}
+
+| Component   | Purpose                                 | Common functions     |
+|-------------|-----------------------------------------|----------------------|
+| Data        | Dataset being visualized                | `ggplot(data = ...)` |
+| Mapping     | Connect variables to visual properties  | `aes()`              |
+| Layers      | Represent observations and summaries    | `geom_*()`           |
+| Scales      | Translate values into visual properties | `scale_*()`          |
+| Facets      | Split data into panels                  | `facet_wrap()`       |
+| Coordinates | Control the coordinate system           | `coord_*()`          |
+| Theme       | Style non-data elements                 | `theme_*()`          |
+
+# 🎯 Mapping: connecting data to aesthetics
+
+## What does `aes()` do?
+
+Aesthetic mappings connect variables in our dataset to visual properties of the plot.
+
+| Aesthetic | What it controls | Example |
+|------------------------|------------------------|------------------------|
+| `x`, `y` | Horizontal and vertical position | `aes(x = temperature)` |
+| `color` | Color of points, lines, and outlines | `aes(color = species)` |
+| `fill` | Interior color of shapes and polygons | `aes(fill = habitat)` |
+| `size` | Size of points and text | `aes(size = abundance)` |
+| `shape` | Point shape | `aes(shape = species)` |
+| `alpha` | Transparency | `aes(alpha = abundance)` |
+| `linetype` | Line style | `aes(linetype = treatment)` |
+| `linewidth` | Line width | `aes(linewidth = abundance)` |
+| `group` | Grouping for statistical/geometric operations | `aes(group = site)` |
+| `label` | Text displayed in labels | `aes(label = species)` |
+
+## Global vs. layer-specific mappings
+
+**Global aesthetics** are defined in `ggplot()` and inherited by layers.
+
+**Layer-specific aesthetics** are defined inside an individual geom and apply only to that layer.
+
+```{r}
+#| eval: false
+# Global mapping: inherited by layers
+ggplot(
+  data = insect_data,
+  mapping = aes(x = date, y = abundance)
+) +
+  geom_point()
+
+# Layer-specific mapping: applies to this geom only
+ggplot(data = insect_data) +
+  geom_point(
+    aes(x = date, y = abundance, color = factor(trap))
+  )
+```
+
+::: callout-important
+**Mapping vs. setting:** Put a variable inside `aes()` to map it to a visual property. Put a fixed value outside `aes()` to set that property for every observation.
+
+```{r}
+#| eval: false
+geom_point(aes(color = habitat))  # Map a variable
+geom_point(color = "black")       # Set a fixed color
+```
+:::
+
+# 🧱 Layers: how data are drawn
+
+## Geometries are the visible building blocks
+
+Layers determine how data are represented. We most often specify the geometry with a `geom_*()` function.
+
+| Geom | What it displays | Typical use |
+|------------------------|------------------------|------------------------|
+| `geom_point()` | Individual points | Scatterplots |
+| `geom_line()` | Lines connecting observations | Time series, trends |
+| `geom_path()` | Lines in data order | Movement paths |
+| `geom_smooth()` | Fitted trend and interval | Relationships |
+| `geom_bar()` | Counts in categories | Frequencies |
+| `geom_col()` | Supplied values as bar heights | Summaries |
+| `geom_histogram()` | Binned frequencies | Distributions |
+| `geom_density()` | Smoothed distribution | Distributions |
+| `geom_boxplot()` | Median, quartiles, outliers | Comparing distributions |
+| `geom_violin()` | Distribution density by group | Comparing distributions |
+| `geom_jitter()` | Points with positional variation | Reducing overlap |
+| `geom_errorbar()` / `geom_ribbon()` | Uncertainty intervals/bands | Estimates and uncertainty |
+| `geom_text()` / `geom_label()` | Text annotations | Labels |
+| `geom_tile()` | Rectangular tiles | Heatmaps |
+
+## A layer can be more than a geom
+
+A typical layer can include:
+
+```{text}
+geom_function(
+  mapping = aes(...),  # Which variables map to aesthetics?
+  stat = ...,          # What statistical transformation?
+  position = ...       # How are overlapping elements positioned?
+)
+```
+
+We can combine multiple layers to show different aspects of the same data.
+
+## Building a plot one layer at a time
+
+Start with individual observations of insect abundance through the season.
+
+```{r}
+ggplot(insect_data, aes(x = date, y = abundance)) +
+  geom_point(
+    color = "#356859",
+    alpha = 0.65,
+    size = 2.5
+  ) +
+  labs(
+    title = "Seasonal patterns in insect abundance",
+    x = "Sampling date",
+    y = "Insect abundance"
+  ) +
+  theme_insect()
+```
+
+Now add a smoothed seasonal trend:
+
+```{r}
+ggplot(insect_data, aes(x = date, y = abundance)) +
+  geom_point(color = "#356859", alpha = 0.65, size = 2.5) +
+  geom_smooth(
+    method = "gam",
+    color = "#D49A45",
+    fill = "#E8CFA5",
+    linewidth = 1.3,
+    alpha = 0.35
+  ) +
+  labs(
+    title = "Seasonal patterns in insect abundance",
+    subtitle = "Individual trap observations and a smoothed trend",
+    x = "Sampling date",
+    y = "Insect abundance"
+  ) +
+  theme_insect()
+```
+
+::: callout-important
+**Layer order matters!** Geoms are drawn in the order they are added. Later layers appear on top of earlier layers.
+:::
+
+# 🎨 Scales: translating values into visual properties
+
+## Position scales and axes
+
+Scales control how data values are translated into positions, colors, and other visible properties.
+
+For numeric axes, common options include:
+
+-   `scale_x_continuous()` and `scale_y_continuous()` — standard numeric scales.
+-   `scale_x_reverse()` — reverse an axis.
+-   `scale_x_log10()` — transform an axis to a log scale.
+
+Useful scale arguments:
+
+| Argument       | Purpose                               |
+|----------------|---------------------------------------|
+| `limits`       | Set the range of values shown         |
+| `transform`    | Transform the scale (e.g., log, sqrt) |
+| `breaks`       | Set major tick positions              |
+| `minor_breaks` | Set minor tick positions              |
+| `n.breaks`     | Suggest the number of breaks          |
+| `labels`       | Customize tick labels                 |
+
+::: callout-tip
+Use `?scale_y_continuous()` (or the corresponding scale function) to see the full set of arguments and examples.
+:::
+
+## Color scales: discrete, continuous, and binned
+
+Choose a scale based on the type of variable being mapped.
+
+-   **Discrete:** categorical variables such as habitat, species, or treatment.
+-   **Continuous:** numeric variables such as temperature, elevation, or abundance.
+-   **Binned:** continuous values grouped into discrete intervals.
+
+| Data / objective | Example scale functions |
+|----|----|
+| Categorical groups | `scale_color_manual()`, `scale_fill_brewer()` |
+| Categorical, colorblind-friendly | `scale_color_viridis_d()` |
+| Continuous numeric variable | `scale_color_viridis_c()` |
+| Two-color gradient | `scale_fill_gradient()` |
+| Gradient with midpoint | `scale_fill_gradient2()` |
+| Multiple custom colors | `scale_fill_gradientn()` |
+| Numeric values shown in intervals | `scale_fill_steps()` |
+
+`scale_fill_*()` changes the interior fill of geoms; `scale_color_*()` changes point, line, text, and outline color.
+
+## Customize a color scale
+
+```{r}
+#| eval: false
+scale_fill_viridis_c(
+  name = "Insect abundance",
+  option = "magma",
+  direction = -1,
+  limits = c(0, 100),
+  breaks = c(0, 25, 50, 75, 100),
+  na.value = "grey90"
+)
+```
+
+Other useful arguments include `palette`, `labels`, `limits`, `breaks`, `na.value`, `direction`, and `guide`.
+
+::: callout-tip
+There are many additional palettes available in R. The `paletteer` package collects palettes from a wide range of packages: [github.com/EmilHvitfeldt/r-color-palettes](https://github.com/EmilHvitfeldt/r-color-palettes).
+:::
+
+# 🏷️ Labels: make the plot understandable
+
+## Label the data and the visual encodings
+
+Use `labs()` to add or modify plot text:
+
+```{r}
+#| eval: false
+labs(
+  title = "Engine displacement vs. highway MPG",
+  subtitle = "A short description of the data",
+  caption = "Source: ...",
+  tag = "Fig. 1",
+  x = "Engine displacement (L)",
+  y = "Highway miles per gallon",
+  color = "Vehicle category",
+  size = "Number of cylinders"
+)
+```
+
+Common labels include:
+
+-   `title`, `subtitle`, and `caption`
+-   `x` and `y` axis titles
+-   Names for mapped aesthetics such as `color`, `fill`, `shape`, and `size`
+-   `tag` for a figure label
+
+A good title and clear axis and legend labels help a reader understand the plot without needing to decode your R code.
+
+# 🪟 Facets: small multiples
+
+## When groups become hard to compare
+
+Plotting several groups together can make patterns difficult to distinguish. Here, we compare daily temperature patterns across five habitat types.
+
+```{r}
+ggplot(
+  temperature_summary,
+  aes(
+    x = hour,
+    y = mean_temperature,
+    color = habitat_type,
+    group = habitat_type
+  )
+) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2) +
+  scale_color_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(0, 24, 4)) +
+  labs(
+    title = "Daily temperature patterns across habitats",
+    x = "Hour of day",
+    y = "Mean temperature (°C)",
+    color = "Habitat type"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+```
+
+## Use `facet_wrap()` to create separate panels
+
+Faceting gives each subgroup its own panel—often making within-group patterns easier to see.
+
+```{r}
+ggplot(
+  temperature_summary,
+  aes(x = hour, y = mean_temperature, color = habitat_type)
+) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2) +
+  facet_wrap(~ habitat_type, ncol = 2) +
+  scale_color_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(0, 24, 6)) +
+  labs(
+    title = "Daily temperature patterns across habitats",
+    x = "Hour of day",
+    y = "Mean temperature (°C)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = "none",
+    panel.grid.minor = element_blank(),
+    strip.text = element_text(face = "bold")
+  )
+```
+
+## Facet scales: fixed or free?
+
+```{r}
+#| eval: false
+facet_wrap(~ habitat_type, scales = "fixed")  # Default
+facet_wrap(~ habitat_type, scales = "free_x")
+facet_wrap(~ habitat_type, scales = "free_y")
+facet_wrap(~ habitat_type, scales = "free")
+```
+
+-   `fixed`: x and y scales are the same in every panel.
+-   `free_x`: x varies; y is fixed.
+-   `free_y`: y varies; x is fixed.
+-   `free`: both x and y vary.
+
+::: callout-important
+Faceting variables must be **discrete** (categorical). To facet by a continuous variable, first create categories—for example, with `cut_interval()`, `cut_width()`, or `cut_number()`.
+:::
+
+# 📐 Coordinates & themes
+
+## Coordinate systems
+
+The default ggplot coordinate system is Cartesian. A few other coordinate functions are useful:
+
+| Function | What it does | Typical use |
+|------------------------|------------------------|------------------------|
+| `coord_flip()` | Flips x and y axes | Horizontal bars or boxplots |
+| `coord_fixed()` | Fixes the aspect ratio | Scatterplots and spatial data |
+| `coord_equal()` | Uses equal x and y scaling | Spatial/geometric comparisons |
+| `coord_polar()` | Converts Cartesian coordinates to polar | Circular plots |
+
+We'll return to coordinate systems in more detail when we work with maps.
+
+## Themes: the overall look and feel
+
+Themes control non-data elements of a plot, including:
+
+-   Backgrounds and gridlines
+-   Text size, font, and color
+-   Axis lines, ticks, and labels
+-   Legend placement and appearance
+-   Plot margins
+
+Some built-in themes:
+
+![](https://r4ds.hadley.nz/images/visualization-themes.png){fig-align="center" width="75%"}
+
+Additional theme collections include [`ggthemes`](https://jrnold.github.io/ggthemes) and [`hrbrthemes`](https://r-graph-gallery.com/package/hrbrthemes.html).
+
+::: callout-tip
+You can customize an existing theme with `theme()` or write a theme function and reuse it across multiple plots. Consistency helps your figures feel like they belong together.
+:::
+
+# ✅ Bringing it all together
+
+## A useful mental model
+
+-   **Mapping** (`aes()`) tells ggplot2 *what variables* to visualize.
+-   **Layers** (`geom_*()`) tell ggplot2 *how to visualize* those variables.
+-   **Scales** (`scale_*()`) tell ggplot2 *how to translate* values into visual properties.
+-   **Facets** (`facet_*()`) split data into separate panels.
+-   **Coordinates** (`coord_*()`) control how positions are displayed.
+-   **Themes** (`theme_*()`) control the overall appearance.
+
+## Before you make your next plot…
+
+Ask yourself:
+
+1.  What pattern or comparison am I trying to communicate?
+2.  Which variables should be mapped to position, color, shape, or size?
+3.  Which geometry best represents the data?
+4.  Would facets make group patterns easier to see?
+5.  Are the scales, labels, and theme helping—or distracting—from the message?
+
+**Next up:** putting these tools to work to make clear, effective ecological visualizations.

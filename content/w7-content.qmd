@@ -63,7 +63,7 @@ ggplot plots (or objects, as we'll be referring to them) are composed of various
 
 ::: {.column width="50%"}
 ```{r eval=FALSE}
-library(ggplot2)
+library(tidyverse)
 
 # Data + Mapping
 ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) +
@@ -353,6 +353,101 @@ Regardless of the color scale type, we use the same basic add-on functions in gg
 - **`scale_fill_*()`**: Modifies the interior fill color of 2D/area geoms (such as bars, polygons, tiles, violins, and density fills).
 - **`scale_color_*()`**: Modifies the stroke/border color or the color of points, lines, and text.
 
+There are MANY different types of color scales in ggplot and we won't go through every one. I also recommend checking out the [`paletteer` package](https://github.com/EmilHvitfeldt/r-color-palettes) which gathers basically every pre-built palette that exists on the internet. 
+
+
+I've created a non-exhaustive list below and a quick reference guide for choosing the a color scale. All of these examples use *fill* scales, but the same exact options exist for *color* scales, as well.
+
+##### Discrete scales
+Use these when `fill`/`color` is mapped to a factor or categorical variable (e.g., species, habitat type, treatment).
+
+| **Function** | **Description** |
+|---|---|
+| `scale_fill_discrete()` | Default categorical color scale |
+| `scale_fill_manual()` | Specify your own colors |
+| `scale_fill_brewer()` | Use ColorBrewer palettes |
+| `scale_fill_viridis_d()` | Use colorblind-friendly viridis palettes |
+| `scale_fill_paletteer_d()` | Use `paletteer` package palettes |
+| `scale_fill_grey()` | Use shades of gray |
+| `scale_fill_hue()` | Generate evenly spaced hues around the color wheel |
+
+</br>
+
+##### Continuous scales
+Use these when `fill`/`color` is mapped to a continuous numeric variable (e.g., temperature, abundance, precipitation).
+
+| **Function** | **Description** |
+|---|---|
+| `scale_fill_continuous()` | Default continuous color gradient |
+| `scale_fill_gradient()` | Two-color gradient |
+| `scale_fill_gradient2()` | Three-color gradient with a midpoint |
+| `scale_fill_gradientn()` | Gradient with multiple specified colors |
+| `scale_fill_viridis_c()` | Continuous viridis color scale |
+| `scale_fill_paletteer_c()` | Continuous `paletteer` color scale |
+| `scale_fill_distiller()` | Continuous ColorBrewer-derived palette |
+
+</br>
+
+##### Binned scales (continuous variable)
+Use these when you have a continuous numeric variable but want to display it in discrete color intervals (bins).
+
+| Function | Description |
+|---|---|
+| `scale_fill_binned()` | Default binned continuous scale |
+| `scale_fill_paletteer_b()` | Binned palettes from `paletteer` package |
+| `scale_fill_steps()` | Color steps using a low-to-high gradient |
+| `scale_fill_steps2()` | Three-color stepped gradient with midpoint |
+| `scale_fill_stepsn()` | Stepped gradient with multiple colors |
+| `scale_fill_fermenter()` | Binned ColorBrewer-derived palette |
+
+</br>
+
+##### A few other useful arguments
+Many of these functions share arguments that let you customize the scale.
+
+| **Argument** | **Purpose** |
+|---|---|
+| `name` | Change the legend title |
+| `option` | For some functions, this specifies the palette name |
+| `palette` | For some functions, this specifies the palette name |
+| `labels` | Change legend labels |
+| `breaks` | Specify legend breakpoints |
+| `limits` | Set the range of values mapped to colors |
+| `na.value` | Specify the color for missing values |
+| `direction` | Reverse palette direction (where supported) |
+| `guide` | Control legend appearance |
+
+For example:
+
+```{r eval=FALSE}
+scale_fill_viridis_c(
+  name = "Insect Abundance",
+  option = "magma",
+  direction = -1,
+  limits = c(0, 100),
+  breaks = c(0, 25, 50, 75, 100),
+  na.value = "grey90"
+)
+```
+
+</br>
+
+##### So what scale should I use?
+
+| **Your data / objective** | **Recommended scale function** |
+|---|---|
+| Categorical groups | `scale_fill_manual()` |
+| Categorical groups, predefined palette | `scale_fill_brewer()` |
+| Categorical groups, colorblind-friendly | `scale_fill_viridis_d()` |
+| Continuous numeric variable | `scale_fill_viridis_c()` |
+| Continuous variable, two custom colors | `scale_fill_gradient()` |
+| Continuous variable centered around zero | `scale_fill_gradient2()` |
+| Continuous variable, multiple custom colors | `scale_fill_gradientn()` |
+| Numeric variable displayed in intervals | `scale_fill_steps()` |
+| Binned, colorblind-friendly | `scale_fill_viridis_b()` |
+| Use colors already present in the data | `scale_fill_identity()` |
+
+</br>
 
 #### Labeling scales
 We can use the `labs()` function to add labels to our various plot elements including the title, subtitle, caption, plot tag, x and y axes, and the names of any legend elements that are derived from aesthetics such as `fill`, `color`, `alpha`, `size`, `shape`, or `linetype`. 
@@ -378,8 +473,168 @@ ggplot(mpg, aes(x = displ, y = hwy, color = class, size = cyl)) +
   )
 ```
 
+</br>
+
 ### Facets
+Often, we are plotting multiple groups of data (e.g., categorical variables) that overlap one-another, and this may make it hard to decipher patterns or other characteristics about our data. For example, imagine we are plotting the daily temperature pattern across several different habitat types:
+
+```{r echo=FALSE}
+set.seed(42)
+
+# Define habitat characteristics
+habitats <- tibble(
+  habitat_type = c(
+    "Forest",
+    "Grassland",
+    "Wetland",
+    "Agriculture",
+    "Urban"
+  ),
+  mean_temp = c(17, 20, 18, 19, 22),
+  temp_amplitude = c(3, 8, 4, 7, 6)
+)
+
+# Generate hourly temperature observations
+temperature_data <- expand_grid(
+  hour = 0:23,
+  habitat_type = habitats$habitat_type,
+  sensor = 1:3
+) %>%
+  left_join(habitats, by = "habitat_type") %>%
+  mutate(
+    temperature = mean_temp +
+      temp_amplitude * cos((hour - 15) * 2 * pi / 24) +
+      rnorm(n(), mean = 0, sd = 1.2)
+  )
+
+# Calculate mean temperature across sensors
+temperature_summary <- temperature_data %>%
+  group_by(hour, habitat_type) %>%
+  summarize(
+    mean_temperature = mean(temperature),
+    .groups = "drop"
+  )
+```
+
+```{r}
+ggplot(
+  data = temperature_summary,
+  aes(
+    x = hour,
+    y = mean_temperature,
+    color = habitat_type,
+    group = habitat_type
+  )
+) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2) +
+  scale_color_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(0, 24, 4)) +
+  labs(
+    title = "Daily Temperature Patterns Across Habitats",
+    x = "Hour of Day",
+    y = "Mean Temperature (°C)",
+    color = "Habitat Type"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+```
+
+This plot probably works, and allows us to easily compare the differences in temperature across our different habitat types. But, it may be easier to see the patterns of individual sites, or even to compare them sometimes, by giving each habitat it's own plot. Now, we could filter our data by habitat and create 5 different plots, but this is easily accomplished by *faceting* our plot:
+
+```{r}
+ggplot(
+  data = temperature_summary,
+  aes(
+    x = hour,
+    y = mean_temperature,
+    color = habitat_type
+  )
+) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2) +
+  facet_wrap(~ habitat_type, ncol = 2) +
+  scale_color_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(0, 24, 6)) +
+  labs(
+    title = "Daily Temperature Patterns Across Habitats",
+    x = "Hour of Day",
+    y = "Mean Temperature (°C)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = "none",
+    panel.grid.minor = element_blank(),
+    strip.text = element_text(face = "bold")
+  )
+```
+
+Facets give each sub-group (in our case, habitat type) its own sub-plot. This can be helpful if we have too many groups to visualize in one plot, or if our groups have very different y- or x-axis scales, in which case we can change facet to allow the x/y scales to vary across each sub-plot:
+
+```{r}
+ggplot(
+  data = temperature_summary,
+  aes(
+    x = hour,
+    y = mean_temperature,
+    color = habitat_type
+  )
+) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2) +
+  facet_wrap(~ habitat_type, ncol = 2, scales = "free") +
+  scale_color_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(0, 24, 6)) +
+  labs(
+    title = "Daily Temperature Patterns Across Habitats",
+    x = "Hour of Day",
+    y = "Mean Temperature (°C)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = "none",
+    panel.grid.minor = element_blank(),
+    strip.text = element_text(face = "bold")
+  )
+```
+
+:::{.callout-tip}
+We can adjust the scaling of our facet axes in 4 different ways: 
+
+- `scales = "fixed"`: x and y scales are fixed across all panels (default).
+- `scales = "free_x"`: the x scale is free, and the y scale is fixed.
+- `scales = "free_y`": the y scale is free, and the x scale is fixed.
+- `scales = "free`": x and y scales vary across panels.
+:::
+
+:::{.callout-note}
+Our faceting variables must be *discrete*, that is categorical. If we want to facet over a continuous variable, we must first discretize it (i.e., bin the variable). For this, we can use `mutate()` along with `cut_interval()`, `cut_width()`, or `cut_number()` to create categories.
+:::
+
+How exactly we specify our faceting options depends on the objective of our plot and the nature of the underlying data. Sometimes it is indeed best to keep everything plotted on the same panel to ease comparisons.
 
 ### Coordinates
+When we're plotting standard cartesian data (that is, X-Y data), ggplot's default coordinate system takes care of us. There are many other coordinate systems in ggplot, and this is probably the most complicated part of plotting data. We'll discuss a few other coordinate systems next week when we talk through making maps in ggplot. For now, there are a couple other `coord*()` functions that may be helpful"
+
+- `coord_flip()`:	Flips the x- and y-axes. Useful for horizontal bar charts and boxplots
+- `coord_fixed()`:	Fixes the aspect ratio between x and y units. Useful for scatterplots and spatial data
+- `coord_equal()`:	Sets equal scaling for x and y axes (equivalent to coord_fixed(ratio = 1). Useful for spatial plots and geometric comparisons
+- `coord_polar()`:	Converts Cartesian coordinates into polar coordinates. Useful for pie charts and circular visualizations
 
 ### Themes
+Themes adjust non-data elements of your plot, things like panel background colors, panel stroke colors, font families and size, etc. There's A LOT of customizaton that can happen here (see [https://ggplot2-book.org/themes.html](https://ggplot2-book.org/themes.html)), so we're only going to hit the basics for now. ggplot has several built-in themes that you can specify: 
+
+![](https://r4ds.hadley.nz/images/visualization-themes.png){width="75%" fig-align="center"}
+
+And there are oodles of custom themes that exist in packages that you can install and use. Check out the following for easy theme-ing of your plots:
+
+1. `ggthemes` [https://jrnold.github.io/ggthemes](https://jrnold.github.io/ggthemes)
+2. `hrbrthemes` [https://r-graph-gallery.com/package/hrbrthemes.html](https://r-graph-gallery.com/package/hrbrthemes.html)
+
+Of course, you can also customize and build your own themes. This is a bit beyond the scope of this section, but we will dicsuss a bit more about this next week.
