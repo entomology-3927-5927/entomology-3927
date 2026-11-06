@@ -64,34 +64,26 @@ website:
               file: workshop/w4-workshop.qmd
         - section: "Module 3: Basic data wrangling and visualization in R"
           contents:
-            - text: "Week 5: Data wrangling 1"
+            - text: "Week 5: Data wrangling Pt.I"
               file: workshop/w5-workshop.qmd
-            - text: "Week 6: Data wrangling 2"
+            - text: "Week 6: Data wrangling Pt.II"
               file: workshop/w6-workshop.qmd
-            - text: "Week 7: Data visualization: theory and practice"
+            - text: "Week 7: Data visualization Pt.I: ggplot basics"
+              file: workshop/w7-workshop.qmd
+            - text: "Week 8: Data visualization Pt.II: theory, EDA practice"
               file: workshop/w7-workshop.qmd
         - section: "Module 4: Automation, functions, and scaling"
           contents:
-            - text: "Week 8: Functions and automation"
+            - text: "Week 9: Functions and automation"
               file: workshop/w8-workshop.qmd
-            - text: "Week 9: Batching, scaling work/pipelines"
+            - text: "Week 10: Batching, scaling work/pipelines"
               file: workshop/w9-workshop.qmd
         - section: "Module 5: Getting data from databases and data management"
           contents:
-            - text: "Week 10: Databases, web APIs, web-scraping"
+            - text: "Week 11: Databases, web APIs, web-scraping"
               file: workshop/w10-workshop.qmd
-            - text: "Week 11: Data mangagement, metadata, documentation"
+            - text: "Week 12: Data mangagement, metadata, documentation"
               file: workshop/w11-workshop.qmd
-        - section: "Module 6: Open Science Framework and transparent science"
-          content:
-            - text: "Week 12: Open Science Framework"
-              file: workshop/w12-workshop.qmd
-        - section: "Module 7: Integration and application"
-          content:
-            - text: "Week 13: In-class work day/overflow"
-              file: workshop/w13-workshop.qmd
-            - text: "Week 14: Final Presentations"
-              file: workshop/w14-workshop.qmd
     - title: "Content"
       style: "docked"
       search: false
@@ -118,30 +110,22 @@ website:
               file: content/w5-content.qmd
             - text: "Week 6: Data wrangling 2"
               file: content/w6-content.qmd
-            - text: "Week 7: Data visualization: theory and practice"
+            - text: "Week 7: Data visualization Pt.I: ggplot basics"
               file: content/w7-content.qmd
+            - text: "Week 8: Data visualization Pt.II: theory, EDA practice"
+              file: content/w8-content.qmd
         - section: "Module 4: Automation, functions, and scaling"
           contents:
-            - text: "Week 8: Functions and automation"
-              file: content/w8-content.qmd
-            - text: "Week 9: Batching, scaling work/pipelines"
+            - text: "Week 9: Functions and automation"
               file: content/w9-content.qmd
+            - text: "Week 10: Batching, scaling work/pipelines"
+              file: content/w10-content.qmd
         - section: "Module 5: Getting data from databases and data management"
           contents:
-            - text: "Week 10: Databases, web APIs, web-scraping"
-              file: content/w10-content.qmd
-            - text: "Week 11: Data mangagement, metadata, documentation"
+            - text: "Week 11: Databases, web APIs, web-scraping"
               file: content/w11-content.qmd
-        - section: "Module 6: Open Science Framework and transparent science"
-          content:
-            - text: "Week 12: Open Science Framework"
+            - text: "Week 12: Data mangagement, metadata, documentation"
               file: content/w12-content.qmd
-        - section: "Module 7: Integration and application"
-          content:
-            - text: "Week 13: In-class work day/overflow"
-              file: content/w13-content.qmd
-            - text: "Week 14: Final Presentations"
-              file: content/w14-content.qmd
 format:
   html:
     theme: 

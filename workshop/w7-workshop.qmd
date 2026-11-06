@@ -49,7 +49,7 @@ Be sure you save the `.csv` in the correct place so that you can access it in yo
 ## Exercise 1: Practicing ggplot basics
 **Data scenario:** You are an ecologist studying how insect abundance and diversity vary across habitat types and through the growing season.
 
-**Data to use:** Use the `w7-excercise1.csv` file or the `exercise-1` tab in Google Sheets.
+**Data to use:** Use the `w7-exercise1.csv` file or the `exercise-1` tab in Google Sheets.
 
 1.  **Create a scatterplot showing insect abundance over time.**</br>
     **1.1** Map date to x and abundance to y.</br>
@@ -77,7 +77,7 @@ Be sure you save the `.csv` in the correct place so that you can access it in yo
 ## Exercise 2: Adding complexity -- facets, themes, and customization
 **Data scenario:** You are investigating how microclimates differ across five habitat types throughout the day. You have temperature measurements from multiple sensors in each habitat.
 
-**Data to use:** Use the `w7-excercise2.csv` file or the `exercise-2` tab in Google Sheets.
+**Data to use:** Use the `w7-exercise2.csv` file or the `exercise-2` tab in Google Sheets.
 
 ### Tasks
 1. **Visualize daily temperature patterns.** </br>

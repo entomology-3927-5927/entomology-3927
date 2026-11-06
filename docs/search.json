@@ -1030,7 +1030,7 @@
     "href": "content/slides/w7-slides.html#this-week-turning-data-into-graphics",
     "title": "Week 7",
     "section": "This week: turning data into graphics",
-    "text": "This week: turning data into graphics\nData visualization is more than making a plot. A useful visualization should be:\n\nTruthful — represent the data accurately.\nFunctional — make the important patterns interpretable.\nBeautiful — use thoughtful design to invite attention and communicate clearly.\n\n\n\n\n\n\n\nNote\n\n\nStyle and substance: A visually appealing plot still needs analytical substance. A data-rich plot should also be something people can understand and want to look at."
+    "text": "This week: turning data into graphics\nData visualization is more than making a plot. A useful visualization should be:\n\nTruthful — represent the data accurately.\nFunctional — make the important patterns interpretable.\nBeautiful — use thoughtful design to invite attention and communicate clearly.\n\n\n\n\n\n\n\nNote\n\n\nStyle and substance: A visually appealing plot still needs analytical substance. A data-rich plot should also be something people can understand and want to look at: needs an emotional response, too!"
   },
   {
     "objectID": "content/slides/w7-slides.html#questions-well-address",
@@ -1065,7 +1065,7 @@
     "href": "content/slides/w7-slides.html#global-vs.-layer-specific-mappings",
     "title": "Week 7",
     "section": "Global vs. layer-specific mappings",
-    "text": "Global vs. layer-specific mappings\nGlobal aesthetics are defined in ggplot() and inherited by layers.\nLayer-specific aesthetics are defined inside an individual geom and apply only to that layer.\n\n\n\n\n\n\nImportant\n\n\nMapping vs. setting: Put a variable inside aes() to map it to a visual property. Put a fixed value outside aes() to set that property for every observation."
+    "text": "Global vs. layer-specific mappings\nGlobal aesthetics are defined in ggplot() and inherited by layers.\nLayer-specific aesthetics are defined inside an individual geom and apply only to that layer.\n\n# Global mapping: inherited by layers\nggplot(\n  data = insect_data,\n  mapping = aes(x = date, y = abundance)\n) +\n  geom_point()\n\n# Layer-specific mapping: applies to this geom only\nggplot(data = insect_data) +\n  geom_point(\n    aes(x = date, y = abundance, color = factor(trap))\n  )\n\n\n\n\n\n\n\nImportant\n\n\nMapping vs. setting: Put a variable inside aes() to map it to a visual property. Put a fixed value outside aes() to set that property for every observation.\n\ngeom_point(aes(color = habitat)) # Map a variable\ngeom_point(color = \"black\") # Set a fixed color"
   },
   {
     "objectID": "content/slides/w7-slides.html#geometries-are-the-visible-building-blocks",
@@ -1079,7 +1079,7 @@
     "href": "content/slides/w7-slides.html#a-layer-can-be-more-than-a-geom",
     "title": "Week 7",
     "section": "A layer can be more than a geom",
-    "text": "A layer can be more than a geom\nA typical layer can include:\nWe can combine multiple layers to show different aspects of the same data."
+    "text": "A layer can be more than a geom\nA typical layer can include:\n\nggplot(data = &lt;DATA&gt;) + \n  &lt;GEOM_FUNCTION&gt;(\n     mapping = aes(&lt;MAPPINGS&gt;),\n     stat = &lt;STAT&gt;, \n     position = &lt;POSITION&gt;\n  ) +\n  &lt;COORDINATE_FUNCTION&gt; +\n  &lt;FACET_FUNCTION&gt;\n\nWe can combine multiple layers to show different aspects of the same data."
   },
   {
     "objectID": "content/slides/w7-slides.html#building-a-plot-one-layer-at-a-time",
@@ -1100,21 +1100,21 @@
     "href": "content/slides/w7-slides.html#color-scales-discrete-continuous-and-binned",
     "title": "Week 7",
     "section": "Color scales: discrete, continuous, and binned",
-    "text": "Color scales: discrete, continuous, and binned\nChoose a scale based on the type of variable being mapped.\n\nDiscrete: categorical variables such as habitat, species, or treatment.\nContinuous: numeric variables such as temperature, elevation, or abundance.\nBinned: continuous values grouped into discrete intervals.\n\n\n\n\nData / objective\nExample scale functions\n\n\n\n\nCategorical groups\nscale_color_manual(), scale_fill_brewer()\n\n\nCategorical, colorblind-friendly\nscale_color_viridis_d()\n\n\nContinuous numeric variable\nscale_color_viridis_c()\n\n\nTwo-color gradient\nscale_fill_gradient()\n\n\nGradient with midpoint\nscale_fill_gradient2()\n\n\nMultiple custom colors\nscale_fill_gradientn()\n\n\nNumeric values shown in intervals\nscale_fill_steps()\n\n\n\nscale_fill_*() changes the interior fill of geoms; scale_color_*() changes point, line, text, and outline color."
+    "text": "Color scales: discrete, continuous, and binned\nChoose a scale based on the type of variable being mapped.\n\nDiscrete: categorical variables such as habitat, species, or treatment.\nContinuous: numeric variables such as temperature, elevation, or abundance.\nBinned: continuous values grouped into discrete intervals.\n\n\n\n\nData / objective\nExample scale functions\n\n\n\n\nCategorical groups\nscale_color_manual(), scale_fill_brewer()\n\n\nCategorical, colorblind-friendly\nscale_color_viridis_d()\n\n\nContinuous numeric variable\nscale_color_viridis_c()\n\n\nTwo-color gradient\nscale_fill_gradient()\n\n\nGradient with midpoint\nscale_fill_gradient2()\n\n\nMultiple custom colors\nscale_fill_gradientn()\n\n\nNumeric values shown in intervals\nscale_fill_steps()\n\n\n\n\n\n\n\n\n\nTip\n\n\nscale_fill_*() changes the interior fill of geoms; scale_color_*() changes point, line, text, and outline color."
   },
   {
     "objectID": "content/slides/w7-slides.html#customize-a-color-scale",
     "href": "content/slides/w7-slides.html#customize-a-color-scale",
     "title": "Week 7",
     "section": "Customize a color scale",
-    "text": "Customize a color scale\nOther useful arguments include palette, labels, limits, breaks, na.value, direction, and guide.\n\n\n\n\n\n\nTip\n\n\nThere are many additional palettes available in R. The paletteer package collects palettes from a wide range of packages: github.com/EmilHvitfeldt/r-color-palettes."
+    "text": "Customize a color scale\n\nscale_fill_viridis_c(\n  name = \"Insect abundance\",\n  option = \"magma\",\n  direction = -1,\n  limits = c(0, 100),\n  breaks = c(0, 25, 50, 75, 100),\n  na.value = \"grey90\"\n)\n\nOther useful arguments include palette, labels, limits, breaks, na.value, direction, and guide.\n\n\n\n\n\n\nTip\n\n\nThere are many additional palettes available in R. The paletteer package collects palettes from a wide range of packages: github.com/EmilHvitfeldt/r-color-palettes."
   },
   {
     "objectID": "content/slides/w7-slides.html#label-the-data-and-the-visual-encodings",
     "href": "content/slides/w7-slides.html#label-the-data-and-the-visual-encodings",
     "title": "Week 7",
     "section": "Label the data and the visual encodings",
-    "text": "Label the data and the visual encodings\nUse labs() to add or modify plot text:\nCommon labels include:\n\ntitle, subtitle, and caption\nx and y axis titles\nNames for mapped aesthetics such as color, fill, shape, and size\ntag for a figure label\n\nA good title and clear axis and legend labels help a reader understand the plot without needing to decode your R code."
+    "text": "Label the data and the visual encodings\nUse labs() to add or modify plot text:\nCommon labels include:\n\ntitle, subtitle, and caption\nx and y axis titles\nNames for mapped aesthetics such as color, fill, shape, and size\ntag for a figure label\n\n\n\n\n\n\n\nTip\n\n\nA good title and clear axis and legend labels help a reader understand the plot without needing to read your R code."
   },
   {
     "objectID": "content/slides/w7-slides.html#when-groups-become-hard-to-compare",
@@ -1163,7 +1163,7 @@
     "href": "content/slides/w7-slides.html#before-you-make-your-next-plot",
     "title": "Week 7",
     "section": "Before you make your next plot…",
-    "text": "Before you make your next plot…\nAsk yourself:\n\nWhat pattern or comparison am I trying to communicate?\nWhich variables should be mapped to position, color, shape, or size?\nWhich geometry best represents the data?\nWould facets make group patterns easier to see?\nAre the scales, labels, and theme helping—or distracting—from the message?\n\nNext up: putting these tools to work to make clear, effective ecological visualizations."
+    "text": "Before you make your next plot…\nAsk yourself:\n\nWhat pattern or comparison am I trying to communicate?\nWhich variables should be mapped to position, color, shape, or size?\nWhich geometry best represents the data/question I am trying to answer?\nWould facets make group patterns easier to see?\nAre the scales, labels, and theme helping—or distracting—from the message?"
   },
   {
     "objectID": "content/w3-content.html",
@@ -1727,7 +1727,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 7: Data visualization: theory and practice"
+      "Week 7: Data visualization Pt.I: ggplot basics"
     ]
   },
   {
@@ -1739,7 +1739,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 7: Data visualization: theory and practice"
+      "Week 7: Data visualization Pt.I: ggplot basics"
     ]
   },
   {
@@ -1751,7 +1751,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 7: Data visualization: theory and practice"
+      "Week 7: Data visualization Pt.I: ggplot basics"
     ]
   },
   {
@@ -1763,7 +1763,7 @@
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 7: Data visualization: theory and practice"
+      "Week 7: Data visualization Pt.I: ggplot basics"
     ]
   },
   {
@@ -1771,11 +1771,11 @@
     "href": "workshop/w7-workshop.html#exercise-1-practicing-ggplot-basics",
     "title": "Workshop 7: Data Visualization Pt. I",
     "section": "Exercise 1: Practicing ggplot basics",
-    "text": "Exercise 1: Practicing ggplot basics\nData scenario: You are an ecologist studying how insect abundance and diversity vary across habitat types and through the growing season.\nData to use: Use the w7-excercise1.csv file or the exercise-1 tab in Google Sheets.\n\nCreate a scatterplot showing insect abundance over time. 1.1 Map date to x and abundance to y. 1.2 Add points and a smoothed trendline. 1.3 Experiment with point color, size, and transparency.\nCompare abundance across habitat types. 2.1 Create a boxplot or violin plot with habitat on the x-axis and abundance on the y-axis. 2.2 Use fill to distinguish habitat types by color. 2.3 Try at least two different discrete color scales.\nExplore the relationship between temperature and insect abundance. 3.1 Create a scatterplot mapping temperature to x and abundance to y.. 3.2 Map habitat to color or shape. 3.3 Add a smooth trendline. 3.4 Change the smoothing method using the method = \"&lt;name_here&gt;\" argument. Select a method that best matches the data visually.\nCustomize one of your plots. 4.1 Add a title, subtitle, axis labels, and caption. 4.2 Adjust axis breaks and labels. 4.3 Apply a built-in theme or create a custom theme.",
+    "text": "Exercise 1: Practicing ggplot basics\nData scenario: You are an ecologist studying how insect abundance and diversity vary across habitat types and through the growing season.\nData to use: Use the w7-exercise1.csv file or the exercise-1 tab in Google Sheets.\n\nCreate a scatterplot showing insect abundance over time. 1.1 Map date to x and abundance to y. 1.2 Add points and a smoothed trendline. 1.3 Experiment with point color, size, and transparency.\nCompare abundance across habitat types. 2.1 Create a boxplot or violin plot with habitat on the x-axis and abundance on the y-axis. 2.2 Use fill to distinguish habitat types by color. 2.3 Try at least two different discrete color scales.\nExplore the relationship between temperature and insect abundance. 3.1 Create a scatterplot mapping temperature to x and abundance to y.. 3.2 Map habitat to color or shape. 3.3 Add a smooth trendline. 3.4 Change the smoothing method using the method = \"&lt;name_here&gt;\" argument. Select a method that best matches the data visually.\nCustomize one of your plots. 4.1 Add a title, subtitle, axis labels, and caption. 4.2 Adjust axis breaks and labels. 4.3 Apply a built-in theme or create a custom theme.",
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 7: Data visualization: theory and practice"
+      "Week 7: Data visualization Pt.I: ggplot basics"
     ]
   },
   {
@@ -1783,11 +1783,25 @@
     "href": "workshop/w7-workshop.html#exercise-2-adding-complexity-facets-themes-and-customization",
     "title": "Workshop 7: Data Visualization Pt. I",
     "section": "Exercise 2: Adding complexity – facets, themes, and customization",
-    "text": "Exercise 2: Adding complexity – facets, themes, and customization\nData scenario: You are investigating how microclimates differ across five habitat types throughout the day. You have temperature measurements from multiple sensors in each habitat.\nData to use: Use the w7-excercise2.csv file or the exercise-2 tab in Google Sheets.\n\nTasks\n\nVisualize daily temperature patterns.  1.1 Plot temperature over time using geom_point() and geom_smooth(). 1.2 Map habitat type to color. 1.3 Customize the color scale using scale_color_brewer() or scale_color_viridis_d().\nCompare habitat types. 2.1 Create a plot showing temperature distributions across habitats (think density plot, boxplot, or violin plot). 2.2 Experiment with fill rather than color. 2.3 Try scale_fill_manual() and scale_fill_viridis_d().\nSplitting the plot by faceting. 3.1 Create a faceted plot using facet_wrap(~ habitat_type). 3.2 Compare the faceted plot to the original plot with all habitats overlaid. 3.3 Experiment with scales = \"fixed\" and scales = \"free_y\".\nInvestigate temperature patterns (this may involve creating data summaries). 4.1 Identify which habitat has the greatest daily temperature variation. 4.2 Identify which habitat has the highest average temperature. 4.3 Create a plot that shows both the temperature variation and highest average temperature. 4.4 Is there any evidence that any of the 3 replicate sensors is faulty in any of the habitat types?\nCustomize your final visualization to make it “publication quality”. 5.1 Adjust the number of facet columns. 5.2 Modify axis breaks and labels. 5.3 Apply a theme (could be from ggplot or any other package).",
+    "text": "Exercise 2: Adding complexity – facets, themes, and customization\nData scenario: You are investigating how microclimates differ across five habitat types throughout the day. You have temperature measurements from multiple sensors in each habitat.\nData to use: Use the w7-exercise2.csv file or the exercise-2 tab in Google Sheets.\n\nTasks\n\nVisualize daily temperature patterns.  1.1 Plot temperature over time using geom_point() and geom_smooth(). 1.2 Map habitat type to color. 1.3 Customize the color scale using scale_color_brewer() or scale_color_viridis_d().\nCompare habitat types. 2.1 Create a plot showing temperature distributions across habitats (think density plot, boxplot, or violin plot). 2.2 Experiment with fill rather than color. 2.3 Try scale_fill_manual() and scale_fill_viridis_d().\nSplitting the plot by faceting. 3.1 Create a faceted plot using facet_wrap(~ habitat_type). 3.2 Compare the faceted plot to the original plot with all habitats overlaid. 3.3 Experiment with scales = \"fixed\" and scales = \"free_y\".\nInvestigate temperature patterns (this may involve creating data summaries). 4.1 Identify which habitat has the greatest daily temperature variation. 4.2 Identify which habitat has the highest average temperature. 4.3 Create a plot that shows both the temperature variation and highest average temperature. 4.4 Is there any evidence that any of the 3 replicate sensors is faulty in any of the habitat types?\nCustomize your final visualization to make it “publication quality”. 5.1 Adjust the number of facet columns. 5.2 Modify axis breaks and labels. 5.3 Apply a theme (could be from ggplot or any other package).",
     "crumbs": [
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
-      "Week 7: Data visualization: theory and practice"
+      "Week 7: Data visualization Pt.I: ggplot basics"
     ]
+  },
+  {
+    "objectID": "content/slides/w7-slides.html",
+    "href": "content/slides/w7-slides.html",
+    "title": "Week 7",
+    "section": "",
+    "text": "Data visualization is more than making a plot. A useful visualization should be:\n\nTruthful — represent the data accurately.\nFunctional — make the important patterns interpretable.\nBeautiful — use thoughtful design to invite attention and communicate clearly.\n\n\n\n\n\n\n\nNote\n\n\n\nStyle and substance: A visually appealing plot still needs analytical substance. A data-rich plot should also be something people can understand and want to look at.\n\n\n\n\n\n\nHow do we create data visualizations in R?\nWhat are the different geometries we can use?\nHow do scales, facets, coordinates, and themes shape a plot?"
+  },
+  {
+    "objectID": "content/slides/w7-slides.html#a-ggplot-plot-is-built-from-components",
+    "href": "content/slides/w7-slides.html#a-ggplot-plot-is-built-from-components",
+    "title": "Week 7",
+    "section": "A ggplot plot is built from components",
+    "text": "A ggplot plot is built from components\n\n\n\n\n\n\n\n\n\n\n\n\n\nComponent\nPurpose\nCommon functions\n\n\n\n\nData\nDataset being visualized\nggplot(data = ...)\n\n\nMapping\nConnect variables to visual properties\naes()\n\n\nLayers\nRepresent observations and summaries\ngeom_*()\n\n\nScales\nTranslate values into visual properties\nscale_*()\n\n\nFacets\nSplit data into panels\nfacet_wrap()\n\n\nCoordinates\nControl the coordinate system\ncoord_*()\n\n\nTheme\nStyle non-data elements\ntheme_*()"
   }
 ]

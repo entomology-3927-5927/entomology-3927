@@ -87,8 +87,6 @@ temperature_summary <- temperature_data |>
   summarize(mean_temperature = mean(temperature), .groups = "drop")
 ```
 
-# 📊 Data visualization in R
-
 ## This week: turning data into graphics
 
 Data visualization is more than making a plot. A useful visualization should be:
@@ -98,14 +96,8 @@ Data visualization is more than making a plot. A useful visualization should be:
 - **Beautiful** — use thoughtful design to invite attention and communicate clearly.
 
 ::: callout-note
-**Style and substance:** A visually appealing plot still needs analytical substance. A data-rich plot should also be something people can understand and want to look at.
+**Style and substance:** A visually appealing plot still needs analytical substance. A data-rich plot should also be something people can understand and want to look at: needs an emotional response, too!
 :::
-
-## Questions we'll address
-
-1.  How do we create data visualizations in R?
-2.  What are the different geometries we can use?
-3.  How do scales, facets, coordinates, and themes shape a plot?
 
 # 🧰 The ggplot2 toolkit
 
@@ -122,7 +114,7 @@ We'll work primarily with **`ggplot2`**, part of the Tidyverse.
 Base R can make useful plots, too. For this course, `ggplot2` gives us a consistent and flexible framework for building and customizing graphics.
 :::
 
-## A plot is built from components
+## A ggplot plot is built from components
 
 ![](https://ggplot2.tidyverse.org/articles/ggplot2_files/figure-html/overview_graphic-1.png){fig-align="center" width="78%"}
 
@@ -163,6 +155,7 @@ Aesthetic mappings connect variables in our dataset to visual properties of the 
 
 ```{r}
 #| eval: false
+#| echo: true
 # Global mapping: inherited by layers
 ggplot(
   data = insect_data,
@@ -182,8 +175,9 @@ ggplot(data = insect_data) +
 
 ```{r}
 #| eval: false
-geom_point(aes(color = habitat))  # Map a variable
-geom_point(color = "black")       # Set a fixed color
+#| echo: true
+geom_point(aes(color = habitat)) # Map a variable
+geom_point(color = "black") # Set a fixed color
 ```
 :::
 
@@ -215,11 +209,16 @@ Layers determine how data are represented. We most often specify the geometry wi
 A typical layer can include:
 
 ```{text}
-geom_function(
-  mapping = aes(...),  # Which variables map to aesthetics?
-  stat = ...,          # What statistical transformation?
-  position = ...       # How are overlapping elements positioned?
-)
+#| eval: false
+#| echo: true
+ggplot(data = <DATA>) + 
+  <GEOM_FUNCTION>(
+     mapping = aes(<MAPPINGS>),
+     stat = <STAT>, 
+     position = <POSITION>
+  ) +
+  <COORDINATE_FUNCTION> +
+  <FACET_FUNCTION>
 ```
 
 We can combine multiple layers to show different aspects of the same data.
@@ -313,12 +312,15 @@ Choose a scale based on the type of variable being mapped.
 | Multiple custom colors | `scale_fill_gradientn()` |
 | Numeric values shown in intervals | `scale_fill_steps()` |
 
+:::{.callout-tip}
 `scale_fill_*()` changes the interior fill of geoms; `scale_color_*()` changes point, line, text, and outline color.
+:::
 
 ## Customize a color scale
 
 ```{r}
 #| eval: false
+#| echo: true
 scale_fill_viridis_c(
   name = "Insect abundance",
   option = "magma",
@@ -362,9 +364,11 @@ Common labels include:
 - Names for mapped aesthetics such as `color`, `fill`, `shape`, and `size`
 - `tag` for a figure label
 
-A good title and clear axis and legend labels help a reader understand the plot without needing to decode your R code.
+:::{.callout-tip}
+A good title and clear axis and legend labels help a reader understand the plot without needing to read your R code.
+:::
 
-# 🪟 Facets: small multiples
+# 🪟 Facets: breaking up a plot
 
 ## When groups become hard to compare
 
@@ -409,7 +413,7 @@ ggplot(
 ) +
   geom_line(linewidth = 1.2) +
   geom_point(size = 2) +
-  facet_wrap(~ habitat_type, ncol = 2) +
+  facet_wrap(~habitat_type, ncol = 2) +
   scale_color_brewer(palette = "Dark2") +
   scale_x_continuous(breaks = seq(0, 24, 6)) +
   labs(
@@ -430,10 +434,10 @@ ggplot(
 
 ```{r}
 #| eval: false
-facet_wrap(~ habitat_type, scales = "fixed")  # Default
-facet_wrap(~ habitat_type, scales = "free_x")
-facet_wrap(~ habitat_type, scales = "free_y")
-facet_wrap(~ habitat_type, scales = "free")
+facet_wrap(~habitat_type, scales = "fixed") # Default
+facet_wrap(~habitat_type, scales = "free_x")
+facet_wrap(~habitat_type, scales = "free_y")
+facet_wrap(~habitat_type, scales = "free")
 ```
 
 - `fixed`: x and y scales are the same in every panel.
@@ -480,25 +484,12 @@ Additional theme collections include [`ggthemes`](https://jrnold.github.io/ggthe
 You can customize an existing theme with `theme()` or write a theme function and reuse it across multiple plots. Consistency helps your figures feel like they belong together.
 :::
 
-# ✅ Bringing it all together
-
-## A useful mental model
-
-- **Mapping** (`aes()`) tells ggplot2 *what variables* to visualize.
-- **Layers** (`geom_*()`) tell ggplot2 *how to visualize* those variables.
-- **Scales** (`scale_*()`) tell ggplot2 *how to translate* values into visual properties.
-- **Facets** (`facet_*()`) split data into separate panels.
-- **Coordinates** (`coord_*()`) control how positions are displayed.
-- **Themes** (`theme_*()`) control the overall appearance.
-
 ## Before you make your next plot…
 
 Ask yourself:
 
 1.  What pattern or comparison am I trying to communicate?
 2.  Which variables should be mapped to position, color, shape, or size?
-3.  Which geometry best represents the data?
+3.  Which geometry best represents the data/question I am trying to answer?
 4.  Would facets make group patterns easier to see?
 5.  Are the scales, labels, and theme helping—or distracting—from the message?
-
-**Next up:** putting these tools to work to make clear, effective ecological visualizations.

@@ -34,6 +34,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-71561e5efac870f696d699f02f65b29e.css">
   <link rel="stylesheet" href="default">
@@ -145,11 +211,6 @@
 </div>
 
 </section>
-<section>
-<section id="data-visualization-in-r" class="title-slide slide level1 center">
-<h1>📊 Data visualization in R</h1>
-
-</section>
 <section id="this-week-turning-data-into-graphics" class="slide level2">
 <h2>This week: turning data into graphics</h2>
 <p>Data visualization is more than making a plot. A useful visualization should be:</p>
@@ -167,19 +228,11 @@
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Style and substance:</strong> A visually appealing plot still needs analytical substance. A data-rich plot should also be something people can understand and want to look at.</p>
+<p><strong>Style and substance:</strong> A visually appealing plot still needs analytical substance. A data-rich plot should also be something people can understand and want to look at: needs an emotional response, too!</p>
 </div>
 </div>
 </div>
 </section>
-<section id="questions-well-address" class="slide level2 scrollable">
-<h2>Questions we’ll address</h2>
-<ol type="1">
-<li>How do we create data visualizations in R?</li>
-<li>What are the different geometries we can use?</li>
-<li>How do scales, facets, coordinates, and themes shape a plot?</li>
-</ol>
-</section></section>
 <section>
 <section id="the-ggplot2-toolkit" class="title-slide slide level1 center">
 <h1>🧰 The ggplot2 toolkit</h1>
@@ -208,8 +261,8 @@
 </div>
 </div>
 </section>
-<section id="a-plot-is-built-from-components" class="slide level2">
-<h2>A plot is built from components</h2>
+<section id="a-ggplot-plot-is-built-from-components" class="slide level2">
+<h2>A ggplot plot is built from components</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="https://ggplot2.tidyverse.org/articles/ggplot2_files/figure-html/overview_graphic-1.png" class="quarto-figure quarto-figure-center" style="width:78.0%"></p>
@@ -217,9 +270,9 @@
 </div>
 <table class="caption-top">
 <colgroup>
-<col style="width: 17%">
-<col style="width: 53%">
-<col style="width: 28%">
+<col style="width: 23%">
+<col style="width: 50%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -346,6 +399,20 @@
 <h2>Global vs.&nbsp;layer-specific mappings</h2>
 <p><strong>Global aesthetics</strong> are defined in <code>ggplot()</code> and inherited by layers.</p>
 <p><strong>Layer-specific aesthetics</strong> are defined inside an individual geom and apply only to that layer.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># Global mapping: inherited by layers</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">ggplot</span>(</span>
+<span id="cb1-3"><a aria-label="3"></a>  <span class="at">data =</span> insect_data,</span>
+<span id="cb1-4"><a aria-label="4"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> abundance)</span>
+<span id="cb1-5"><a aria-label="5"></a>) <span class="sc">+</span></span>
+<span id="cb1-6"><a aria-label="6"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb1-7"><a aria-label="7"></a></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="co"># Layer-specific mapping: applies to this geom only</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="fu">ggplot</span>(<span class="at">data =</span> insect_data) <span class="sc">+</span></span>
+<span id="cb1-10"><a aria-label="10"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb1-11"><a aria-label="11"></a>    <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> abundance, <span class="at">color =</span> <span class="fu">factor</span>(trap))</span>
+<span id="cb1-12"><a aria-label="12"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -356,6 +423,10 @@
 </div>
 <div class="callout-content">
 <p><strong>Mapping vs.&nbsp;setting:</strong> Put a variable inside <code>aes()</code> to map it to a visual property. Put a fixed value outside <code>aes()</code> to set that property for every observation.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> habitat)) <span class="co"># Map a variable</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="co"># Set a fixed color</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 </div>
 </div>
@@ -458,6 +529,16 @@
 <section id="a-layer-can-be-more-than-a-geom" class="slide level2">
 <h2>A layer can be more than a geom</h2>
 <p>A typical layer can include:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a aria-label="1"></a>ggplot(data = &lt;DATA&gt;) + </span>
+<span id="cb3-2"><a aria-label="2"></a>  &lt;GEOM_FUNCTION&gt;(</span>
+<span id="cb3-3"><a aria-label="3"></a>     mapping = aes(&lt;MAPPINGS&gt;),</span>
+<span id="cb3-4"><a aria-label="4"></a>     stat = &lt;STAT&gt;, </span>
+<span id="cb3-5"><a aria-label="5"></a>     position = &lt;POSITION&gt;</span>
+<span id="cb3-6"><a aria-label="6"></a>  ) +</span>
+<span id="cb3-7"><a aria-label="7"></a>  &lt;COORDINATE_FUNCTION&gt; +</span>
+<span id="cb3-8"><a aria-label="8"></a>  &lt;FACET_FUNCTION&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>We can combine multiple layers to show different aspects of the same data.</p>
 </section>
 <section id="building-a-plot-one-layer-at-a-time" class="slide level2">
@@ -605,10 +686,32 @@
 </tr>
 </tbody>
 </table>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
 <p><code>scale_fill_*()</code> changes the interior fill of geoms; <code>scale_color_*()</code> changes point, line, text, and outline color.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="customize-a-color-scale" class="slide level2">
 <h2>Customize a color scale</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">scale_fill_viridis_c</span>(</span>
+<span id="cb4-2"><a aria-label="2"></a>  <span class="at">name =</span> <span class="st">"Insect abundance"</span>,</span>
+<span id="cb4-3"><a aria-label="3"></a>  <span class="at">option =</span> <span class="st">"magma"</span>,</span>
+<span id="cb4-4"><a aria-label="4"></a>  <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb4-5"><a aria-label="5"></a>  <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>),</span>
+<span id="cb4-6"><a aria-label="6"></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>),</span>
+<span id="cb4-7"><a aria-label="7"></a>  <span class="at">na.value =</span> <span class="st">"grey90"</span></span>
+<span id="cb4-8"><a aria-label="8"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>Other useful arguments include <code>palette</code>, <code>labels</code>, <code>limits</code>, <code>breaks</code>, <code>na.value</code>, <code>direction</code>, and <code>guide</code>.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -639,11 +742,23 @@
 <li>Names for mapped aesthetics such as <code>color</code>, <code>fill</code>, <code>shape</code>, and <code>size</code></li>
 <li><code>tag</code> for a figure label</li>
 </ul>
-<p>A good title and clear axis and legend labels help a reader understand the plot without needing to decode your R code.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>A good title and clear axis and legend labels help a reader understand the plot without needing to read your R code.</p>
+</div>
+</div>
+</div>
 </section></section>
 <section>
-<section id="facets-small-multiples" class="title-slide slide level1 center">
-<h1>🪟 Facets: small multiples</h1>
+<section id="facets-breaking-up-a-plot" class="title-slide slide level1 center">
+<h1>🪟 Facets: breaking up a plot</h1>
 
 </section>
 <section id="when-groups-become-hard-to-compare" class="slide level2">
@@ -770,22 +885,6 @@
 </div>
 </div>
 </div>
-</section></section>
-<section>
-<section id="bringing-it-all-together" class="title-slide slide level1 center">
-<h1>✅ Bringing it all together</h1>
-
-</section>
-<section id="a-useful-mental-model" class="slide level2">
-<h2>A useful mental model</h2>
-<ul>
-<li><strong>Mapping</strong> (<code>aes()</code>) tells ggplot2 <em>what variables</em> to visualize.</li>
-<li><strong>Layers</strong> (<code>geom_*()</code>) tell ggplot2 <em>how to visualize</em> those variables.</li>
-<li><strong>Scales</strong> (<code>scale_*()</code>) tell ggplot2 <em>how to translate</em> values into visual properties.</li>
-<li><strong>Facets</strong> (<code>facet_*()</code>) split data into separate panels.</li>
-<li><strong>Coordinates</strong> (<code>coord_*()</code>) control how positions are displayed.</li>
-<li><strong>Themes</strong> (<code>theme_*()</code>) control the overall appearance.</li>
-</ul>
 </section>
 <section id="before-you-make-your-next-plot" class="slide level2 scrollable">
 <h2>Before you make your next plot…</h2>
@@ -793,11 +892,10 @@
 <ol type="1">
 <li>What pattern or comparison am I trying to communicate?</li>
 <li>Which variables should be mapped to position, color, shape, or size?</li>
-<li>Which geometry best represents the data?</li>
+<li>Which geometry best represents the data/question I am trying to answer?</li>
 <li>Would facets make group patterns easier to see?</li>
 <li>Are the scales, labels, and theme helping—or distracting—from the message?</li>
 </ol>
-<p><strong>Next up:</strong> putting these tools to work to make clear, effective ecological visualizations.</p>
 
 
 </section></section>
