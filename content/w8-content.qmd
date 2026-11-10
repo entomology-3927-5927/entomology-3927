@@ -1,0 +1,45 @@
+---
+title: "Week 8"
+subtitle: "Data Visualization Pt. II"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+format:
+  html:
+    theme: ../styles.scss
+---
+
+:::: content-callout1
+## Readings
+
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 1: Visualization](https://r4ds.hadley.nz/data-visualize.html)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Part II (3 chapters)](https://r4ds.hadley.nz/visualize.html)
+
+### Online/optional extras
+
+-   {{< fa file-code >}} [ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.](https://ggplot2-book.org/)
+
+## Questions we'll address this week
+
+1.  How do we create data visualizations in R?
+2.  What are the various geometries that we can use?
+3.  What visualization theory do we need to know?
+
+## Slides
+
+[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w7-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w7-slides.html?print-pdf){.btn .btn-primary role="button"}
+
+<iframe src="slides/w7-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
+
+</iframe>
+
+::: callout-tip
+**Tip**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
+:::
+::::
+
+</br>
+
+```{r include=FALSE}
+library(tidyverse)
+```
