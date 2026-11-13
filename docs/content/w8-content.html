@@ -2,19 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeremy Hemberger">
-<meta name="dcterms.date" content="2026-11-12">
+<meta name="dcterms.date" content="2026-11-13">
 
 <title>Week 8 – Entomology 3927/5927</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -39,10 +45,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8f7db6e6fbbcbf53cdf56a20193577de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b0248d85600491a3f1aca78e64cf6b81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -84,7 +90,8 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -311,13 +318,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#fundamentals-of-data-visualization" id="toc-fundamentals-of-data-visualization" class="nav-link active" data-scroll-target="#fundamentals-of-data-visualization">Fundamentals of Data Visualization</a>
+  <li><a href="#fundamentals-of-data-visualization" id="toc-fundamentals-of-data-visualization" class="nav-link active" data-scroll-target="#fundamentals-of-data-visualization">Fundamentals of Data Visualization</a></li>
+  <li><a href="#priciples-of-visualizations" id="toc-priciples-of-visualizations" class="nav-link" data-scroll-target="#priciples-of-visualizations">Priciples of Visualizations</a>
   <ul class="collapse">
-  <li><a href="#color-use" id="toc-color-use" class="nav-link" data-scroll-target="#color-use">Color Use</a></li>
-  <li><a href="#a-bestiary-of-plots" id="toc-a-bestiary-of-plots" class="nav-link" data-scroll-target="#a-bestiary-of-plots">A bestiary of plots</a></li>
-  <li><a href="#priciples-of-visualizations" id="toc-priciples-of-visualizations" class="nav-link" data-scroll-target="#priciples-of-visualizations">Priciples of Visualizations</a></li>
+  <li><a href="#color-usepitfalls" id="toc-color-usepitfalls" class="nav-link" data-scroll-target="#color-usepitfalls">Color use/pitfalls</a></li>
+  <li><a href="#principle-of-proportional-ink" id="toc-principle-of-proportional-ink" class="nav-link" data-scroll-target="#principle-of-proportional-ink">Principle of proportional ink</a></li>
+  <li><a href="#design-figures-so-they-dont-need-a-legend" id="toc-design-figures-so-they-dont-need-a-legend" class="nav-link" data-scroll-target="#design-figures-so-they-dont-need-a-legend">Design figures so they don’t need a legend</a></li>
+  <li><a href="#balancing-plot-elements" id="toc-balancing-plot-elements" class="nav-link" data-scroll-target="#balancing-plot-elements">Balancing plot elements</a></li>
+  <li><a href="#simplicity-simplicity-simplicity" id="toc-simplicity-simplicity-simplicity" class="nav-link" data-scroll-target="#simplicity-simplicity-simplicity">Simplicity, simplicity, simplicity!</a></li>
   </ul></li>
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a>
+  <ul class="collapse">
+  <li><a href="#eda-checklist" id="toc-eda-checklist" class="nav-link" data-scroll-target="#eda-checklist">EDA checklist</a></li>
+  </ul></li>
+  <li><a href="#a-bestiary-of-plots" id="toc-a-bestiary-of-plots" class="nav-link" data-scroll-target="#a-bestiary-of-plots">A bestiary of plots</a>
+  <ul class="collapse">
+  <li><a href="#amounts" id="toc-amounts" class="nav-link" data-scroll-target="#amounts">Amounts</a></li>
+  <li><a href="#distributions" id="toc-distributions" class="nav-link" data-scroll-target="#distributions">Distributions</a></li>
+  <li><a href="#proportions" id="toc-proportions" class="nav-link" data-scroll-target="#proportions">Proportions</a></li>
+  <li><a href="#uncertainty" id="toc-uncertainty" class="nav-link" data-scroll-target="#uncertainty">Uncertainty</a></li>
+  <li><a href="#x-y-relationships" id="toc-x-y-relationships" class="nav-link" data-scroll-target="#x-y-relationships">x-y relationships</a></li>
+  <li><a href="#geospatial-data" id="toc-geospatial-data" class="nav-link" data-scroll-target="#geospatial-data">Geospatial data</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -344,7 +366,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 12, 2026</p>
+      <p class="date">November 13, 2026</p>
     </div>
   </div>
   
@@ -366,7 +388,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="onlineoptional-extras" class="level3">
 <h3 class="anchored" data-anchor-id="onlineoptional-extras">Online/optional extras</h3>
 <ul>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://r-graph-gallery.com/index.html">The R Graph Gallery</a></li>
 <li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://ggplot2-book.org/">ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.</a></li>
+<li><i class="fa-solid fa-file-code" aria-label="file-code"></i> <a href="https://michelf.ca/projects/sim-daltonism/">Sim Daltonism: The color blindness simulator</a></li>
 </ul>
 </section>
 </section>
@@ -401,47 +425,132 @@ Tip
 <section id="fundamentals-of-data-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="fundamentals-of-data-visualization">Fundamentals of Data Visualization</h2>
 <p>Last week we covered the technical side of creating data visualizations with ggplot. As you’ll soon find out (if you haven’t already), writing the code will quickly become the easy part – making the plot and its message “click” is the tough part. There are tons of resources on doing this, and entire courses dedicated to just this topic, so our treatise of it will of course be surface-level only. Please check the course resources above for additional work (especially Claus Wilke’s book on which many of the topics below are based), and check out Cory Hirsh’s <a href="https://umtc.catalog.prod.coursedog.com/courses/8190201/tab-aoYks">Data Visualization in Plant and Microbial Biology</a> (and the dozens of other data viz courses that exist on campus. I also may develop a dedicated workshop for Biology/Ecology in the coming year or two…).</p>
-<section id="color-use" class="level3">
-<h3 class="anchored" data-anchor-id="color-use">Color Use</h3>
 </section>
-<section id="a-bestiary-of-plots" class="level3">
-<h3 class="anchored" data-anchor-id="a-bestiary-of-plots">A bestiary of plots</h3>
-<section id="amounts" class="level4">
-<h4 class="anchored" data-anchor-id="amounts">Amounts</h4>
+<section id="priciples-of-visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="priciples-of-visualizations">Priciples of Visualizations</h2>
+<p>With all of those different plots in mind, let’s now talk about some of the general principles and theory around building effective, elegant visualizations.</p>
+<section id="color-usepitfalls" class="level3">
+<h3 class="anchored" data-anchor-id="color-usepitfalls">Color use/pitfalls</h3>
+<p>Color is wonderful! But, it can also be distracting. When we build data visualizations, it’s essential that we use color adequately and deliberately. There are a few general rules for color use:</p>
+<ol type="1">
+<li><strong>Color as a tool to distinguish:</strong> use to distinquish discrete items or groups that don’t have an intrinsic order (i.e., groups). Here, we use <em>qualitative</em> color scales where colors are selected to be distinct, but equivalent in their intensity, hue, etc.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://clauswilke.com/dataviz/color_basics_files/figure-html/qualitative-scales-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<ol start="2" type="1">
+<li><strong>Color to represent data values:</strong> Here, color represents values such as temperature, precipitation, or some other continuous data that have a specific order. Here, we use a <em>sequential</em> color scale. This way, it is clear that colors indicate larger or smaller values and how distant to specific values are from one another.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://clauswilke.com/dataviz/color_basics_files/figure-html/qualitative-scales-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<div class="indented-text">
+<p>In the event we are visualizing the deviation of values in two directions relative to a midpoint (most commonly 0), we use a <em>diverging</em> color scale.</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://clauswilke.com/dataviz/color_basics_files/figure-html/diverging-scales-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<ol start="3" type="1">
+<li><strong>Color as a tool to highlight:</strong> Sometimes we want to highlight specific elements in our dataset, such as specific categories or values that are essential for telling a particular story. Doing this will allow these elements to stand out relative to the other values and be immediately obvious to the reader. For these, we use <em>accent</em> color scales.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://clauswilke.com/dataviz/color_basics_files/figure-html/accent-scales-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<p>A couple of quick pitfalls of color use:</p>
+<ol type="1">
+<li><strong>Encoding too much information to color:</strong> Sometimes we think that color can do more than it’s actually capable of and end up confusing or overwheming our audience/reader. Anything visualization with more than ~8 distinct colors in a qualitative scale and our brains basically give up. If we need to call-out specific values in this way, it’s best to use <em>direct labeling</em> of points rather than color.</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w8-content_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="distributions" class="level4">
-<h4 class="anchored" data-anchor-id="distributions">Distributions</h4>
+<section id="principle-of-proportional-ink" class="level3">
+<h3 class="anchored" data-anchor-id="principle-of-proportional-ink">Principle of proportional ink</h3>
+<p>When we display data values as bar or other graphical elements that encode values through phsyical dimensions (think bar charts, bubble plots, maps, etc), it’s essential that we avoid misleading presentation of our data. The sizes of shaded areas in a visualization need to be proportional to the data values they represent; this is known as the <strong>principle of proportional ink</strong>. Ink here referes to any part of the visualization that deviates from the background color (i.e., is derived from data).</p>
+<p>This principle helps prevent misleading data visualizations by ensuring that:</p>
+<ol type="1">
+<li><p><strong>Visual differences reflect numerical differences.</strong> A value twice as large should generally look twice as large when represented by a size-based visual encoding.</p></li>
+<li><p><strong>Graphs don’t exaggerate differences.</strong> Truncated axes in bar charts can make relatively small differences appear enormous.</p></li>
+<li><p><strong>Visual comparisons remain intuitive.</strong> Readers should be able to interpret relative magnitudes without being misled by graphical design choices.</p></li>
+</ol>
+<p>Take this bar chart as an example:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./content_media/w8/ppi.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This figure is <em>also</em> misleading because it doens’t represent any measure of variation around our value of systolic BP. We’re presenting a mean value, but no sense of how <em>consistent</em> that value is across all of the reprentative samples it contains.</p>
+</div>
+</div>
 </section>
-<section id="proportions" class="level4">
-<h4 class="anchored" data-anchor-id="proportions">Proportions</h4>
+<section id="design-figures-so-they-dont-need-a-legend" class="level3">
+<h3 class="anchored" data-anchor-id="design-figures-so-they-dont-need-a-legend">Design figures so they don’t need a legend</h3>
+<p>Legends are great! But sometimes, they make us work harder than we need to by making us pull attention from one plot element to another and try to make connections between them. For example:</p>
+<div class="quarto-layout-panel" data-layout="[1,1]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://clauswilke.com/dataviz/redundant_coding_files/figure-html/tech-stocks-good-legend-1.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://clauswilke.com/dataviz/redundant_coding_files/figure-html/tech-stocks-good-no-legend-1.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p>Whenever possible, design your figures so that they don’t need a legend! You can do this through <em>direct labeling</em>, or being smart about how we code our axes if we are mapping a single variable to multiple aesthetics at once.</p>
+<div class="quarto-layout-panel" data-layout="[1,1]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://clauswilke.com/dataviz/redundant_coding_files/figure-html/iris-scatter-with-ellipses-1.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://clauswilke.com/dataviz/redundant_coding_files/figure-html/iris-densities-direct-label-1.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
 </section>
-<section id="uncertainty" class="level4">
-<h4 class="anchored" data-anchor-id="uncertainty">Uncertainty</h4>
+<section id="balancing-plot-elements" class="level3">
+<h3 class="anchored" data-anchor-id="balancing-plot-elements">Balancing plot elements</h3>
+<p>As we put together our plots, it’s important that we create visualizations that feel <em>balanced</em> with the amount of data that are potrayed relative to non-data elements (things like axes, tick marks, grid lines, legends, borders, background colors, etc.).</p>
+<p>This can cut two ways: we can both overload a plot with non-data ink which distracts and is ugly: <img src="https://clauswilke.com/dataviz/balance_data_context_files/figure-html/Aus-athletes-grid-bad-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:75.0%"></p>
+<p>Or take away too much non-data ink which decontextualizes our data and can make the plot harder to interpret: <img src="https://clauswilke.com/dataviz/balance_data_context_files/figure-html/titanic-survival-by-gender-class-bad-1.png" class="img-fluid quarto-figure quarto-figure-center" style="width:75.0%"></p>
+<p>Creating balanced plots ultimately comes down to preference and is a skill you’ll gain through time and by being open to feedback. There aren’t hard and fast rules about this.</p>
 </section>
-<section id="x-y-relationships" class="level4">
-<h4 class="anchored" data-anchor-id="x-y-relationships">x-y relationships</h4>
-</section>
-<section id="geospatial-data" class="level4">
-<h4 class="anchored" data-anchor-id="geospatial-data">Geospatial data</h4>
-</section>
-</section>
-<section id="priciples-of-visualizations" class="level3">
-<h3 class="anchored" data-anchor-id="priciples-of-visualizations">Priciples of Visualizations</h3>
-<section id="principle-of-proportional-ink" class="level4">
-<h4 class="anchored" data-anchor-id="principle-of-proportional-ink">Principle of proportional ink</h4>
-</section>
-<section id="color-pitfalls" class="level4">
-<h4 class="anchored" data-anchor-id="color-pitfalls">Color pitfalls</h4>
-</section>
-<section id="design-figures-so-they-dont-need-a-legend" class="level4">
-<h4 class="anchored" data-anchor-id="design-figures-so-they-dont-need-a-legend">Design figures so they don’t need a legend</h4>
-</section>
-<section id="balancing-plot-elements" class="level4">
-<h4 class="anchored" data-anchor-id="balancing-plot-elements">Balancing plot elements</h4>
-</section>
-<section id="simplicity-simplicity-simplicity" class="level4">
-<h4 class="anchored" data-anchor-id="simplicity-simplicity-simplicity">Simplicity, simplicity, simplicity!</h4>
-</section>
+<section id="simplicity-simplicity-simplicity" class="level3">
+<h3 class="anchored" data-anchor-id="simplicity-simplicity-simplicity">Simplicity, simplicity, simplicity!</h3>
+<p>This one is pretty simple, but also perhaps the most challenging to stick to. A simple visualization that communicates a central message well is always preferred over a complex, but beautiful visualization that muddies the message. Again, we return to the Great British Baking Show addage: style AND substance. When you have a dataset that you’ve worked tirelessly to collect, it’s so tempting to try and show it off as much as you possibly can. That’s understandable! But, it’s more important to communicate a simple, effective message than to show everyone how much work you put into something.</p>
+<p>Some general tips on this end: 1. <strong>Avoid gratuitous 3D useage (and 3D at all if possible):</strong> 3D plots do one of two things on paper: look ugly, or struggle to convey your datas position adequately. If you need to use 3D (sometimes merited), you’ll often need to animate your plot to be fully effective. More often than not, there are better ways to portray those data in 2 dimensions.</p>
+<ol start="2" type="1">
+<li><p><strong>Don’t encode information simply because it’s available in your dataset:</strong> Not everything needs to be plotted simultaenously! Think carefully about what you chose to display.</p></li>
+<li><p><strong>Consider whether the visualization works at a glance:</strong> When reading a paper, I should be able to get the main take-away from the paper JUST by looking at the figures, their titles, and captions.</p></li>
+<li><p><strong>Build up toward complex figures:</strong> This is particularly useful in presentations where we can ease folks into a complex visualization by first showing them a simplified version to help orient them to the axes and aesthetics.</p></li>
+<li><p><strong>Be consistent, but not repetitive:</strong> Again, this more matters for presentations. Choose different visualization types for distinct analyses. People get fatigued looking at 15 of the exact same type of plot because you know how to create it. Choose the best plot for your type of data and what you want to convey, but don’t feel like you must only use that plot forevermore.</p></li>
+<li><p><strong>Build your figures for the CEO:</strong> I.e., people who are very busy and can’t spend half an hour deciphering your plot. This is <em>especially</em> true for things like proposals, presentations, and reports.</p></li>
+</ol>
+<p><br></p>
 </section>
 </section>
 <section id="exploratory-data-analysis" class="level2">
@@ -458,6 +567,78 @@ Tip
 <li><strong>Search for answers by visualizing, transforming, and “modeling” your data</strong></li>
 <li><strong>Use what you learn to refine questions and/or generate new questions</strong></li>
 </ol>
+<section id="eda-checklist" class="level3">
+<h3 class="anchored" data-anchor-id="eda-checklist">EDA checklist</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>EDA activity</strong></th>
+<th><strong>Questions to ask</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Dataset structure</strong></td>
+<td>What are my observations? What does each row represent?</td>
+</tr>
+<tr class="even">
+<td><strong>Distributions</strong></td>
+<td>How are my variables distributed? Are they skewed, bimodal, or approximately normal?</td>
+</tr>
+<tr class="odd">
+<td><strong>Missing data</strong></td>
+<td>Where and why are observations missing? Is missingness associated with particular groups, sites, or dates?</td>
+</tr>
+<tr class="even">
+<td><strong>Sample sizes</strong></td>
+<td>Are observations balanced across groups, treatments, or sampling locations?</td>
+</tr>
+<tr class="odd">
+<td><strong>Variation</strong></td>
+<td>How much variability exists within and among groups?</td>
+</tr>
+<tr class="even">
+<td><strong>Relationships</strong></td>
+<td>How are variables related to one another? Are relationships linear, nonlinear, or absent?</td>
+</tr>
+<tr class="odd">
+<td><strong>Temporal patterns</strong></td>
+<td>Are there seasonal, annual, or other temporal trends?</td>
+</tr>
+<tr class="even">
+<td><strong>Spatial patterns</strong></td>
+<td>Are observations spatially clustered? Are there geographic patterns?</td>
+</tr>
+<tr class="odd">
+<td><strong>Outliers</strong></td>
+<td>Are unusual observations errors, measurement artifacts, or meaningful biological variation?</td>
+</tr>
+<tr class="even">
+<td><strong>Sampling bias</strong></td>
+<td>Could differences in sampling effort, detectability, or methodology explain observed patterns?</td>
+</tr>
+<tr class="odd">
+<td><strong>Transformations</strong></td>
+<td>Would transforming variables or using alternative summaries help reveal patterns?</td>
+</tr>
+<tr class="even">
+<td><strong>Experimental design</strong></td>
+<td>Does the structure of my data reflect the experimental design? Am I accounting for blocks, sites, repeated measures, or other dependencies?</td>
+</tr>
+<tr class="odd">
+<td><strong>Biological interpretation</strong></td>
+<td>Are observed patterns biologically meaningful, or could they reflect statistical artifacts or confounding variables?</td>
+</tr>
+<tr class="even">
+<td><strong>New questions</strong></td>
+<td>What unexpected patterns have emerged? What additional questions should I investigate?</td>
+</tr>
+</tbody>
+</table>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -471,8 +652,65 @@ Important
 <p>If you are working with data from a carefully designed experiment (e.g., randomized complete block design), it’s critical that we also analyze our data consistent with the manner in which the data were collected! EDA can help us ask additional questions, but we want to be sure to respect the work and purpose of the experimental design first and foremost.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>esquisse</code> package is an excellent tool for EDA if you don’t want to have to repeatedly code up plots. It’s an interactive GUI (graphical user interface) to build plots by dragging and dropping and toggling various features. In the end, it will generate the ggplot code for you that you can then put into your reports/markdown documents.</p>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="a-bestiary-of-plots" class="level2">
+<h2 class="anchored" data-anchor-id="a-bestiary-of-plots">A bestiary of plots</h2>
+<p>There’s about a zillion different ways to display data. There’s also many “right ways” and many “wrong ways”, but often no single “best” way to build a plot. One of the best ways to brainstorm what sort of visualization you want to create for your data is to look around at what other folks have done. I have a whole folder in my paper library dedicated to excellent visualizations. This sort of thing is great to have in your back pocket to see what works well and what speaks to you aesthetically.</p>
+<p>Below are a whole bunch of different ways to display data of varying types. These were created by Claus Wilke, and he details how to create each of these plots in his online book, <a href="https://clauswilke.com/dataviz/directory-of-visualizations.html">“Fundamentals of Data Visualization”</a> (see chapters 5-16). As you’re buildng plots, this is an excellent place to start to see how the various ggplot calls are coded (i.e., what aesthetics and geoms they use, how their tibbles are structured, etc.).</p>
+<section id="amounts" class="level3">
+<h3 class="anchored" data-anchor-id="amounts">Amounts</h3>
+<p><img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/amounts-1.png" class="img-fluid" style="width:100.0%"> <img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/amounts_multi-1.png" class="img-fluid" style="width:100.0%"></p>
+</section>
+<section id="distributions" class="level3">
+<h3 class="anchored" data-anchor-id="distributions">Distributions</h3>
+<p><img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/single-distributions-1.png" class="img-fluid" style="width:100.0%"> <img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/multiple-distributions-1.png" class="img-fluid" style="width:100.0%"></p>
+</section>
+<section id="proportions" class="level3">
+<h3 class="anchored" data-anchor-id="proportions">Proportions</h3>
+<p><img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/proportions-1.png" class="img-fluid" style="width:100.0%"> <img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/proportions-comp-1.png" class="img-fluid" style="width:100.0%"> <img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/proportions-multi-1.png" class="img-fluid" style="width:100.0%"></p>
+</section>
+<section id="uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="uncertainty">Uncertainty</h3>
+<p><img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/errorbars-1.png" class="img-fluid" style="width:100.0%"> <img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/confidence-dists-1.png" class="img-fluid" style="width:100.0%"> <img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/confidence-bands-1.png" class="img-fluid" style="width:100.0%"></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Any time you are plotting a mean value, either from a basic data summary, or a modeled value, it is <strong>essential</strong> that you also show the uncertainty around that value. The uncertainty calculations can include <em>standard deviations</em>, <em>standard errors</em>, and <em>confidence/credible intervals</em></p>
+</div>
+</div>
+</section>
+<section id="x-y-relationships" class="level3">
+<h3 class="anchored" data-anchor-id="x-y-relationships">x-y relationships</h3>
+<p><img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/basic-scatter-1.png" class="img-fluid" style="width:100.0%"> <img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/xy-binning-1.png" class="img-fluid" style="width:100.0%"> <img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/xy-lines-1.png" class="img-fluid" style="width:100.0%"></p>
+</section>
+<section id="geospatial-data" class="level3">
+<h3 class="anchored" data-anchor-id="geospatial-data">Geospatial data</h3>
+<p><img src="https://clauswilke.com/dataviz/directory_of_visualizations_files/figure-html/geospatial-1.png" class="img-fluid" style="width:100.0%"></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -527,13 +765,14 @@ Important
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -36,6 +36,90 @@
     ]
   },
   {
+    "objectID": "workshop/w8-workshop.html",
+    "href": "workshop/w8-workshop.html",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "",
+    "text": "Due date for workshop materials\nYou will need to commit and push your workshop files and create your peer review issue and tag your reviewer by 23:59 next Tuesday, November 17th so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by Friday, November 20th at 12:00.",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html#frontmatter",
+    "href": "workshop/w8-workshop.html#frontmatter",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "",
+    "text": "Due date for workshop materials\nYou will need to commit and push your workshop files and create your peer review issue and tag your reviewer by 23:59 next Tuesday, November 17th so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by Friday, November 20th at 12:00.",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html#packages-well-need-for-today",
+    "href": "workshop/w8-workshop.html#packages-well-need-for-today",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "📦 Packages we’ll need for today",
+    "text": "📦 Packages we’ll need for today\nBe sure to install these packages (install.packages()) if you don’t already have them.\n\nlibrary(tidyverse)\nlibrary(janitor)\n\n# Feel free to use additional packages for plots, themes, etc.",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html#load-our-data",
+    "href": "workshop/w8-workshop.html#load-our-data",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "💾 Load our data",
+    "text": "💾 Load our data\nYou can either download the requisite .csv files below, or import them directly from Google Sheets (w8-workshop-data). Be sure you are using the correct files/sheet tabs for each section below. I’ve tried to make it explicit.\n .csv dataset  Google Sheet dataset\n\n\n\n\n\n\nTip\n\n\n\nBe sure you save the .csv in the correct place so that you can access it in your R Studio project!",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html#the-task-for-today",
+    "href": "workshop/w8-workshop.html#the-task-for-today",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "The task for today",
+    "text": "The task for today\nI’ve provided two different datasets: 🦆 + 🐝. Select whichever one most appeals to you and do some ’splorin. Poke around for a while, and then pose some interesting questions that you want to answer with these data. Then, wrangle the data as necessary, and create visualizations that seek to answer/address these questions. There isn’t necessarily a right way to do this. The exercise is meant to simulate what you’ll be doing/have done with the data you’ve collected: it’s up to you to figure out how you want to go about making sense of everything!\nI’ve tried to keep the data wrangling requirements to a minimum here to focus on the exploration. That said, you’ll likely need to either summarize, filter, or otherwise reshape your data to ask specific questions, but there aren’t any “gotchas” in the data structure or formatting this time. The datasets are pretty squeaky clean 🧼.\nI’d like for each of you to pose and address 3 distinct questions with the dataset you select. For each:\n\nPose a question and hypothesis. Clearly articulate what you want to investigate and what you expect to find. Your hypothesis doesn’t need to be correct!\nCreate your visualization(s). Decide which type of visualization would be most appropriate for exploring your question. Wrangle or summarize your data as necessary.\nInterpret your results. Describe the take-home message from your visualization. Does it support or contradict your hypothesis? What patterns or relationships do you observe?\nConsider limitations. Are there any data oddities, limitations, or alternative explanations that might influence your interpretation? Be mindful of the difference between identifying patterns and making causal claims.\n\n\n\n\n\n\n\nTip\n\n\n\nRecall: A research question identifies something you want to investigate. A hypothesis is your proposed explanation or prediction about what you expect to observe. Your hypothesis doesn’t need to be correct! The goal is to use EDA/data visualization to explore whether the data are consistent with your expectations.\n\n\n\n\n\n\n\n\nNote\n\n\n\nBe sure to document specific design/data summary choices that you make along the way as code comments. Your peer reviewer should be able to understand why you made particular decisions and reproduce your visualizations.",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html#dataset-1-bees",
+    "href": "workshop/w8-workshop.html#dataset-1-bees",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "Dataset 1: Bees!",
+    "text": "Dataset 1: Bees!\n\n\n\n\n\n\nStudy background and purpose\nA research team is investigating how habitat characteristics and environmental conditions influence pollinator communities across different landscape types. Researchers established sampling sites in three habitat types: restored prairies, agricultural field margins, and urban gardens. The goal is to understand how pollinator abundance and community composition vary among habitats and throughout the growing season.\n\n\nData collection methods\nResearchers conducted standardized surveys at 12 sampling sites (four per habitat) on eight dates between May and August. During each survey, observers recorded the number of individuals belonging to four broad pollinator groups: bees, butterflies, flies, and beetles. Each survey was conducted over a standardized 10-minute observation period.\nResearchers also recorded environmental conditions, including air temperature and wind speed, along with habitat characteristics such as flowering plant richness and flower abundance.\n\n\nPollinator dataset metadata\n\n\n\n\n\n\n\n\nVariable\nDescription\nData type\n\n\n\n\nsite_id\nUnique sampling site identifier\nCharacter\n\n\nhabitat\nHabitat type (Prairie, Field margin, Urban garden)\nFactor\n\n\ndate\nDate of sampling\nDate\n\n\ntemperature\nAir temperature (°C)\nNumeric\n\n\nwind_speed\nWind speed (km/h)\nNumeric\n\n\nfloral_richness\nNumber of flowering plant species at the site\nInteger\n\n\nflower_abundance\nEstimated abundance of flowers\nInteger\n\n\npollinator_group\nPollinator group (Bees, Butterflies, Flies, Beetles)\nFactor\n\n\nabundance\nNumber of individuals observed during the survey\nInteger",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html#dataset-2-birds",
+    "href": "workshop/w8-workshop.html#dataset-2-birds",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "Dataset 2: Birds!",
+    "text": "Dataset 2: Birds!\n\n\n\n\n\n\nStudy background and purpose\nA research team is investigating how bird communities differ among habitat types and change throughout the breeding season. Researchers established sampling sites in three habitat types: forests, grasslands, and wetlands. The goal is to explore differences in bird abundance, species composition, and seasonal activity patterns across these habitats.\n\n\nData collection methods\nResearchers established 12 sampling sites (four per habitat) and conducted standardized bird surveys on six dates between May and October. During each survey, observers conducted a 10-minute point count, recording the number of individuals detected for each of ten focal bird species.\nBird species represent several ecological guilds, including insectivores, grassland birds, wetland birds, and wading birds. Researchers also recorded environmental conditions, including air temperature and wind speed, during each sampling event.\n\n\nBird dataset metadata\n\n\n\n\n\n\n\n\nVariable\nDescription\nData type\n\n\n\n\nsite_id\nUnique sampling site identifier\nCharacter\n\n\nhabitat\nHabitat type (Forest, Grassland, Wetland)\nFactor\n\n\ndate\nDate of sampling\nDate\n\n\ntemperature\nAir temperature (°C)\nNumeric\n\n\nwind_speed\nWind speed (km/h)\nNumeric\n\n\nspecies\nBird species observed\nCharacter\n\n\nguild\nEcological feeding or nesting guild\nCharacter\n\n\nabundance\nNumber of individuals detected during the 10-minute point count\nInteger",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
     "objectID": "workshop/w6-workshop.html",
     "href": "workshop/w6-workshop.html",
     "title": "Workshop 6: Data Wranglin’ Pt. II",
@@ -256,6 +340,102 @@
     "title": "Entomology 3927/5927",
     "section": "Important links",
     "text": "Important links\n Canvas Site\n Class Github"
+  },
+  {
+    "objectID": "content/w8-content.html",
+    "href": "content/w8-content.html",
+    "title": "Week 8",
+    "section": "",
+    "text": "Fundamentals of Data Visualization by Claus O. Wilke\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 10: Exploratory Data Analysis\n\n\n\n\n The R Graph Gallery\n ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.\n Sim Daltonism: The color blindness simulator\n\n\n\n\n\n\nWhat are the fundamentals of data visualization?\nWhat is exploratory data analysis?\n\n\n\n\n Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#readings",
+    "href": "content/w8-content.html#readings",
+    "title": "Week 8",
+    "section": "",
+    "text": "Fundamentals of Data Visualization by Claus O. Wilke\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 10: Exploratory Data Analysis\n\n\n\n\n The R Graph Gallery\n ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.\n Sim Daltonism: The color blindness simulator",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#questionstopics-well-address-this-week",
+    "href": "content/w8-content.html#questionstopics-well-address-this-week",
+    "title": "Week 8",
+    "section": "",
+    "text": "What are the fundamentals of data visualization?\nWhat is exploratory data analysis?",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#slides",
+    "href": "content/w8-content.html#slides",
+    "title": "Week 8",
+    "section": "",
+    "text": "Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#fundamentals-of-data-visualization",
+    "href": "content/w8-content.html#fundamentals-of-data-visualization",
+    "title": "Week 8",
+    "section": "Fundamentals of Data Visualization",
+    "text": "Fundamentals of Data Visualization\nLast week we covered the technical side of creating data visualizations with ggplot. As you’ll soon find out (if you haven’t already), writing the code will quickly become the easy part – making the plot and its message “click” is the tough part. There are tons of resources on doing this, and entire courses dedicated to just this topic, so our treatise of it will of course be surface-level only. Please check the course resources above for additional work (especially Claus Wilke’s book on which many of the topics below are based), and check out Cory Hirsh’s Data Visualization in Plant and Microbial Biology (and the dozens of other data viz courses that exist on campus. I also may develop a dedicated workshop for Biology/Ecology in the coming year or two…).",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#priciples-of-visualizations",
+    "href": "content/w8-content.html#priciples-of-visualizations",
+    "title": "Week 8",
+    "section": "Priciples of Visualizations",
+    "text": "Priciples of Visualizations\nWith all of those different plots in mind, let’s now talk about some of the general principles and theory around building effective, elegant visualizations.\n\nColor use/pitfalls\nColor is wonderful! But, it can also be distracting. When we build data visualizations, it’s essential that we use color adequately and deliberately. There are a few general rules for color use:\n\nColor as a tool to distinguish: use to distinquish discrete items or groups that don’t have an intrinsic order (i.e., groups). Here, we use qualitative color scales where colors are selected to be distinct, but equivalent in their intensity, hue, etc.\n\n\n\n\n\n\n\nColor to represent data values: Here, color represents values such as temperature, precipitation, or some other continuous data that have a specific order. Here, we use a sequential color scale. This way, it is clear that colors indicate larger or smaller values and how distant to specific values are from one another.\n\n\n\n\n\n\n\nIn the event we are visualizing the deviation of values in two directions relative to a midpoint (most commonly 0), we use a diverging color scale.\n\n\n\n\n\n\n\nColor as a tool to highlight: Sometimes we want to highlight specific elements in our dataset, such as specific categories or values that are essential for telling a particular story. Doing this will allow these elements to stand out relative to the other values and be immediately obvious to the reader. For these, we use accent color scales.\n\n\n\n\n\n\nA couple of quick pitfalls of color use:\n\nEncoding too much information to color: Sometimes we think that color can do more than it’s actually capable of and end up confusing or overwheming our audience/reader. Anything visualization with more than ~8 distinct colors in a qualitative scale and our brains basically give up. If we need to call-out specific values in this way, it’s best to use direct labeling of points rather than color.\n\n\n\n\n\n\n\n\n\n\n\n\nPrinciple of proportional ink\nWhen we display data values as bar or other graphical elements that encode values through phsyical dimensions (think bar charts, bubble plots, maps, etc), it’s essential that we avoid misleading presentation of our data. The sizes of shaded areas in a visualization need to be proportional to the data values they represent; this is known as the principle of proportional ink. Ink here referes to any part of the visualization that deviates from the background color (i.e., is derived from data).\nThis principle helps prevent misleading data visualizations by ensuring that:\n\nVisual differences reflect numerical differences. A value twice as large should generally look twice as large when represented by a size-based visual encoding.\nGraphs don’t exaggerate differences. Truncated axes in bar charts can make relatively small differences appear enormous.\nVisual comparisons remain intuitive. Readers should be able to interpret relative magnitudes without being misled by graphical design choices.\n\nTake this bar chart as an example:\n\n\n\n\n\n\n\n\n\n\n\nCaution\n\n\n\nThis figure is also misleading because it doens’t represent any measure of variation around our value of systolic BP. We’re presenting a mean value, but no sense of how consistent that value is across all of the reprentative samples it contains.\n\n\n\n\nDesign figures so they don’t need a legend\nLegends are great! But sometimes, they make us work harder than we need to by making us pull attention from one plot element to another and try to make connections between them. For example:\n\n\n\n\n\n\n\n\n\n\nWhenever possible, design your figures so that they don’t need a legend! You can do this through direct labeling, or being smart about how we code our axes if we are mapping a single variable to multiple aesthetics at once.\n\n\n\n\n\n\n\n\n\n\n\n\nBalancing plot elements\nAs we put together our plots, it’s important that we create visualizations that feel balanced with the amount of data that are potrayed relative to non-data elements (things like axes, tick marks, grid lines, legends, borders, background colors, etc.).\nThis can cut two ways: we can both overload a plot with non-data ink which distracts and is ugly: \nOr take away too much non-data ink which decontextualizes our data and can make the plot harder to interpret: \nCreating balanced plots ultimately comes down to preference and is a skill you’ll gain through time and by being open to feedback. There aren’t hard and fast rules about this.\n\n\nSimplicity, simplicity, simplicity!\nThis one is pretty simple, but also perhaps the most challenging to stick to. A simple visualization that communicates a central message well is always preferred over a complex, but beautiful visualization that muddies the message. Again, we return to the Great British Baking Show addage: style AND substance. When you have a dataset that you’ve worked tirelessly to collect, it’s so tempting to try and show it off as much as you possibly can. That’s understandable! But, it’s more important to communicate a simple, effective message than to show everyone how much work you put into something.\nSome general tips on this end: 1. Avoid gratuitous 3D useage (and 3D at all if possible): 3D plots do one of two things on paper: look ugly, or struggle to convey your datas position adequately. If you need to use 3D (sometimes merited), you’ll often need to animate your plot to be fully effective. More often than not, there are better ways to portray those data in 2 dimensions.\n\nDon’t encode information simply because it’s available in your dataset: Not everything needs to be plotted simultaenously! Think carefully about what you chose to display.\nConsider whether the visualization works at a glance: When reading a paper, I should be able to get the main take-away from the paper JUST by looking at the figures, their titles, and captions.\nBuild up toward complex figures: This is particularly useful in presentations where we can ease folks into a complex visualization by first showing them a simplified version to help orient them to the axes and aesthetics.\nBe consistent, but not repetitive: Again, this more matters for presentations. Choose different visualization types for distinct analyses. People get fatigued looking at 15 of the exact same type of plot because you know how to create it. Choose the best plot for your type of data and what you want to convey, but don’t feel like you must only use that plot forevermore.\nBuild your figures for the CEO: I.e., people who are very busy and can’t spend half an hour deciphering your plot. This is especially true for things like proposals, presentations, and reports.",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#exploratory-data-analysis",
+    "href": "content/w8-content.html#exploratory-data-analysis",
+    "title": "Week 8",
+    "section": "Exploratory Data Analysis",
+    "text": "Exploratory Data Analysis\nAfter cleaning and wranglin’ our data, exploratory data analysis is the next step toward understanding how your dataset is structured and to do the following:\n\nSummarize main characteristics: means of groups, variation, spread, normality, etc.\nSpot anomalies: find odd data points, outliers, or miscoded data before it finds its way into an analysis.\nFind patterns: these could be related to your central questions, or entirely unexpected patterns that manifest because of some real biological phenomenon, or because of some systematic bias in your data.\n\nEDA can also help guide you toward questions that you can ask if you are working with a dataset that is purely correlative or from observational work rather than from a controlled, designed experiment. Even if you have data from a controlled experiment, EDA can still be a good way to explore interesting patterns outside of your pre-conceived hypotheses and experimental design. While there’s no formal protocol on EDA, in general we want to do the following:\n\nGenerate questions about your data\nSearch for answers by visualizing, transforming, and “modeling” your data\nUse what you learn to refine questions and/or generate new questions\n\n\nEDA checklist\n\n\n\n\n\n\n\nEDA activity\nQuestions to ask\n\n\n\n\nDataset structure\nWhat are my observations? What does each row represent?\n\n\nDistributions\nHow are my variables distributed? Are they skewed, bimodal, or approximately normal?\n\n\nMissing data\nWhere and why are observations missing? Is missingness associated with particular groups, sites, or dates?\n\n\nSample sizes\nAre observations balanced across groups, treatments, or sampling locations?\n\n\nVariation\nHow much variability exists within and among groups?\n\n\nRelationships\nHow are variables related to one another? Are relationships linear, nonlinear, or absent?\n\n\nTemporal patterns\nAre there seasonal, annual, or other temporal trends?\n\n\nSpatial patterns\nAre observations spatially clustered? Are there geographic patterns?\n\n\nOutliers\nAre unusual observations errors, measurement artifacts, or meaningful biological variation?\n\n\nSampling bias\nCould differences in sampling effort, detectability, or methodology explain observed patterns?\n\n\nTransformations\nWould transforming variables or using alternative summaries help reveal patterns?\n\n\nExperimental design\nDoes the structure of my data reflect the experimental design? Am I accounting for blocks, sites, repeated measures, or other dependencies?\n\n\nBiological interpretation\nAre observed patterns biologically meaningful, or could they reflect statistical artifacts or confounding variables?\n\n\nNew questions\nWhat unexpected patterns have emerged? What additional questions should I investigate?\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nIf you are working with data from a carefully designed experiment (e.g., randomized complete block design), it’s critical that we also analyze our data consistent with the manner in which the data were collected! EDA can help us ask additional questions, but we want to be sure to respect the work and purpose of the experimental design first and foremost.\n\n\n\n\n\n\n\n\nTip\n\n\n\nThe esquisse package is an excellent tool for EDA if you don’t want to have to repeatedly code up plots. It’s an interactive GUI (graphical user interface) to build plots by dragging and dropping and toggling various features. In the end, it will generate the ggplot code for you that you can then put into your reports/markdown documents.",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#a-bestiary-of-plots",
+    "href": "content/w8-content.html#a-bestiary-of-plots",
+    "title": "Week 8",
+    "section": "A bestiary of plots",
+    "text": "A bestiary of plots\nThere’s about a zillion different ways to display data. There’s also many “right ways” and many “wrong ways”, but often no single “best” way to build a plot. One of the best ways to brainstorm what sort of visualization you want to create for your data is to look around at what other folks have done. I have a whole folder in my paper library dedicated to excellent visualizations. This sort of thing is great to have in your back pocket to see what works well and what speaks to you aesthetically.\nBelow are a whole bunch of different ways to display data of varying types. These were created by Claus Wilke, and he details how to create each of these plots in his online book, “Fundamentals of Data Visualization” (see chapters 5-16). As you’re buildng plots, this is an excellent place to start to see how the various ggplot calls are coded (i.e., what aesthetics and geoms they use, how their tibbles are structured, etc.).\n\nAmounts\n \n\n\nDistributions\n \n\n\nProportions\n  \n\n\nUncertainty\n  \n\n\n\n\n\n\nImportant\n\n\n\nAny time you are plotting a mean value, either from a basic data summary, or a modeled value, it is essential that you also show the uncertainty around that value. The uncertainty calculations can include standard deviations, standard errors, and confidence/credible intervals\n\n\n\n\nx-y relationships\n  \n\n\nGeospatial data",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
   },
   {
     "objectID": "content/w6-content.html",
@@ -514,7 +694,7 @@
     "href": "content/w2-content.html#tour-de-objects",
     "title": "Week 2",
     "section": "Tour de Objects 🚴 🚴 🚴💨",
-    "text": "Tour de Objects 🚴 🚴 🚴💨\nAs we discussed last week, programming in R is all about creating, maniupulating, and operating on objects.\n\nThe atomic data types\nR has 6 basic (“atomic”) vector types, but 4 are most commonly used:\n\n\n\n\n\n\n\n\nType\nDescription\nExamples\n\n\n\n\nLogical\nBoolean values (TRUE / FALSE)\nTRUE, FALSE, T, F\n\n\nNumeric (Double)\nReal numbers (default numeric type)\n3.14, 42.0\n\n\nNumeric (Integer)\nWhole numbers (designated with L)\n42L\n\n\nCharacter\nText strings\n\"hello\", \"camera trap\"\n\n\nComplex / Raw\nImaginary numbers or raw bytes (rare)\n1 + 4i, charToRaw(\"A\")\n\n\n\n\n\n\n\n\n\nTipType Checking\n\n\n\nUse typeof() to check an object’s underlying storage type, and is.* functions (e.g., is.numeric(), is.character()) to test for specific types.\n\n\n\n# Create atomic variables\nmy_numeric   &lt;- 42.5\nmy_integer   &lt;- 42L\nmy_character &lt;- \"iBUG Lab\"\nmy_logical   &lt;- TRUE\n\n# Check types\ntypeof(my_numeric)\n\n[1] \"double\"\n\ntypeof(my_integer)\n\n[1] \"integer\"\n\nis.numeric(my_character)\n\n[1] FALSE\n\n\n\n\n\n\n\n\nTipType Converting\n\n\n\nWe can use as.* functions to convert between atomic data types (e.g., as.numeric(\"1\") if for some reason our numeric values were imported as character strings)\n\n\n\n\nVectors\nA vector is a 1-dimensional collection of elements of the same type (that is, all numeric, character, etc.). We create vectors using the c() function which combines or concatenates elements.\n\nMixing data types in R will perform implicit coercion, which basically means it will convert everything into the most flexible type. The flexibility of objects in R from most to least is: character &gt; double &gt; integer &gt; logical.\nIn R, many functions or operations are vectorized, meaning they will apply math/functions/operations to every element of the vector automatically.\n\n\n# Creating a numeric vector\nmy_counts &lt;- c(12, 4, 30, 0)\n\n# Vectorized maths\nmy_counts_doubled &lt;- my_counts * 2\nmy_counts_doubled\n\n[1] 24  8 60  0\n\n# Coercion of data: what do you think this will be converted to?\nmessy_vector &lt;- c(1, \"shikaka\", TRUE)\ntypeof(messy_vector)\n\n[1] \"character\"\n\n\nVectors can also have named elements which can be used to reference specific values:\n\nmy_vector &lt;- c(vial_1 = 20, vial_2 = 43, vial_3 = 12)\nmy_vector\n\nvial_1 vial_2 vial_3 \n    20     43     12 \n\n\n\n\nLists\nLists are very much like vectors, but they can hold different data types (including things like other lists). You can essentially put anything into them and retain its native data type.\n\nCreated using list()\nWe access elements using single brackets [] (which returns a sub-list) or double brackets [[]] or $ (which extracts the actual object, e.g., another list, character, or vector).\n\n\n# Creating a list\ncamera_traps &lt;- list(\n  site_id = \"SITE-01\",\n  active = TRUE,\n  battery = 88.5,\n  target_species = c(\"affinis\", \"auricomus\", \"impatiens\")\n)\n\n# Exctracting/accessing elements\ncamera_traps$site_id\n\n[1] \"SITE-01\"\n\ncamera_traps[[4]][1] # list element 4, object 1 (i.e., first target species)\n\n[1] \"affinis\"\n\n\nWe can visualize lists using a series of nested boxes, as well as how different subsetting commands grab data from lists:\n\n\n\n\n\n\n\nData frames and tibbles\nMost of us will work with tabular data 90% of the time. Tabular data, that is, a standard excel or Google Sheets file, arranged in a two-dimensional grid of rows and columns, is what most of us are familiar using to aggregate data from experiments and observational studies. When we bring these data into R, we’ll bring them in as data frames. At their core, data frames are essentially lists (each list is a “column”) of equal-length vectors (each vector element is a “row”).\n\n\n\n\n\n\nAccessing data in data frames\nBecause data frames are essentially lists, the manner in which we access data is very similar. We’ll discuss more advanced/modern ways to access data in the coming weeks, but the base R ways to get at data are:\n\nExtract column:\n\nBy name:my_df$col_1 or my_df[, \"col_1\"] or my_df[[\"col_1\"]]\nBy index: my_df[, 1] or my_df[[1]]\n\nExtract row:\n\nmy_df[1, ] (extracts row 1 across all columns)\n\nExtract cell:\n\nmy_df[1, \"col_1\"] or my_df[1, 1]\n\nExtract range:\n\nmy_df[1:5, c(\"col_1\", \"col_2\")]\n\n\n\n\nOk, got data frames ✅, what the hell is a tibble?\nGreat question! A tibble is a type of data frame. But a data frame is not necessarily a tibble! Tibbles are a special type of data frame that belong to the Tidyverse: a series of R packages and a philosophy of data organization and presentation. The developers describe them as: &gt; “Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.”\nThe visualization capacity alone makes them worth using, and they play nicely with all of the other tidyverse packages that we’ll be using throughout this semester. Here are the big advantages of tibbles:\n\nNo unintended vector dropping (drop = FALSE by default): When subsetting a single column in a standard data.frame, base R silently simplifies the output into a 1D vector. A tibble always returns a 2D tibble unless explicitly told otherwise, preventing downstream code breakage in functions expecting tabular data.\n\nlibrary(tibble)\n\n# Base Data Frame\ndf &lt;- data.frame(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(df[, \"a\"]) \n# [1] \"integer\"  &lt;-- Automatically dropped to a vector!\n\n# Tibble\ntbl &lt;- tibble(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(tbl[, \"a\"]) \n# [1] \"tbl_df\" \"tbl\" \"data.frame\"  &lt;-- Remains a 1-column tibble!\n\nNo partial name matching: Base data frames try to guess column names if you make a typo or use shorthand. Tibbles require exact column matching and trigger a warning if a column doesn’t exist, preventing silent logical errors.\n\n# Base Data Frame (Silently matches \"species_name\" via \"$spec\")\ndf &lt;- data.frame(species_name = c(\"affinis\", \"impatiens\"))\ndf$spec\n# [1] \"affinis\" \"impatiens\"  &lt;-- Dangerous!\n\n# Tibble\ntbl &lt;- tibble(species_name = c(\"affinis\", \"impatiens\"))\ntbl$spec\n# NULL\n# Warning message: Unknown or uninitialised column: `spec`.\n\nBetter printing for large datasets: Printing a large data.framecan easily overwhelm your screen by dumping thousands of rows and wrapping dozens of columns. Tibbles automatically truncate output to 10 rows, fit columns to your console width, displays data types for every column, and adds colored text to help elements stand out.\n\nlibrary(tibble)\n# Creating a large-ish dataset\ndf_large  &lt;- data.frame(id = 1:100, x = runif(100), y = rnorm(100))\ntbl_large &lt;- as_tibble(df_large)\n\n# Printing base df floods the console with oodles of lines\nprint(df_large) \n\n     id           x           y\n1     1 0.846971747 -0.90424642\n2     2 0.237635408  0.32083025\n3     3 0.913101615 -2.13605609\n4     4 0.314767216 -0.54484110\n5     5 0.992913543  1.03683451\n6     6 0.243209406  0.93376517\n7     7 0.040840233 -0.52110798\n8     8 0.280899800 -0.11272041\n9     9 0.570847587  0.90056653\n10   10 0.780772723 -1.98555696\n11   11 0.022501499  1.33554061\n12   12 0.855148571 -1.42708479\n13   13 0.209546268 -0.40358762\n14   14 0.249368079  0.16633702\n15   15 0.919769567  0.93470915\n16   16 0.503277881  0.69345104\n17   17 0.375236165  0.47821182\n18   18 0.409264501 -1.23269192\n19   19 0.812988917  0.33197685\n20   20 0.396184367  0.64536357\n21   21 0.366420522  0.04193640\n22   22 0.527222162  0.33662905\n23   23 0.393947192  0.29281345\n24   24 0.150948185  2.19847455\n25   25 0.614218951  0.92194299\n26   26 0.240933074  1.07244333\n27   27 0.860235810  0.23920839\n28   28 0.746340949  1.20853941\n29   29 0.883852837  0.21230109\n30   30 0.407512753  1.12806798\n31   31 0.758951006 -0.80534271\n32   32 0.278857369  0.37167106\n33   33 0.407328684  1.08141436\n34   34 0.249387646  2.04885687\n35   35 0.411137604 -1.34124982\n36   36 0.735709984  0.10554117\n37   37 0.803897359 -1.70146208\n38   38 0.653022086 -0.75703558\n39   39 0.647805544  0.47909707\n40   40 0.474461855 -0.14220812\n41   41 0.222417559 -1.23538361\n42   42 0.421204493 -0.47567721\n43   43 0.700416015  0.69157630\n44   44 0.728342782  1.04357239\n45   45 0.305455757 -2.03226015\n46   46 0.097124588 -0.14160305\n47   47 0.608116306  1.13215623\n48   48 0.641332495 -1.27477519\n49   49 0.026571211 -0.06616651\n50   50 0.903927041  0.72948143\n51   51 0.710121849 -1.20325834\n52   52 0.917722754 -0.64551866\n53   53 0.668140884  0.13791466\n54   54 0.860041323 -0.53786309\n55   55 0.311004703 -1.07154761\n56   56 0.282896630  0.25851246\n57   57 0.560166650 -0.57664145\n58   58 0.248518921 -1.09029855\n59   59 0.878996707  1.35709512\n60   60 0.750748717  0.76415634\n61   61 0.849774640 -0.14048585\n62   62 0.735315542 -0.06622274\n63   63 0.864930290 -0.88353379\n64   64 0.659179491 -0.05170695\n65   65 0.804428517 -0.85442113\n66   66 0.435223790 -0.58507836\n67   67 0.840065873 -1.71369703\n68   68 0.018333977 -0.76468713\n69   69 0.922999462  0.42981509\n70   70 0.016826103  0.39854618\n71   71 0.698893168  0.66384458\n72   72 0.637517370 -0.19830298\n73   73 0.965683839 -0.63156332\n74   74 0.146667582 -0.21554106\n75   75 0.669352325  1.53929521\n76   76 0.642643720 -1.62332345\n77   77 0.874520443  0.79344419\n78   78 0.853475404 -1.00365994\n79   79 0.025197447 -0.05969488\n80   80 0.092328559  0.85866276\n81   81 0.240564835  1.34185602\n82   82 0.908360164  1.40480107\n83   83 0.997700445 -0.37994963\n84   84 0.009570935  0.18009694\n85   85 0.262589057  0.93548719\n86   86 0.352742222 -1.01036068\n87   87 0.587223049  0.51522676\n88   88 0.915719655 -0.79499819\n89   89 0.833980440  0.58494694\n90   90 0.265442372 -0.02302324\n91   91 0.920569520 -0.30042586\n92   92 0.689945294 -0.08597997\n93   93 0.182514591 -0.39832196\n94   94 0.790797607  0.62813239\n95   95 0.904830231  0.48464342\n96   96 0.863924223  0.04848695\n97   97 0.200516245 -1.34732986\n98   98 0.878748955  0.72312950\n99   99 0.063868218  1.74717115\n100 100 0.328002191 -0.47767757\n\n# Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)\ntbl_large\n\n# A tibble: 100 × 3\n      id      x      y\n   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n 1     1 0.847  -0.904\n 2     2 0.238   0.321\n 3     3 0.913  -2.14 \n 4     4 0.315  -0.545\n 5     5 0.993   1.04 \n 6     6 0.243   0.934\n 7     7 0.0408 -0.521\n 8     8 0.281  -0.113\n 9     9 0.571   0.901\n10    10 0.781  -1.99 \n# ℹ 90 more rows\n\n\nBetter column construction: When creating a tibble, you can reference variables created earlier in the exact same call. Base data.frame throws an error if you attempt this.\n\n# Works in tibble\ntbl &lt;- tibble(\n  x = 1:5,\n  y = x * 2  # References 'x' immediately\n)\n\n\n\n\n\nFunctions\nFunctions are code objects that perform operations on some input (called arguments) and return some output. As we discussed last week, anything with some word followed by () is a function. R has thousands of built in functions, and packages that we install come with their own sets of functions. We can also create our own! In fact, we’ll spend a whole chunk of a class on this topic as knowing how to do this can save you a ton of time and make fewer mistakes than simply copying and pasting code over and over again.\nAs a quick example, we can create a function to calculate the rate at which we capture images of insects in a camera trap:\n\n# Defining our functions name and what it does\ncalculate_trap_rate &lt;- function(image_count, days_active) {\n  rate &lt;- image_count / days_active\n  return(rate)\n}\n\n# Using the function\ncalculate_trap_rate(image_count = 142, days_active = 7)\n\n[1] 20.28571",
+    "text": "Tour de Objects 🚴 🚴 🚴💨\nAs we discussed last week, programming in R is all about creating, maniupulating, and operating on objects.\n\nThe atomic data types\nR has 6 basic (“atomic”) vector types, but 4 are most commonly used:\n\n\n\n\n\n\n\n\nType\nDescription\nExamples\n\n\n\n\nLogical\nBoolean values (TRUE / FALSE)\nTRUE, FALSE, T, F\n\n\nNumeric (Double)\nReal numbers (default numeric type)\n3.14, 42.0\n\n\nNumeric (Integer)\nWhole numbers (designated with L)\n42L\n\n\nCharacter\nText strings\n\"hello\", \"camera trap\"\n\n\nComplex / Raw\nImaginary numbers or raw bytes (rare)\n1 + 4i, charToRaw(\"A\")\n\n\n\n\n\n\n\n\n\nTipType Checking\n\n\n\nUse typeof() to check an object’s underlying storage type, and is.* functions (e.g., is.numeric(), is.character()) to test for specific types.\n\n\n\n# Create atomic variables\nmy_numeric   &lt;- 42.5\nmy_integer   &lt;- 42L\nmy_character &lt;- \"iBUG Lab\"\nmy_logical   &lt;- TRUE\n\n# Check types\ntypeof(my_numeric)\n\n[1] \"double\"\n\ntypeof(my_integer)\n\n[1] \"integer\"\n\nis.numeric(my_character)\n\n[1] FALSE\n\n\n\n\n\n\n\n\nTipType Converting\n\n\n\nWe can use as.* functions to convert between atomic data types (e.g., as.numeric(\"1\") if for some reason our numeric values were imported as character strings)\n\n\n\n\nVectors\nA vector is a 1-dimensional collection of elements of the same type (that is, all numeric, character, etc.). We create vectors using the c() function which combines or concatenates elements.\n\nMixing data types in R will perform implicit coercion, which basically means it will convert everything into the most flexible type. The flexibility of objects in R from most to least is: character &gt; double &gt; integer &gt; logical.\nIn R, many functions or operations are vectorized, meaning they will apply math/functions/operations to every element of the vector automatically.\n\n\n# Creating a numeric vector\nmy_counts &lt;- c(12, 4, 30, 0)\n\n# Vectorized maths\nmy_counts_doubled &lt;- my_counts * 2\nmy_counts_doubled\n\n[1] 24  8 60  0\n\n# Coercion of data: what do you think this will be converted to?\nmessy_vector &lt;- c(1, \"shikaka\", TRUE)\ntypeof(messy_vector)\n\n[1] \"character\"\n\n\nVectors can also have named elements which can be used to reference specific values:\n\nmy_vector &lt;- c(vial_1 = 20, vial_2 = 43, vial_3 = 12)\nmy_vector\n\nvial_1 vial_2 vial_3 \n    20     43     12 \n\n\n\n\nLists\nLists are very much like vectors, but they can hold different data types (including things like other lists). You can essentially put anything into them and retain its native data type.\n\nCreated using list()\nWe access elements using single brackets [] (which returns a sub-list) or double brackets [[]] or $ (which extracts the actual object, e.g., another list, character, or vector).\n\n\n# Creating a list\ncamera_traps &lt;- list(\n  site_id = \"SITE-01\",\n  active = TRUE,\n  battery = 88.5,\n  target_species = c(\"affinis\", \"auricomus\", \"impatiens\")\n)\n\n# Exctracting/accessing elements\ncamera_traps$site_id\n\n[1] \"SITE-01\"\n\ncamera_traps[[4]][1] # list element 4, object 1 (i.e., first target species)\n\n[1] \"affinis\"\n\n\nWe can visualize lists using a series of nested boxes, as well as how different subsetting commands grab data from lists:\n\n\n\n\n\n\n\nData frames and tibbles\nMost of us will work with tabular data 90% of the time. Tabular data, that is, a standard excel or Google Sheets file, arranged in a two-dimensional grid of rows and columns, is what most of us are familiar using to aggregate data from experiments and observational studies. When we bring these data into R, we’ll bring them in as data frames. At their core, data frames are essentially lists (each list is a “column”) of equal-length vectors (each vector element is a “row”).\n\n\n\n\n\n\nAccessing data in data frames\nBecause data frames are essentially lists, the manner in which we access data is very similar. We’ll discuss more advanced/modern ways to access data in the coming weeks, but the base R ways to get at data are:\n\nExtract column:\n\nBy name:my_df$col_1 or my_df[, \"col_1\"] or my_df[[\"col_1\"]]\nBy index: my_df[, 1] or my_df[[1]]\n\nExtract row:\n\nmy_df[1, ] (extracts row 1 across all columns)\n\nExtract cell:\n\nmy_df[1, \"col_1\"] or my_df[1, 1]\n\nExtract range:\n\nmy_df[1:5, c(\"col_1\", \"col_2\")]\n\n\n\n\nOk, got data frames ✅, what the hell is a tibble?\nGreat question! A tibble is a type of data frame. But a data frame is not necessarily a tibble! Tibbles are a special type of data frame that belong to the Tidyverse: a series of R packages and a philosophy of data organization and presentation. The developers describe them as: &gt; “Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects.”\nThe visualization capacity alone makes them worth using, and they play nicely with all of the other tidyverse packages that we’ll be using throughout this semester. Here are the big advantages of tibbles:\n\nNo unintended vector dropping (drop = FALSE by default): When subsetting a single column in a standard data.frame, base R silently simplifies the output into a 1D vector. A tibble always returns a 2D tibble unless explicitly told otherwise, preventing downstream code breakage in functions expecting tabular data.\n\nlibrary(tibble)\n\n# Base Data Frame\ndf &lt;- data.frame(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(df[, \"a\"]) \n# [1] \"integer\"  &lt;-- Automatically dropped to a vector!\n\n# Tibble\ntbl &lt;- tibble(a = 1:3, b = c(\"x\", \"y\", \"z\"))\nclass(tbl[, \"a\"]) \n# [1] \"tbl_df\" \"tbl\" \"data.frame\"  &lt;-- Remains a 1-column tibble!\n\nNo partial name matching: Base data frames try to guess column names if you make a typo or use shorthand. Tibbles require exact column matching and trigger a warning if a column doesn’t exist, preventing silent logical errors.\n\n# Base Data Frame (Silently matches \"species_name\" via \"$spec\")\ndf &lt;- data.frame(species_name = c(\"affinis\", \"impatiens\"))\ndf$spec\n# [1] \"affinis\" \"impatiens\"  &lt;-- Dangerous!\n\n# Tibble\ntbl &lt;- tibble(species_name = c(\"affinis\", \"impatiens\"))\ntbl$spec\n# NULL\n# Warning message: Unknown or uninitialised column: `spec`.\n\nBetter printing for large datasets: Printing a large data.framecan easily overwhelm your screen by dumping thousands of rows and wrapping dozens of columns. Tibbles automatically truncate output to 10 rows, fit columns to your console width, displays data types for every column, and adds colored text to help elements stand out.\n\nlibrary(tibble)\n# Creating a large-ish dataset\ndf_large  &lt;- data.frame(id = 1:100, x = runif(100), y = rnorm(100))\ntbl_large &lt;- as_tibble(df_large)\n\n# Printing base df floods the console with oodles of lines\nprint(df_large) \n\n     id          x           y\n1     1 0.73025327 -0.52059631\n2     2 0.69302579 -0.06283762\n3     3 0.82310011 -1.61868508\n4     4 0.28632561  0.94348988\n5     5 0.78135987 -1.62809789\n6     6 0.55003591  0.39783727\n7     7 0.34247327 -0.48728849\n8     8 0.68262915  1.16862324\n9     9 0.35926650 -0.96707764\n10   10 0.67236237 -1.41420337\n11   11 0.09673416 -0.71709404\n12   12 0.68711508 -0.18480798\n13   13 0.52575874 -0.14573869\n14   14 0.87420700  1.31731708\n15   15 0.15226810 -0.26914415\n16   16 0.38841651  0.32023495\n17   17 0.54679013 -0.36922215\n18   18 0.23376412 -1.48507192\n19   19 0.59283008 -1.58558538\n20   20 0.98452703 -1.53501869\n21   21 0.46144672  0.20994551\n22   22 0.46724198  0.03893615\n23   23 0.59036015 -0.36297923\n24   24 0.52878761 -0.33106981\n25   25 0.52980599  1.02386468\n26   26 0.29643923  1.33184023\n27   27 0.82740934  0.92008586\n28   28 0.34775645 -0.71154061\n29   29 0.70476504 -0.34798343\n30   30 0.90717638 -0.47231363\n31   31 0.11463220 -0.51098087\n32   32 0.87186418  1.78131321\n33   33 0.49292268  1.49536167\n34   34 0.36412598 -0.22647745\n35   35 0.11988577 -0.11599046\n36   36 0.46871928 -0.27565201\n37   37 0.15186112 -0.55685910\n38   38 0.15932904  2.34124491\n39   39 0.74151890  0.97554784\n40   40 0.61471093 -0.34019422\n41   41 0.91585081 -1.14657017\n42   42 0.18624415 -1.16725741\n43   43 0.65418450 -0.73442186\n44   44 0.09495909 -0.07668326\n45   45 0.81460377  0.10379310\n46   46 0.12784239  0.57670996\n47   47 0.94918535 -0.43828206\n48   48 0.16925230  0.22051745\n49   49 0.47042745  0.04320255\n50   50 0.81007458  0.99656758\n51   51 0.84821261  0.04836724\n52   52 0.08413225 -0.97698814\n53   53 0.64797276 -0.03350873\n54   54 0.25604353 -0.73643591\n55   55 0.79417373  0.14157103\n56   56 0.43779980 -0.70674809\n57   57 0.31318606 -0.44231349\n58   58 0.43319432 -1.18541595\n59   59 0.79062055  0.65428736\n60   60 0.66529281 -1.31011775\n61   61 0.26962010  0.27768595\n62   62 0.26786743 -0.59322988\n63   63 0.60188957 -0.69954650\n64   64 0.10040750 -1.05397944\n65   65 0.89177548 -0.22276331\n66   66 0.30094476  0.45380497\n67   67 0.12664441  0.92002700\n68   68 0.60016344 -0.34904640\n69   69 0.90933935 -0.62624983\n70   70 0.97075759  1.26466581\n71   71 0.91004136 -0.93973393\n72   72 0.26942653 -1.43626106\n73   73 0.11411464 -0.15146703\n74   74 0.16678562  1.29043604\n75   75 0.25271576  0.10895075\n76   76 0.03370840 -0.96492803\n77   77 0.08476921  0.73705570\n78   78 0.34287034 -1.23556251\n79   79 0.29360864  0.29600113\n80   80 0.45394273 -0.65759776\n81   81 0.03233205  0.80866479\n82   82 0.22378928  0.07038601\n83   83 0.81634796 -0.72359577\n84   84 0.88753563  0.87381656\n85   85 0.52155747  0.28568162\n86   86 0.68653724 -1.55838732\n87   87 0.98333703  0.55089216\n88   88 0.01319318  0.22273416\n89   89 0.72049042  0.06432764\n90   90 0.38031347 -1.19190115\n91   91 0.39521680  0.18571346\n92   92 0.27055807  1.05349249\n93   93 0.36034881 -0.25159156\n94   94 0.25250044  0.75106620\n95   95 0.92118759 -0.92114876\n96   96 0.80688129 -1.68654040\n97   97 0.22838303  0.16228135\n98   98 0.54755355  0.68451238\n99   99 0.89726412  1.38330644\n100 100 0.16529373 -0.34587430\n\n# Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)\ntbl_large\n\n# A tibble: 100 × 3\n      id     x       y\n   &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt;\n 1     1 0.730 -0.521 \n 2     2 0.693 -0.0628\n 3     3 0.823 -1.62  \n 4     4 0.286  0.943 \n 5     5 0.781 -1.63  \n 6     6 0.550  0.398 \n 7     7 0.342 -0.487 \n 8     8 0.683  1.17  \n 9     9 0.359 -0.967 \n10    10 0.672 -1.41  \n# ℹ 90 more rows\n\n\nBetter column construction: When creating a tibble, you can reference variables created earlier in the exact same call. Base data.frame throws an error if you attempt this.\n\n# Works in tibble\ntbl &lt;- tibble(\n  x = 1:5,\n  y = x * 2  # References 'x' immediately\n)\n\n\n\n\n\nFunctions\nFunctions are code objects that perform operations on some input (called arguments) and return some output. As we discussed last week, anything with some word followed by () is a function. R has thousands of built in functions, and packages that we install come with their own sets of functions. We can also create our own! In fact, we’ll spend a whole chunk of a class on this topic as knowing how to do this can save you a ton of time and make fewer mistakes than simply copying and pasting code over and over again.\nAs a quick example, we can create a function to calculate the rate at which we capture images of insects in a camera trap:\n\n# Defining our functions name and what it does\ncalculate_trap_rate &lt;- function(image_count, days_active) {\n  rate &lt;- image_count / days_active\n  return(rate)\n}\n\n# Using the function\ncalculate_trap_rate(image_count = 142, days_active = 7)\n\n[1] 20.28571",
     "crumbs": [
       "Content",
       "Module 1: Introduction to Data Science and R",
@@ -678,354 +858,6 @@
     ]
   },
   {
-    "objectID": "content/slides/w6-slides.html#this-week-beyond-the-basic-verbs",
-    "href": "content/slides/w6-slides.html#this-week-beyond-the-basic-verbs",
-    "title": "Week 6",
-    "section": "This week: beyond the basic verbs",
-    "text": "This week: beyond the basic verbs\nSo far, we’ve learned how to manipulate a single data frame.\nThis week we’ll tackle some of the messier realities of biological data:\n\n🔗 Combining data from multiple sources\n🕳️ Finding and handling missing data\n🔤 Working with text and strings\n📅 Working with dates and times\n🏷️ Working with categorical data"
-  },
-  {
-    "objectID": "content/slides/w6-slides.html#combining-data-joins",
-    "href": "content/slides/w6-slides.html#combining-data-joins",
-    "title": "Week 6",
-    "section": "🔗 Combining data: joins",
-    "text": "🔗 Combining data: joins\n\nMost ecological studies involve multiple datasets. We often need to connect observations to:\n\n\nsite metadata\nenvironmental measurements\nspecies information\nexperimental treatments\nsampling information/methods"
-  },
-  {
-    "objectID": "content/slides/w6-slides.html#keys-the-connection-between-datasets",
-    "href": "content/slides/w6-slides.html#keys-the-connection-between-datasets",
-    "title": "Week 6",
-    "section": "🔑 Keys: the connection between datasets",
-    "text": "🔑 Keys: the connection between datasets\n\nTo do this, we can use one or more variables to connect observations across datasets. These variables are called keys.\n\nPrimary key: A variable—or combination of variables—that uniquely identifies an observation. For example, sample_id\nIf one variable isn’t enough, we can use a compound key: site_code + year\nForeign key: A variable in another dataset that corresponds to the primary key.\n\n\n\n\n\n\nImportant\n\n\nBefore joining, ask: Does my key actually uniquely identify the observations I think it does?\ncount(data, site_code, year)"
-  },
-  {
-    "objectID": "content/slides/w6-slides.html#which-join-do-i-need",
-    "href": "content/slides/w6-slides.html#which-join-do-i-need",
-    "title": "Week 6",
-    "section": "🔗 Which join do I need?",
-    "text": "🔗 Which join do I need?\n\n\n\nJoin\nWhat happens?\n\n\n\n\nleft_join()\nKeep all x, add matching information from y\n\n\nright_join()\nKeep all y, add matching information from x\n\n\ninner_join()\nKeep only observations found in both\n\n\nfull_join()\nKeep everything from both\n\n\nsemi_join()\nKeep x if a match exists in y\n\n\nanti_join()\nKeep x if no match exists in y\n\n\n\nThe workhorse join: left_join()\nsurveys |&gt;\n  left_join(site_metadata,\n            by = join_by(site_code, year))\n\n\n\n\n\n\nTip\n\n\nBe explicit about your join keys whenever possible!"
-  },
-  {
-    "objectID": "content/slides/w6-slides.html#missing-data-not-all-nas-are-equal",
-    "href": "content/slides/w6-slides.html#missing-data-not-all-nas-are-equal",
-    "title": "Week 6",
-    "section": "🕳️ Missing data: not all NAs are equal",
-    "text": "🕳️ Missing data: not all NAs are equal\n\nMissingness can be explicit or implicit.\n\nExplicit missingness: The row exists, but a value is missing:\nsite     species      count\nA        Bombus       12\nA        Andrena      NA\nImplicit missingness: The observation itself is absent:\nsite     week\nA        1\nA        2\nA        3\n# Week 4 is missing entirely\n\n\n\n\n\n\nImportant\n\n\nYou can’t handle missing data until you know what kind of missingness you have."
-  },
-  {
-    "objectID": "content/slides/w6-slides.html#handling-missing-data",
-    "href": "content/slides/w6-slides.html#handling-missing-data",
-    "title": "Week 6",
-    "section": "🧹 Handling missing data",
-    "text": "🧹 Handling missing data\n\nThere is no universally correct way to handle missing values. Your approach depends on:\n\n\nhow the data were collected/why the value is missing\nwhat question you’re asking/what your analysis requires\n\nSome useful tools:\n# Carry metadata downward\nfill(site, habitat, .direction = \"down\")\n\n# Replace NA with a known value\ncoalesce(count, 0)\n\n# Convert a placeholder to NA\nna_if(count, -999)\n\n# Make implicit missingness explicit\ncomplete(site, week)\n\n\n\n\n\n\nCaution\n\n\nNever automatically replace NA with zero."
-  },
-  {
-    "objectID": "content/slides/w6-slides.html#working-with-strings-1",
-    "href": "content/slides/w6-slides.html#working-with-strings-1",
-    "title": "Week 6",
-    "section": "🔤 Working with strings",
-    "text": "🔤 Working with strings\n\nBiological datasets often contain a lot of text. We’ll need some special tools to work with data like:\n\n\nspecies names\nsite IDs\nsample IDs\nhabitat descriptions\nnotes and field observations\n\nThe stringr package gives us tools for finding and modifying patterns.\nstr_detect(species, \"Bombus\")\n\nstr_replace_all(\n    species,            # Vector of strings to replace\n    \"B\\\\. impatiens\",   # Search pattern\n    \"Bombus impatiens\"  # Replace with\n    )\n\nstr_extract(sample_id, \"20\\\\d{2}\")\n\nstr_split(location, \",\")\n\n\n\n\n\n\nThe central skill to learn here:\n\n\nRegular expressions let us describe patterns rather than exact strings. You don’t need to memorize them—learn to recognize when you need them and look them up using cheatsheet."
-  },
-  {
-    "objectID": "content/slides/w6-slides.html#dates-times-1",
-    "href": "content/slides/w6-slides.html#dates-times-1",
-    "title": "Week 6",
-    "section": "📅 Dates & times",
-    "text": "📅 Dates & times\n\nDates should be stored as date/time objects, not ordinary character strings.\n\nWe can convert these data during during import:\nread_csv(\n  \"data.csv\",\n  col_types = cols(\n    capture_date = col_date(\"%d-%b-%Y\")\n  )\n)\nThen lubridate lets us extract useful information:\nmutate(\n  year  = year(capture_date),\n  month = month(capture_date, label = TRUE),\n  doy   = yday(capture_date)\n)"
-  },
-  {
-    "objectID": "content/slides/w6-slides.html#categorical-data-factors-1",
-    "href": "content/slides/w6-slides.html#categorical-data-factors-1",
-    "title": "Week 6",
-    "section": "🏷️ Categorical data: factors",
-    "text": "🏷️ Categorical data: factors\n\nFactors are R’s way of representing categorical variables. Common biological/ecological examples:\n\n\ntreatment\nhabitat\nsite\nspecies\nsampling period\n\ndisease_stage &lt;- factor(\n  disease_stage,\n  levels = c(\n    \"Stage I\",\n    \"Stage II\",\n    \"Stage III\",\n    \"Stage IV\"\n  ),\n  ordered = TRUE\n)\n\n\n\n\n\n\nImportant\n\n\nR otherwise uses its default level ordering—which may not match the biological or experimental order you want."
-  },
-  {
-    "objectID": "content/slides/w4-slides.html#what-well-cover-this-week",
-    "href": "content/slides/w4-slides.html#what-well-cover-this-week",
-    "title": "Week 4",
-    "section": "What we’ll cover this week",
-    "text": "What we’ll cover this week\n\n\n What is GitHub?\n\n\n\n\n Setting up GitHub\n\n\n\n\n Touring GitHub"
-  },
-  {
-    "objectID": "content/slides/w4-slides.html#github-is-the-online-home-for-our-git-projects",
-    "href": "content/slides/w4-slides.html#github-is-the-online-home-for-our-git-projects",
-    "title": "Week 4",
-    "section": "GitHub is the online home for our Git projects",
-    "text": "GitHub is the online home for our Git projects\n\nGitHub is sort of like a GoogleDrive or Box service specifically for code-based projects that utilize Git as a version control system. GitHub provides a home for your Git-based projects on the web.\n\n\n\n It allows other people (or you) to see your stuff, sync up with the most current development/version, and even make changes/work collaboratively.\n\n\n\n\n From a the perspective of reproducible science, GitHub provides an essentially universally accessible home for our projects so that anyone can access, download, run, reporpose, and cite our work.\n\n\n\n\n\n\n\n\n\nNote\n\n\nThere are several other hosting services – things like BitBucket and GitLab – that can do the same thing. We focus on GitHub because of its ubiquity and wide-spread use and perks it provides academics."
-  },
-  {
-    "objectID": "content/slides/w4-slides.html#personal-access-tokens-pat",
-    "href": "content/slides/w4-slides.html#personal-access-tokens-pat",
-    "title": "Week 4",
-    "section": "🪙 Personal Access Tokens (PAT)",
-    "text": "🪙 Personal Access Tokens (PAT)\n\nWe won’t be able to just magically start “talking” to our GitHub account from RStudio. If it were that easy, everyone would be able to do it and nothing would be secure! We need to configure out access!\n\n\n\n Rather than giving Git locally our username and password, we’ll use Personal Access Tokens\n\n\n\n\n Username and passwords is like giving someone the masterkey to a building; they can use it to go anywhere and do anything (including deleting your whole-ass account and everything in it 😬)\n\n\n\n\n A PAT is like a special keycard created for a single job (like RStudio) that can only unlock specific doors and automatically expires after a set period."
-  },
-  {
-    "objectID": "content/slides/w4-slides.html#connecting-git-projects-to-github",
-    "href": "content/slides/w4-slides.html#connecting-git-projects-to-github",
-    "title": "Week 4",
-    "section": "Connecting Git projects to GitHub",
-    "text": "Connecting Git projects to GitHub\n\nSo far, we’ve been working entirely locally with our R projects and Git repos. We now need to get these pieces connected and talking to our “offsite” platform that safely hosts our project and ensures we never lose our work locally.\n\n\n\n Because our GitHub will host multiple projects/repositories, we need to ensure our local Git commits and project point to the correct project.\n\n\n\n\n Recall from earlier slides that this amounts to configuring our “remote” project location via Git. Our git repo on GitHub is the remote!"
-  },
-  {
-    "objectID": "content/slides/w4-slides.html#connecting-git-projects-to-github-1",
-    "href": "content/slides/w4-slides.html#connecting-git-projects-to-github-1",
-    "title": "Week 4",
-    "section": "Connecting Git projects to GitHub",
-    "text": "Connecting Git projects to GitHub\n\nThere are three primary ways to connect Git projects (i.e., RStudio projects) to GitHub. I outline each below, and in the workshop we’ll work through some of these.\n\n\n\nNew project, GitHub first: the easiest way to get a project up and running\n\n\n\n\nExisting project, GitHub first: a sort of create and copy approach. Not the best option, but it works just fine\n\n\n\n\nExisting project, GitHub last: the “proper” way to connect existing project especially when you have an existing Git repo up and running in the project\n\n\n\n\n\n\n\n\n\nTip\n\n\nI suggest you use the first option whenever possible, followed by 3, and finally 2. While 2 works, you run the risk of improperly copying or moving files and it sort of adds a lot of unncessary work."
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#what-well-cover-this-week",
-    "href": "content/slides/w1-slides.html#what-well-cover-this-week",
-    "title": "Week 1",
-    "section": "What we’ll cover this week",
-    "text": "What we’ll cover this week\n\n\n Who am I?\n\n\n\n\n Course logistics and learning objectives\n\n\n\n\n Course survey\n\n\n\n\n What is data science?\n\n\n\n\n Reproducibility crisis\n\n\n\n\n The data life cycle, and being FAIR"
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#jeremy-hemberger-phd",
-    "href": "content/slides/w1-slides.html#jeremy-hemberger-phd",
-    "title": "Week 1",
-    "section": "Jeremy Hemberger, PhD",
-    "text": "Jeremy Hemberger, PhD\nAssistant Professor - Department of Entomology   👨🏻‍🔬 I lead the Insect Biodiversity under Global Change lab 🐝 Research: global change impacts on insects 👨🏻‍🏫 Teaching: quantitative methods in ecology and entomology"
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#jeremy-hemberger-phd-1",
-    "href": "content/slides/w1-slides.html#jeremy-hemberger-phd-1",
-    "title": "Week 1",
-    "section": "Jeremy Hemberger, PhD",
-    "text": "Jeremy Hemberger, PhD\nAssistant Professor - Department of Entomology   🏫 Office location: 408 Hodson  🕥 Office hours: 8:00-12:00 Mondays (in person)"
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#wrangling-chaos-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d",
-    "href": "content/slides/w1-slides.html#wrangling-chaos-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d",
-    "title": "Week 1",
-    "section": "Wrangling chaos ",
-    "text": "Wrangling chaos"
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#wrangling-chaos-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-1",
-    "href": "content/slides/w1-slides.html#wrangling-chaos-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-1",
-    "title": "Week 1",
-    "section": "Wrangling chaos ",
-    "text": "Wrangling chaos"
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#wrangling-chaos-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-2",
-    "href": "content/slides/w1-slides.html#wrangling-chaos-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-2",
-    "title": "Week 1",
-    "section": "Wrangling chaos ",
-    "text": "Wrangling chaos \n\nThere’s no one single definition of data science, but a broad definition that we can use here is a field of study that uses scientific methods, processes, and systems to extract knowledge and insights from data"
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#data-science-statistics",
-    "href": "content/slides/w1-slides.html#data-science-statistics",
-    "title": "Week 1",
-    "section": "Data science ≠ statistics",
-    "text": "Data science ≠ statistics\n\nStatistics uses data you have collected to quantify uncertainty and establish relationships.\n\n Using statistical theory and mathematics to identify and understanding the mechanisms of observed changes in data. Inference driven\n\n\n\nData science tries to build systems to extract knowledge and insights from structured and unstructured data.\n\n The tools, tricks, and methods that we use to find and mobilize data and apply statistical methods. Process driven\n\n\n\n\n\n\n\n\n\nImportant\n\n\nData science could not exist without statistics! The math under the hood of all data science is derived from statistical theory."
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#how-well-use-data-science-in-this-class",
-    "href": "content/slides/w1-slides.html#how-well-use-data-science-in-this-class",
-    "title": "Week 1",
-    "section": "How we’ll use data science in this class",
-    "text": "How we’ll use data science in this class\n\nOur goal is not to learn statistics or how to extract meaning from data here. Rather, our goal is to learn the tools, tricks, and best practices of data science to make our work efficient, robust, and reproducible"
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#biology-and-ecology-have-an-issue-with-reproducibility",
-    "href": "content/slides/w1-slides.html#biology-and-ecology-have-an-issue-with-reproducibility",
-    "title": "Week 1",
-    "section": "Biology and ecology have an issue with reproducibility",
-    "text": "Biology and ecology have an issue with reproducibility\n\nConducting experiments in highly variable natural field conditions reduces our capacity to truly “replicate” or “reproduce” our science relative to other biological disciplines that work under more controlled conditions.\n\n\n\n In many ways, this is an un-solvable consequence of studying the natural world. It’s basically impossible to directly replicate experiments or studies, but we can conceptually replicate.\n\n\n\n\n This makes increasing the replicability of the aspects we can control (experiment pre-registration, open data, publishing code, data management, etc.) critically important!\n\n\n\n\nThis is what this course is all about!"
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#biology-and-ecology-have-an-issue-with-reproducibility-1",
-    "href": "content/slides/w1-slides.html#biology-and-ecology-have-an-issue-with-reproducibility-1",
-    "title": "Week 1",
-    "section": "Biology and ecology have an issue with reproducibility",
-    "text": "Biology and ecology have an issue with reproducibility\n\nA 2020 analysis by Culina et al., found that ~80% of ecology papers fail to provide enough detail to be computationally reproducible, with 73% failing to include anay accompanying analysis/code."
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#working-with-data-has-historically-been-the-most-opaque",
-    "href": "content/slides/w1-slides.html#working-with-data-has-historically-been-the-most-opaque",
-    "title": "Week 1",
-    "section": "Working with data has historically been the most opaque",
-    "text": "Working with data has historically been the most opaque\n\n\nUntil the decade, the management, wrangling, analysis, and presentation of experimental or observational data has been the least reproducible/documented part of the science we do\n\n\n\n\n The details of how we did our experiments was often the focus of our published methods. Even today that’s still the case, even though many aspects of the experimental conditions in natural settings are totally outside of our control."
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#point-n-click-vs.-writing-code",
-    "href": "content/slides/w1-slides.html#point-n-click-vs.-writing-code",
-    "title": "Week 1",
-    "section": "Point ’n click vs. writing code",
-    "text": "Point ’n click vs. writing code"
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#section",
-    "href": "content/slides/w1-slides.html#section",
-    "title": "Week 1",
-    "section": "",
-    "text": "We’ll be learning tools and concepts that enable us to establish repeatable, rules-based workflows that ensure anyone who gets access to our data/code will be able to arrive at the same output/answer."
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#the-data-life-cycle",
-    "href": "content/slides/w1-slides.html#the-data-life-cycle",
-    "title": "Week 1",
-    "section": "The data life cycle",
-    "text": "The data life cycle\n\nIn the past, we’ve had a very linear view of how data are created, analyzed, interpreted, and published. We now recognize that it’s critical to make data reusable so that the scientific enterprise can replicate what we’ve done and apply the data to new questions or ideas. This makes the life of data a cycle."
-  },
-  {
-    "objectID": "content/slides/w1-slides.html#making-data-fair",
-    "href": "content/slides/w1-slides.html#making-data-fair",
-    "title": "Week 1",
-    "section": "Making data FAIR",
-    "text": "Making data FAIR\n\nTo ensure we are closing the life cycle fully for our data, there are 4 FAIR principles we must follow:\n\n\n\n F: Findable. The first step in (re)using data is to find them. Metadata and data should be easy to find for both humans and computers. Machine-readable metadata are essential for automatic discovery of datasets and services.\n\n\n\n\n A: Accessible. Once the user finds the required data, she/he/they need to know how they can be accessed, possibly including authentication and authorisation.\n\n\n\n\n I: Interoperable. The data usually need to be integrated with other data. In addition, the data need to interoperate with applications or workflows for analysis, storage, and processing.\n\n\n\n\n R: Reusable. The ultimate goal of FAIR is to optimise the reuse of data. To achieve this, metadata and data should be well-described so that they can be replicated and/or combined in different settings."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "content/content-index.html",
-    "href": "content/content-index.html",
-    "title": "Overview of lectures and lecture material",
-    "section": "",
-    "text": "Each week the content will be structured with the same headings to provide you with the material needed. The first section (outlined in yellow) will contain the Readings, Questions, and Slides for the week, followed by the online content of the learning & workshop material.\n\nReadings: required and optional readings that are pertinent to the topic covered that week. These will include primary literature, book chapters, websites, and other tidbits that I think provide a solid foundation on the skill sets that we cover each week.\nQuestions: these will be the motivating questions that guide each week’s materials; by the end of the class/workshop for that week, you should be able to answer these and/or use the developed skills to accomplish a certain set of tasks.\nSlides: these are the slides that I will use for the brief mini-lectures for each week for your reference.\n\n\n Download Webpage as PDF\n\n\n Beginning of semester survey",
-    "crumbs": [
-      "Content",
-      "Overview",
-      "Overview of lectures and lecture material"
-    ]
-  },
-  {
-    "objectID": "content/slides/w3-slides.html#what-well-cover-this-week",
-    "href": "content/slides/w3-slides.html#what-well-cover-this-week",
-    "title": "Week 3",
-    "section": "What we’ll cover this week",
-    "text": "What we’ll cover this week\n\n\n What is Git and version control?\n\n\n\n\n Why use Git over “easier” methods?"
-  },
-  {
-    "objectID": "content/slides/w3-slides.html#wtf-is-git-1",
-    "href": "content/slides/w3-slides.html#wtf-is-git-1",
-    "title": "Week 3",
-    "section": "WTF is Git?",
-    "text": "WTF is Git?\n\nGit is a version control system.\nIt helps us keep track of changes to a variety of different file types in a software development or data analysis project, including:\n\n\ncode\nproject files\nfigures\nreports and manuscripts\nother text-based project documents\n\nThink of it as Track Changes on steroids."
-  },
-  {
-    "objectID": "content/slides/w3-slides.html#why-version-control",
-    "href": "content/slides/w3-slides.html#why-version-control",
-    "title": "Week 3",
-    "section": "Why version control?",
-    "text": "Why version control?\n\n\nWithout Git\n\nanalysis_final.R\nanalysis_final2.R\nanalysis_final_really_final.R\nanalysis_final_SUPER_FINAL.R\n\n\nWith Git\nA project has a history.\nYou can see:\n\nwhat changed\nwhen it changed\nwho changed it\nwhy it changed\nprevious versions"
-  },
-  {
-    "objectID": "content/slides/w3-slides.html#cant-i-just-keep-different-files",
-    "href": "content/slides/w3-slides.html#cant-i-just-keep-different-files",
-    "title": "Week 3",
-    "section": "“Can’t I just keep different files?”",
-    "text": "“Can’t I just keep different files?”\nSure.\nYou can also use:\n\nGoogle Drive\nBox\nDropbox\nother backup systems\n\n\n\nBut a bespoke system is usually your system.\nGit gives collaborators a shared set of conventions for understanding a project that don’t depend on reading your mind or hoping for useful metadata."
-  },
-  {
-    "objectID": "content/slides/w3-slides.html#why-learn-git-now",
-    "href": "content/slides/w3-slides.html#why-learn-git-now",
-    "title": "Week 3",
-    "section": "Why learn Git now?",
-    "text": "Why learn Git now?\nGit becomes especially useful when you work with other people.\n\nYou don’t have to remember every change yourself.\nSomeone else can pick up your project and understand its history.\nYou can experiment without destroying a working version.\nYou can recover from mistakes.\nYour workflow becomes reproducible and shareable.\n\n\n\n\n\n\n\n\nTip\n\n\nLearning the process now is easier than learning it under deadline pressure."
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#what-well-cover-this-week",
-    "href": "content/slides/w5-slides.html#what-well-cover-this-week",
-    "title": "Week 5",
-    "section": "What we’ll cover this week",
-    "text": "What we’ll cover this week\n\n\n Tidy data principles\n\n\n\n\n Data wrangling first steps: import and tidy\n\n\n\n\n Transforming data: the big 3 Tidyverse verbs"
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#why-do-we-wrangle-data",
-    "href": "content/slides/w5-slides.html#why-do-we-wrangle-data",
-    "title": "Week 5",
-    "section": "Why do we wrangle data?",
-    "text": "Why do we wrangle data?\n\nReal ecological/biological data rarely arrive ready for analysis. There are three (ish) steps to getting our data ready to do any particular analysis:\n\n\nImport: Get data into R.\nTidy: Organize observations and variables consistently.\nTransform: Clean, filter, calculate, and summarize.\n\nOur goal is to turn raw observations into data that are ready to visualize, model, and interpret.\n\n\n\n\n\n\nImportant\n\n\nYour analyses are only as reliable as the data and decisions that go into them. It may seem like these steps are trivial, but they are very much not."
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#importing-data-into-r",
-    "href": "content/slides/w5-slides.html#importing-data-into-r",
-    "title": "Week 5",
-    "section": "Importing data into R",
-    "text": "Importing data into R\nThe readr package makes it easy to import tabular data.\nlibrary(tidyverse)\n\nbees &lt;- read_csv(\"data/raw/bees.csv\")\nOther useful tools:\n\nread_csv() — import CSV files.\nread_delim() — import delimited text files.\nread_sheet() — import data from Google Sheets using googlesheets4.\n\n\n\n\n\n\n\nImportant\n\n\nR guesses column types during import. Errors in the raw data can lead to incorrect data types or missing values."
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#inspect-before-you-analyze",
-    "href": "content/slides/w5-slides.html#inspect-before-you-analyze",
-    "title": "Week 5",
-    "section": "Inspect before you analyze",
-    "text": "Inspect before you analyze\nNever assume your data imported correctly.\nglimpse(bees)\n\nproblems(bees)\nCheck for:\n\nIncorrect column names.\nNumeric measurements imported as text.\nUnexpected missing values (NA).\nParsing errors or inconsistent entries.\n\nStandardize messy column names with janitor:\nbees &lt;- read_csv(\"data/raw/bees.csv\") |&gt;\n  janitor::clean_names()"
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#what-is-tidy-data",
-    "href": "content/slides/w5-slides.html#what-is-tidy-data",
-    "title": "Week 5",
-    "section": "What is tidy data?",
-    "text": "What is tidy data?\nTidy data follows three principles:\n\nEach variable is a column.\nEach observation is a row.\nEach value is a cell."
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#why-tidy-data",
-    "href": "content/slides/w5-slides.html#why-tidy-data",
-    "title": "Week 5",
-    "section": "Why tidy data?",
-    "text": "Why tidy data?\nTidy data makes it easier to:\n\nCompare observations.\nVisualize multiple variables or species.\nSummarize data consistently.\nUse functions across columns and rows (recall vectorization)"
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-wide-long",
-    "href": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-wide-long",
-    "title": "Week 5",
-    "section": "Reshaping data into tidy form: wide → long",
-    "text": "Reshaping data into tidy form: wide → long\n\nThe most common way we have to re-arrange our data is to lengthen it. Suppose tree counts are stored in separate columns for each species:\n\n\n\n\nplot\noak_count\nmaple_count\npine_count\n\n\n\n\nA\n12\n5\n8\n\n\nB\n7\n9\n3"
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-wide-long-1",
-    "href": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-wide-long-1",
-    "title": "Week 5",
-    "section": "Reshaping data into tidy form: wide → long",
-    "text": "Reshaping data into tidy form: wide → long\nWe can combine the species columns into a single variable.\ntrees_long &lt;- trees |&gt;\n  pivot_longer(\n    cols = ends_with(\"_count\"),\n    names_to = \"species\",\n    values_to = \"abundance\"\n  )\n\n\n\nplot\nspecies\nabundance\n\n\n\n\nA\noak\n12\n\n\nA\nmaple\n5\n\n\nA\npine\n8\n\n\nB\noak\n7\n\n\nB\nmaple\n9\n\n\nB\npine\n3\n\n\n\nNow we have one row per plot–species observation."
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-long-wide",
-    "href": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-long-wide",
-    "title": "Week 5",
-    "section": "Reshaping data into tidy form: long → wide",
-    "text": "Reshaping data into tidy form: long → wide\n\nSometimes each measurement is recorded on a separate row, that is, many variables are stored within a single column. This is common with data from big gubmint.\n\n\n\n\nplot\nmetric\nvalue\n\n\n\n\nA\ncanopy_cover\n85\n\n\nA\nsoil_ph\n6.2\n\n\nB\ncanopy_cover\n42\n\n\nB\nsoil_ph\n7.1"
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-long-wide-1",
-    "href": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-long-wide-1",
-    "title": "Week 5",
-    "section": "Reshaping data into tidy form: long → wide",
-    "text": "Reshaping data into tidy form: long → wide\nUse pivot_wider() to make each measurement its own column.\nplots_wide &lt;- plots_long |&gt;\n  pivot_wider(\n    names_from = metric,\n    values_from = value\n  )\nplots_wide\n\n\n\nplot\ncanopy_cover\nsoil_ph\nlitter_depth\n\n\n\n\nA\n85\n6.2\n4.5\n\n\nB\n42\n7.1\n1.2\n\n\n\n\n\n\n\n\n\nImportant\n\n\nLong and wide are organizational choices. Choose the structure that best supports your next task."
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#the-essential-dplyr-verbs",
-    "href": "content/slides/w5-slides.html#the-essential-dplyr-verbs",
-    "title": "Week 5",
-    "section": "The essential dplyr verbs",
-    "text": "The essential dplyr verbs\n\nWe’ll almost always need to further manipulate or transform our cleaned data. The most common functions you’ll use are the following:\n\n\n\n\nFunction\nWhat it does\nExample\n\n\n\n\nfilter()\nSelect rows\nKeep surveys from prairie sites\n\n\nselect()\nSelect columns\nKeep site, species, and bee count\n\n\nmutate()\nCreate variables\nCalculate bees observed per minute\n\n\nsummarize()\nCalculate summaries\nCalculate mean bee abundance\n\n\ngroup_by()\nDefine groups\nSummarize separately by habitat\n\n\n\nThese functions can be combined into readable, reproducible workflows using the pipe (|&gt;)."
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#combine-verbs-to-answer-questions",
-    "href": "content/slides/w5-slides.html#combine-verbs-to-answer-questions",
-    "title": "Week 5",
-    "section": "Combine verbs to answer questions",
-    "text": "Combine verbs to answer questions\nQuestion: How does bee observation rate vary among habitats?\nhabitat_summary &lt;- pollinators |&gt;\n  filter(!is.na(bee_count)) |&gt;\n  mutate(\n    observation_rate = bee_count / survey_minutes\n  ) |&gt;\n  summarize(\n    mean_rate = mean(observation_rate),\n    n_surveys = n(),\n    .by = habitat\n  )\nThis workflow:\n\nRemoves observations with missing bee counts.\nCalculates a new variable.\nGroups observations by habitat.\nCalculates the mean observation rate and number of surveys."
-  },
-  {
-    "objectID": "content/slides/w5-slides.html#from-raw-data-to-reproducible-science",
-    "href": "content/slides/w5-slides.html#from-raw-data-to-reproducible-science",
-    "title": "Week 5",
-    "section": "From raw data to reproducible science",
-    "text": "From raw data to reproducible science\nA reliable data-wrangling workflow:\n\nImport raw data.\nInspect types, names, and missing values.\nClean column names and resolve data-quality issues.\nReshape data when necessary.\nFilter observations and select variables.\nCreate new variables and calculate summaries as needed.\nDocument your decisions in code.\n\n\n\n\n\n\n\nTake-home message:\n\n\nData wrangling is not busywork. It is a critical part of the scientific process, and your code should make every decision transparent and reproducible."
-  },
-  {
     "objectID": "content/slides/w7-slides.html#this-week-turning-data-into-graphics",
     "href": "content/slides/w7-slides.html#this-week-turning-data-into-graphics",
     "title": "Week 7",
@@ -1150,6 +982,501 @@
     "title": "Week 7",
     "section": "Before you make your next plot…",
     "text": "Before you make your next plot…\nAsk yourself:\n\nWhat pattern or comparison am I trying to communicate?\nWhich variables should be mapped to position, color, shape, or size?\nWhich geometry best represents the data/question I am trying to answer?\nWould facets make group patterns easier to see?\nAre the scales, labels, and theme helping—or distracting—from the message?"
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#what-well-cover-this-week",
+    "href": "content/slides/w5-slides.html#what-well-cover-this-week",
+    "title": "Week 5",
+    "section": "What we’ll cover this week",
+    "text": "What we’ll cover this week\n\n\n Tidy data principles\n\n\n\n\n Data wrangling first steps: import and tidy\n\n\n\n\n Transforming data: the big 3 Tidyverse verbs"
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#why-do-we-wrangle-data",
+    "href": "content/slides/w5-slides.html#why-do-we-wrangle-data",
+    "title": "Week 5",
+    "section": "Why do we wrangle data?",
+    "text": "Why do we wrangle data?\n\nReal ecological/biological data rarely arrive ready for analysis. There are three (ish) steps to getting our data ready to do any particular analysis:\n\n\nImport: Get data into R.\nTidy: Organize observations and variables consistently.\nTransform: Clean, filter, calculate, and summarize.\n\nOur goal is to turn raw observations into data that are ready to visualize, model, and interpret.\n\n\n\n\n\n\nImportant\n\n\nYour analyses are only as reliable as the data and decisions that go into them. It may seem like these steps are trivial, but they are very much not."
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#importing-data-into-r",
+    "href": "content/slides/w5-slides.html#importing-data-into-r",
+    "title": "Week 5",
+    "section": "Importing data into R",
+    "text": "Importing data into R\nThe readr package makes it easy to import tabular data.\nlibrary(tidyverse)\n\nbees &lt;- read_csv(\"data/raw/bees.csv\")\nOther useful tools:\n\nread_csv() — import CSV files.\nread_delim() — import delimited text files.\nread_sheet() — import data from Google Sheets using googlesheets4.\n\n\n\n\n\n\n\nImportant\n\n\nR guesses column types during import. Errors in the raw data can lead to incorrect data types or missing values."
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#inspect-before-you-analyze",
+    "href": "content/slides/w5-slides.html#inspect-before-you-analyze",
+    "title": "Week 5",
+    "section": "Inspect before you analyze",
+    "text": "Inspect before you analyze\nNever assume your data imported correctly.\nglimpse(bees)\n\nproblems(bees)\nCheck for:\n\nIncorrect column names.\nNumeric measurements imported as text.\nUnexpected missing values (NA).\nParsing errors or inconsistent entries.\n\nStandardize messy column names with janitor:\nbees &lt;- read_csv(\"data/raw/bees.csv\") |&gt;\n  janitor::clean_names()"
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#what-is-tidy-data",
+    "href": "content/slides/w5-slides.html#what-is-tidy-data",
+    "title": "Week 5",
+    "section": "What is tidy data?",
+    "text": "What is tidy data?\nTidy data follows three principles:\n\nEach variable is a column.\nEach observation is a row.\nEach value is a cell."
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#why-tidy-data",
+    "href": "content/slides/w5-slides.html#why-tidy-data",
+    "title": "Week 5",
+    "section": "Why tidy data?",
+    "text": "Why tidy data?\nTidy data makes it easier to:\n\nCompare observations.\nVisualize multiple variables or species.\nSummarize data consistently.\nUse functions across columns and rows (recall vectorization)"
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-wide-long",
+    "href": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-wide-long",
+    "title": "Week 5",
+    "section": "Reshaping data into tidy form: wide → long",
+    "text": "Reshaping data into tidy form: wide → long\n\nThe most common way we have to re-arrange our data is to lengthen it. Suppose tree counts are stored in separate columns for each species:\n\n\n\n\nplot\noak_count\nmaple_count\npine_count\n\n\n\n\nA\n12\n5\n8\n\n\nB\n7\n9\n3"
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-wide-long-1",
+    "href": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-wide-long-1",
+    "title": "Week 5",
+    "section": "Reshaping data into tidy form: wide → long",
+    "text": "Reshaping data into tidy form: wide → long\nWe can combine the species columns into a single variable.\ntrees_long &lt;- trees |&gt;\n  pivot_longer(\n    cols = ends_with(\"_count\"),\n    names_to = \"species\",\n    values_to = \"abundance\"\n  )\n\n\n\nplot\nspecies\nabundance\n\n\n\n\nA\noak\n12\n\n\nA\nmaple\n5\n\n\nA\npine\n8\n\n\nB\noak\n7\n\n\nB\nmaple\n9\n\n\nB\npine\n3\n\n\n\nNow we have one row per plot–species observation."
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-long-wide",
+    "href": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-long-wide",
+    "title": "Week 5",
+    "section": "Reshaping data into tidy form: long → wide",
+    "text": "Reshaping data into tidy form: long → wide\n\nSometimes each measurement is recorded on a separate row, that is, many variables are stored within a single column. This is common with data from big gubmint.\n\n\n\n\nplot\nmetric\nvalue\n\n\n\n\nA\ncanopy_cover\n85\n\n\nA\nsoil_ph\n6.2\n\n\nB\ncanopy_cover\n42\n\n\nB\nsoil_ph\n7.1"
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-long-wide-1",
+    "href": "content/slides/w5-slides.html#reshaping-data-into-tidy-form-long-wide-1",
+    "title": "Week 5",
+    "section": "Reshaping data into tidy form: long → wide",
+    "text": "Reshaping data into tidy form: long → wide\nUse pivot_wider() to make each measurement its own column.\nplots_wide &lt;- plots_long |&gt;\n  pivot_wider(\n    names_from = metric,\n    values_from = value\n  )\nplots_wide\n\n\n\nplot\ncanopy_cover\nsoil_ph\nlitter_depth\n\n\n\n\nA\n85\n6.2\n4.5\n\n\nB\n42\n7.1\n1.2\n\n\n\n\n\n\n\n\n\nImportant\n\n\nLong and wide are organizational choices. Choose the structure that best supports your next task."
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#the-essential-dplyr-verbs",
+    "href": "content/slides/w5-slides.html#the-essential-dplyr-verbs",
+    "title": "Week 5",
+    "section": "The essential dplyr verbs",
+    "text": "The essential dplyr verbs\n\nWe’ll almost always need to further manipulate or transform our cleaned data. The most common functions you’ll use are the following:\n\n\n\n\nFunction\nWhat it does\nExample\n\n\n\n\nfilter()\nSelect rows\nKeep surveys from prairie sites\n\n\nselect()\nSelect columns\nKeep site, species, and bee count\n\n\nmutate()\nCreate variables\nCalculate bees observed per minute\n\n\nsummarize()\nCalculate summaries\nCalculate mean bee abundance\n\n\ngroup_by()\nDefine groups\nSummarize separately by habitat\n\n\n\nThese functions can be combined into readable, reproducible workflows using the pipe (|&gt;)."
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#combine-verbs-to-answer-questions",
+    "href": "content/slides/w5-slides.html#combine-verbs-to-answer-questions",
+    "title": "Week 5",
+    "section": "Combine verbs to answer questions",
+    "text": "Combine verbs to answer questions\nQuestion: How does bee observation rate vary among habitats?\nhabitat_summary &lt;- pollinators |&gt;\n  filter(!is.na(bee_count)) |&gt;\n  mutate(\n    observation_rate = bee_count / survey_minutes\n  ) |&gt;\n  summarize(\n    mean_rate = mean(observation_rate),\n    n_surveys = n(),\n    .by = habitat\n  )\nThis workflow:\n\nRemoves observations with missing bee counts.\nCalculates a new variable.\nGroups observations by habitat.\nCalculates the mean observation rate and number of surveys."
+  },
+  {
+    "objectID": "content/slides/w5-slides.html#from-raw-data-to-reproducible-science",
+    "href": "content/slides/w5-slides.html#from-raw-data-to-reproducible-science",
+    "title": "Week 5",
+    "section": "From raw data to reproducible science",
+    "text": "From raw data to reproducible science\nA reliable data-wrangling workflow:\n\nImport raw data.\nInspect types, names, and missing values.\nClean column names and resolve data-quality issues.\nReshape data when necessary.\nFilter observations and select variables.\nCreate new variables and calculate summaries as needed.\nDocument your decisions in code.\n\n\n\n\n\n\n\nTake-home message:\n\n\nData wrangling is not busywork. It is a critical part of the scientific process, and your code should make every decision transparent and reproducible."
+  },
+  {
+    "objectID": "content/slides/w3-slides.html#what-well-cover-this-week",
+    "href": "content/slides/w3-slides.html#what-well-cover-this-week",
+    "title": "Week 3",
+    "section": "What we’ll cover this week",
+    "text": "What we’ll cover this week\n\n\n What is Git and version control?\n\n\n\n\n Why use Git over “easier” methods?"
+  },
+  {
+    "objectID": "content/slides/w3-slides.html#wtf-is-git-1",
+    "href": "content/slides/w3-slides.html#wtf-is-git-1",
+    "title": "Week 3",
+    "section": "WTF is Git?",
+    "text": "WTF is Git?\n\nGit is a version control system.\nIt helps us keep track of changes to a variety of different file types in a software development or data analysis project, including:\n\n\ncode\nproject files\nfigures\nreports and manuscripts\nother text-based project documents\n\nThink of it as Track Changes on steroids."
+  },
+  {
+    "objectID": "content/slides/w3-slides.html#why-version-control",
+    "href": "content/slides/w3-slides.html#why-version-control",
+    "title": "Week 3",
+    "section": "Why version control?",
+    "text": "Why version control?\n\n\nWithout Git\n\nanalysis_final.R\nanalysis_final2.R\nanalysis_final_really_final.R\nanalysis_final_SUPER_FINAL.R\n\n\nWith Git\nA project has a history.\nYou can see:\n\nwhat changed\nwhen it changed\nwho changed it\nwhy it changed\nprevious versions"
+  },
+  {
+    "objectID": "content/slides/w3-slides.html#cant-i-just-keep-different-files",
+    "href": "content/slides/w3-slides.html#cant-i-just-keep-different-files",
+    "title": "Week 3",
+    "section": "“Can’t I just keep different files?”",
+    "text": "“Can’t I just keep different files?”\nSure.\nYou can also use:\n\nGoogle Drive\nBox\nDropbox\nother backup systems\n\n\n\nBut a bespoke system is usually your system.\nGit gives collaborators a shared set of conventions for understanding a project that don’t depend on reading your mind or hoping for useful metadata."
+  },
+  {
+    "objectID": "content/slides/w3-slides.html#why-learn-git-now",
+    "href": "content/slides/w3-slides.html#why-learn-git-now",
+    "title": "Week 3",
+    "section": "Why learn Git now?",
+    "text": "Why learn Git now?\nGit becomes especially useful when you work with other people.\n\nYou don’t have to remember every change yourself.\nSomeone else can pick up your project and understand its history.\nYou can experiment without destroying a working version.\nYou can recover from mistakes.\nYour workflow becomes reproducible and shareable.\n\n\n\n\n\n\n\n\nTip\n\n\nLearning the process now is easier than learning it under deadline pressure."
+  },
+  {
+    "objectID": "content/content-index.html",
+    "href": "content/content-index.html",
+    "title": "Overview of lectures and lecture material",
+    "section": "",
+    "text": "Each week the content will be structured with the same headings to provide you with the material needed. The first section (outlined in yellow) will contain the Readings, Questions, and Slides for the week, followed by the online content of the learning & workshop material.\n\nReadings: required and optional readings that are pertinent to the topic covered that week. These will include primary literature, book chapters, websites, and other tidbits that I think provide a solid foundation on the skill sets that we cover each week.\nQuestions: these will be the motivating questions that guide each week’s materials; by the end of the class/workshop for that week, you should be able to answer these and/or use the developed skills to accomplish a certain set of tasks.\nSlides: these are the slides that I will use for the brief mini-lectures for each week for your reference.\n\n\n Download Webpage as PDF\n\n\n Beginning of semester survey",
+    "crumbs": [
+      "Content",
+      "Overview",
+      "Overview of lectures and lecture material"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#what-well-cover-this-week",
+    "href": "content/slides/w1-slides.html#what-well-cover-this-week",
+    "title": "Week 1",
+    "section": "What we’ll cover this week",
+    "text": "What we’ll cover this week\n\n\n Who am I?\n\n\n\n\n Course logistics and learning objectives\n\n\n\n\n Course survey\n\n\n\n\n What is data science?\n\n\n\n\n Reproducibility crisis\n\n\n\n\n The data life cycle, and being FAIR"
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#jeremy-hemberger-phd",
+    "href": "content/slides/w1-slides.html#jeremy-hemberger-phd",
+    "title": "Week 1",
+    "section": "Jeremy Hemberger, PhD",
+    "text": "Jeremy Hemberger, PhD\nAssistant Professor - Department of Entomology   👨🏻‍🔬 I lead the Insect Biodiversity under Global Change lab 🐝 Research: global change impacts on insects 👨🏻‍🏫 Teaching: quantitative methods in ecology and entomology"
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#jeremy-hemberger-phd-1",
+    "href": "content/slides/w1-slides.html#jeremy-hemberger-phd-1",
+    "title": "Week 1",
+    "section": "Jeremy Hemberger, PhD",
+    "text": "Jeremy Hemberger, PhD\nAssistant Professor - Department of Entomology   🏫 Office location: 408 Hodson  🕥 Office hours: 8:00-12:00 Mondays (in person)"
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#wrangling-chaos-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d",
+    "href": "content/slides/w1-slides.html#wrangling-chaos-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d",
+    "title": "Week 1",
+    "section": "Wrangling chaos ",
+    "text": "Wrangling chaos"
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#wrangling-chaos-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-1",
+    "href": "content/slides/w1-slides.html#wrangling-chaos-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-1",
+    "title": "Week 1",
+    "section": "Wrangling chaos ",
+    "text": "Wrangling chaos"
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#wrangling-chaos-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-2",
+    "href": "content/slides/w1-slides.html#wrangling-chaos-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206861742d636f77626f79203e7d7d-2",
+    "title": "Week 1",
+    "section": "Wrangling chaos ",
+    "text": "Wrangling chaos \n\nThere’s no one single definition of data science, but a broad definition that we can use here is a field of study that uses scientific methods, processes, and systems to extract knowledge and insights from data"
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#data-science-statistics",
+    "href": "content/slides/w1-slides.html#data-science-statistics",
+    "title": "Week 1",
+    "section": "Data science ≠ statistics",
+    "text": "Data science ≠ statistics\n\nStatistics uses data you have collected to quantify uncertainty and establish relationships.\n\n Using statistical theory and mathematics to identify and understanding the mechanisms of observed changes in data. Inference driven\n\n\n\nData science tries to build systems to extract knowledge and insights from structured and unstructured data.\n\n The tools, tricks, and methods that we use to find and mobilize data and apply statistical methods. Process driven\n\n\n\n\n\n\n\n\n\nImportant\n\n\nData science could not exist without statistics! The math under the hood of all data science is derived from statistical theory."
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#how-well-use-data-science-in-this-class",
+    "href": "content/slides/w1-slides.html#how-well-use-data-science-in-this-class",
+    "title": "Week 1",
+    "section": "How we’ll use data science in this class",
+    "text": "How we’ll use data science in this class\n\nOur goal is not to learn statistics or how to extract meaning from data here. Rather, our goal is to learn the tools, tricks, and best practices of data science to make our work efficient, robust, and reproducible"
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#biology-and-ecology-have-an-issue-with-reproducibility",
+    "href": "content/slides/w1-slides.html#biology-and-ecology-have-an-issue-with-reproducibility",
+    "title": "Week 1",
+    "section": "Biology and ecology have an issue with reproducibility",
+    "text": "Biology and ecology have an issue with reproducibility\n\nConducting experiments in highly variable natural field conditions reduces our capacity to truly “replicate” or “reproduce” our science relative to other biological disciplines that work under more controlled conditions.\n\n\n\n In many ways, this is an un-solvable consequence of studying the natural world. It’s basically impossible to directly replicate experiments or studies, but we can conceptually replicate.\n\n\n\n\n This makes increasing the replicability of the aspects we can control (experiment pre-registration, open data, publishing code, data management, etc.) critically important!\n\n\n\n\nThis is what this course is all about!"
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#biology-and-ecology-have-an-issue-with-reproducibility-1",
+    "href": "content/slides/w1-slides.html#biology-and-ecology-have-an-issue-with-reproducibility-1",
+    "title": "Week 1",
+    "section": "Biology and ecology have an issue with reproducibility",
+    "text": "Biology and ecology have an issue with reproducibility\n\nA 2020 analysis by Culina et al., found that ~80% of ecology papers fail to provide enough detail to be computationally reproducible, with 73% failing to include anay accompanying analysis/code."
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#working-with-data-has-historically-been-the-most-opaque",
+    "href": "content/slides/w1-slides.html#working-with-data-has-historically-been-the-most-opaque",
+    "title": "Week 1",
+    "section": "Working with data has historically been the most opaque",
+    "text": "Working with data has historically been the most opaque\n\n\nUntil the decade, the management, wrangling, analysis, and presentation of experimental or observational data has been the least reproducible/documented part of the science we do\n\n\n\n\n The details of how we did our experiments was often the focus of our published methods. Even today that’s still the case, even though many aspects of the experimental conditions in natural settings are totally outside of our control."
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#point-n-click-vs.-writing-code",
+    "href": "content/slides/w1-slides.html#point-n-click-vs.-writing-code",
+    "title": "Week 1",
+    "section": "Point ’n click vs. writing code",
+    "text": "Point ’n click vs. writing code"
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#section",
+    "href": "content/slides/w1-slides.html#section",
+    "title": "Week 1",
+    "section": "",
+    "text": "We’ll be learning tools and concepts that enable us to establish repeatable, rules-based workflows that ensure anyone who gets access to our data/code will be able to arrive at the same output/answer."
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#the-data-life-cycle",
+    "href": "content/slides/w1-slides.html#the-data-life-cycle",
+    "title": "Week 1",
+    "section": "The data life cycle",
+    "text": "The data life cycle\n\nIn the past, we’ve had a very linear view of how data are created, analyzed, interpreted, and published. We now recognize that it’s critical to make data reusable so that the scientific enterprise can replicate what we’ve done and apply the data to new questions or ideas. This makes the life of data a cycle."
+  },
+  {
+    "objectID": "content/slides/w1-slides.html#making-data-fair",
+    "href": "content/slides/w1-slides.html#making-data-fair",
+    "title": "Week 1",
+    "section": "Making data FAIR",
+    "text": "Making data FAIR\n\nTo ensure we are closing the life cycle fully for our data, there are 4 FAIR principles we must follow:\n\n\n\n F: Findable. The first step in (re)using data is to find them. Metadata and data should be easy to find for both humans and computers. Machine-readable metadata are essential for automatic discovery of datasets and services.\n\n\n\n\n A: Accessible. Once the user finds the required data, she/he/they need to know how they can be accessed, possibly including authentication and authorisation.\n\n\n\n\n I: Interoperable. The data usually need to be integrated with other data. In addition, the data need to interoperate with applications or workflows for analysis, storage, and processing.\n\n\n\n\n R: Reusable. The ultimate goal of FAIR is to optimise the reuse of data. To achieve this, metadata and data should be well-described so that they can be replicated and/or combined in different settings."
+  },
+  {
+    "objectID": "content/slides/w4-slides.html#what-well-cover-this-week",
+    "href": "content/slides/w4-slides.html#what-well-cover-this-week",
+    "title": "Week 4",
+    "section": "What we’ll cover this week",
+    "text": "What we’ll cover this week\n\n\n What is GitHub?\n\n\n\n\n Setting up GitHub\n\n\n\n\n Touring GitHub"
+  },
+  {
+    "objectID": "content/slides/w4-slides.html#github-is-the-online-home-for-our-git-projects",
+    "href": "content/slides/w4-slides.html#github-is-the-online-home-for-our-git-projects",
+    "title": "Week 4",
+    "section": "GitHub is the online home for our Git projects",
+    "text": "GitHub is the online home for our Git projects\n\nGitHub is sort of like a GoogleDrive or Box service specifically for code-based projects that utilize Git as a version control system. GitHub provides a home for your Git-based projects on the web.\n\n\n\n It allows other people (or you) to see your stuff, sync up with the most current development/version, and even make changes/work collaboratively.\n\n\n\n\n From a the perspective of reproducible science, GitHub provides an essentially universally accessible home for our projects so that anyone can access, download, run, reporpose, and cite our work.\n\n\n\n\n\n\n\n\n\nNote\n\n\nThere are several other hosting services – things like BitBucket and GitLab – that can do the same thing. We focus on GitHub because of its ubiquity and wide-spread use and perks it provides academics."
+  },
+  {
+    "objectID": "content/slides/w4-slides.html#personal-access-tokens-pat",
+    "href": "content/slides/w4-slides.html#personal-access-tokens-pat",
+    "title": "Week 4",
+    "section": "🪙 Personal Access Tokens (PAT)",
+    "text": "🪙 Personal Access Tokens (PAT)\n\nWe won’t be able to just magically start “talking” to our GitHub account from RStudio. If it were that easy, everyone would be able to do it and nothing would be secure! We need to configure out access!\n\n\n\n Rather than giving Git locally our username and password, we’ll use Personal Access Tokens\n\n\n\n\n Username and passwords is like giving someone the masterkey to a building; they can use it to go anywhere and do anything (including deleting your whole-ass account and everything in it 😬)\n\n\n\n\n A PAT is like a special keycard created for a single job (like RStudio) that can only unlock specific doors and automatically expires after a set period."
+  },
+  {
+    "objectID": "content/slides/w4-slides.html#connecting-git-projects-to-github",
+    "href": "content/slides/w4-slides.html#connecting-git-projects-to-github",
+    "title": "Week 4",
+    "section": "Connecting Git projects to GitHub",
+    "text": "Connecting Git projects to GitHub\n\nSo far, we’ve been working entirely locally with our R projects and Git repos. We now need to get these pieces connected and talking to our “offsite” platform that safely hosts our project and ensures we never lose our work locally.\n\n\n\n Because our GitHub will host multiple projects/repositories, we need to ensure our local Git commits and project point to the correct project.\n\n\n\n\n Recall from earlier slides that this amounts to configuring our “remote” project location via Git. Our git repo on GitHub is the remote!"
+  },
+  {
+    "objectID": "content/slides/w4-slides.html#connecting-git-projects-to-github-1",
+    "href": "content/slides/w4-slides.html#connecting-git-projects-to-github-1",
+    "title": "Week 4",
+    "section": "Connecting Git projects to GitHub",
+    "text": "Connecting Git projects to GitHub\n\nThere are three primary ways to connect Git projects (i.e., RStudio projects) to GitHub. I outline each below, and in the workshop we’ll work through some of these.\n\n\n\nNew project, GitHub first: the easiest way to get a project up and running\n\n\n\n\nExisting project, GitHub first: a sort of create and copy approach. Not the best option, but it works just fine\n\n\n\n\nExisting project, GitHub last: the “proper” way to connect existing project especially when you have an existing Git repo up and running in the project\n\n\n\n\n\n\n\n\n\nTip\n\n\nI suggest you use the first option whenever possible, followed by 3, and finally 2. While 2 works, you run the risk of improperly copying or moving files and it sort of adds a lot of unncessary work."
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#this-week-beyond-the-basic-verbs",
+    "href": "content/slides/w6-slides.html#this-week-beyond-the-basic-verbs",
+    "title": "Week 6",
+    "section": "This week: beyond the basic verbs",
+    "text": "This week: beyond the basic verbs\nSo far, we’ve learned how to manipulate a single data frame.\nThis week we’ll tackle some of the messier realities of biological data:\n\n🔗 Combining data from multiple sources\n🕳️ Finding and handling missing data\n🔤 Working with text and strings\n📅 Working with dates and times\n🏷️ Working with categorical data"
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#combining-data-joins",
+    "href": "content/slides/w6-slides.html#combining-data-joins",
+    "title": "Week 6",
+    "section": "🔗 Combining data: joins",
+    "text": "🔗 Combining data: joins\n\nMost ecological studies involve multiple datasets. We often need to connect observations to:\n\n\nsite metadata\nenvironmental measurements\nspecies information\nexperimental treatments\nsampling information/methods"
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#keys-the-connection-between-datasets",
+    "href": "content/slides/w6-slides.html#keys-the-connection-between-datasets",
+    "title": "Week 6",
+    "section": "🔑 Keys: the connection between datasets",
+    "text": "🔑 Keys: the connection between datasets\n\nTo do this, we can use one or more variables to connect observations across datasets. These variables are called keys.\n\nPrimary key: A variable—or combination of variables—that uniquely identifies an observation. For example, sample_id\nIf one variable isn’t enough, we can use a compound key: site_code + year\nForeign key: A variable in another dataset that corresponds to the primary key.\n\n\n\n\n\n\nImportant\n\n\nBefore joining, ask: Does my key actually uniquely identify the observations I think it does?\ncount(data, site_code, year)"
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#which-join-do-i-need",
+    "href": "content/slides/w6-slides.html#which-join-do-i-need",
+    "title": "Week 6",
+    "section": "🔗 Which join do I need?",
+    "text": "🔗 Which join do I need?\n\n\n\nJoin\nWhat happens?\n\n\n\n\nleft_join()\nKeep all x, add matching information from y\n\n\nright_join()\nKeep all y, add matching information from x\n\n\ninner_join()\nKeep only observations found in both\n\n\nfull_join()\nKeep everything from both\n\n\nsemi_join()\nKeep x if a match exists in y\n\n\nanti_join()\nKeep x if no match exists in y\n\n\n\nThe workhorse join: left_join()\nsurveys |&gt;\n  left_join(site_metadata,\n            by = join_by(site_code, year))\n\n\n\n\n\n\nTip\n\n\nBe explicit about your join keys whenever possible!"
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#missing-data-not-all-nas-are-equal",
+    "href": "content/slides/w6-slides.html#missing-data-not-all-nas-are-equal",
+    "title": "Week 6",
+    "section": "🕳️ Missing data: not all NAs are equal",
+    "text": "🕳️ Missing data: not all NAs are equal\n\nMissingness can be explicit or implicit.\n\nExplicit missingness: The row exists, but a value is missing:\nsite     species      count\nA        Bombus       12\nA        Andrena      NA\nImplicit missingness: The observation itself is absent:\nsite     week\nA        1\nA        2\nA        3\n# Week 4 is missing entirely\n\n\n\n\n\n\nImportant\n\n\nYou can’t handle missing data until you know what kind of missingness you have."
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#handling-missing-data",
+    "href": "content/slides/w6-slides.html#handling-missing-data",
+    "title": "Week 6",
+    "section": "🧹 Handling missing data",
+    "text": "🧹 Handling missing data\n\nThere is no universally correct way to handle missing values. Your approach depends on:\n\n\nhow the data were collected/why the value is missing\nwhat question you’re asking/what your analysis requires\n\nSome useful tools:\n# Carry metadata downward\nfill(site, habitat, .direction = \"down\")\n\n# Replace NA with a known value\ncoalesce(count, 0)\n\n# Convert a placeholder to NA\nna_if(count, -999)\n\n# Make implicit missingness explicit\ncomplete(site, week)\n\n\n\n\n\n\nCaution\n\n\nNever automatically replace NA with zero."
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#working-with-strings-1",
+    "href": "content/slides/w6-slides.html#working-with-strings-1",
+    "title": "Week 6",
+    "section": "🔤 Working with strings",
+    "text": "🔤 Working with strings\n\nBiological datasets often contain a lot of text. We’ll need some special tools to work with data like:\n\n\nspecies names\nsite IDs\nsample IDs\nhabitat descriptions\nnotes and field observations\n\nThe stringr package gives us tools for finding and modifying patterns.\nstr_detect(species, \"Bombus\")\n\nstr_replace_all(\n    species,            # Vector of strings to replace\n    \"B\\\\. impatiens\",   # Search pattern\n    \"Bombus impatiens\"  # Replace with\n    )\n\nstr_extract(sample_id, \"20\\\\d{2}\")\n\nstr_split(location, \",\")\n\n\n\n\n\n\nThe central skill to learn here:\n\n\nRegular expressions let us describe patterns rather than exact strings. You don’t need to memorize them—learn to recognize when you need them and look them up using cheatsheet."
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#dates-times-1",
+    "href": "content/slides/w6-slides.html#dates-times-1",
+    "title": "Week 6",
+    "section": "📅 Dates & times",
+    "text": "📅 Dates & times\n\nDates should be stored as date/time objects, not ordinary character strings.\n\nWe can convert these data during during import:\nread_csv(\n  \"data.csv\",\n  col_types = cols(\n    capture_date = col_date(\"%d-%b-%Y\")\n  )\n)\nThen lubridate lets us extract useful information:\nmutate(\n  year  = year(capture_date),\n  month = month(capture_date, label = TRUE),\n  doy   = yday(capture_date)\n)"
+  },
+  {
+    "objectID": "content/slides/w6-slides.html#categorical-data-factors-1",
+    "href": "content/slides/w6-slides.html#categorical-data-factors-1",
+    "title": "Week 6",
+    "section": "🏷️ Categorical data: factors",
+    "text": "🏷️ Categorical data: factors\n\nFactors are R’s way of representing categorical variables. Common biological/ecological examples:\n\n\ntreatment\nhabitat\nsite\nspecies\nsampling period\n\ndisease_stage &lt;- factor(\n  disease_stage,\n  levels = c(\n    \"Stage I\",\n    \"Stage II\",\n    \"Stage III\",\n    \"Stage IV\"\n  ),\n  ordered = TRUE\n)\n\n\n\n\n\n\nImportant\n\n\nR otherwise uses its default level ordering—which may not match the biological or experimental order you want."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#from-technical-to-theoretical",
+    "href": "content/slides/w8-slides.html#from-technical-to-theoretical",
+    "title": "Week 8",
+    "section": "From technical to theoretical",
+    "text": "From technical to theoretical\n\nLast week, we focused on the technical side of creating visualizations with ggplot2. Now comes the harder part: making the plot—and its message connect with you and your audience.\n\n\nChoose an effective way to display the data.\nMake the important patterns easy to see.\nAvoid design choices that distract or mislead.\n\n\n\n\n\n\n\nTip\n\n\nA random member of your target audience should be able to understand the main message of your figure without having to ask you questions or dive into the code/methods to understand it."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#basic-principles-of-effective-visualization",
+    "href": "content/slides/w8-slides.html#basic-principles-of-effective-visualization",
+    "title": "Week 8",
+    "section": "Basic principles of effective visualization",
+    "text": "Basic principles of effective visualization\n\nThere are no universal rules that guarantee a perfect plot, but a few principles help us make better decisions:\n\n\nUse color deliberately.\nKeep visual encodings proportional to the values they represent.\nReduce the work required to interpret a figure.\nBalance data elements with supporting context.\nPrefer clarity and simplicity over decoration.\n\nThese ideas are adapted largely from Claus Wilke’s Fundamentals of Data Visualization."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#use-color-deliberately",
+    "href": "content/slides/w8-slides.html#use-color-deliberately",
+    "title": "Week 8",
+    "section": "🎨 Use color deliberately",
+    "text": "🎨 Use color deliberately\nDifferent kinds of information call for different kinds of color scales.\n\n\nQualitative\nUse to distinguish discrete groups with no inherent order.\n\n\n\n\n\nExamples: species, habitat types, or treatments.\n\nSequential\nUse to represent values along an ordered, continuous scale.\n\n\n\n\n\nExamples: temperature, precipitation, or abundance."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#use-color-deliberately-1",
+    "href": "content/slides/w8-slides.html#use-color-deliberately-1",
+    "title": "Week 8",
+    "section": "🎨 Use color deliberately",
+    "text": "🎨 Use color deliberately\nUse a diverging scale when values depart in two directions from a meaningful midpoint—often zero."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#color-can-also-highlight",
+    "href": "content/slides/w8-slides.html#color-can-also-highlight",
+    "title": "Week 8",
+    "section": "Color can also highlight…",
+    "text": "Color can also highlight…\n\nAccent colors draw attention to a particular category, observation, or value."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#but-dont-overdo-it",
+    "href": "content/slides/w8-slides.html#but-dont-overdo-it",
+    "title": "Week 8",
+    "section": "…but don’t overdo it",
+    "text": "…but don’t overdo it\n\nA common pitfall is encoding too much information with color.\n\n\nQualitative palettes become difficult to distinguish when they contain many categories.\nAs a rough rule, more than ~8 distinct colors can overwhelm the reader.\nWhen individual observations matter, consider direct labels instead of adding more colors."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#example-of-overcoding-your-color",
+    "href": "content/slides/w8-slides.html#example-of-overcoding-your-color",
+    "title": "Week 8",
+    "section": "Example of “overcoding” your color:",
+    "text": "Example of “overcoding” your color:\n\nHere, each of 12 bird species is assigned a different color. The plot contains useful information, but the legend and overlapping colors make comparisons harder.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nCould guild, habitat, or a small number of focal species tell the story more clearly? Or perhaps we need to facet our plot"
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#the-principle-of-proportional-ink",
+    "href": "content/slides/w8-slides.html#the-principle-of-proportional-ink",
+    "title": "Week 8",
+    "section": "The principle of proportional ink",
+    "text": "The principle of proportional ink\n\nWhen values are represented by physical dimensions—bar length, bubble area, map area, and so on—the amount of visual “ink” should be proportional to the data value. Why does this matter?\n\n\nVisual differences should reflect numerical differences.\nGraphs should not exaggerate differences.\nRelative magnitudes should be intuitive to compare.\n\n\n\n\n\n\n\n\n\n\n\n\nCaution\n\n\nThis example also omits variation around the mean systolic blood pressure. A mean alone tells us little about how consistent values are among the samples."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#design-figures-so-they-dont-need-a-legend",
+    "href": "content/slides/w8-slides.html#design-figures-so-they-dont-need-a-legend",
+    "title": "Week 8",
+    "section": "Design figures so they don’t need a legend",
+    "text": "Design figures so they don’t need a legend\n\nLegends make readers move back and forth between the plot and its key. Whenever possible, reduce that effort.\n\n\n\nLegend required\n\n\nDirect labeling\n\n\nOther strategies include:\n\nLabeling groups or lines directly.\nUsing axes and facets to identify groups.\nAvoiding redundant aesthetic mappings when they do not add useful information."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#balance-data-and-non-data-elements",
+    "href": "content/slides/w8-slides.html#balance-data-and-non-data-elements",
+    "title": "Week 8",
+    "section": "Balance data and non-data elements",
+    "text": "Balance data and non-data elements\n\nA figure needs enough context to be interpretable—but not so much that the context competes with the data. Figures can include too much non-data ink.\n\n\n\n\n\n\nAxes, grid lines, borders, and other elements can distract from the pattern."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#balance-is-not-the-same-as-removing-everything",
+    "href": "content/slides/w8-slides.html#balance-is-not-the-same-as-removing-everything",
+    "title": "Week 8",
+    "section": "Balance is not the same as removing everything",
+    "text": "Balance is not the same as removing everything\n\nRemoving too much can make a figure harder to interpret or strip away useful context.\n\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\nThere is no hard-and-fast formula. Developing a sense of balance takes practice, comparison, and feedback."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#simplicity-simplicity-simplicity",
+    "href": "content/slides/w8-slides.html#simplicity-simplicity-simplicity",
+    "title": "Week 8",
+    "section": "✂️ Simplicity, simplicity, simplicity!",
+    "text": "✂️ Simplicity, simplicity, simplicity!\n\nA simple visualization that communicates one central message is usually better than a complex figure that muddies that message. A few practical guidelines:\n\n\nAvoid gratuitous 3D. Two dimensions are usually easier to interpret.\nDon’t encode everything. Just because a variable is available does not mean it belongs in the plot.\nMake the message visible at a glance. Titles and captions should help readers understand the main takeaway.\nBuild toward complexity. In presentations, orient the audience with simpler views before showing a complex figure.\nBe consistent, not repetitive. Choose the plot that best suits each question.\nBuild figures for the CEO. Assume your reader is busy and needs to understand the point quickly."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#exploratory-data-analysis-eda",
+    "href": "content/slides/w8-slides.html#exploratory-data-analysis-eda",
+    "title": "Week 8",
+    "section": "Exploratory data analysis (EDA)",
+    "text": "Exploratory data analysis (EDA)\n\nAfter cleaning and wrangling, exploratory data analysis is our next step toward understanding how a dataset is structured and what it contains. EDA helps us:\n\n\nSummarize main characteristics: group means, variation, spread, distributions, and more.\nSpot anomalies: unusual observations, outliers, or miscoded data.\nFind patterns: expected relationships and unexpected signals that may reflect biology—or systematic bias.\n\nEDA is useful for both observational datasets and carefully designed experiments."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#eda-is-an-iterative-process",
+    "href": "content/slides/w8-slides.html#eda-is-an-iterative-process",
+    "title": "Week 8",
+    "section": "EDA is an iterative process",
+    "text": "EDA is an iterative process\n\nThere is no single formal protocol, but a useful way to think about EDA is as a cycle:\n\n\nGenerate questions about your data.\nSearch for answers by visualizing, transforming, and sometimes modeling your data.\nUse what you learn to refine your questions or generate new ones.\n\n\n\n\n\n\n\nNote\n\n\nEDA is not just a box to check before analysis. It is a way to learn what your data can—and cannot—tell you."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#eda-checklist-understand-the-data",
+    "href": "content/slides/w8-slides.html#eda-checklist-understand-the-data",
+    "title": "Week 8",
+    "section": "✅ EDA checklist: understand the data",
+    "text": "✅ EDA checklist: understand the data\n\n\n\n\n\n\n\nActivity\nQuestions to ask\n\n\n\n\nDataset structure\nWhat are my observations? What does each row represent?\n\n\nDistributions\nHow are variables distributed? Skewed, bimodal, or approximately normal?\n\n\nMissing data\nWhere and why are observations missing? Is missingness associated with groups, sites, or dates?\n\n\nSample sizes\nAre observations balanced across groups, treatments, or locations?\n\n\nVariation\nHow much variability exists within and among groups?\n\n\nOutliers\nAre unusual observations errors, measurement artifacts, or meaningful biological variation?"
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#eda-checklist-look-for-patterns-and-context",
+    "href": "content/slides/w8-slides.html#eda-checklist-look-for-patterns-and-context",
+    "title": "Week 8",
+    "section": "✅ EDA checklist: look for patterns and context",
+    "text": "✅ EDA checklist: look for patterns and context\n\n\n\n\n\n\n\nActivity\nQuestions to ask\n\n\n\n\nRelationships\nAre variables related? Are relationships linear, nonlinear, or absent?\n\n\nTemporal patterns\nAre there seasonal, annual, or other temporal trends?\n\n\nSpatial patterns\nAre observations spatially clustered? Are there geographic patterns?\n\n\nSampling bias\nCould sampling effort, detectability, or methodology explain observed patterns?\n\n\nTransformations\nWould transforming variables or using alternative summaries reveal patterns?\n\n\nExperimental design\nDoes the data structure reflect blocks, sites, repeated measures, or other dependencies?\n\n\nBiological interpretation\nAre patterns biologically meaningful, or could they reflect artifacts or confounding?\n\n\nNew questions\nWhat unexpected patterns emerged? What should I investigate next?\n\n\n\n\n\n\n\n\n\nImportant\n\n\nIf data come from a carefully designed experiment (e.g., a randomized complete block design), analysis must remain consistent with how the data were collected. EDA can generate additional questions, but it should not override the experimental design."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#a-bestiary-of-plots-1",
+    "href": "content/slides/w8-slides.html#a-bestiary-of-plots-1",
+    "title": "Week 8",
+    "section": "A bestiary of plots",
+    "text": "A bestiary of plots\n\nThere are a lot of ways to display data—and often more than one reasonable choice. A good way to brainstorm is to look at examples:\n\n\nWhat kind of data are being displayed?\nWhat comparison or pattern does the plot make easy to see?\nWhich aesthetics and geoms are doing the work?\n\nThe examples on the next slides are from Claus Wilke’s Fundamentals of Data Visualization, Chapters 5–16."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#plot-families-amounts-distributions-and-proportions",
+    "href": "content/slides/w8-slides.html#plot-families-amounts-distributions-and-proportions",
+    "title": "Week 8",
+    "section": "📊 Plot families: amounts, distributions, and proportions",
+    "text": "📊 Plot families: amounts, distributions, and proportions\n\n\nAmounts\n\n\n\nDistributions"
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#plot-families-proportions-and-uncertainty",
+    "href": "content/slides/w8-slides.html#plot-families-proportions-and-uncertainty",
+    "title": "Week 8",
+    "section": "📊 Plot families: proportions and uncertainty",
+    "text": "📊 Plot families: proportions and uncertainty\n\n\nProportions\n\n\n\nUncertainty\n\n\n\n\n\n\n\n\n\nImportant\n\n\nWhenever you plot a mean—whether from a basic summary or a model—also show uncertainty. Examples include standard deviations, standard errors, and confidence or credible intervals."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#plot-families-relationships-and-space",
+    "href": "content/slides/w8-slides.html#plot-families-relationships-and-space",
+    "title": "Week 8",
+    "section": "📈 Plot families: relationships and space",
+    "text": "📈 Plot families: relationships and space\n\n\nX–Y relationships\n\n\n\nGeospatial data\n\n\nExplore the directory of visualizations when you are unsure which plot type might work best."
+  },
+  {
+    "objectID": "content/slides/w8-slides.html#take-home-points",
+    "href": "content/slides/w8-slides.html#take-home-points",
+    "title": "Week 8",
+    "section": "🧠 Take-home points",
+    "text": "🧠 Take-home points\n\nColor should have a job. Match the scale to the kind of information.\nDon’t mislead. Keep visual encodings proportional and show uncertainty around summaries.\nReduce interpretation effort. Direct labels and thoughtful design can make legends unnecessary.\nKeep the figure balanced and simple. Show what matters, with enough context to understand it.\nUse EDA to learn. Inspect structure, distributions, missingness, variation, relationships, and design.\nChoose plots to answer questions. The best plot is the one that communicates the data clearly.\n\nFurther reading: Fundamentals of Data Visualization · R for Data Science: Exploratory Data Analysis · R Graph Gallery"
   },
   {
     "objectID": "content/w3-content.html",
@@ -1774,174 +2101,6 @@
       "Workshops",
       "Module 3: Basic data wrangling and visualization in R",
       "Week 7: Data visualization Pt.I: ggplot basics"
-    ]
-  },
-  {
-    "objectID": "workshop/w8-workshop.html",
-    "href": "workshop/w8-workshop.html",
-    "title": "Workshop 8: Data Visualization Pt. II",
-    "section": "",
-    "text": "Due date for workshop materials\nYou will need to commit and push your workshop files and create your peer review issue and tag your reviewer by 23:59 next Tuesday, November 17th so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by Friday, November 20th at 12:00.",
-    "crumbs": [
-      "Workshops",
-      "Module 4: Automation, functions, and scaling",
-      "Week 9: Functions and automation"
-    ]
-  },
-  {
-    "objectID": "workshop/w8-workshop.html#frontmatter",
-    "href": "workshop/w8-workshop.html#frontmatter",
-    "title": "Workshop 8: Data Visualization Pt. II",
-    "section": "",
-    "text": "Due date for workshop materials\nYou will need to commit and push your workshop files and create your peer review issue and tag your reviewer by 23:59 next Tuesday, November 17th so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by Friday, November 20th at 12:00.",
-    "crumbs": [
-      "Workshops",
-      "Module 4: Automation, functions, and scaling",
-      "Week 9: Functions and automation"
-    ]
-  },
-  {
-    "objectID": "workshop/w8-workshop.html#packages-well-need-for-today",
-    "href": "workshop/w8-workshop.html#packages-well-need-for-today",
-    "title": "Workshop 8: Data Visualization Pt. II",
-    "section": "📦 Packages we’ll need for today",
-    "text": "📦 Packages we’ll need for today\nBe sure to install these packages (install.packages()) if you don’t already have them.\n\nlibrary(tidyverse)\nlibrary(janitor)\n\n# Feel free to use additional packages for plots, themes, etc.",
-    "crumbs": [
-      "Workshops",
-      "Module 4: Automation, functions, and scaling",
-      "Week 9: Functions and automation"
-    ]
-  },
-  {
-    "objectID": "workshop/w8-workshop.html#load-our-data",
-    "href": "workshop/w8-workshop.html#load-our-data",
-    "title": "Workshop 8: Data Visualization Pt. II",
-    "section": "💾 Load our data",
-    "text": "💾 Load our data\nYou can either download the requisite .csv files below, or import them directly from Google Sheets (w8-workshop-data). Be sure you are using the correct files/sheet tabs for each section below. I’ve tried to make it explicit.\n .csv dataset  Google Sheet dataset\n\n\n\n\n\n\nTip\n\n\n\nBe sure you save the .csv in the correct place so that you can access it in your R Studio project!",
-    "crumbs": [
-      "Workshops",
-      "Module 4: Automation, functions, and scaling",
-      "Week 9: Functions and automation"
-    ]
-  },
-  {
-    "objectID": "workshop/w8-workshop.html#dataset-1-bees",
-    "href": "workshop/w8-workshop.html#dataset-1-bees",
-    "title": "Workshop 8: Data Visualization Pt. II",
-    "section": "Dataset 1: Bees!",
-    "text": "Dataset 1: Bees!\n\n\n\n\n\n\nStudy background and purpose\nA research team is investigating how habitat characteristics and environmental conditions influence pollinator communities across different landscape types. Researchers established sampling sites in three habitat types: restored prairies, agricultural field margins, and urban gardens. The goal is to understand how pollinator abundance and community composition vary among habitats and throughout the growing season.\n\n\nData collection methods\nResearchers conducted standardized surveys at 12 sampling sites (four per habitat) on eight dates between May and August. During each survey, observers recorded the number of individuals belonging to four broad pollinator groups: bees, butterflies, flies, and beetles. Each survey was conducted over a standardized 10-minute observation period.\nResearchers also recorded environmental conditions, including air temperature and wind speed, along with habitat characteristics such as flowering plant richness and flower abundance.\n\n\nPollinator dataset metadata\n\n\n\n\n\n\n\n\nVariable\nDescription\nData type\n\n\n\n\nsite_id\nUnique sampling site identifier\nCharacter\n\n\nhabitat\nHabitat type (Prairie, Field margin, Urban garden)\nFactor\n\n\ndate\nDate of sampling\nDate\n\n\ntemperature\nAir temperature (°C)\nNumeric\n\n\nwind_speed\nWind speed (km/h)\nNumeric\n\n\nfloral_richness\nNumber of flowering plant species at the site\nInteger\n\n\nflower_abundance\nEstimated abundance of flowers\nInteger\n\n\npollinator_group\nPollinator group (Bees, Butterflies, Flies, Beetles)\nFactor\n\n\nabundance\nNumber of individuals observed during the survey\nInteger",
-    "crumbs": [
-      "Workshops",
-      "Module 4: Automation, functions, and scaling",
-      "Week 9: Functions and automation"
-    ]
-  },
-  {
-    "objectID": "workshop/w8-workshop.html#dataset-2-birds",
-    "href": "workshop/w8-workshop.html#dataset-2-birds",
-    "title": "Workshop 8: Data Visualization Pt. II",
-    "section": "Dataset 2: Birds!",
-    "text": "Dataset 2: Birds!\n\n\n\n\n\n\nStudy background and purpose\nA research team is investigating how bird communities differ among habitat types and change throughout the breeding season. Researchers established sampling sites in three habitat types: forests, grasslands, and wetlands. The goal is to explore differences in bird abundance, species composition, and seasonal activity patterns across these habitats.\n\n\nData collection methods\nResearchers established 12 sampling sites (four per habitat) and conducted standardized bird surveys on six dates between May and October. During each survey, observers conducted a 10-minute point count, recording the number of individuals detected for each of ten focal bird species.\nBird species represent several ecological guilds, including insectivores, grassland birds, wetland birds, and wading birds. Researchers also recorded environmental conditions, including air temperature and wind speed, during each sampling event.\n\n\nBird dataset metadata\n\n\n\n\n\n\n\n\nVariable\nDescription\nData type\n\n\n\n\nsite_id\nUnique sampling site identifier\nCharacter\n\n\nhabitat\nHabitat type (Forest, Grassland, Wetland)\nFactor\n\n\ndate\nDate of sampling\nDate\n\n\ntemperature\nAir temperature (°C)\nNumeric\n\n\nwind_speed\nWind speed (km/h)\nNumeric\n\n\nspecies\nBird species observed\nCharacter\n\n\nguild\nEcological feeding or nesting guild\nCharacter\n\n\nabundance\nNumber of individuals detected during the 10-minute point count\nInteger",
-    "crumbs": [
-      "Workshops",
-      "Module 4: Automation, functions, and scaling",
-      "Week 9: Functions and automation"
-    ]
-  },
-  {
-    "objectID": "content/w8-content.html",
-    "href": "content/w8-content.html",
-    "title": "Week 8",
-    "section": "",
-    "text": "Fundamentals of Data Visualization by Claus O. Wilke\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 10: Exploratory Data Analysis\n\n\n\n\n ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.\n\n\n\n\n\n\nWhat are the fundamentals of data visualization?\nWhat is exploratory data analysis?\n\n\n\n\n Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
-    "crumbs": [
-      "Content",
-      "Module 3: Basic data wrangling and visualization in R",
-      "Week 8: Data visualization Pt.II: theory, EDA practice"
-    ]
-  },
-  {
-    "objectID": "content/w8-content.html#readings",
-    "href": "content/w8-content.html#readings",
-    "title": "Week 8",
-    "section": "",
-    "text": "Fundamentals of Data Visualization by Claus O. Wilke\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 10: Exploratory Data Analysis\n\n\n\n\n ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.",
-    "crumbs": [
-      "Content",
-      "Module 3: Basic data wrangling and visualization in R",
-      "Week 8: Data visualization Pt.II: theory, EDA practice"
-    ]
-  },
-  {
-    "objectID": "content/w8-content.html#questionstopics-well-address-this-week",
-    "href": "content/w8-content.html#questionstopics-well-address-this-week",
-    "title": "Week 8",
-    "section": "",
-    "text": "What are the fundamentals of data visualization?\nWhat is exploratory data analysis?",
-    "crumbs": [
-      "Content",
-      "Module 3: Basic data wrangling and visualization in R",
-      "Week 8: Data visualization Pt.II: theory, EDA practice"
-    ]
-  },
-  {
-    "objectID": "content/w8-content.html#slides",
-    "href": "content/w8-content.html#slides",
-    "title": "Week 8",
-    "section": "",
-    "text": "Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
-    "crumbs": [
-      "Content",
-      "Module 3: Basic data wrangling and visualization in R",
-      "Week 8: Data visualization Pt.II: theory, EDA practice"
-    ]
-  },
-  {
-    "objectID": "content/w8-content.html#fundamentals-of-data-visualization",
-    "href": "content/w8-content.html#fundamentals-of-data-visualization",
-    "title": "Week 8",
-    "section": "Fundamentals of Data Visualization",
-    "text": "Fundamentals of Data Visualization\nLast week we covered the technical side of creating data visualizations with ggplot. As you’ll soon find out (if you haven’t already), writing the code will quickly become the easy part – making the plot and its message “click” is the tough part. There are tons of resources on doing this, and entire courses dedicated to just this topic, so our treatise of it will of course be surface-level only. Please check the course resources above for additional work (especially Claus Wilke’s book on which many of the topics below are based), and check out Cory Hirsh’s Data Visualization in Plant and Microbial Biology (and the dozens of other data viz courses that exist on campus. I also may develop a dedicated workshop for Biology/Ecology in the coming year or two…).\n\nColor Use\n\n\nA bestiary of plots\n\nAmounts\n\n\nDistributions\n\n\nProportions\n\n\nUncertainty\n\n\nx-y relationships\n\n\nGeospatial data\n\n\n\nPriciples of Visualizations\n\nPrinciple of proportional ink\n\n\nColor pitfalls\n\n\nDesign figures so they don’t need a legend\n\n\nBalancing plot elements\n\n\nSimplicity, simplicity, simplicity!",
-    "crumbs": [
-      "Content",
-      "Module 3: Basic data wrangling and visualization in R",
-      "Week 8: Data visualization Pt.II: theory, EDA practice"
-    ]
-  },
-  {
-    "objectID": "content/w8-content.html#exploratory-data-analysis",
-    "href": "content/w8-content.html#exploratory-data-analysis",
-    "title": "Week 8",
-    "section": "Exploratory Data Analysis",
-    "text": "Exploratory Data Analysis\nAfter cleaning and wranglin’ our data, exploratory data analysis is the next step toward understanding how your dataset is structured and to do the following:\n\nSummarize main characteristics: means of groups, variation, spread, normality, etc.\nSpot anomalies: find odd data points, outliers, or miscoded data before it finds its way into an analysis.\nFind patterns: these could be related to your central questions, or entirely unexpected patterns that manifest because of some real biological phenomenon, or because of some systematic bias in your data.\n\nEDA can also help guide you toward questions that you can ask if you are working with a dataset that is purely correlative or from observational work rather than from a controlled, designed experiment. Even if you have data from a controlled experiment, EDA can still be a good way to explore interesting patterns outside of your pre-conceived hypotheses and experimental design. While there’s no formal protocol on EDA, in general we want to do the following:\n\nGenerate questions about your data\nSearch for answers by visualizing, transforming, and “modeling” your data\nUse what you learn to refine questions and/or generate new questions\n\n\n\n\n\n\n\nImportant\n\n\n\nIf you are working with data from a carefully designed experiment (e.g., randomized complete block design), it’s critical that we also analyze our data consistent with the manner in which the data were collected! EDA can help us ask additional questions, but we want to be sure to respect the work and purpose of the experimental design first and foremost.",
-    "crumbs": [
-      "Content",
-      "Module 3: Basic data wrangling and visualization in R",
-      "Week 8: Data visualization Pt.II: theory, EDA practice"
-    ]
-  },
-  {
-    "objectID": "content/w8-content.html#other-ggplot-skills",
-    "href": "content/w8-content.html#other-ggplot-skills",
-    "title": "Week 8",
-    "section": "Other ggplot skills",
-    "text": "Other ggplot skills\n\nPres",
-    "crumbs": [
-      "Content",
-      "Module 3: Basic data wrangling and visualization in R",
-      "Week 8: Data visualization Pt.II: theory, EDA practice"
-    ]
-  },
-  {
-    "objectID": "workshop/w8-workshop.html#the-task-for-today",
-    "href": "workshop/w8-workshop.html#the-task-for-today",
-    "title": "Workshop 8: Data Visualization Pt. II",
-    "section": "The task for today",
-    "text": "The task for today\nI’ve provided two different datasets: 🦆 + 🐝. Select whichever one most appeals to you and do some ’splorin. Poke around for a while, and then pose some interesting questions that you want to answer with these data. Then, wrangle the data as necessary, and create visualizations that seek to answer/address these questions. There isn’t necessarily a right way to do this. The exercise is meant to simulate what you’ll be doing/have done with the data you’ve collected: it’s up to you to figure out how you want to go about making sense of everything!\nI’ve tried to keep the data wrangling requirements to a minimum here to focus on the exploration. That said, you’ll likely need to either summarize, filter, or otherwise reshape your data to ask specific questions, but there aren’t any “gotchas” in the data structure or formatting this time. The datasets are pretty squeaky clean 🧼.\nI’d like for each of you to pose and address 3 distinct questions with the dataset you select. For each:\n\nPose a question and hypothesis. Clearly articulate what you want to investigate and what you expect to find. Your hypothesis doesn’t need to be correct!\nCreate your visualization(s). Decide which type of visualization would be most appropriate for exploring your question. Wrangle or summarize your data as necessary.\nInterpret your results. Describe the take-home message from your visualization. Does it support or contradict your hypothesis? What patterns or relationships do you observe?\nConsider limitations. Are there any data oddities, limitations, or alternative explanations that might influence your interpretation? Be mindful of the difference between identifying patterns and making causal claims.\n\n\n\n\n\n\n\nTip\n\n\n\nRecall: A research question identifies something you want to investigate. A hypothesis is your proposed explanation or prediction about what you expect to observe. Your hypothesis doesn’t need to be correct! The goal is to use EDA/data visualization to explore whether the data are consistent with your expectations.\n\n\n\n\n\n\n\n\nNote\n\n\n\nBe sure to document specific design/data summary choices that you make along the way as code comments. Your peer reviewer should be able to understand why you made particular decisions and reproduce your visualizations.",
-    "crumbs": [
-      "Workshops",
-      "Module 4: Automation, functions, and scaling",
-      "Week 9: Functions and automation"
     ]
   }
 ]

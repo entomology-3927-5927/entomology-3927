@@ -49,28 +49,30 @@ Be sure you save the `.csv` in the correct place so that you can access it in yo
 </br>
 
 ## The task for today
-I've provided two different datasets: 🦆 + 🐝. Select whichever one most appeals to you and do some 'splorin. Poke around for a while, and then pose some interesting questions that you want to answer with these data. Then, wrangle the data as necessary, and create visualizations that seek to answer/address these questions. There isn't necessarily a right way to do this. The exercise is meant to simulate what you'll be doing/have done with the data you've collected: it's up to you to figure out how you want to go about making sense of everything! 
 
-I've tried to keep the data wrangling requirements to a minimum here to focus on the exploration. That said, you'll likely need to either summarize, filter, or otherwise reshape your data to ask specific questions, but there aren't any "gotchas" in the data structure or formatting this time. The datasets are pretty squeaky clean 🧼. 
+I've provided two different datasets: 🦆 + 🐝. Select whichever one most appeals to you and do some 'splorin. Poke around for a while, and then pose some interesting questions that you want to answer with these data. Then, wrangle the data as necessary, and create visualizations that seek to answer/address these questions. There isn't necessarily a right way to do this. The exercise is meant to simulate what you'll be doing/have done with the data you've collected: it's up to you to figure out how you want to go about making sense of everything!
+
+I've tried to keep the data wrangling requirements to a minimum here to focus on the exploration. That said, you'll likely need to either summarize, filter, or otherwise reshape your data to ask specific questions, but there aren't any "gotchas" in the data structure or formatting this time. The datasets are pretty squeaky clean 🧼.
 
 I'd like for each of you to **pose and address 3 distinct questions** with the dataset you select. For each:
 
-1. **Pose a question and hypothesis.** Clearly articulate what you want to investigate and what you expect to find. Your hypothesis doesn't need to be correct!
-2. **Create your visualization(s).** Decide which type of visualization would be most appropriate for exploring your question. Wrangle or summarize your data as necessary.
-3. **Interpret your results.** Describe the take-home message from your visualization. Does it support or contradict your hypothesis? What patterns or relationships do you observe?
-4. **Consider limitations.** Are there any data oddities, limitations, or alternative explanations that might influence your interpretation? Be mindful of the difference between identifying patterns and making causal claims.
+1.  **Pose a question and hypothesis.** Clearly articulate what you want to investigate and what you expect to find. Your hypothesis doesn't need to be correct!
+2.  **Create your visualization(s).** Decide which type of visualization would be most appropriate for exploring your question. Wrangle or summarize your data as necessary.
+3.  **Interpret your results.** Describe the take-home message from your visualization. Does it support or contradict your hypothesis? What patterns or relationships do you observe?
+4.  **Consider limitations.** Are there any data oddities, limitations, or alternative explanations that might influence your interpretation? Be mindful of the difference between identifying patterns and making causal claims.
 
-:::{.callout-tip}
+::: callout-tip
 Recall: A *research question* identifies something you want to investigate. A *hypothesis* is your proposed explanation or prediction about what you expect to observe. Your hypothesis doesn't need to be correct! The goal is to use EDA/data visualization to explore whether the data are consistent with your expectations.
 :::
 
-:::{.callout-note}
+::: callout-note
 Be sure to document specific design/data summary choices that you make along the way as code comments. Your peer reviewer should be able to understand why you made particular decisions and reproduce your visualizations.
 :::
 
-</br> 
+</br>
 
-## Dataset 1: Bees! 
+## Dataset 1: Bees!
+
 ![](https://beesbeesbeesbees.com/oprahbees.gif){width="50%" fig-align="center"}
 
 ### Study background and purpose
@@ -85,17 +87,19 @@ Researchers also recorded environmental conditions, including air temperature an
 
 ### Pollinator dataset metadata
 
-| **Variable**           | **Description**                                          | **Data type** |
-| ------------------ | ---------------------------------------------------- | --------- |
-| `site_id`          | Unique sampling site identifier                      | Character |
-| `habitat`          | Habitat type (Prairie, Field margin, Urban garden)   | Factor    |
-| `date`             | Date of sampling                                     | Date      |
-| `temperature`      | Air temperature (°C)                                 | Numeric   |
-| `wind_speed`       | Wind speed (km/h)                                    | Numeric   |
-| `floral_richness`  | Number of flowering plant species at the site        | Integer   |
-| `flower_abundance` | Estimated abundance of flowers                       | Integer   |
-| `pollinator_group` | Pollinator group (Bees, Butterflies, Flies, Beetles) | Factor    |
-| `abundance`        | Number of individuals observed during the survey     | Integer   |
+| **Variable** | **Description** | **Data type** |
+|---------------|-------------------------------------------|---------------|
+| `site_id` | Unique sampling site identifier | Character |
+| `habitat` | Habitat type (Prairie, Field margin, Urban garden) | Factor |
+| `date` | Date of sampling | Date |
+| `temperature` | Air temperature (°C) | Numeric |
+| `wind_speed` | Wind speed (km/h) | Numeric |
+| `floral_richness` | Number of flowering plant species at the site | Integer |
+| `flower_abundance` | Estimated abundance of flowers | Integer |
+| `pollinator_group` | Pollinator group (Bees, Butterflies, Flies, Beetles) | Factor |
+| `abundance` | Number of individuals observed during the survey | Integer |
+
+```{=html}
 <!--
 **Questions to help get you started:**
 
@@ -106,10 +110,12 @@ Researchers also recorded environmental conditions, including air temperature an
 - Does temperature relate to pollinator activity?
 - Do seasonal patterns differ among pollinator groups?
 -->
+```
 
-</br> 
+</br>
 
 ## Dataset 2: Birds!
+
 ![](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExem1mZnlmcmM0d2NoZm5kNHd5aXVrMzU1YW5qaG53dXJ1ZDRpYWZtdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WaEDmi1vk4vFm/giphy.gif){width="50%" fig-align="center"}
 
 ### Study background and purpose
@@ -124,16 +130,18 @@ Bird species represent several ecological guilds, including insectivores, grassl
 
 ### Bird dataset metadata
 
-| **Variable**      | **Description**                                                     | **Data type**      |
-| ------------- | --------------------------------------------------------------- | -------------- |
-| `site_id`     | Unique sampling site identifier                                 | Character      |
-| `habitat`     | Habitat type (Forest, Grassland, Wetland)                       | Factor         |
-| `date`        | Date of sampling                                                | Date           |
-| `temperature` | Air temperature (°C)                                            | Numeric        |
-| `wind_speed`  | Wind speed (km/h)                                               | Numeric        |
-| `species`     | Bird species observed                                           | Character      |
-| `guild`       | Ecological feeding or nesting guild                             | Character      |
-| `abundance`   | Number of individuals detected during the 10-minute point count | Integer        |
+| **Variable** | **Description** | **Data type** |
+|--------------|---------------------------------------------|--------------|
+| `site_id` | Unique sampling site identifier | Character |
+| `habitat` | Habitat type (Forest, Grassland, Wetland) | Factor |
+| `date` | Date of sampling | Date |
+| `temperature` | Air temperature (°C) | Numeric |
+| `wind_speed` | Wind speed (km/h) | Numeric |
+| `species` | Bird species observed | Character |
+| `guild` | Ecological feeding or nesting guild | Character |
+| `abundance` | Number of individuals detected during the 10-minute point count | Integer |
+
+```{=html}
 <!--
 **Questions to get you started:**
 
@@ -146,3 +154,4 @@ Bird species represent several ecological guilds, including insectivores, grassl
 - Does wind speed appear to influence bird activity?
 - Are these relationships consistent across habitats?
 -->
+```

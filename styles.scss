@@ -43,13 +43,19 @@ $link-color: $amber-yl; // hyperlinks
 
 // Remove underline from hyperlinks
 a {
-  text-decoration:none;
-  
+  text-decoration: none;
+
 }
+
 $link-decoration: null !default;
 
 /*-- scss:rules --*/
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $robo;
   font-weight: 600;
   margin-top: 0.5rem;
@@ -72,12 +78,12 @@ body {
   font-size: 110%;
 }
 
-.navbar-nav .nav-link{
+.navbar-nav .nav-link {
   font-size: 110%;
   font-weight: 300;
 }
 
-.navbar-brand img { 
+.navbar-brand img {
   max-height: 60px;
   width: auto;
 }
@@ -90,51 +96,51 @@ body {
 
 // Content boxes
 .box-1-list {
-    margin: 1em 0;
-    border-radius: 15px;
-    padding: 0.25em;
-        padding-left: 1em;
-    background-color: rgba($theme3927-1, 0.5);
+  margin: 1em 0;
+  border-radius: 15px;
+  padding: 0.25em;
+  padding-left: 1em;
+  background-color: rgba($theme3927-1, 0.5);
 }
 
 .box-2-list {
-    margin: 1em 0;
-    border-radius: 15px;
-    padding: 0.25em;
-        padding-left: 1em;
-    background-color: rgba($theme3927-2, 0.5);
+  margin: 1em 0;
+  border-radius: 15px;
+  padding: 0.25em;
+  padding-left: 1em;
+  background-color: rgba($theme3927-2, 0.5);
 }
 
 .box-3-list {
-    margin: 1em 0;
-    border-radius: 15px;
-    padding: 0.25em;
-        padding-left: 1em;
-    background-color: rgba($theme3927-3, 0.5);
+  margin: 1em 0;
+  border-radius: 15px;
+  padding: 0.25em;
+  padding-left: 1em;
+  background-color: rgba($theme3927-3, 0.5);
 }
 
 .box-4-list {
-    margin: 1em 0;
-    border-radius: 15px;
-    padding: 0.25em;
-        padding-left: 1em;
-    background-color: rgba($theme3927-4, 0.5);
+  margin: 1em 0;
+  border-radius: 15px;
+  padding: 0.25em;
+  padding-left: 1em;
+  background-color: rgba($theme3927-4, 0.5);
 }
 
 .box-5-list {
-    margin: 1em 0;
-    border-radius: 15px;
-    padding: 0.25em;
-        padding-left: 1em;
-    background-color: rgba($theme3927-5, 0.5);
+  margin: 1em 0;
+  border-radius: 15px;
+  padding: 0.25em;
+  padding-left: 1em;
+  background-color: rgba($theme3927-5, 0.5);
 }
 
 .box-6-list {
-    margin: 1em 0;
-    border-radius: 15px;
-    padding: 0.25em;
-        padding-left: 1em;
-    background-color: rgba($theme3927-6, 0.5);
+  margin: 1em 0;
+  border-radius: 15px;
+  padding: 0.25em;
+  padding-left: 1em;
+  background-color: rgba($theme3927-6, 0.5);
 }
 
 .content-callout1 {
@@ -163,17 +169,26 @@ body {
 
 // Custom styling for primary buttons
 .btn.btn-primary {
-  background-color: $theme3927-3;       /* Custom background color */
-  border-color: $theme3927-3;           /* Match border color */
-  color: #ffffff;                       /* Text color */
-  border-radius: 8px;                   /* Corner rounding */
-  padding: 0.5em 1.25em;                /* Button padding */
-  font-weight: 600;                     /* Text thickness */
-  text-decoration: none;                /* Remove underline from link buttons */
-  transition: all 0.2s ease-in-out;    /* Smooth hover effect */
+  background-color: $theme3927-3;
+  /* Custom background color */
+  border-color: $theme3927-3;
+  /* Match border color */
+  color: #ffffff;
+  /* Text color */
+  border-radius: 8px;
+  /* Corner rounding */
+  padding: 0.5em 1.25em;
+  /* Button padding */
+  font-weight: 600;
+  /* Text thickness */
+  text-decoration: none;
+  /* Remove underline from link buttons */
+  transition: all 0.2s ease-in-out;
+  /* Smooth hover effect */
 
   // Hover state
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: darken($theme3927-5, 10%);
     border-color: darken($theme3927-5, 10%);
     color: #ffffff;
@@ -197,7 +212,13 @@ div.qwebr-interactive-area {
   .monaco-editor {
     font-size: 0.8rem !important;
   }
+
   pre {
     font-size: 0.8rem !important;
   }
+}
+
+
+.indented-text {
+  margin-left: 2em;
 }
