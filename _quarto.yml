@@ -71,19 +71,19 @@ website:
             - text: "Week 7: Data visualization Pt.I: ggplot basics"
               file: workshop/w7-workshop.qmd
             - text: "Week 8: Data visualization Pt.II: theory, EDA practice"
-              file: workshop/w7-workshop.qmd
+              file: workshop/w8-workshop.qmd
         - section: "Module 4: Automation, functions, and scaling"
           contents:
             - text: "Week 9: Functions and automation"
-              file: workshop/w8-workshop.qmd
-            - text: "Week 10: Batching, scaling work/pipelines"
               file: workshop/w9-workshop.qmd
+            - text: "Week 10: Batching, scaling work/pipelines"
+              file: workshop/w10-workshop.qmd
         - section: "Module 5: Getting data from databases and data management"
           contents:
             - text: "Week 11: Databases, web APIs, web-scraping"
-              file: workshop/w10-workshop.qmd
-            - text: "Week 12: Data mangagement, metadata, documentation"
               file: workshop/w11-workshop.qmd
+            - text: "Week 12: Data mangagement, metadata, documentation"
+              file: workshop/w12-workshop.qmd
     - title: "Content"
       style: "docked"
       search: false
