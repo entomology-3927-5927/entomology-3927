@@ -12,18 +12,17 @@ format:
 :::: content-callout1
 ## Readings
 
--   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 1: Visualization](https://r4ds.hadley.nz/data-visualize.html)
--   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Part II (3 chapters)](https://r4ds.hadley.nz/visualize.html)
+-   {{< fa file-code >}} [Fundamentals of Data Visualization by Claus O. Wilke](https://clauswilke.com/dataviz/)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 10: Exploratory Data Analysis](https://r4ds.hadley.nz/EDA.html)
 
 ### Online/optional extras
 
 -   {{< fa file-code >}} [ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.](https://ggplot2-book.org/)
 
-## Questions we'll address this week
+## Questions/topics we'll address this week
 
-1.  How do we create data visualizations in R?
-2.  What are the various geometries that we can use?
-3.  What visualization theory do we need to know?
+1.  What are the fundamentals of data visualization?
+2.  What is exploratory data analysis?
 
 ## Slides
 
@@ -43,3 +42,52 @@ format:
 ```{r include=FALSE}
 library(tidyverse)
 ```
+
+## Fundamentals of Data Visualization
+Last week we covered the technical side of creating data visualizations with ggplot. As you'll soon find out (if you haven't already), writing the code will quickly become the easy part -- making the plot and its message "click" is the tough part. There are tons of resources on doing this, and entire courses dedicated to just this topic, so our treatise of it will of course be surface-level only. Please check the course resources above for additional work (especially Claus Wilke's book on which many of the topics below are based), and check out Cory Hirsh's [Data Visualization in Plant and Microbial Biology](https://umtc.catalog.prod.coursedog.com/courses/8190201/tab-aoYks) (and the dozens of other data viz courses that exist on campus. I also may develop a dedicated workshop for Biology/Ecology in the coming year or two...).
+
+### Color Use
+
+
+### A bestiary of plots
+
+#### Amounts
+
+#### Distributions
+
+#### Proportions
+
+#### Uncertainty
+
+#### x-y relationships
+
+#### Geospatial data
+
+### Priciples of Visualizations
+
+#### Principle of proportional ink
+
+#### Color pitfalls
+
+#### Design figures so they don't need a legend
+
+#### Balancing plot elements
+
+#### Simplicity, simplicity, simplicity! 
+
+## Exploratory Data Analysis
+After cleaning and wranglin' our data, exploratory data analysis is the next step toward understanding how your dataset is structured and to do the following:
+
+- **Summarize main characteristics**: means of groups, variation, spread, normality, etc. 
+- **Spot anomalies**: find odd data points, outliers, or miscoded data before it finds its way into an analysis. 
+- **Find patterns**: these could be related to your central questions, or entirely unexpected patterns that manifest because of some real biological phenomenon, or because of some systematic bias in your data.
+
+EDA can also help guide you toward questions that you can ask if you are working with a dataset that is purely correlative or from observational work rather than from a controlled, designed experiment. Even if you have data from a controlled experiment, EDA can still be a good way to explore interesting patterns outside of your pre-conceived hypotheses and experimental design. While there's no formal protocol on EDA, in general we want to do the following:
+
+1. **Generate questions about your data**
+2. **Search for answers by visualizing, transforming, and "modeling" your data**
+3. **Use what you learn to refine questions and/or generate new questions**
+
+:::{.callout-important}
+If you are working with data from a carefully designed experiment (e.g., randomized complete block design), it's critical that we also analyze our data consistent with the manner in which the data were collected! EDA can help us ask additional questions, but we want to be sure to respect the work and purpose of the experimental design first and foremost. 
+:::

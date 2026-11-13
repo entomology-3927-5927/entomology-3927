@@ -2,29 +2,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jeremy Hemberger">
+<meta name="dcterms.date" content="2026-11-12">
 
-<title>w8-workshop – Entomology 3927/5927</title>
+<title>Workshop 8: Data Visualization Pt. II – Entomology 3927/5927</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -43,10 +74,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-90c2643ab6f776117e85fdd60cb25922.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c96709ee289d8f9afca9c27adde60711.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d1d7fb2b4eab353701143688219f528d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -76,6 +109,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 </head>
@@ -88,8 +123,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo light-content">
-    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
+    <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -157,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
@@ -311,19 +345,348 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#frontmatter" id="toc-frontmatter" class="nav-link active" data-scroll-target="#frontmatter">Frontmatter</a></li>
+  <li><a href="#packages-well-need-for-today" id="toc-packages-well-need-for-today" class="nav-link" data-scroll-target="#packages-well-need-for-today">📦 Packages we’ll need for today</a></li>
+  <li><a href="#load-our-data" id="toc-load-our-data" class="nav-link" data-scroll-target="#load-our-data">💾 Load our data</a></li>
+  <li><a href="#the-task-for-today" id="toc-the-task-for-today" class="nav-link" data-scroll-target="#the-task-for-today">The task for today</a></li>
+  <li><a href="#dataset-1-bees" id="toc-dataset-1-bees" class="nav-link" data-scroll-target="#dataset-1-bees">Dataset 1: Bees!</a>
+  <ul class="collapse">
+  <li><a href="#study-background-and-purpose" id="toc-study-background-and-purpose" class="nav-link" data-scroll-target="#study-background-and-purpose">Study background and purpose</a></li>
+  <li><a href="#data-collection-methods" id="toc-data-collection-methods" class="nav-link" data-scroll-target="#data-collection-methods">Data collection methods</a></li>
+  <li><a href="#pollinator-dataset-metadata" id="toc-pollinator-dataset-metadata" class="nav-link" data-scroll-target="#pollinator-dataset-metadata">Pollinator dataset metadata</a></li>
+  </ul></li>
+  <li><a href="#dataset-2-birds" id="toc-dataset-2-birds" class="nav-link" data-scroll-target="#dataset-2-birds">Dataset 2: Birds!</a>
+  <ul class="collapse">
+  <li><a href="#study-background-and-purpose-1" id="toc-study-background-and-purpose-1" class="nav-link" data-scroll-target="#study-background-and-purpose-1">Study background and purpose</a></li>
+  <li><a href="#data-collection-methods-1" id="toc-data-collection-methods-1" class="nav-link" data-scroll-target="#data-collection-methods-1">Data collection methods</a></li>
+  <li><a href="#bird-dataset-metadata" id="toc-bird-dataset-metadata" class="nav-link" data-scroll-target="#bird-dataset-metadata">Bird dataset metadata</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/w8-workshop.html">Module 4: Automation, functions, and scaling</a></li><li class="breadcrumb-item"><a href="../workshop/w8-workshop.html">Week 9: Functions and automation</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../workshop/w8-workshop.html">Module 4: Automation, functions, and scaling</a></li><li class="breadcrumb-item"><a href="../workshop/w8-workshop.html">Week 9: Functions and automation</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Workshop 8: Data Visualization Pt. II</h1>
+<p class="subtitle lead">Entomology 3927 - Fall 2026</p>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jeremy Hemberger </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 12, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="frontmatter" class="level2 content-callout1">
+<h2 class="anchored" data-anchor-id="frontmatter">Frontmatter</h2>
+<p><strong>Due date for workshop materials</strong></p>
+<p>You will need to commit and push your workshop files and create your peer review issue and tag your reviewer by <strong>23:59 next Tuesday, November 17th</strong> so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by <strong>Friday, November 20th at 12:00</strong>.</p>
+</section>
+<p><br></p>
+<section id="packages-well-need-for-today" class="level2">
+<h2 class="anchored" data-anchor-id="packages-well-need-for-today">📦 Packages we’ll need for today</h2>
+<p>Be sure to install these packages (<code>install.packages()</code>) if you don’t already have them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Feel free to use additional packages for plots, themes, etc.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="load-our-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-our-data">💾 Load our data</h2>
+<p>You can either download the requisite <code>.csv</code> files below, or import them directly from Google Sheets (<code>w8-workshop-data</code>). Be sure you are using the correct files/sheet tabs for each section below. I’ve tried to make it explicit.</p>
+<p><a href="workshop_data/w8.zip" class="btn btn-primary" download="w8-workshop-data.zip"><i class="fa-solid fa-file-csv" aria-label="file-csv"></i> <code>.csv</code> dataset</a> <a href="https://docs.google.com/spreadsheets/d/1fEFNA9qDEomz_YsCeE0PHNSK6Rgk70PEDhsjCohl82Q/edit?usp=sharing" class="btn btn-primary"><i class="fa-solid fa-table" aria-label="table"></i> Google Sheet dataset</a></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be sure you save the <code>.csv</code> in the correct place so that you can access it in your R Studio project!</p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="the-task-for-today" class="level2">
+<h2 class="anchored" data-anchor-id="the-task-for-today">The task for today</h2>
+<p>I’ve provided two different datasets: 🦆 + 🐝. Select whichever one most appeals to you and do some ’splorin. Poke around for a while, and then pose some interesting questions that you want to answer with these data. Then, wrangle the data as necessary, and create visualizations that seek to answer/address these questions. There isn’t necessarily a right way to do this. The exercise is meant to simulate what you’ll be doing/have done with the data you’ve collected: it’s up to you to figure out how you want to go about making sense of everything!</p>
+<p>I’ve tried to keep the data wrangling requirements to a minimum here to focus on the exploration. That said, you’ll likely need to either summarize, filter, or otherwise reshape your data to ask specific questions, but there aren’t any “gotchas” in the data structure or formatting this time. The datasets are pretty squeaky clean 🧼.</p>
+<p>I’d like for each of you to <strong>pose and address 3 distinct questions</strong> with the dataset you select. For each:</p>
+<ol type="1">
+<li><strong>Pose a question and hypothesis.</strong> Clearly articulate what you want to investigate and what you expect to find. Your hypothesis doesn’t need to be correct!</li>
+<li><strong>Create your visualization(s).</strong> Decide which type of visualization would be most appropriate for exploring your question. Wrangle or summarize your data as necessary.</li>
+<li><strong>Interpret your results.</strong> Describe the take-home message from your visualization. Does it support or contradict your hypothesis? What patterns or relationships do you observe?</li>
+<li><strong>Consider limitations.</strong> Are there any data oddities, limitations, or alternative explanations that might influence your interpretation? Be mindful of the difference between identifying patterns and making causal claims.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recall: A <em>research question</em> identifies something you want to investigate. A <em>hypothesis</em> is your proposed explanation or prediction about what you expect to observe. Your hypothesis doesn’t need to be correct! The goal is to use EDA/data visualization to explore whether the data are consistent with your expectations.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be sure to document specific design/data summary choices that you make along the way as code comments. Your peer reviewer should be able to understand why you made particular decisions and reproduce your visualizations.</p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="dataset-1-bees" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-1-bees">Dataset 1: Bees!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://beesbeesbeesbees.com/oprahbees.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<section id="study-background-and-purpose" class="level3">
+<h3 class="anchored" data-anchor-id="study-background-and-purpose">Study background and purpose</h3>
+<p>A research team is investigating how habitat characteristics and environmental conditions influence pollinator communities across different landscape types. Researchers established sampling sites in three habitat types: restored prairies, agricultural field margins, and urban gardens. The goal is to understand how pollinator abundance and community composition vary among habitats and throughout the growing season.</p>
+</section>
+<section id="data-collection-methods" class="level3">
+<h3 class="anchored" data-anchor-id="data-collection-methods">Data collection methods</h3>
+<p>Researchers conducted standardized surveys at 12 sampling sites (four per habitat) on eight dates between May and August. During each survey, observers recorded the number of individuals belonging to four broad pollinator groups: bees, butterflies, flies, and beetles. Each survey was conducted over a standardized 10-minute observation period.</p>
+<p>Researchers also recorded environmental conditions, including air temperature and wind speed, along with habitat characteristics such as flowering plant richness and flower abundance.</p>
+</section>
+<section id="pollinator-dataset-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="pollinator-dataset-metadata">Pollinator dataset metadata</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 65%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Data type</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>site_id</code></td>
+<td>Unique sampling site identifier</td>
+<td>Character</td>
+</tr>
+<tr class="even">
+<td><code>habitat</code></td>
+<td>Habitat type (Prairie, Field margin, Urban garden)</td>
+<td>Factor</td>
+</tr>
+<tr class="odd">
+<td><code>date</code></td>
+<td>Date of sampling</td>
+<td>Date</td>
+</tr>
+<tr class="even">
+<td><code>temperature</code></td>
+<td>Air temperature (°C)</td>
+<td>Numeric</td>
+</tr>
+<tr class="odd">
+<td><code>wind_speed</code></td>
+<td>Wind speed (km/h)</td>
+<td>Numeric</td>
+</tr>
+<tr class="even">
+<td><code>floral_richness</code></td>
+<td>Number of flowering plant species at the site</td>
+<td>Integer</td>
+</tr>
+<tr class="odd">
+<td><code>flower_abundance</code></td>
+<td>Estimated abundance of flowers</td>
+<td>Integer</td>
+</tr>
+<tr class="even">
+<td><code>pollinator_group</code></td>
+<td>Pollinator group (Bees, Butterflies, Flies, Beetles)</td>
+<td>Factor</td>
+</tr>
+<tr class="odd">
+<td><code>abundance</code></td>
+<td>Number of individuals observed during the survey</td>
+<td>Integer</td>
+</tr>
+</tbody>
+</table>
+<!--
+**Questions to help get you started:**
+
+- How does pollinator abundance change over time?
+- Do habitats differ in pollinator abundance?
+- Which pollinator groups are most abundant?
+- Is floral richness associated with pollinator abundance?
+- Does temperature relate to pollinator activity?
+- Do seasonal patterns differ among pollinator groups?
+-->
+<p><br></p>
+</section>
+</section>
+<section id="dataset-2-birds" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-2-birds">Dataset 2: Birds!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExem1mZnlmcmM0d2NoZm5kNHd5aXVrMzU1YW5qaG53dXJ1ZDRpYWZtdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WaEDmi1vk4vFm/giphy.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<section id="study-background-and-purpose-1" class="level3">
+<h3 class="anchored" data-anchor-id="study-background-and-purpose-1">Study background and purpose</h3>
+<p>A research team is investigating how bird communities differ among habitat types and change throughout the breeding season. Researchers established sampling sites in three habitat types: forests, grasslands, and wetlands. The goal is to explore differences in bird abundance, species composition, and seasonal activity patterns across these habitats.</p>
+</section>
+<section id="data-collection-methods-1" class="level3">
+<h3 class="anchored" data-anchor-id="data-collection-methods-1">Data collection methods</h3>
+<p>Researchers established 12 sampling sites (four per habitat) and conducted standardized bird surveys on six dates between May and October. During each survey, observers conducted a 10-minute point count, recording the number of individuals detected for each of ten focal bird species.</p>
+<p>Bird species represent several ecological guilds, including insectivores, grassland birds, wetland birds, and wading birds. Researchers also recorded environmental conditions, including air temperature and wind speed, during each sampling event.</p>
+</section>
+<section id="bird-dataset-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="bird-dataset-metadata">Bird dataset metadata</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 70%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Data type</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>site_id</code></td>
+<td>Unique sampling site identifier</td>
+<td>Character</td>
+</tr>
+<tr class="even">
+<td><code>habitat</code></td>
+<td>Habitat type (Forest, Grassland, Wetland)</td>
+<td>Factor</td>
+</tr>
+<tr class="odd">
+<td><code>date</code></td>
+<td>Date of sampling</td>
+<td>Date</td>
+</tr>
+<tr class="even">
+<td><code>temperature</code></td>
+<td>Air temperature (°C)</td>
+<td>Numeric</td>
+</tr>
+<tr class="odd">
+<td><code>wind_speed</code></td>
+<td>Wind speed (km/h)</td>
+<td>Numeric</td>
+</tr>
+<tr class="even">
+<td><code>species</code></td>
+<td>Bird species observed</td>
+<td>Character</td>
+</tr>
+<tr class="odd">
+<td><code>guild</code></td>
+<td>Ecological feeding or nesting guild</td>
+<td>Character</td>
+</tr>
+<tr class="even">
+<td><code>abundance</code></td>
+<td>Number of individuals detected during the 10-minute point count</td>
+<td>Integer</td>
+</tr>
+</tbody>
+</table>
+<!--
+**Questions to get you started:**
+
+- Which habitat supports the greatest overall bird abundance?
+- Are some species restricted primarily to particular habitats?
+- Which habitat appears to have the greatest species richness?
+- Do all species exhibit similar seasonal patterns?
+- Which species appear to peak earliest in the season?
+- Is temperature associated with bird abundance?
+- Does wind speed appear to influence bird activity?
+- Are these relationships consistent across habitats?
+-->
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+</section>
+</section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../workshop";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -375,14 +738,13 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -1775,5 +1775,173 @@
       "Module 3: Basic data wrangling and visualization in R",
       "Week 7: Data visualization Pt.I: ggplot basics"
     ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html",
+    "href": "workshop/w8-workshop.html",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "",
+    "text": "Due date for workshop materials\nYou will need to commit and push your workshop files and create your peer review issue and tag your reviewer by 23:59 next Tuesday, November 17th so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by Friday, November 20th at 12:00.",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html#frontmatter",
+    "href": "workshop/w8-workshop.html#frontmatter",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "",
+    "text": "Due date for workshop materials\nYou will need to commit and push your workshop files and create your peer review issue and tag your reviewer by 23:59 next Tuesday, November 17th so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by Friday, November 20th at 12:00.",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html#packages-well-need-for-today",
+    "href": "workshop/w8-workshop.html#packages-well-need-for-today",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "📦 Packages we’ll need for today",
+    "text": "📦 Packages we’ll need for today\nBe sure to install these packages (install.packages()) if you don’t already have them.\n\nlibrary(tidyverse)\nlibrary(janitor)\n\n# Feel free to use additional packages for plots, themes, etc.",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html#load-our-data",
+    "href": "workshop/w8-workshop.html#load-our-data",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "💾 Load our data",
+    "text": "💾 Load our data\nYou can either download the requisite .csv files below, or import them directly from Google Sheets (w8-workshop-data). Be sure you are using the correct files/sheet tabs for each section below. I’ve tried to make it explicit.\n .csv dataset  Google Sheet dataset\n\n\n\n\n\n\nTip\n\n\n\nBe sure you save the .csv in the correct place so that you can access it in your R Studio project!",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html#dataset-1-bees",
+    "href": "workshop/w8-workshop.html#dataset-1-bees",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "Dataset 1: Bees!",
+    "text": "Dataset 1: Bees!\n\n\n\n\n\n\nStudy background and purpose\nA research team is investigating how habitat characteristics and environmental conditions influence pollinator communities across different landscape types. Researchers established sampling sites in three habitat types: restored prairies, agricultural field margins, and urban gardens. The goal is to understand how pollinator abundance and community composition vary among habitats and throughout the growing season.\n\n\nData collection methods\nResearchers conducted standardized surveys at 12 sampling sites (four per habitat) on eight dates between May and August. During each survey, observers recorded the number of individuals belonging to four broad pollinator groups: bees, butterflies, flies, and beetles. Each survey was conducted over a standardized 10-minute observation period.\nResearchers also recorded environmental conditions, including air temperature and wind speed, along with habitat characteristics such as flowering plant richness and flower abundance.\n\n\nPollinator dataset metadata\n\n\n\n\n\n\n\n\nVariable\nDescription\nData type\n\n\n\n\nsite_id\nUnique sampling site identifier\nCharacter\n\n\nhabitat\nHabitat type (Prairie, Field margin, Urban garden)\nFactor\n\n\ndate\nDate of sampling\nDate\n\n\ntemperature\nAir temperature (°C)\nNumeric\n\n\nwind_speed\nWind speed (km/h)\nNumeric\n\n\nfloral_richness\nNumber of flowering plant species at the site\nInteger\n\n\nflower_abundance\nEstimated abundance of flowers\nInteger\n\n\npollinator_group\nPollinator group (Bees, Butterflies, Flies, Beetles)\nFactor\n\n\nabundance\nNumber of individuals observed during the survey\nInteger",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html#dataset-2-birds",
+    "href": "workshop/w8-workshop.html#dataset-2-birds",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "Dataset 2: Birds!",
+    "text": "Dataset 2: Birds!\n\n\n\n\n\n\nStudy background and purpose\nA research team is investigating how bird communities differ among habitat types and change throughout the breeding season. Researchers established sampling sites in three habitat types: forests, grasslands, and wetlands. The goal is to explore differences in bird abundance, species composition, and seasonal activity patterns across these habitats.\n\n\nData collection methods\nResearchers established 12 sampling sites (four per habitat) and conducted standardized bird surveys on six dates between May and October. During each survey, observers conducted a 10-minute point count, recording the number of individuals detected for each of ten focal bird species.\nBird species represent several ecological guilds, including insectivores, grassland birds, wetland birds, and wading birds. Researchers also recorded environmental conditions, including air temperature and wind speed, during each sampling event.\n\n\nBird dataset metadata\n\n\n\n\n\n\n\n\nVariable\nDescription\nData type\n\n\n\n\nsite_id\nUnique sampling site identifier\nCharacter\n\n\nhabitat\nHabitat type (Forest, Grassland, Wetland)\nFactor\n\n\ndate\nDate of sampling\nDate\n\n\ntemperature\nAir temperature (°C)\nNumeric\n\n\nwind_speed\nWind speed (km/h)\nNumeric\n\n\nspecies\nBird species observed\nCharacter\n\n\nguild\nEcological feeding or nesting guild\nCharacter\n\n\nabundance\nNumber of individuals detected during the 10-minute point count\nInteger",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html",
+    "href": "content/w8-content.html",
+    "title": "Week 8",
+    "section": "",
+    "text": "Fundamentals of Data Visualization by Claus O. Wilke\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 10: Exploratory Data Analysis\n\n\n\n\n ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.\n\n\n\n\n\n\nWhat are the fundamentals of data visualization?\nWhat is exploratory data analysis?\n\n\n\n\n Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#readings",
+    "href": "content/w8-content.html#readings",
+    "title": "Week 8",
+    "section": "",
+    "text": "Fundamentals of Data Visualization by Claus O. Wilke\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 10: Exploratory Data Analysis\n\n\n\n\n ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#questionstopics-well-address-this-week",
+    "href": "content/w8-content.html#questionstopics-well-address-this-week",
+    "title": "Week 8",
+    "section": "",
+    "text": "What are the fundamentals of data visualization?\nWhat is exploratory data analysis?",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#slides",
+    "href": "content/w8-content.html#slides",
+    "title": "Week 8",
+    "section": "",
+    "text": "Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#fundamentals-of-data-visualization",
+    "href": "content/w8-content.html#fundamentals-of-data-visualization",
+    "title": "Week 8",
+    "section": "Fundamentals of Data Visualization",
+    "text": "Fundamentals of Data Visualization\nLast week we covered the technical side of creating data visualizations with ggplot. As you’ll soon find out (if you haven’t already), writing the code will quickly become the easy part – making the plot and its message “click” is the tough part. There are tons of resources on doing this, and entire courses dedicated to just this topic, so our treatise of it will of course be surface-level only. Please check the course resources above for additional work (especially Claus Wilke’s book on which many of the topics below are based), and check out Cory Hirsh’s Data Visualization in Plant and Microbial Biology (and the dozens of other data viz courses that exist on campus. I also may develop a dedicated workshop for Biology/Ecology in the coming year or two…).\n\nColor Use\n\n\nA bestiary of plots\n\nAmounts\n\n\nDistributions\n\n\nProportions\n\n\nUncertainty\n\n\nx-y relationships\n\n\nGeospatial data\n\n\n\nPriciples of Visualizations\n\nPrinciple of proportional ink\n\n\nColor pitfalls\n\n\nDesign figures so they don’t need a legend\n\n\nBalancing plot elements\n\n\nSimplicity, simplicity, simplicity!",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#exploratory-data-analysis",
+    "href": "content/w8-content.html#exploratory-data-analysis",
+    "title": "Week 8",
+    "section": "Exploratory Data Analysis",
+    "text": "Exploratory Data Analysis\nAfter cleaning and wranglin’ our data, exploratory data analysis is the next step toward understanding how your dataset is structured and to do the following:\n\nSummarize main characteristics: means of groups, variation, spread, normality, etc.\nSpot anomalies: find odd data points, outliers, or miscoded data before it finds its way into an analysis.\nFind patterns: these could be related to your central questions, or entirely unexpected patterns that manifest because of some real biological phenomenon, or because of some systematic bias in your data.\n\nEDA can also help guide you toward questions that you can ask if you are working with a dataset that is purely correlative or from observational work rather than from a controlled, designed experiment. Even if you have data from a controlled experiment, EDA can still be a good way to explore interesting patterns outside of your pre-conceived hypotheses and experimental design. While there’s no formal protocol on EDA, in general we want to do the following:\n\nGenerate questions about your data\nSearch for answers by visualizing, transforming, and “modeling” your data\nUse what you learn to refine questions and/or generate new questions\n\n\n\n\n\n\n\nImportant\n\n\n\nIf you are working with data from a carefully designed experiment (e.g., randomized complete block design), it’s critical that we also analyze our data consistent with the manner in which the data were collected! EDA can help us ask additional questions, but we want to be sure to respect the work and purpose of the experimental design first and foremost.",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "content/w8-content.html#other-ggplot-skills",
+    "href": "content/w8-content.html#other-ggplot-skills",
+    "title": "Week 8",
+    "section": "Other ggplot skills",
+    "text": "Other ggplot skills\n\nPres",
+    "crumbs": [
+      "Content",
+      "Module 3: Basic data wrangling and visualization in R",
+      "Week 8: Data visualization Pt.II: theory, EDA practice"
+    ]
+  },
+  {
+    "objectID": "workshop/w8-workshop.html#the-task-for-today",
+    "href": "workshop/w8-workshop.html#the-task-for-today",
+    "title": "Workshop 8: Data Visualization Pt. II",
+    "section": "The task for today",
+    "text": "The task for today\nI’ve provided two different datasets: 🦆 + 🐝. Select whichever one most appeals to you and do some ’splorin. Poke around for a while, and then pose some interesting questions that you want to answer with these data. Then, wrangle the data as necessary, and create visualizations that seek to answer/address these questions. There isn’t necessarily a right way to do this. The exercise is meant to simulate what you’ll be doing/have done with the data you’ve collected: it’s up to you to figure out how you want to go about making sense of everything!\nI’ve tried to keep the data wrangling requirements to a minimum here to focus on the exploration. That said, you’ll likely need to either summarize, filter, or otherwise reshape your data to ask specific questions, but there aren’t any “gotchas” in the data structure or formatting this time. The datasets are pretty squeaky clean 🧼.\nI’d like for each of you to pose and address 3 distinct questions with the dataset you select. For each:\n\nPose a question and hypothesis. Clearly articulate what you want to investigate and what you expect to find. Your hypothesis doesn’t need to be correct!\nCreate your visualization(s). Decide which type of visualization would be most appropriate for exploring your question. Wrangle or summarize your data as necessary.\nInterpret your results. Describe the take-home message from your visualization. Does it support or contradict your hypothesis? What patterns or relationships do you observe?\nConsider limitations. Are there any data oddities, limitations, or alternative explanations that might influence your interpretation? Be mindful of the difference between identifying patterns and making causal claims.\n\n\n\n\n\n\n\nTip\n\n\n\nRecall: A research question identifies something you want to investigate. A hypothesis is your proposed explanation or prediction about what you expect to observe. Your hypothesis doesn’t need to be correct! The goal is to use EDA/data visualization to explore whether the data are consistent with your expectations.\n\n\n\n\n\n\n\n\nNote\n\n\n\nBe sure to document specific design/data summary choices that you make along the way as code comments. Your peer reviewer should be able to understand why you made particular decisions and reproduce your visualizations.",
+    "crumbs": [
+      "Workshops",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
   }
 ]

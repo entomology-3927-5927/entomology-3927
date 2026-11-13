@@ -1,0 +1,148 @@
+---
+title: "Workshop 8: Data Visualization Pt. II"
+subtitle: "Entomology 3927 - Fall 2026"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+engine: knitr
+toc: true
+format:
+  live-html:
+    theme: 
+    - ../styles.scss
+    highlight-style: ayu
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+::: content-callout1
+## Frontmatter
+
+**Due date for workshop materials**
+
+You will need to commit and push your workshop files and create your peer review issue and tag your reviewer by **23:59 next Tuesday, November 17th** so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by **Friday, November 20th at 12:00**.
+:::
+
+</br>
+
+## 📦 Packages we'll need for today
+
+Be sure to install these packages (`install.packages()`) if you don't already have them.
+
+```{r eval=FALSE, message=FALSE}
+library(tidyverse)
+library(janitor)
+
+# Feel free to use additional packages for plots, themes, etc.
+```
+
+## 💾 Load our data
+
+You can either download the requisite `.csv` files below, or import them directly from Google Sheets (`w8-workshop-data`). Be sure you are using the correct files/sheet tabs for each section below. I've tried to make it explicit.
+
+[{{< fa file-csv >}} `.csv` dataset](workshop_data/w8.zip){.btn .btn-primary download="w8-workshop-data.zip"} [{{< fa table >}} Google Sheet dataset](https://docs.google.com/spreadsheets/d/1fEFNA9qDEomz_YsCeE0PHNSK6Rgk70PEDhsjCohl82Q/edit?usp=sharing){.btn .btn-primary}
+
+::: callout-tip
+Be sure you save the `.csv` in the correct place so that you can access it in your R Studio project!
+:::
+
+</br>
+
+## The task for today
+I've provided two different datasets: 🦆 + 🐝. Select whichever one most appeals to you and do some 'splorin. Poke around for a while, and then pose some interesting questions that you want to answer with these data. Then, wrangle the data as necessary, and create visualizations that seek to answer/address these questions. There isn't necessarily a right way to do this. The exercise is meant to simulate what you'll be doing/have done with the data you've collected: it's up to you to figure out how you want to go about making sense of everything! 
+
+I've tried to keep the data wrangling requirements to a minimum here to focus on the exploration. That said, you'll likely need to either summarize, filter, or otherwise reshape your data to ask specific questions, but there aren't any "gotchas" in the data structure or formatting this time. The datasets are pretty squeaky clean 🧼. 
+
+I'd like for each of you to **pose and address 3 distinct questions** with the dataset you select. For each:
+
+1. **Pose a question and hypothesis.** Clearly articulate what you want to investigate and what you expect to find. Your hypothesis doesn't need to be correct!
+2. **Create your visualization(s).** Decide which type of visualization would be most appropriate for exploring your question. Wrangle or summarize your data as necessary.
+3. **Interpret your results.** Describe the take-home message from your visualization. Does it support or contradict your hypothesis? What patterns or relationships do you observe?
+4. **Consider limitations.** Are there any data oddities, limitations, or alternative explanations that might influence your interpretation? Be mindful of the difference between identifying patterns and making causal claims.
+
+:::{.callout-tip}
+Recall: A *research question* identifies something you want to investigate. A *hypothesis* is your proposed explanation or prediction about what you expect to observe. Your hypothesis doesn't need to be correct! The goal is to use EDA/data visualization to explore whether the data are consistent with your expectations.
+:::
+
+:::{.callout-note}
+Be sure to document specific design/data summary choices that you make along the way as code comments. Your peer reviewer should be able to understand why you made particular decisions and reproduce your visualizations.
+:::
+
+</br> 
+
+## Dataset 1: Bees! 
+![](https://beesbeesbeesbees.com/oprahbees.gif){width="50%" fig-align="center"}
+
+### Study background and purpose
+
+A research team is investigating how habitat characteristics and environmental conditions influence pollinator communities across different landscape types. Researchers established sampling sites in three habitat types: restored prairies, agricultural field margins, and urban gardens. The goal is to understand how pollinator abundance and community composition vary among habitats and throughout the growing season.
+
+### Data collection methods
+
+Researchers conducted standardized surveys at 12 sampling sites (four per habitat) on eight dates between May and August. During each survey, observers recorded the number of individuals belonging to four broad pollinator groups: bees, butterflies, flies, and beetles. Each survey was conducted over a standardized 10-minute observation period.
+
+Researchers also recorded environmental conditions, including air temperature and wind speed, along with habitat characteristics such as flowering plant richness and flower abundance.
+
+### Pollinator dataset metadata
+
+| **Variable**           | **Description**                                          | **Data type** |
+| ------------------ | ---------------------------------------------------- | --------- |
+| `site_id`          | Unique sampling site identifier                      | Character |
+| `habitat`          | Habitat type (Prairie, Field margin, Urban garden)   | Factor    |
+| `date`             | Date of sampling                                     | Date      |
+| `temperature`      | Air temperature (°C)                                 | Numeric   |
+| `wind_speed`       | Wind speed (km/h)                                    | Numeric   |
+| `floral_richness`  | Number of flowering plant species at the site        | Integer   |
+| `flower_abundance` | Estimated abundance of flowers                       | Integer   |
+| `pollinator_group` | Pollinator group (Bees, Butterflies, Flies, Beetles) | Factor    |
+| `abundance`        | Number of individuals observed during the survey     | Integer   |
+<!--
+**Questions to help get you started:**
+
+- How does pollinator abundance change over time?
+- Do habitats differ in pollinator abundance?
+- Which pollinator groups are most abundant?
+- Is floral richness associated with pollinator abundance?
+- Does temperature relate to pollinator activity?
+- Do seasonal patterns differ among pollinator groups?
+-->
+
+</br> 
+
+## Dataset 2: Birds!
+![](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExem1mZnlmcmM0d2NoZm5kNHd5aXVrMzU1YW5qaG53dXJ1ZDRpYWZtdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WaEDmi1vk4vFm/giphy.gif){width="50%" fig-align="center"}
+
+### Study background and purpose
+
+A research team is investigating how bird communities differ among habitat types and change throughout the breeding season. Researchers established sampling sites in three habitat types: forests, grasslands, and wetlands. The goal is to explore differences in bird abundance, species composition, and seasonal activity patterns across these habitats.
+
+### Data collection methods
+
+Researchers established 12 sampling sites (four per habitat) and conducted standardized bird surveys on six dates between May and October. During each survey, observers conducted a 10-minute point count, recording the number of individuals detected for each of ten focal bird species.
+
+Bird species represent several ecological guilds, including insectivores, grassland birds, wetland birds, and wading birds. Researchers also recorded environmental conditions, including air temperature and wind speed, during each sampling event.
+
+### Bird dataset metadata
+
+| **Variable**      | **Description**                                                     | **Data type**      |
+| ------------- | --------------------------------------------------------------- | -------------- |
+| `site_id`     | Unique sampling site identifier                                 | Character      |
+| `habitat`     | Habitat type (Forest, Grassland, Wetland)                       | Factor         |
+| `date`        | Date of sampling                                                | Date           |
+| `temperature` | Air temperature (°C)                                            | Numeric        |
+| `wind_speed`  | Wind speed (km/h)                                               | Numeric        |
+| `species`     | Bird species observed                                           | Character      |
+| `guild`       | Ecological feeding or nesting guild                             | Character      |
+| `abundance`   | Number of individuals detected during the 10-minute point count | Integer        |
+<!--
+**Questions to get you started:**
+
+- Which habitat supports the greatest overall bird abundance?
+- Are some species restricted primarily to particular habitats?
+- Which habitat appears to have the greatest species richness?
+- Do all species exhibit similar seasonal patterns?
+- Which species appear to peak earliest in the season?
+- Is temperature associated with bird abundance?
+- Does wind speed appear to influence bird activity?
+- Are these relationships consistent across habitats?
+-->

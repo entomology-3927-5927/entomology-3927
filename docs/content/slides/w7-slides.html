@@ -7,8 +7,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.18">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
   <title>Entomology 3927/5927 – Week 7</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,16 +17,10 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
+    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -101,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-71561e5efac870f696d699f02f65b29e.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-0ccd7e690a423122c7f06c7cec3a7b30.css">
   <link rel="stylesheet" href="default">
   <link rel="stylesheet" href="slide_styles/slide-styles.scss">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -400,18 +394,18 @@
 <p><strong>Global aesthetics</strong> are defined in <code>ggplot()</code> and inherited by layers.</p>
 <p><strong>Layer-specific aesthetics</strong> are defined inside an individual geom and apply only to that layer.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># Global mapping: inherited by layers</span></span>
-<span id="cb1-2"><a aria-label="2"></a><span class="fu">ggplot</span>(</span>
-<span id="cb1-3"><a aria-label="3"></a>  <span class="at">data =</span> insect_data,</span>
-<span id="cb1-4"><a aria-label="4"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> abundance)</span>
-<span id="cb1-5"><a aria-label="5"></a>) <span class="sc">+</span></span>
-<span id="cb1-6"><a aria-label="6"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb1-7"><a aria-label="7"></a></span>
-<span id="cb1-8"><a aria-label="8"></a><span class="co"># Layer-specific mapping: applies to this geom only</span></span>
-<span id="cb1-9"><a aria-label="9"></a><span class="fu">ggplot</span>(<span class="at">data =</span> insect_data) <span class="sc">+</span></span>
-<span id="cb1-10"><a aria-label="10"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb1-11"><a aria-label="11"></a>    <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> abundance, <span class="at">color =</span> <span class="fu">factor</span>(trap))</span>
-<span id="cb1-12"><a aria-label="12"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Global mapping: inherited by layers</span></span>
+<span id="cb1-2"><a></a><span class="fu">ggplot</span>(</span>
+<span id="cb1-3"><a></a>  <span class="at">data =</span> insect_data,</span>
+<span id="cb1-4"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> abundance)</span>
+<span id="cb1-5"><a></a>) <span class="sc">+</span></span>
+<span id="cb1-6"><a></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb1-7"><a></a></span>
+<span id="cb1-8"><a></a><span class="co"># Layer-specific mapping: applies to this geom only</span></span>
+<span id="cb1-9"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> insect_data) <span class="sc">+</span></span>
+<span id="cb1-10"><a></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb1-11"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> abundance, <span class="at">color =</span> <span class="fu">factor</span>(trap))</span>
+<span id="cb1-12"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -424,8 +418,8 @@
 <div class="callout-content">
 <p><strong>Mapping vs.&nbsp;setting:</strong> Put a variable inside <code>aes()</code> to map it to a visual property. Put a fixed value outside <code>aes()</code> to set that property for every observation.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> habitat)) <span class="co"># Map a variable</span></span>
-<span id="cb2-2"><a aria-label="2"></a><span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="co"># Set a fixed color</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> habitat)) <span class="co"># Map a variable</span></span>
+<span id="cb2-2"><a></a><span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="co"># Set a fixed color</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -530,14 +524,14 @@
 <h2>A layer can be more than a geom</h2>
 <p>A typical layer can include:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a aria-label="1"></a>ggplot(data = &lt;DATA&gt;) + </span>
-<span id="cb3-2"><a aria-label="2"></a>  &lt;GEOM_FUNCTION&gt;(</span>
-<span id="cb3-3"><a aria-label="3"></a>     mapping = aes(&lt;MAPPINGS&gt;),</span>
-<span id="cb3-4"><a aria-label="4"></a>     stat = &lt;STAT&gt;, </span>
-<span id="cb3-5"><a aria-label="5"></a>     position = &lt;POSITION&gt;</span>
-<span id="cb3-6"><a aria-label="6"></a>  ) +</span>
-<span id="cb3-7"><a aria-label="7"></a>  &lt;COORDINATE_FUNCTION&gt; +</span>
-<span id="cb3-8"><a aria-label="8"></a>  &lt;FACET_FUNCTION&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>ggplot(data = &lt;DATA&gt;) + </span>
+<span id="cb3-2"><a></a>  &lt;GEOM_FUNCTION&gt;(</span>
+<span id="cb3-3"><a></a>     mapping = aes(&lt;MAPPINGS&gt;),</span>
+<span id="cb3-4"><a></a>     stat = &lt;STAT&gt;, </span>
+<span id="cb3-5"><a></a>     position = &lt;POSITION&gt;</span>
+<span id="cb3-6"><a></a>  ) +</span>
+<span id="cb3-7"><a></a>  &lt;COORDINATE_FUNCTION&gt; +</span>
+<span id="cb3-8"><a></a>  &lt;FACET_FUNCTION&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can combine multiple layers to show different aspects of the same data.</p>
 </section>
@@ -703,14 +697,14 @@
 <section id="customize-a-color-scale" class="slide level2">
 <h2>Customize a color scale</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">scale_fill_viridis_c</span>(</span>
-<span id="cb4-2"><a aria-label="2"></a>  <span class="at">name =</span> <span class="st">"Insect abundance"</span>,</span>
-<span id="cb4-3"><a aria-label="3"></a>  <span class="at">option =</span> <span class="st">"magma"</span>,</span>
-<span id="cb4-4"><a aria-label="4"></a>  <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
-<span id="cb4-5"><a aria-label="5"></a>  <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>),</span>
-<span id="cb4-6"><a aria-label="6"></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>),</span>
-<span id="cb4-7"><a aria-label="7"></a>  <span class="at">na.value =</span> <span class="st">"grey90"</span></span>
-<span id="cb4-8"><a aria-label="8"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">scale_fill_viridis_c</span>(</span>
+<span id="cb4-2"><a></a>  <span class="at">name =</span> <span class="st">"Insect abundance"</span>,</span>
+<span id="cb4-3"><a></a>  <span class="at">option =</span> <span class="st">"magma"</span>,</span>
+<span id="cb4-4"><a></a>  <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb4-5"><a></a>  <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>),</span>
+<span id="cb4-6"><a></a>  <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>),</span>
+<span id="cb4-7"><a></a>  <span class="at">na.value =</span> <span class="st">"grey90"</span></span>
+<span id="cb4-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Other useful arguments include <code>palette</code>, <code>labels</code>, <code>limits</code>, <code>breaks</code>, <code>na.value</code>, <code>direction</code>, and <code>guide</code>.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -1091,7 +1085,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1203,14 +1197,13 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
             }
-          }
-          return codeEl.innerText;
+            return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
