@@ -1,0 +1,246 @@
+---
+title: "Week 9"
+subtitle: "Functions, automation, and multi-file workflows"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+format:
+  html:
+    theme: ../styles.scss
+---
+
+:::: content-callout1
+## Readings
+
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 25: Functions](https://r4ds.hadley.nz/functions.html)
+-   {{< fa file-code >}} [R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 26: Iteration](https://r4ds.hadley.nz/iteration.html)
+
+### Online/optional extras
+
+-   {{< fa file-code >}} [Hands-On Programming with R written by Garret Grolemund. Chapter 11: Loops](https://rstudio-education.github.io/hopr/loops.html)
+-   {{< fa file-code >}} [Hands-On Programming with R written by Garret Grolemund. Chapter 12: Speed](https://rstudio-education.github.io/hopr/speed.html)
+
+
+## Questions/topics we'll address this week
+
+1.  What are functions and why, when, and where should we use them?
+2.  What is the difference between a function and iteration in coding?
+3.  What are best practices for multi-file workflows?
+
+## Slides
+
+[{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w8-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w8-slides.html?print-pdf){.btn .btn-primary role="button"}
+
+<iframe src="slides/w8-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
+
+</iframe>
+
+::: callout-tip
+**Tip**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
+:::
+::::
+
+</br>
+
+```{r include=FALSE}
+library(tidyverse)
+```
+
+## Functions and automation in coding
+Up until now, we've exclusively used pre-built functions in our R code. These functions come from different packages, and were written to improve our efficiency by automating very common tasks that we need to do, things like plotting, wrangling, and modeling data. That's the whole purpose behind functions: they take code that is used regularly and wrap it into a repeatable, simple unit that we can easily deploy across tasks, files, and even projects. For example, imagine we have a dataset of insect abundance across 12 sites:
+
+
+```{r echo=FALSE}
+library(tidyverse)
+library(lubridate)
+
+set.seed(42)
+
+# Generate hypothetical insect monitoring data
+insect_data <- expand_grid(
+  site = paste0("Site_", 1:12),
+  trap_id = paste0("Trap_", 1:4),
+  date = seq(
+    as.Date("2026-06-01"),
+    as.Date("2026-08-01"),
+    by = "2 weeks"
+  ),
+  taxon = c(
+    "Beetles",
+    "Flies",
+    "Bees",
+    "Ants",
+    "Spiders"
+  )
+) |>
+  mutate(
+    abundance = rpois(
+      n(),
+      lambda = case_when(
+        taxon == "Beetles" ~ 8,
+        taxon == "Flies" ~ 12,
+        taxon == "Bees" ~ 5,
+        taxon == "Ants" ~ 15,
+        taxon == "Spiders" ~ 4
+      )
+    )
+  )
+insect_data
+```
+
+And we want to generate some summary statistics for each site, such as total abundance, species richness, and the number of distinct samping events. We could do this by repeatedly using the same block of code, filtering to each site:
+
+```{r}
+# Summarize Site 1
+site_1_summary <- insect_data |>
+  filter(site == "Site_1") |>
+  summarise(
+    total_abundance = sum(abundance),
+    richness = n_distinct(taxon),
+    sampling_events = n_distinct(date)
+  )
+
+# Summarize Site 2
+site_2_summary <- insect_data |>
+  filter(site == "Site_2") |>
+  summarise(
+    total_abundance = sum(abundance),
+    richness = n_distinct(taxon),
+    sampling_events = n_distinct(date)
+  )
+
+# Summarize Site 3
+site_3_summary <- insect_data |>
+  filter(site == "Site_3") |>
+  summarise(
+    total_abundance = sum(abundance),
+    richness = n_distinct(taxon),
+    sampling_events = n_distinct(date)
+  )
+
+# And so on for each of the 12 sites...
+```
+
+This copying and pasting approach works, but is slow, error prone, and can make a lot of extra work for us if we need to change something or add an additional summary statstic: we'd need to make that change **twelve** times. This is very inefficient! Instead, we can package our code as a **function** so that we can easily re-use the code and minimize the total amount of code that we need to write (and therefore, maintain!):
+
+```{r}
+# Create a function called `summarize_site` that we can use
+summarize_site <- function(data, site_name) {
+  data |>
+    filter(site == site_name) |>
+    summarise(
+      total_abundance = sum(abundance),
+      richness = n_distinct(taxon),
+      sampling_events = n_distinct(date)
+    )
+}
+```
+
+We can then call our function, specify the arguemnts, and get our summaries! All in 3 lines of code instead of 21. 1/7 of the space!
+```{r}
+# Summarize Site 1
+summarize_site(insect_data, "Site_1")
+
+# Summarize Site 2
+summarize_site(insect_data, "Site_2")
+
+# Summarize Site 3
+summarize_site(insect_data, "Site_3")
+```
+
+## Functions
+So, as we touched on above, we want to write functions anytime we are repeatedly using a bit (or a lot) of code to do a common task. By doing this, we can create code that: 
+
+1. has en evocative name that makes our code easier to understand
+2. has only one place where we need to make changes
+3. eliminates (or significantly reduces) the chance of making a mistake
+4. makes it easier to re-use our code from project-to-project
+
+:::{.callout-tip}
+# When to make a function?
+If you find yourself copying and pasting code more than twice, that's a good indication you would benefit from writing a function!
+:::
+
+### Let's build a function
+Let's walk through turning copy-and-paste code into a re-usable function! 
+
+```{r eval=FALSE}
+df <- tibble(
+  a = rnorm(5),
+  b = rnorm(5),
+  c = rnorm(5),
+  d = rnorm(5),
+)
+
+df |>
+  mutate(
+    a = (a - min(a, na.rm = TRUE)) /
+      (max(a, na.rm = TRUE) - min(a, na.rm = TRUE)),
+    b = (b - min(a, na.rm = TRUE)) /
+      (max(b, na.rm = TRUE) - min(b, na.rm = TRUE)),
+    c = (c - min(c, na.rm = TRUE)) /
+      (max(c, na.rm = TRUE) - min(c, na.rm = TRUE)),
+    d = (d - min(d, na.rm = TRUE)) /
+      (max(d, na.rm = TRUE) - min(d, na.rm = TRUE)),
+  )
+#> # A tibble: 5 × 4
+#>       a       b     c     d
+#>   <dbl>   <dbl> <dbl> <dbl>
+#> 1 0.339  0.387  0.291 0
+#> 2 0.880 -0.613  0.611 0.557
+#> 3 0     -0.0833 1     0.752
+#> 4 0.795 -0.0822 0     1
+#> 5 1     -0.0952 0.580 0.394
+```
+
+In the above code, we're scaling randomly pulled values from a normal distribution to values between 0 and 1 within each variable. 
+### Vector functions
+
+
+### Data frame functions
+
+
+### Plot functions
+
+## Iteration
+
+
+### A short word on efficiency
+There are more or less efficient ways to write our functions and iterate through data. This takes time to fully get used to and figure out. But in general there are two things you can optimize loops and other iteration tasks:
+
+1. **Do as much as you can outside the loop:** every line of code inside a `for` loop will be run many, many times. If it only needs to be run once, place it *outside* of the loop to avoid repetition.
+2. **Ensure that storage objects are large enough to contain all results:** For example, if our ending vector from our loop will have 1000 values, start by first creating that storage vector rather than iteratively adding to it. This is best shown with an example: 
+
+```{r eval=FALSE}
+system.time({
+  output <- rep(NA, 1000000)
+  for (i in 1:1000000) {
+    output[i] <- i + 1
+  }
+})
+##   user  system elapsed
+##  0.026   0.001   0.027
+
+system.time({
+  output <- NA
+  for (i in 1:1000000) {
+    output[i] <- i + 1
+  }
+})
+##     user   system  elapsed
+## 1689.537  560.951 2249.927
+```
+
+Here, the first loop stores values as `object` that begins with the length of one million, the total size of our eventual output. the second loop begins with an `object` of length 1 and then expands it up to a length of one million. The result? The first loop takes ~ 3 *tenths of a second* to run, while the second takes almost 38 *minutes* to run (this depends A LOT on your computer's spec, on my machine with a boat load of RAM this happens much faster, but the point is it can take a very long time if who ever is running your code has an older computer, which many folks do!).  
+
+We'll now walk through three specific examples of common tasks that we can iterate in R to save time and make our code more efficient and less error-prone. 
+
+### Modifying multiple columns
+
+
+### Reading multiple files
+
+
+### Saving multiple objects
+
+

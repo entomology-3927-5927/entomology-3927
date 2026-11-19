@@ -2102,5 +2102,89 @@
       "Module 3: Basic data wrangling and visualization in R",
       "Week 7: Data visualization Pt.I: ggplot basics"
     ]
+  },
+  {
+    "objectID": "content/w9-content.html",
+    "href": "content/w9-content.html",
+    "title": "Week 9",
+    "section": "",
+    "text": "Fundamentals of Data Visualization by Claus O. Wilke\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 10: Exploratory Data Analysis\n\n\n\n\n The R Graph Gallery\n ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.\n Sim Daltonism: The color blindness simulator\n\n\n\n\n\n\nWhat are functions and why, when, and where should we use them?\nWhat is the difference between a function and iteration in coding?\nWhat are best practices for multi-file workflows?\n\n\n\n\n Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "crumbs": [
+      "Content",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "content/w9-content.html#readings",
+    "href": "content/w9-content.html#readings",
+    "title": "Week 9",
+    "section": "",
+    "text": "Fundamentals of Data Visualization by Claus O. Wilke\n R for Data Science (2e) was written by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund. Chapter 10: Exploratory Data Analysis\n\n\n\n\n The R Graph Gallery\n ggplot2: Elegant Graphics for Data Analysis (3e) was written by Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen.\n Sim Daltonism: The color blindness simulator",
+    "crumbs": [
+      "Content",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "content/w9-content.html#questionstopics-well-address-this-week",
+    "href": "content/w9-content.html#questionstopics-well-address-this-week",
+    "title": "Week 9",
+    "section": "",
+    "text": "What are functions and why, when, and where should we use them?\nWhat is the difference between a function and iteration in coding?\nWhat are best practices for multi-file workflows?",
+    "crumbs": [
+      "Content",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "content/w9-content.html#slides",
+    "href": "content/w9-content.html#slides",
+    "title": "Week 9",
+    "section": "",
+    "text": "Open slides in full screen mode  Download slides as a PDF\n\n\n\n\n\n\n\n\nTip\n\n\n\nTip: If you type ? (or shift + /) while going through the slides, you can see a list of special slide-specific commands.",
+    "crumbs": [
+      "Content",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "content/w9-content.html#functions-and-automation-in-coding",
+    "href": "content/w9-content.html#functions-and-automation-in-coding",
+    "title": "Week 9",
+    "section": "Functions and automation in coding",
+    "text": "Functions and automation in coding\nUp until now, we’ve exclusively used pre-built functions in our R code. These functions come from different packages, and were written to improve our efficiency by automating very common tasks that we need to do, things like plotting, wrangling, and modeling data. That’s the whole purpose behind functions: they take code that is used regularly and wrap it into a repeatable, simple unit that we can easily deploy across tasks, files, and even projects. For example, imagine we have a dataset of insect abundance across 12 sites:\n\n\n# A tibble: 1,200 × 5\n   site   trap_id date       taxon   abundance\n   &lt;chr&gt;  &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt;       &lt;int&gt;\n 1 Site_1 Trap_1  2026-06-01 Beetles        12\n 2 Site_1 Trap_1  2026-06-01 Flies          17\n 3 Site_1 Trap_1  2026-06-01 Bees            7\n 4 Site_1 Trap_1  2026-06-01 Ants           16\n 5 Site_1 Trap_1  2026-06-01 Spiders         5\n 6 Site_1 Trap_1  2026-06-15 Beetles         5\n 7 Site_1 Trap_1  2026-06-15 Flies          13\n 8 Site_1 Trap_1  2026-06-15 Bees            5\n 9 Site_1 Trap_1  2026-06-15 Ants           17\n10 Site_1 Trap_1  2026-06-15 Spiders         3\n# ℹ 1,190 more rows\n\n\nAnd we want to generate some summary statistics for each site, such as total abundance, species richness, and the number of distinct samping events. We could do this by repeatedly using the same block of code, filtering to each site:\n\n# Summarize Site 1\nsite_1_summary &lt;- insect_data |&gt;\n  filter(site == \"Site_1\") |&gt;\n  summarise(\n    total_abundance = sum(abundance),\n    richness = n_distinct(taxon),\n    sampling_events = n_distinct(date)\n  )\n\n# Summarize Site 2\nsite_2_summary &lt;- insect_data |&gt;\n  filter(site == \"Site_2\") |&gt;\n  summarise(\n    total_abundance = sum(abundance),\n    richness = n_distinct(taxon),\n    sampling_events = n_distinct(date)\n  )\n\n# Summarize Site 3\nsite_3_summary &lt;- insect_data |&gt;\n  filter(site == \"Site_3\") |&gt;\n  summarise(\n    total_abundance = sum(abundance),\n    richness = n_distinct(taxon),\n    sampling_events = n_distinct(date)\n  )\n\n# And so on for each of the 12 sites...\n\nThis copying and pasting approach works, but is slow, error prone, and can make a lot of extra work for us if we need to change something or add an additional summary statstic: we’d need to make that change twelve times. This is very inefficient! Instead, we can package our code as a function so that we can easily re-use the code and minimize the total amount of code that we need to write (and therefore, maintain!):\n\n# Create a function called `summarize_site` that we can use\nsummarize_site &lt;- function(data, site_name) {\n  data |&gt;\n    filter(site == site_name) |&gt;\n    summarise(\n      total_abundance = sum(abundance),\n      richness = n_distinct(taxon),\n      sampling_events = n_distinct(date)\n    )\n}\n\nWe can then call our function, specify the arguemnts, and get our summaries! All in 3 lines of code instead of 21. 1/7 of the space!\n\n# Summarize Site 1\nsummarize_site(insect_data, \"Site_1\")\n\n# A tibble: 1 × 3\n  total_abundance richness sampling_events\n            &lt;int&gt;    &lt;int&gt;           &lt;int&gt;\n1             884        5               5\n\n# Summarize Site 2\nsummarize_site(insect_data, \"Site_2\")\n\n# A tibble: 1 × 3\n  total_abundance richness sampling_events\n            &lt;int&gt;    &lt;int&gt;           &lt;int&gt;\n1             806        5               5\n\n# Summarize Site 3\nsummarize_site(insect_data, \"Site_3\")\n\n# A tibble: 1 × 3\n  total_abundance richness sampling_events\n            &lt;int&gt;    &lt;int&gt;           &lt;int&gt;\n1             871        5               5",
+    "crumbs": [
+      "Content",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "content/w9-content.html#functions",
+    "href": "content/w9-content.html#functions",
+    "title": "Week 9",
+    "section": "Functions",
+    "text": "Functions\nSo, as we touched on above, we want to write functions anytime we are repeatedly using a bit (or a lot) of code to do a common task. By doing this, we can create code that:\n\nhas en evocative name that makes our code easier to understand\nhas only one place where we need to make changes\neliminates (or significantly reduces) the chance of making a mistake\nmakes it easier to re-use our code from project-to-project\n\n\n\n\n\n\n\nTipWhen to make a function?\n\n\n\nIf you find yourself copying and pasting code more than twice, that’s a good indication you would benefit from writing a function!\n\n\n\nVector functions\n\n\nData frame functions\n\n\nPlot functions",
+    "crumbs": [
+      "Content",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
+  },
+  {
+    "objectID": "content/w9-content.html#iteration",
+    "href": "content/w9-content.html#iteration",
+    "title": "Week 9",
+    "section": "Iteration",
+    "text": "Iteration\n\nA short word on efficiency\nThere are more or less efficient ways to write our functions and iterate through data. This takes time to fully get used to and figure out. But in general there are two things you can optimize loops and other iteration tasks:\n\nDo as much as you can outside the loop: every line of code inside a for loop will be run many, many times. If it only needs to be run once, place it outside of the loop to avoid repetition.\nEnsure that storage objects are large enough to contain all results: For example, if our ending vector from our loop will have 1000 values, start by first creating that storage vector rather than iteratively adding to it. This is best shown with an example:\n\n\nsystem.time({\n  output &lt;- rep(NA, 1000000)\n  for (i in 1:1000000) {\n    output[i] &lt;- i + 1\n  }\n})\n##   user  system elapsed\n##  0.026   0.001   0.027\n\nsystem.time({\n  output &lt;- NA\n  for (i in 1:1000000) {\n    output[i] &lt;- i + 1\n  }\n})\n##     user   system  elapsed\n## 1689.537  560.951 2249.927\n\nHere, the first loop stores values as object that begins with the length of one million, the total size of our eventual output. the second loop begins with an object of length 1 and then expands it up to a length of one million. The result? The first loop takes ~ 3 tenths of a second to run, while the second takes almost 38 minutes to run (this depends A LOT on your computer’s spec, on my machine with a boat load of RAM this happens much faster, but the point is it can take a very long time if who ever is running your code has an older computer, which many folks do!).\nWe’ll now walk through three specific examples of common tasks that we can iterate in R to save time and make our code more efficient and less error-prone.\n\n\nModifying multiple columns\n\n\nReading multiple files\n\n\nSaving multiple objects",
+    "crumbs": [
+      "Content",
+      "Module 4: Automation, functions, and scaling",
+      "Week 9: Functions and automation"
+    ]
   }
 ]
