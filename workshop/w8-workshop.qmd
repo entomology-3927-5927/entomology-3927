@@ -88,7 +88,7 @@ Researchers also recorded environmental conditions, including air temperature an
 ### Pollinator dataset metadata
 
 | **Variable** | **Description** | **Data type** |
-|---------------|-------------------------------------------|---------------|
+|----------------|----------------------------------------|----------------|
 | `site_id` | Unique sampling site identifier | Character |
 | `habitat` | Habitat type (Prairie, Field margin, Urban garden) | Factor |
 | `date` | Date of sampling | Date |
@@ -131,7 +131,7 @@ Bird species represent several ecological guilds, including insectivores, grassl
 ### Bird dataset metadata
 
 | **Variable** | **Description** | **Data type** |
-|--------------|---------------------------------------------|--------------|
+|----------------|-----------------------------------------|----------------|
 | `site_id` | Unique sampling site identifier | Character |
 | `habitat` | Habitat type (Forest, Grassland, Wetland) | Factor |
 | `date` | Date of sampling | Date |
