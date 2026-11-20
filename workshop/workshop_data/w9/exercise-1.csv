@@ -1,0 +1,21 @@
+site,trap_id,count,trap_days
+Prairie,PRA_01,53,6
+Prairie,PRA_02,49,6
+Prairie,PRA_03,28,5
+Prairie,PRA_04,32,4
+Prairie,PRA_05,44,6
+Restored prairie,RES_01,52,7
+Restored prairie,RES_02,28,4
+Restored prairie,RES_03,15,2
+Restored prairie,RES_04,37,5
+Restored prairie,RES_05,55,7
+Agricultural margin,AGR_01,12,2
+Agricultural margin,AGR_02,9,2
+Agricultural margin,AGR_03,20,6
+Agricultural margin,AGR_04,25,7
+Agricultural margin,AGR_05,15,3
+Woodland edge,WOO_01,17,4
+Woodland edge,WOO_02,18,4
+Woodland edge,WOO_03,17,4
+Woodland edge,WOO_04,36,7
+Woodland edge,WOO_05,31,6

@@ -28,12 +28,13 @@ format:
 
 ## Slides
 
+<!--
 [{{< fa up-right-from-square >}} Open slides in full screen mode](slides/w8-slides.html){.btn .btn-primary role="button"} [{{< fa file-pdf >}} Download slides as a PDF](slides/w8-slides.html?print-pdf){.btn .btn-primary role="button"}
 
 <iframe src="slides/w8-slides.html" width="100%" height="500px" style="border: 1px solid #ccc; border-radius: 8px;">
 
 </iframe>
-
+-->
 ::: callout-tip
 **Tip**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
 :::
@@ -152,7 +153,7 @@ summarize_site(insect_data, "Site_3")
 
 So, as we touched on above, we want to write functions anytime we are repeatedly using a bit (or a lot) of code to do a common task. By doing this, we can create code that:
 
-1.  has en evocative name that makes our code easier to understand
+1.  has an evocative name that makes our code easier to understand
 2.  has only one place where we need to make changes
 3.  eliminates (or significantly reduces) the chance of making a mistake
 4.  makes it easier to re-use our code from project-to-project
@@ -203,7 +204,7 @@ Here's the stuff inside the mutate call pulled out to identify the repeating par
 (a - min(a, na.rm = TRUE)) / (max(a, na.rm = TRUE) - min(a, na.rm = TRUE))
 (b - min(b, na.rm = TRUE)) / (max(b, na.rm = TRUE) - min(b, na.rm = TRUE))
 (c - min(c, na.rm = TRUE)) / (max(c, na.rm = TRUE) - min(c, na.rm = TRUE))
-(d - min(d, na.rm = TRUE)) / (max(d, na.rm = TRUE) - min(d, na.rm = TRUE))  
+(d - min(d, na.rm = TRUE)) / (max(d, na.rm = TRUE) - min(d, na.rm = TRUE))
 ```
 
 Each line here is *constant*, what varies is the variable (haha) that we are rescaling. Excellent!
@@ -242,13 +243,142 @@ rescaler(x = c(4, 6, 11, 45, 20, 6))
 ```
 
 ### Vector functions
-Vector functions are like the one that we just developed above: they're functions that take one or more vectors and return a vector result. These are great functions to build and use inside other functions like dplyrs `mutate()` and `filter()` as they return an output of the same length as the input. 
+Vector functions are like the one that we just developed above: they're functions that take one or more vectors and return a vector result. These are great functions to build and use inside other functions like dplyrs many verbs (e.g., `mutate()` and `filter()`) as they return an output of the same length as the input. 
 
 ### Data frame functions
+Data frame functions are useful for when yiou want to repeat dplyr verbs many times. Data frame functions work like dplyr verbs: they take a data frame (or tibble) as input, and return data frames. Writing these functions is very similar to vector functions, but there's one notable difference: **embracing**. 
+
+Imagine that we want to create a simple data frame function that calculates a group-based mean:
+
+```{r}
+#| error: true
+grouped_mean <- function(df, group_var, mean_var) {
+  df |>
+    group_by(group_var) |>
+    summarize(mean(mean_var))
+}
+
+```
+
+Here, we pass our function 3 arguments: the data frame we want to work on (`df`), the grouping variable (`group_var`) and the variable we want to calculate the mean for (`mean_var`). Great! Let's try and use this on our insect data frame above:
+
+```{r}
+#| error: true
+grouped_mean(
+  df = insect_data,
+  group_var = site,
+  mean_var = abundance
+)
+```
+
+What's up? R is telling us that the groupin variables don't exist. How strange. The issue here is that dplyr is using *tidy evaluation* to allow us to refer to the names of hte variables without any special treatment. This means that when we use our `grouped_mean()` function, `group_by()` and `summarize()` are looking for variables literally named `group_var` and `mean_var` -- the names of our arguments, rather than the values we are *passing in*. 
+
+We can get around this by *embracing* 🤗 our variables in the function call. Now, our variable `var` becomes `{{var}}`. This tells dplyr to look at the value *inside* the argument, not the argument name itself:
+
+```{r}
+grouped_mean <- function(df, group_var, mean_var) {
+  df |>
+    group_by({{ group_var }}) |> # We embrace group_var
+    summarize(mean({{ mean_var }})) # We embrace mean_var
+}
+
+grouped_mean(
+  df = insect_data,
+  group_var = site,
+  mean_var = abundance
+)
+```
+
+:::{.callout-tip}
+# When to use data frame functions?
+There are many use-cases, but if you frequently calculate the same summary stats about datasets, you may consider wrapping that up as a helper function that you can re-use. 
+:::
 
 ### Plot functions
+Plotting functions are basically the same as data frame functions, with the only difference being that they take in a data frame but spit out a ggplot object(s)! Here, we still need to use embracing for any data frame variables that we want to pass in as arguments. 
 
 ## Iteration
+Iterating is a bit different than functions, in that iteration is just about repeatedly doing some action on different objects. Functions can help us iterate, but functions don't necessarily iterate. We've had some implicit experience with iteration already: using things like `facet_wrap()` in plots, or `group_by()` in data summaries and mutations. 
+
+In the tidyverse world, one very easy way to iterate is to use the `across()` function to perform the same operation across many iterations. For example:
+
+```{r eval=FALSE}
+# this breaks our rule of copying and pasting more than twice!
+df |>
+  summarize(
+    n = n(),
+    a = median(a),
+    b = median(b),
+    c = median(c),
+    d = median(d),
+  )
+
+# it can instead become...
+df |>
+  summarize(
+    n = n(),
+    across(a:d, median),
+  )
+```
+
+The `across()` function has 3 important arguments that you'll need to use:
+
+1. `.cols`: specifices the columns you wish to iterate over
+2. `.fns`: specifies the functions you want to apply
+3. `.names`: gives you additional control over naming the output columns
+
+We can use our helper functions we learned about way back in weeks 5 and 6 of data wrangling to power-up our use of `across()`. For example we can use the `where()` function to grab columns based on their type:
+
+- `where(is.numeric)` selects all numeric columns.
+- `where(is.character)` selects all string columns.
+- `where(is.Date)` selects all date columns.
+- `where(is.POSIXct)` selects all date-time columns.
+- `where(is.logical)` selects all logical columns.
+
+These can be combined with boolean algebra and other conditionals to create more complex filterations: 
+
+- `!where(is.numeric)` selects all non-numeric columns
+- `starts_with("a") & where(is.logical)` selects all logical columns whose name starts with “a”.
+
+### `for` loops
+At a foundational level, the `for` loop is the most basic way to perform iterations in any programming language, and R is no exception. Here, we'll touch on the very basics of `for` loops, mostly because I rarely use them. The Tidyverse contains so many functions that basically allow us to forgo writing `for` loops.
+
+```{r}
+for (i in 1:5) {
+  print(i)
+}
+```
+
+This is the most basic syntax of a for loop. We can break it into parts: 
+
+- `for` tells r to start a loop
+- `i` is the iterator; a temporary variable that changes with each iteration (controlling flow)
+- 1:5 is the sequence of values over which we want to iterate
+- `{ }` contains the code that gets excuted for each iteration. 
+
+Let's make our loop do something more useful than just print 1 through 5! 
+
+```{r}
+# Insect counts at five sampling sites
+insect_counts <- c(12, 8, 15, 23, 10)
+
+# Loop through each sampling site
+for (i in 1:5) {
+  # Double the observed count
+  adjusted_count <- insect_counts[i] * 2
+
+  print(adjusted_count)
+}
+```
+
+Notice anything new here? our `i` is doing more than just acting as an iterator. We're also using it to access the corresponding element of the vector over which we are iterating (i.e., an index value). This is common practice, and we'll often use that iterator to specify position in:
+
+- a vector named `vec`: `for (i in length(vec)) { code here }`
+- a data frame named `df`: `for (in in 1:nrow(df)) { code here }`
+
+:::{.callout-important}
+I suggest avoiding `for` loops as much as you can and instead finding a Tidyverse alternative way to iteration. The reason behind this is efficiency: the folks writing Tidyverse code are way better at writing code that is computationally efficient and fast. When we write our own loops, well...take a look below at what can happen!
+::: 
 
 ### A short word on efficiency
 
@@ -281,8 +411,69 @@ Here, the first loop stores values as `object` that begins with the length of on
 
 We'll now walk through three specific examples of common tasks that we can iterate in R to save time and make our code more efficient and less error-prone.
 
-### Modifying multiple columns
+### Common example: Reading multiple files using `map()`
+One common way that we need to iterate is if we have multiple data files that we want to import into R. We could just do it the ol' copy and paste way: 
 
-### Reading multiple files
+```{r eval=FALSE}
+data2019 <- readxl::read_excel("data/y2019.xlsx")
+data2020 <- readxl::read_excel("data/y2020.xlsx")
+data2021 <- readxl::read_excel("data/y2021.xlsx")
+data2022 <- readxl::read_excel("data/y2022.xlsx")
+```
 
-### Saving multiple objects
+But that gets tedious fast especailly have we have potentially dozens or even hundreds of files to import. We'll start by first just getting a list of the files that we want to import:
+
+```{r eval=FALSE}
+paths <- list.files(
+  "data/bird_survey_data",
+  pattern = "[.]xlsx$",
+  full.names = TRUE
+)
+paths
+#>  [1] "data/bird_survey_data/1952.xlsx" "data/bird_survey_data/1957.xlsx"
+#>  [3] "data/bird_survey_data/1962.xlsx" "data/bird_survey_data/1967.xlsx"
+#>  [5] "data/bird_survey_data/1972.xlsx" "data/bird_survey_data/1977.xlsx"
+#>  [7] "data/bird_survey_data/1982.xlsx" "data/bird_survey_data/1987.xlsx"
+#>  [9] "data/bird_survey_data/1992.xlsx" "data/bird_survey_data/1997.xlsx"
+#> [11] "data/bird_survey_data/2002.xlsx" "data/bird_survey_data/2007.xlsx"
+```
+
+Excellent. We can then use this with the `map()` function from the `purrr` package to iterate over our path file:
+
+```{r eval=FALSE}
+files <- map(paths, readxl::read_excel)
+length(files)
+#> [1] 12
+
+# Look at the first dataframe
+files[[1]]
+#> # A tibble: 142 × 5
+#>   species                  common_name       count survey_date observer
+#>   <chr>                    <chr>              <dbl> <date>      <chr>
+#> 1 Turdus migratorius       American Robin         3 2026-05-12  J. Smith
+#> 2 Cardinalis cardinalis    Northern Cardinal      2 2026-05-12  J. Smith
+#> 3 Cyanocitta cristata      Blue Jay               1 2026-05-12  J. Smith
+#> 4 Poecile atricapillus     Black-capped Chickadee 4 2026-05-12  J. Smith
+#> 5 Sturnus vulgaris         European Starling      6 2026-05-12  J. Smith
+#> 6 Spinus tristis           American Goldfinch     2 2026-05-12  J. Smith
+#> # ℹ 136 more rows
+```
+
+We can then combine that with `list_rbind()` to combine all of our data frames into a single data frame:
+
+```{r eval=FALSE}
+files <- map(paths, readxl::read_excel) |>
+    list_rbind()
+#> # A tibble: 1556 × 5
+#>   species                  common_name       count survey_date observer
+#>   <chr>                    <chr>              <dbl> <date>      <chr>
+#> 1 Turdus migratorius       American Robin         3 2026-05-12  J. Smith
+#> 2 Cardinalis cardinalis    Northern Cardinal      2 2026-05-12  J. Smith
+#> 3 Cyanocitta cristata      Blue Jay               1 2026-05-12  J. Smith
+#> 4 Poecile atricapillus     Black-capped Chickadee 4 2026-05-12  J. Smith
+#> 5 Sturnus vulgaris         European Starling      6 2026-05-12  J. Smith
+#> 6 Spinus tristis           American Goldfinch     2 2026-05-12  J. Smith
+#> # ℹ 1550 more rows
+```
+
+`map()` is an incredibly powerful tool to help iterate and I highly recommend folks play more with it to unlock its true potential. Take a look at the documentation (https://purrr.tidyverse.org/reference/map.html). I'll also try to pull some of my uses of it together for y'all to have as examples. 

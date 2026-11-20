@@ -1,0 +1,19 @@
+sample_date,trap_id,taxon,count
+2026-06-02,T03,Ant,11
+2026-06-05,T01,Leafhopper,7
+2026-06-05,T03,Fly,10
+2026-06-07,T04,Leafhopper,6
+2026-06-10,T02,Leafhopper,8
+2026-06-14,T02,Fly,9
+2026-06-15,T01,Rove beetle,3
+2026-06-17,T04,Spider,7
+2026-06-19,T02,Leafhopper,5
+2026-06-19,T03,Leafhopper,8
+2026-06-21,T02,Leafhopper,3
+2026-06-22,T01,Fly,7
+2026-06-23,T04,Spider,10
+2026-06-30,T02,Rove beetle,8
+2026-07-02,T03,Spider,4
+2026-07-08,T02,Fly,11
+2026-07-09,T04,Rove beetle,5
+2026-07-10,T02,Ground beetle,6

@@ -1,0 +1,144 @@
+---
+title: "Workshop 9: Functions and iteration"
+subtitle: "Entomology 3927 - Fall 2026"
+author: Jeremy Hemberger
+date: last-modified
+date-format: long
+engine: knitr
+toc: true
+format:
+  live-html:
+    theme: 
+    - ../styles.scss
+    highlight-style: ayu
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+::: content-callout1
+## Frontmatter
+
+**Due date for workshop materials**
+
+You will need to commit and push your workshop files and create your peer review issue and tag your reviewer by **23:59 Tuesday, December 1st** so that your peer reviewer has two full days to review your code and respond. The issue should have the peer reviewer response by **Friday, December 4th at 12:00**.
+:::
+
+</br>
+
+## 📦 Packages we'll need for today
+
+Be sure to install these packages (`install.packages()`) if you don't already have them.
+
+```{r eval=FALSE, message=FALSE}
+library(tidyverse)
+library(janitor)
+
+# Feel free to use additional packages for plots, themes, etc.
+```
+
+## 💾 Load our data
+
+You can either download the requisite `.csv` files below, or import them directly from Google Sheets (`w9-workshop-data`). Be sure you are using the correct files/sheet tabs for each section below. I've tried to make it explicit.
+
+[{{< fa file-csv >}} `.csv` dataset](workshop_data/w9.zip){.btn .btn-primary download="w9-workshop-data.zip"} [{{< fa table >}} Google Sheet dataset](https://docs.google.com/spreadsheets/d/1VYnjwIOcj3VdipU9R3GOb2Jo4uR8pcbL1t8G2IQ9Ww8/edit?usp=sharing){.btn .btn-primary}
+
+::: callout-tip
+Be sure you save the `.csv` in the correct place so that you can access it in your R Studio project!
+:::
+
+</br>
+
+## The task for today
+Today, we'll walk through 4 different examples of using functions and iterating. 
+
+### 1. Build a vector function to calculate sampling rates
+You are comparing insect abundance across sampling locations, but sampling effort differs among sites. You want to calculate a standardized catch rate (insects per trap-day).
+
+**Task:** Write a function called `calculate_rate()` that takes two numeric vectors:
+
+- count: number of insects captured
+- effort: number of trap-days
+
+It should return the number of insects captured per trap-day.
+
+**Data description:** `exercise-1.csv`
+
+| Column | Description |
+|---|---|
+| `site` | Habitat/site category |
+| `trap_id` | Unique trap identifier within the site |
+| `count` | Number of insects captured |
+| `trap_days` | Number of trap-days represented by the sample |
+
+</br>
+
+### 2. Build a data frame function to summarize ecological data
+You have a dataset of bird observations collected across multiple habitats and want to summarize abundance and species richness for each habitat.
+
+**Task:** Write a function called `summarize_habitat()` that:
+
+- Accepts a data frame.
+- Accepts a grouping variable (e.g., habitat).
+- Accepts an abundance variable.
+- Accepts a taxonomic variable.
+- Returns a summary containing total abundance and species richness for each group.
+
+**Data description:** `exercise-2.csv`
+
+| Column | Description |
+|---|---|
+| `site` | Bird survey site identifier |
+| `habitat` | Habitat type |
+| `visit` | Visit number at the site |
+| `date` | Survey date |
+| `species` | Bird species |
+| `count` | Number of individuals detected during that species/site/visit record |
+
+</br>
+
+### 3. Build a plotting function to automate exploratory data analysis
+You are conducting exploratory data analysis and repeatedly generating scatterplots to examine relationships between environmental variables and insect abundance.
+
+**Task:** Write a function called `plot_relationship()` that:
+
+- Accepts a data frame.
+- Accepts an x variable.
+- Accepts a y variable.
+- Accepts an optional grouping variable.
+- Generates a scatterplot with a fitted trend line.
+
+**Data description:** `exercise-3.csv`
+
+| Column | Description |
+|---|---|
+| `sample_id` | Unique sample identifier |
+| `habitat` | Habitat type |
+| `temperature_c` | Temperature in degrees Celsius |
+| `humidity_percent` | Relative humidity (%) |
+| `abundance` | Number of insects observed in the sample |
+
+:::{.callout-important}
+Rembember what we discussed during data visualization weeks! Make sure your plots are aesthetically considered and contain the necessary information to be informative.
+:::
+
+</br>
+
+### 4. Build a file-processing function to read and combine multiple datasets
+
+**Data description:**  `Site_XX_survey.csv` <-- 5 files total
+
+| Column | Description |
+|---|---|
+| `sample_date` | Date of sample |
+| `trap_id` | Trap identifier |
+| `taxon` | Broad insect/arthropod group |
+| `count` | Number captured in the sample |
+
+This one is a bit more challenging, and I encourge folks to work together to solve it. 
+
+**Task:** Write a function called `read_survey()` that:
+
+- Accepts a file path.
+- Reads the CSV file.
+- Adds a column identifying the original filename.
+- Returns the resulting data frame.

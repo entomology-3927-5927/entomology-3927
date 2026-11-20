@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -76,14 +76,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../media/web-favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-d625d5b42156ee9444ab1b217d0d823a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b0248d85600491a3f1aca78e64cf6b81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-edb3cc264014c9423ff71ed78b3cb1f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -146,11 +147,11 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
@@ -158,8 +159,7 @@ window.Quarto = {
     <img src="../media/ent-3927-hex.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -209,15 +209,16 @@ window.Quarto = {
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
+            <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w1-content.html">Module 1: Introduction to Data Science and R</a></li><li class="breadcrumb-item"><a href="../content/w2-content.html">Week 2: Data structures, objects, code style, etc</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w1-content.html">Module 1: Introduction to Data Science and R</a></li><li class="breadcrumb-item"><a href="../content/w2-content.html">Week 2: Data structures, objects, code style, etc</a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -225,18 +226,15 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto" aria-label="Section">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Overview</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Overview</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/content-index.html" class="sidebar-item-text sidebar-link">
@@ -247,13 +245,10 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Module 1: Introduction to Data Science and R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Module 1: Introduction to Data Science and R</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/w1-content.html" class="sidebar-item-text sidebar-link">
@@ -270,13 +265,10 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Module 2: Git and GitHub fundamentals</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Module 2: Git and GitHub fundamentals</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/w3-content.html" class="sidebar-item-text sidebar-link">
@@ -293,13 +285,10 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Module 3: Basic data wrangling and visualization in R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Module 3: Basic data wrangling and visualization in R</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/w5-content.html" class="sidebar-item-text sidebar-link">
@@ -328,13 +317,10 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Module 4: Automation, functions, and scaling</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Module 4: Automation, functions, and scaling</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/w9-content.html" class="sidebar-item-text sidebar-link">
@@ -351,13 +337,10 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Module 5: Getting data from databases and data management</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Module 5: Getting data from databases and data management</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/w11-content.html" class="sidebar-item-text sidebar-link">
@@ -378,7 +361,7 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -403,9 +386,9 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content" tabindex="-1">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w1-content.html">Module 1: Introduction to Data Science and R</a></li><li class="breadcrumb-item"><a href="../content/w2-content.html">Week 2: Data structures, objects, code style, etc</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/w1-content.html">Module 1: Introduction to Data Science and R</a></li><li class="breadcrumb-item"><a href="../content/w2-content.html">Week 2: Data structures, objects, code style, etc</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 2</h1>
 <p class="subtitle lead">Data structures, objects, code style, etc.</p>
@@ -696,124 +679,124 @@ window.Quarto = {
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing base df floods the console with oodles of lines</span></span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_large) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     id            x            y
-1     1 0.7252024636 -0.355773226
-2     2 0.1562259484 -1.028950662
-3     3 0.7905266690 -0.195563211
-4     4 0.8454215403  0.474265158
-5     5 0.5753740228 -1.398435108
-6     6 0.7805022104 -0.607824885
-7     7 0.1667766918 -1.136863383
-8     8 0.5670346166 -0.453712483
-9     9 0.7834744477  0.858537283
-10   10 0.3089595418 -0.106490729
-11   11 0.4051674576  1.225455992
-12   12 0.5368051059 -0.560340308
-13   13 0.8134717643 -0.671824309
-14   14 0.5781159657  0.730064776
-15   15 0.2513333661 -0.210707108
-16   16 0.7480373278 -1.034327018
-17   17 0.7920441022  0.758546081
-18   18 0.1788567554 -0.041084439
-19   19 0.2692780802  0.065696817
-20   20 0.8029469652 -0.615906560
-21   21 0.9755695418 -1.401015411
-22   22 0.1985131884  0.877961298
-23   23 0.0523292683 -1.281302052
-24   24 0.4545036878  1.037367356
-25   25 0.6860203913 -0.618207528
-26   26 0.0871755297  2.154564720
-27   27 0.9205939900  0.521817807
-28   28 0.3242046072 -0.605707628
-29   29 0.2047988954 -1.012422714
-30   30 0.4947957974 -0.111087338
-31   31 0.7264574473  0.797127523
-32   32 0.8150577198 -0.416322662
-33   33 0.9932130864  0.910227529
-34   34 0.2015002081 -0.183603210
-35   35 0.1664238204 -0.362512145
-36   36 0.6107926925 -0.247043644
-37   37 0.0692391130  0.427921356
-38   38 0.0537415664  0.769503984
-39   39 0.8722840019 -0.097824325
-40   40 0.8157458981  0.296284320
-41   41 0.2481304409 -0.699083320
-42   42 0.3837719862 -1.240509474
-43   43 0.9702530412 -1.782100178
-44   44 0.8136919078  1.040701441
-45   45 0.1833270260 -1.843681942
-46   46 0.0274923386  0.416194501
-47   47 0.0009641501  0.286069898
-48   48 0.0052903304 -0.171275571
-49   49 0.9480728190  0.872623489
-50   50 0.1693406419 -0.031178978
-51   51 0.8448729571  2.001463739
-52   52 0.9634411577  1.394348388
-53   53 0.9438905818 -0.245120838
-54   54 0.9767239450 -0.242788519
-55   55 0.1578016554  1.350852497
-56   56 0.0887961125  0.050214791
-57   57 0.9780311347  1.683067524
-58   58 0.2556474274  0.595722205
-59   59 0.1583463752  0.004645524
-60   60 0.9419056680 -0.144747136
-61   61 0.9456793130  1.434213637
-62   62 0.0391007175 -0.930127834
-63   63 0.5913339760 -0.156902825
-64   64 0.5655042690 -0.370884498
-65   65 0.1743995089 -0.891191132
-66   66 0.6402414166  2.737000641
-67   67 0.5347644577  2.009867972
-68   68 0.9231400331 -0.159916226
-69   69 0.5375795099 -0.587481774
-70   70 0.4152989776  0.022509063
-71   71 0.8914357319 -0.791509849
-72   72 0.3634691271  0.293043811
-73   73 0.0228872141 -0.252411011
-74   74 0.6906054742 -1.283020036
-75   75 0.5608573263  0.383464822
-76   76 0.0540207215 -0.240998595
-77   77 0.5211652985  1.528848979
-78   78 0.2534998178  0.224927794
-79   79 0.2038766991  1.815445953
-80   80 0.4031598559 -1.139021801
-81   81 0.4796272283 -1.922037968
-82   82 0.0370757154  1.499697239
-83   83 0.8829591256  0.775814105
-84   84 0.7326697172 -2.348680718
-85   85 0.3813936694 -0.231534659
-86   86 0.1006978743  1.265526609
-87   87 0.2856130537 -1.120993182
-88   88 0.6029760265 -1.326640548
-89   89 0.1805396671 -0.022134860
-90   90 0.7765420694  1.036170468
-91   91 0.3351580615 -0.647364661
-92   92 0.8623771064  1.629098177
-93   93 0.1309332515  0.142362856
-94   94 0.0291884155  0.611279912
-95   95 0.0290965927  0.603781660
-96   96 0.2977200628  0.384226307
-97   97 0.9416005663 -1.248314179
-98   98 0.5639135207 -0.323911759
-99   99 0.1732066143 -1.533227242
-100 100 0.5372015841  0.407415747</code></pre>
+<pre><code>     id          x            y
+1     1 0.54582699  0.286403114
+2     2 0.24025700  0.867881085
+3     3 0.19558352  0.140009287
+4     4 0.04693249 -0.506349240
+5     5 0.51029791  2.425200921
+6     6 0.64547969  0.701184707
+7     7 0.14441322 -0.384178401
+8     8 0.59699518 -0.292944739
+9     9 0.11938823 -0.999375425
+10   10 0.20042584  0.329249105
+11   11 0.92491469 -2.098745627
+12   12 0.95433652 -0.553857562
+13   13 0.08244521 -1.272886866
+14   14 0.39085292  1.322075122
+15   15 0.39547587  1.689751188
+16   16 0.57635318 -0.522572501
+17   17 0.36681256  1.675647196
+18   18 0.63429373  0.193763884
+19   19 0.74072854 -0.629462940
+20   20 0.73415352  1.196909250
+21   21 0.06678528  0.509366934
+22   22 0.34650642  0.935163675
+23   23 0.67742951  1.155644385
+24   24 0.77686999  1.255193501
+25   25 0.06161827 -0.351017399
+26   26 0.89728564  1.198353300
+27   27 0.79567537 -1.860646490
+28   28 0.18399555 -0.343363301
+29   29 0.76813652 -0.546640343
+30   30 0.89334266 -0.454599065
+31   31 0.18409781 -0.095029193
+32   32 0.68242243 -0.882172497
+33   33 0.30830653  1.201203555
+34   34 0.84048735  0.519365425
+35   35 0.08029250  1.967999122
+36   36 0.67425113  0.594100789
+37   37 0.10190734  0.468197262
+38   38 0.87838979 -0.404410392
+39   39 0.26963965  1.129428549
+40   40 0.63317512  1.126183303
+41   41 0.20352933 -0.284519352
+42   42 0.15699417  0.718138930
+43   43 0.43533565  0.131616104
+44   44 0.61000711 -0.135121205
+45   45 0.37391926  0.650689814
+46   46 0.96971251  1.296090676
+47   47 0.41986547 -1.349946995
+48   48 0.28451592  0.474099740
+49   49 0.69780697 -0.024937729
+50   50 0.31399143  0.219590875
+51   51 0.93985562 -0.925357691
+52   52 0.28885231 -0.309935571
+53   53 0.67701352  0.515817141
+54   54 0.22777865 -0.063165299
+55   55 0.32026754 -1.699051707
+56   56 0.86788700  0.585164284
+57   57 0.06430185  1.681346613
+58   58 0.97877898  0.437769566
+59   59 0.95643602 -1.253471746
+60   60 0.20322765  0.548909501
+61   61 0.77466682  0.558723905
+62   62 0.95475149 -0.564178837
+63   63 0.88210987 -0.247481366
+64   64 0.04935780  0.244148936
+65   65 0.16564503 -1.982774194
+66   66 0.66181933  0.866709819
+67   67 0.46666018 -1.143301996
+68   68 0.27937246  0.059776954
+69   69 0.34055787  0.612939479
+70   70 0.23010615 -0.371279233
+71   71 0.09548518  0.478134078
+72   72 0.04720132  0.890390900
+73   73 0.49773507 -0.707253539
+74   74 0.86317351 -0.340432339
+75   75 0.85821151  1.199059120
+76   76 0.79215190 -1.916768693
+77   77 0.08650397  0.304241880
+78   78 0.28522624  0.083752135
+79   79 0.72151106  0.505332563
+80   80 0.18028255  1.227511180
+81   81 0.88355057 -0.877630507
+82   82 0.74521317  0.105597530
+83   83 0.20423642  0.925479153
+84   84 0.39549510 -0.430873226
+85   85 0.66538374 -0.545223085
+86   86 0.89915590 -0.815483630
+87   87 0.21972001  0.369136729
+88   88 0.79490301  0.989225955
+89   89 0.05294658  0.116520234
+90   90 0.91870127 -0.570337670
+91   91 0.58496329 -1.800852052
+92   92 0.90288413 -0.522062722
+93   93 0.40649193  0.777324958
+94   94 0.35672075  0.545912043
+95   95 0.36503133 -0.002911415
+96   96 0.17373758 -0.100366572
+97   97 0.27876956 -0.228394998
+98   98 0.92436536  1.393768619
+99   99 0.18016090 -1.161209150
+100 100 0.92558349 -0.005020367</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing tibble gives a clean, readable overview with data types (e.g., &lt;int&gt;, &lt;dbl&gt;)</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tbl_large</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 100 × 3
-      id     x      y
-   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
- 1     1 0.725 -0.356
- 2     2 0.156 -1.03 
- 3     3 0.791 -0.196
- 4     4 0.845  0.474
- 5     5 0.575 -1.40 
- 6     6 0.781 -0.608
- 7     7 0.167 -1.14 
- 8     8 0.567 -0.454
- 9     9 0.783  0.859
-10    10 0.309 -0.106
+      id      x      y
+   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+ 1     1 0.546   0.286
+ 2     2 0.240   0.868
+ 3     3 0.196   0.140
+ 4     4 0.0469 -0.506
+ 5     5 0.510   2.43 
+ 6     6 0.645   0.701
+ 7     7 0.144  -0.384
+ 8     8 0.597  -0.293
+ 9     9 0.119  -0.999
+10    10 0.200   0.329
 # ℹ 90 more rows</code></pre>
 </div>
 </div></li>
@@ -1186,7 +1169,8 @@ window.Quarto = {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -1195,8 +1179,69 @@ window.Quarto = {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -1210,6 +1255,7 @@ window.Quarto = {
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -1372,44 +1418,54 @@ window.Quarto = {
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1507,6 +1563,9 @@ window.Quarto = {
       }
     }
   });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
   </script>
 </div> <!-- /content -->
 <footer class="footer">

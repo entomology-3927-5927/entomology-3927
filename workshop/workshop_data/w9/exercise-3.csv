@@ -1,0 +1,121 @@
+sample_id,habitat,temperature_c,humidity_percent,abundance
+OPE_01,Open grassland,19.6,40.7,3
+OPE_02,Open grassland,23.7,55.4,6
+OPE_03,Open grassland,23.9,36.4,5
+OPE_04,Open grassland,23.9,49.8,5
+OPE_05,Open grassland,27.5,48.7,8
+OPE_06,Open grassland,24.7,57.8,11
+OPE_07,Open grassland,30.6,27.1,10
+OPE_08,Open grassland,19.9,46.3,0
+OPE_09,Open grassland,27.7,32.5,5
+OPE_10,Open grassland,30.5,46.2,15
+OPE_11,Open grassland,21.4,50.1,2
+OPE_12,Open grassland,21.4,35.8,4
+OPE_13,Open grassland,21.7,49.3,8
+OPE_14,Open grassland,23.2,53.7,8
+OPE_15,Open grassland,19.7,47.9,1
+OPE_16,Open grassland,22.6,51.2,5
+OPE_17,Open grassland,30.8,51.1,18
+OPE_18,Open grassland,26.6,56.0,12
+OPE_19,Open grassland,24.3,56.8,5
+OPE_20,Open grassland,22.5,42.5,5
+OPE_21,Open grassland,31.7,68.4,15
+OPE_22,Open grassland,25.3,40.5,6
+OPE_23,Open grassland,25.0,40.9,7
+OPE_24,Open grassland,25.3,39.2,5
+OPE_25,Open grassland,27.1,51.7,8
+OPE_26,Open grassland,31.7,43.9,17
+OPE_27,Open grassland,26.2,42.8,5
+OPE_28,Open grassland,26.8,51.1,10
+OPE_29,Open grassland,24.3,33.6,5
+OPE_30,Open grassland,27.4,50.3,9
+WET_01,Wet meadow,22.1,75.3,4
+WET_02,Wet meadow,23.4,66.6,10
+WET_03,Wet meadow,21.2,61.9,3
+WET_04,Wet meadow,19.7,74.2,3
+WET_05,Wet meadow,18.9,78.3,1
+WET_06,Wet meadow,23.4,86.4,6
+WET_07,Wet meadow,24.1,65.5,10
+WET_08,Wet meadow,23.6,77.8,8
+WET_09,Wet meadow,20.4,74.6,7
+WET_10,Wet meadow,25.0,89.1,8
+WET_11,Wet meadow,18.6,81.9,3
+WET_12,Wet meadow,22.4,67.0,7
+WET_13,Wet meadow,21.6,80.2,6
+WET_14,Wet meadow,25.2,68.5,12
+WET_15,Wet meadow,25.5,70.3,4
+WET_16,Wet meadow,20.3,80.8,6
+WET_17,Wet meadow,17.4,68.4,0
+WET_18,Wet meadow,24.2,68.6,15
+WET_19,Wet meadow,24.7,72.5,8
+WET_20,Wet meadow,19.4,61.1,1
+WET_21,Wet meadow,22.4,83.3,5
+WET_22,Wet meadow,21.0,76.5,6
+WET_23,Wet meadow,22.4,64.5,1
+WET_24,Wet meadow,25.0,69.6,8
+WET_25,Wet meadow,27.3,66.6,11
+WET_26,Wet meadow,28.2,78.1,17
+WET_27,Wet meadow,22.3,76.4,6
+WET_28,Wet meadow,18.9,78.1,4
+WET_29,Wet meadow,21.2,63.2,7
+WET_30,Wet meadow,15.1,71.2,1
+WOO_01,Woodland edge,16.0,63.8,2
+WOO_02,Woodland edge,15.4,74.3,3
+WOO_03,Woodland edge,16.5,52.4,4
+WOO_04,Woodland edge,19.1,61.7,9
+WOO_05,Woodland edge,16.6,62.1,1
+WOO_06,Woodland edge,17.3,63.7,5
+WOO_07,Woodland edge,22.1,78.1,5
+WOO_08,Woodland edge,20.8,69.2,7
+WOO_09,Woodland edge,19.1,71.6,6
+WOO_10,Woodland edge,21.4,74.8,9
+WOO_11,Woodland edge,21.9,70.2,7
+WOO_12,Woodland edge,22.0,68.4,4
+WOO_13,Woodland edge,18.2,85.0,3
+WOO_14,Woodland edge,13.8,58.0,1
+WOO_15,Woodland edge,16.6,81.3,2
+WOO_16,Woodland edge,19.0,73.4,4
+WOO_17,Woodland edge,19.8,59.4,4
+WOO_18,Woodland edge,19.0,69.6,3
+WOO_19,Woodland edge,16.9,73.5,3
+WOO_20,Woodland edge,15.0,64.3,1
+WOO_21,Woodland edge,18.6,83.9,8
+WOO_22,Woodland edge,20.0,58.1,4
+WOO_23,Woodland edge,22.2,81.0,5
+WOO_24,Woodland edge,18.3,71.7,4
+WOO_25,Woodland edge,20.7,60.9,6
+WOO_26,Woodland edge,20.1,75.8,4
+WOO_27,Woodland edge,20.9,62.2,8
+WOO_28,Woodland edge,16.7,71.0,5
+WOO_29,Woodland edge,17.2,68.2,2
+WOO_30,Woodland edge,20.0,74.7,3
+SHR_01,Shrubland,22.0,62.3,0
+SHR_02,Shrubland,20.4,61.0,3
+SHR_03,Shrubland,21.9,54.2,7
+SHR_04,Shrubland,26.2,39.8,13
+SHR_05,Shrubland,23.1,61.0,3
+SHR_06,Shrubland,25.9,57.4,8
+SHR_07,Shrubland,23.6,50.3,7
+SHR_08,Shrubland,21.1,53.2,1
+SHR_09,Shrubland,29.6,53.8,11
+SHR_10,Shrubland,21.9,47.0,2
+SHR_11,Shrubland,19.0,66.1,3
+SHR_12,Shrubland,26.6,48.8,7
+SHR_13,Shrubland,23.8,53.9,6
+SHR_14,Shrubland,22.2,49.5,5
+SHR_15,Shrubland,22.7,39.8,4
+SHR_16,Shrubland,18.4,65.8,3
+SHR_17,Shrubland,21.5,54.7,3
+SHR_18,Shrubland,24.8,56.5,2
+SHR_19,Shrubland,23.2,34.4,5
+SHR_20,Shrubland,21.2,74.5,2
+SHR_21,Shrubland,17.5,59.6,1
+SHR_22,Shrubland,24.0,69.1,4
+SHR_23,Shrubland,18.9,57.6,1
+SHR_24,Shrubland,23.7,41.8,4
+SHR_25,Shrubland,18.2,35.1,0
+SHR_26,Shrubland,22.6,43.5,1
+SHR_27,Shrubland,22.1,65.5,3
+SHR_28,Shrubland,22.4,50.4,4
+SHR_29,Shrubland,20.3,54.2,4
+SHR_30,Shrubland,23.1,67.1,9
